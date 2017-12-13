@@ -1,0 +1,7 @@
+export(cloppearSnSp)
+export(estimateSnSp)
+export(estimateSnSpControl)
+export(snsp)
+export(cp)
+export(updateAlpha)
+
