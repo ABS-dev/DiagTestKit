@@ -16,6 +16,8 @@ require(devtools)
 install_github("ABS-dev/DiagTestKit", ref = "0.5.0")
 ```
 
+  *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
+
 2. Installing work-in-progress towards v0.5.1 
 
 ```
