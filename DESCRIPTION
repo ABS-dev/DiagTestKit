@@ -1,7 +1,7 @@
 Package: DiagTestKit
 Type: Package
 Title: Functions used in evaluating sensitivity and specificity at CVB Statistics
-Version: 0.5.0
+Version: 0.5.1
 Date: 11 December 2017
 Author: CVB Statistics
 Maintainer: CVB Statistics <CVB.Data.Help@aphis.usda.gov>
