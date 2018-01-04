@@ -59,10 +59,10 @@ of an experimental diagnostic test kit in accordance with \href{https://www.aphi
 }
 }
 \examples{
-CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = T)
+CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = TRUE)
 CP.Sn
 # Sn = P(T+|D+): 0.987013 (95\% CI: 0.953876, 0.998423)
-CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = F)
+CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = FALSE)
 CP.Sp
 # Sp = P(T-|D-): 0.970297 (95\% CI: 0.915643, 0.915643)
 }
