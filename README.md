@@ -9,16 +9,16 @@ test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ou
 
 From **within R**
 
-1. Installing initial release v0.5.0 
+1. Installing current release v0.5.1
 
 ```
 require(devtools)
-install_github("ABS-dev/DiagTestKit", ref = "0.5.0")
+install_github("ABS-dev/DiagTestKit", ref = "0.5.1")
 ```
 
   *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
 
-2. Installing work-in-progress towards v0.5.1 
+2. Installing work-in-progress towards v0.5.2
 
 ```
 require(devtools)
