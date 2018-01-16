@@ -12,8 +12,14 @@ From **within R**
 1. Installing current release v0.5.1
 
 ```
+## From source, all platforms, slow.
 require(devtools)
 install_github("ABS-dev/DiagTestKit", ref = "0.5.1")
+
+## Precompiled binary, Windows + R 3.2.x
+install.packages('https://github.com/ABS-dev/DiagTestKit/releases/download/0.5.1/DiagTestKit_0.5.1.zip', 
+                 repos = NULL)
+
 ```
 
   *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
