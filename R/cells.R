@@ -2,12 +2,12 @@
 #' @description This function creates expected cell counts (and probabilities) for a specific test pattern based on the diagnostic
 #' characteristics of the reference test(s) and experimental test.
 #' @param SnR \code{data.frame}  Each column corresponds to one reference test.  Row 1 contains the sensitivity for the reference test(s).
-#' Row 2 contains a value between 0 and 1 (inclusive) representing the probability of a suspect result as a fraction of the non-correct test result.
-#' P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}.  Use a zero for a 2-state
-#' test (i.e. no suspect region).
-#' @param SpR \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for the reference test(s).
-#' Row 2 contains a value between 0 and 1 (inclusive) representing the probability of a suspect result as a fraction of the non-correct test result.
-#' P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\phi} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}.  Use a zero for a 2-state
+#' Row 2 contains the probabiliity of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
+#' Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
+#' test (i.e. no suspect region).  
+#' @param SpR \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for each reference test.
+#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result.  This is a value between 0 and 1 (inclusive).
+#' Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state
 #' test (i.e. no suspect region).
 #' @param Prev \code{vector}  A named vector containing the prevalence for each population sampled.
 #' @param SnE Sensitivity of the experimental test kit.
