@@ -7,17 +7,17 @@
 #' information must be 'population'.  The column containing the test results for the experimental test must have 'exp' in the name, such as experimental, experiment, exp, Exp, etc.  The column names containing the
 #' reference test results much contain 'ref' in the name, such as Ref1, Ref2, ref1_results, Reference2, etc.
 #' @param Sn.ref \code{data.frame}  Each column corresponds to one reference test.  Row 1 contains the sensitivity for the reference test(s).
-#' Row 2 contains the probabiliity of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
+#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
 #' Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
 #' test (i.e. no suspect region).  Alternatively, if all reference tests are 2-state tests, the sensitivities can be input as a named vector.  Specifically, each element in the vector must be given a name which includes 'ref' (see above) and
 #' the column names (or names of the elements within the vector) must match those for Sp.ref.
 #' @param Sp.ref \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for each reference test.
 #' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result.  This is a value between 0 and 1 (inclusive).
 #' Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state
-#' test (i.e. no suspect region).  Alternatively, if all reference tests are 2-state tests, the specificities can can be input as a named vector.  Specifically, each element in the vector must be given a name which includes 'ref' (see above) and 
+#' test (i.e. no suspect region).  Alternatively, if all reference tests are 2-state tests, the specificities can can be input as a named vector.  Specifically, each element in the vector must be given a name which includes 'ref' (see above) and
 #' the column names (or names of the elements within the vector) must match those for Sn.ref.
 #' @param prev.pop \code{vector}  A named vector containing the prevalence for each population sampled.  The names in the vector must match the
-#' population labels used in `dat`.
+#' population labels used in 'dat'.
 #' @param nsim The number of simulations to draw from the sensitivity and specificity distribution(s) for each reference test and the prevalence
 #' distribution from each population.
 #' @param control list of control values to replace defaults. See \code{\link{estimateSnSpControl}} for details.
@@ -117,7 +117,6 @@
 #'                           Sp.ref = data.frame(ref1 = c(0.86, 0), ref2 = c(0.90, 0), ref3 = c(0.92, 0)),
 #'                           prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
 #'                           control = estimateSnSpControl(seed = 865213))
-#' example.2
 #' # 1000  simulations
 #' # 95 % Interval Estimates
 #'
