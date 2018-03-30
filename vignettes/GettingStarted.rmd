@@ -12,8 +12,10 @@ subtitle: |
 fontsize: 12pt
 toc: yes
 urlcolor: blue
-vignette: |
-  %\VignetteIndexEntry{DiagTestKit Getting Started} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+vignette: >
+  %\VignetteIndexEntry{DiagTestKit Getting Started} 
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -178,7 +180,7 @@ Sp.fig
 
 ### Simulated Values for Reference Test
 Similarly, the simulated values of sensitivity for the reference test can be extracted using `blood_SnSp$input$Sn.sims`.  The simulated
-distribution for the sensitivity of the reference test is displayed as a histrogram.
+distribution for the sensitivity of the reference test is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
 Sn.ref <- ggplot()+
@@ -190,7 +192,7 @@ Sn.ref
 \pagebreak
 
 The simulated values of specificity for the reference test can be extracted using `blood_SnSp$input$Sp.sims`.  The simulated
-distribution for the specificity of the reference is displated as a histrogram.
+distribution for the specificity of the reference is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
 Sp.ref <- ggplot()+
