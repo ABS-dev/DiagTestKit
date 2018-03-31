@@ -9,22 +9,22 @@ test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ou
 
 From **within R**
 
-1. Installing current release v0.5.1
+1. Installing current release v0.5.2
 
 ```
 ## From source, all platforms, slow.
 require(devtools)
-install_github("ABS-dev/DiagTestKit", ref = "0.5.1")
+install_github("ABS-dev/DiagTestKit", ref = "0.5.2")
 
 ## Precompiled binary, Windows + R 3.2.x
-install.packages('https://github.com/ABS-dev/DiagTestKit/releases/download/0.5.1/DiagTestKit_0.5.1.zip', 
+install.packages('https://github.com/ABS-dev/DiagTestKit/releases/download/0.5.2/DiagTestKit_0.5.2.zip', 
                  repos = NULL)
 
 ```
 
   *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
 
-2. Installing work-in-progress towards v0.5.2
+2. Installing work-in-progress towards v0.5.3
 
 ```
 require(devtools)
