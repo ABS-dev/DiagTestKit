@@ -2,9 +2,7 @@
 title: "DiagTestKit Package"
 author: "Center for Veterinary Biologics - Statistics Section"
 date: "January 2018"
-output:
-  html_document: default
-  pdf_document: default
+output: pdf_document
 numbersections: yes
 number_sections: yes
 subtitle: |
