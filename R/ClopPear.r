@@ -7,9 +7,9 @@
 #' @param alpha Complement of confidence level.
 #' @return An object of type \code{cp} that extends \code{list}. \cr \cr
 #' \describe{
-#' \item{\strong{calcVal}} {Named vector of point estimates and estimated simulated intervals. See below.}
-#' \item{\strong{data}} {Test and Total values of the data. See below.}
-#' \item{\strong{alpha}} {Complement of the confidence interval as provided above.}
+#' \item{\strong{calcVal}}{Named vector of point estimates and estimated simulated intervals. See below.}
+#' \item{\strong{data}}{Test and Total values of the data. See below.}
+#' \item{\strong{alpha}}{Complement of the confidence interval as provided above.}
 #' }
 #'
 #' @section If \code{est.Sn == TRUE}:
@@ -47,7 +47,6 @@
 # the lower confidence limit for specificity and the upper confidence limit for specificity.
 #' @references Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial limits illustrated in the case of the binomial. \emph{Biometrika} 26:404-413.
 #' @export
-# @author David Siev modified by Monica Reising
 #' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
 #' @examples
 #' CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = TRUE)

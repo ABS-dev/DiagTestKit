@@ -23,9 +23,9 @@
 #' @param control list of control values to replace defaults. See \code{\link{estimateSnSpControl}} for details.
 #' @return An object of type \code{snsp} that extends \code{list}. \cr \cr
 #' \describe{
-#' \item{\strong{calcVal}} {Point estimates and estimated simulated intervals for properties of the experimental kit. See below.}
-#' \item{\strong{detailOut}} {Detailed output values. See below.}
-#' \item{\strong{input}} {Simulated values.  See below.}
+#' \item{\strong{calcVal}}{Point estimates and estimated simulated intervals for properties of the experimental kit. See below.}
+#' \item{\strong{detailOut}}{Detailed output values. See below.}
+#' \item{\strong{input}}{Simulated values.  See below.}
 #' }
 #'
 #' @section \code{calcVal}:
