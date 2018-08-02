@@ -1,5 +1,5 @@
 context("ex8")
-
+load("./data/testdata.rda")
 ex8 <-estimateSnSp(dat = data8,
                   Sn.ref = c(ref1_result = 0.92, ref2_result = 0.88, ref3_result = 0.85),
                   Sp.ref = c(ref1_result = 0.86, ref2_result = 0.90, ref3_result = 0.92),
