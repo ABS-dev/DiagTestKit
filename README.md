@@ -31,6 +31,8 @@ install_github("ABS-dev/DiagTestKit")
 
 [Examples](https://github.com/ABS-dev/DiagTestKit/blob/master/inst/doc/ExamplesForFallibleReferenceTests.pdf)
 
+[Manual](https://github.com/ABS-dev/DiagTestKit/blob/master/inst/doc/DiagTestKit-manual.pdf)
+
 From **within R**
 
 ```
