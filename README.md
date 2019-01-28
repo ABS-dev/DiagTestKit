@@ -9,7 +9,7 @@ test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ou
 
 From **within R**
 
-1. Installing current release v0.5.3
+1. Installing current release [v0.5.3](https://github.com/ABS-dev/DiagTestKit/releases/tag/0.5.3)
 
 ```
 ## From source, all platforms, slow.
