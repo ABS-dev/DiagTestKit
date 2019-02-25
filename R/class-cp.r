@@ -1,3 +1,4 @@
+#' @title cp-class
 #' @export
 cp <- setRefClass("cp",
                     fields = list(calcVal = "list", data = 'list', alpha = "numeric"),

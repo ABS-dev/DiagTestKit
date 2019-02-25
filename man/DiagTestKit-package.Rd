@@ -14,8 +14,8 @@ Functions used in evaluating sensitivity and specificity at CVB Statistics
 \tabular{ll}{
 Package: \tab DiagTestKit-package\cr
 Type: \tab Package\cr
-Version: \tab 0.5.3\cr
-Date: \tab 26 July 2018\cr
+Version: \tab 0.5.4\cr
+Date: \tab XX XXXX XXXX\cr
 License: \tab MIT\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
