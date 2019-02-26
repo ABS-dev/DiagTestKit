@@ -10,11 +10,12 @@ Description: A package written by CVB Statistics to estimate the sensitivity and
     supporting the 2018 revision to VSM 800.73.
 Depends:
     R (>= 3.4.4)
-Imports: data.table, plyr, ggplot2, methods
+Imports: data.table, plyr, methods
 VignetteBuilder: knitr
 Suggests:
     knitr,
-    testthat
+    testthat,
+    ggplot2
 License: MIT
 URL: https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi, https://github.com/ABS-dev/DiagTestKit/blob/master/README.md
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues
