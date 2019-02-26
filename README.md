@@ -20,6 +20,8 @@ devtools::install_github("ABS-dev/DiagTestKit", ref = "0.5.3")
 
 2. Installing work-in-progress towards v0.5.4
 
+Travis: [![Build Status](https://travis-ci.org/ABS-dev/DiagTestKit.svg?branch=master)](https://travis-ci.org/ABS-dev/DiagTestKit)
+
 ```
 require(devtools)
 install_github("ABS-dev/DiagTestKit")
