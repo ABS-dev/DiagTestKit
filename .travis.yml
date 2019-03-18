@@ -6,3 +6,9 @@ cache: packages
 warnings_are_errors: false
 r_build_args: --no-build-vignettes --no-manual --no-examples --no-tests
 r_check_args: --no-build-vignettes --no-vignettes --no-examples --no-tests
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'library(covr); codecov()'
