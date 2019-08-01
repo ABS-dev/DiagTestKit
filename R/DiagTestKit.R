@@ -1,0 +1,2 @@
+#' @docType internal
+"_PACKAGE"
