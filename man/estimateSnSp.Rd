@@ -156,5 +156,5 @@ example.2 <- estimateSnSp(dat = data.2,
 \code{\link{estimateSnSpControl}}
 }
 \author{
-CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
+\link{DiagTestKit-package}
 }

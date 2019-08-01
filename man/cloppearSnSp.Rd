@@ -71,5 +71,5 @@ CP.Sp
 Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial limits illustrated in the case of the binomial. \emph{Biometrika} 26:404-413.
 }
 \author{
-CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
+\link{DiagTestKit-package}
 }
