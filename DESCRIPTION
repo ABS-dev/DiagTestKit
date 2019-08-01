@@ -1,22 +1,25 @@
 Package: DiagTestKit
 Type: Package
 Title: Functions used in evaluating sensitivity and specificity at CVB Statistics
-Version: 0.5.4
-Date: XX XXXXX XXXX
-Author: CVB Statistics
-Maintainer: CVB Statistics <CVB.Data.Help@aphis.usda.gov>
 Description: A package written by CVB Statistics to estimate the sensitivity and 
     specificity of an experimental diagnostic test kit in accordance with CVB STATWI0002
     supporting the 2018 revision to VSM 800.73.
+Version: 0.5.4
+Date: 2019-08-15
+Authors@R: c(
+  person("CVB", "Statistics", , "CVB.Data.Help@usda.gov",  'cre'),
+  person("CVB", "Statistics", , , "aut", comment = "starting 2017"),
+  person ("David", "Siev", , , "aut", comment = "1990 - 2019"),
+  person("Marie", "Vendettuoli", , , "aut", comment = "starting 2017"))
 Depends:
-    R (>= 3.4.4)
+    R (>= 3.5)
 Imports: data.table, plyr, methods
 VignetteBuilder: knitr
 Suggests:
     knitr,
     testthat,
     ggplot2
-License: MIT
+License: CC0
 URL: https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi, https://github.com/ABS-dev/DiagTestKit/blob/master/README.md
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues
 Encoding: UTF-8
