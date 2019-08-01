@@ -81,7 +81,7 @@
 #' \item{\strong{prev.sims}}  \code{matrix} The simulated values of prevalence for each population.  Each column correspond to one population.
 #' }
 # @author Monica Reising \email{monica.m.reising@@aphis.usda.gov} with modifications by CVB Statistics
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @seealso \code{\link{estimateSnSpControl}}
 #' @export
 #' @examples

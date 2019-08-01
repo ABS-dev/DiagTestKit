@@ -18,7 +18,7 @@
 #' of states of each reference test (using the same ordering as SnR and SpR).
 #' @return The sum of the squared deviations between the expected and observed cell counts.
 # @author David Siev \email{david.siev@@aphis.usda.gov} modified by Monica Reising \email{monica.m.reising@@aphis.usda.gov}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates){
   if(length(parm)==2){
     SnE <- parm[1]

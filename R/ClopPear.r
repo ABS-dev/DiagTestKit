@@ -47,7 +47,7 @@
 # the lower confidence limit for specificity and the upper confidence limit for specificity.
 #' @references Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial limits illustrated in the case of the binomial. \emph{Biometrika} 26:404-413.
 #' @export
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @examples
 #' CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = TRUE)
 #' CP.Sn

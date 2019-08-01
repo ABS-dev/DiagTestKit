@@ -7,7 +7,7 @@
 #' @note Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
 #' @export
 # @author Dave Siev \email{david.siev@@aphis.usda.gov}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 emp.hpd <- function (X, alpha){
   # empirical hpd by shortest length interval
   X <- sort(X)
