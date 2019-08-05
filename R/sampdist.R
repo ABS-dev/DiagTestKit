@@ -13,7 +13,7 @@
 #' @param sumOne whether to expresss 'p' as a proportion of its sum.
 #' @return \code{data.frame} of 'x', 'y', and 'p'.
 # @author Dave Siev \email{david.siev@@aphis.usda.gov}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, sumOne=TRUE){
   halfwidth <- sum(w)
   H <- cumsum(w)

@@ -59,5 +59,5 @@ estimateSnSpControl()
 estimateSnSpControl(seed = 64725)
 }
 \author{
-CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
+\link{DiagTestKit-package}
 }

@@ -15,7 +15,7 @@
 #' @param prev.distn \code{vector}  A named vector with length equal to the number of populations. Determines which disibution should be used for sampling the prevalence of each population.  Inputs are 'beta' or 'triangular'.
 #' Defaults to 'beta'.
 #' @param prev.spread \code{vector}  A named vector with length equal to the number of populations. Describes the width of the distribution for the prevalence of each population.  Inputs are 'wide', 'medium', or 'narrow'.
-#' Defaults to 'wide' for each population.  
+#' Defaults to 'wide' for each population.
 #' @param tolerance Setting a limit on the pgtol used in the \code{\link{optim}} function with the 'L-BFGS-B' method. See also \code{\link{optim}}.  Defaults to 1E-03.
 #' @param step.size Provides the level of resolution in values simulated from a triangular distribution.  Defaults to 1E-06.
 #' @param alpha Significance levels.  Defaults to 0.05.
@@ -26,7 +26,7 @@
 #' positive samples (\eqn{\delta}), specificity (\eqn{\theta}), and the proportion of 1-Sp corresponding to the suspect region for disease negative samples (\eqn{\gamma}).  All values are between 0 and 1, inclusive.
 #' @return A list with the following elements (as defined above): \code{seed, Sn.disn, Sn.spread,
 #' Sp.distn,} \code{ Sp.spread, prev.distn, prev.spread, tolerance, step.size, parm}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @export
 #' @examples
 #' estimateSnSpControl()
