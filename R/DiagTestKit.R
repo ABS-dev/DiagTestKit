@@ -1,2 +1,2 @@
-#' @docType internal
+#' @keywords internal
 "_PACKAGE"

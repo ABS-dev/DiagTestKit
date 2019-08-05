@@ -9,8 +9,7 @@ Date: 2019-08-15
 Authors@R: c(
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov",  'cre'),
   person("CVB", "Statistics", , , "aut", comment = "starting 2017"),
-  person ("David", "Siev", , , "aut", comment = "1990 - 2019"),
-  person("Marie", "Vendettuoli", , , "aut", comment = "starting 2017"))
+  person ("David", "Siev", , , "aut", comment = "until 2019"))
 Depends:
     R (>= 3.5)
 Imports: data.table, plyr, methods
