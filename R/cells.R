@@ -21,7 +21,7 @@
 #' @return  \code{vector} A vector of expected counts corresponding to the properties of the reference and experimental tests.  The expected counts are obtained based on a conditional independence assumption of all test methods.
 # @author David Siev \email{david.siev@@aphis.usda.gov} modified by Monica Reising \email{monica.m.reising@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
-cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates){
+cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
   suspect.pos<-sus.perc[1]*(1-SnE)
   suspect.neg<-sus.perc[2]*(1-SpE)
   SnR[2,]<-SnR[2,]*(1-SnR[1,])

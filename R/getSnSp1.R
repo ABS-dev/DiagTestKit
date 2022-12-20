@@ -174,7 +174,7 @@
 #' # SsN = P(T?|D-)     0.01534125 0.0000000 0.05604950
 #' }
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
-  control = NULL){
+  control = NULL) {
   #convert any character variables in dat to factors as this will be needed later
   dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
   if (is.null(control)) {
@@ -219,15 +219,15 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   if(!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop('Sp.distn & Sp.spread must be the same length. Check values passed to control.')
 
-  if(names(dat)[1]!='population'){
+  if(names(dat)[1]!='population') {
     warning('The data suggests a single population was tested',immediate.=TRUE)
   }
 
-  if(sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0){
+  if(sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which is the experimental test')
   }
 
-  if(sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0){
+  if(sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which belong to the reference test(s)')
   }
 
@@ -242,11 +242,11 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   y2<-grepl(pattern='ref',names(finding.n.states),ignore.case=TRUE)
   n.states<-finding.n.states[as.logical(y1+y2)]
 
-  if(!any(grepl(pattern='pop',colnames(dat),ignore.case=TRUE))){
+  if(!any(grepl(pattern='pop',colnames(dat),ignore.case=TRUE))) {
     N<-c(A=sum(dat[,ncol(dat)]))
   } else{
     #make sure the number of unique populations is the same in the dataset and in the prev.pop vector
-    if(length(levels(as.factor(dat$population)))==length(prev.pop)){
+    if(length(levels(as.factor(dat$population)))==length(prev.pop)) {
       prev.pop<-prev.pop[order(names(prev.pop))]
       dat$population<-factor(dat$population,levels=names(prev.pop))
     } else{

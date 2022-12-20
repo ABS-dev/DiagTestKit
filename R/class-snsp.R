@@ -18,7 +18,7 @@ snsp <- setRefClass(
                             'Upper' = c(calcVal$SnInterval[2],
                                         calcVal$SpInterval[2]),
                             stringsAsFactors = FALSE)
-      if(length(calcVal) > 6){
+      if(length(calcVal) > 6) {
         summary <- rbind(summary,
                          c(calcVal$SusDisPosPE,
                            as.vector(calcVal$SusDisPosInterval)),

@@ -31,37 +31,37 @@
 #'   in the same pattern for all reference tests.
 #' @author Monica Reising \email{monica.m.reising@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
-get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence){
+get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
   final.mat<-NULL
 
   if(prevalence==TRUE) means<-matrix(means,nrow=1)
 
-  if(is.null(distn) & is.null(spread)){
+  if(is.null(distn) & is.null(spread)) {
     #the default distribution is going to be a "wide" beta
-    for(i in 1:ncol(means)){
+    for(i in 1:ncol(means)) {
       alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=0.002))
       current.draws<-rbeta(nsim,shape1=alpha.beta[1],shape2=alpha.beta[2])
       if(prevalence==FALSE) final.mat<-cbind(final.mat,current.draws,rep(means[2,i]))
       if(prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
     }
-  } else if(!is.null(distn) & !is.null(spread)){
-    for(i in 1:ncol(means)){
-      if(distn[i]=='beta'){
+  } else if(!is.null(distn) & !is.null(spread)) {
+    for(i in 1:ncol(means)) {
+      if(distn[i]=='beta') {
         s2<-ifelse(spread[i]=='wide',0.002,ifelse(spread[i]=='medium',0.004,ifelse(spread[i]=='narrow',0.0001,stop('Spread must be wide, medium, or narrow'))))
         alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=s2))
         current.draws<-rbeta(nsim,shape1=alpha.beta[1],shape2=alpha.beta[2])
         if(prevalence==FALSE) final.mat<-cbind(final.mat,current.draws,rep(means[2,i],nsim))
         if(prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
 
-      } else if(distn[i]=='triangular'){
-        if(spread[i]=='wide'){
+      } else if(distn[i]=='triangular') {
+        if(spread[i]=='wide') {
           omega<-c(0.08,0.08,0.06)
           hi<-c(2,1.6)
 
-        } else if(spread[i]=='medium'){
+        } else if(spread[i]=='medium') {
           omega<-c(0.02,0.03,0.08)
           hi<-c(2,1.2)
-        } else if(spread[i]=='narrow'){
+        } else if(spread[i]=='narrow') {
           omega<-c(0.005,0.01,0.01)
           hi<-c(2,0.5)
         } else{
@@ -77,8 +77,8 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence){
       }
 
     }
-  } else if(is.null(distn) & !is.null(spread)){
-    for(i in 1:ncol(means)){
+  } else if(is.null(distn) & !is.null(spread)) {
+    for(i in 1:ncol(means)) {
       s2<-ifelse(spread[i]=='wide',0.002,ifelse(spread[i]=='medium',0.004,ifelse(spread[i]=='narrow',0.0001,stop('Spread must be wide, medium, or narrow'))))
       alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=s2))
       current.draws<-rbeta(nsim,shape1=alpha.beta[1],shape2=alpha.beta[2])
@@ -86,15 +86,15 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence){
       if(prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
 
     }
-  } else if(!is.null(distn) & is.null(spread)){
+  } else if(!is.null(distn) & is.null(spread)) {
     #this will defalut to wide
-    for(i in 1:ncol(means)){
-      if(distn[i]=='beta'){
+    for(i in 1:ncol(means)) {
+      if(distn[i]=='beta') {
         alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=0.002))
         current.draws<-rbeta(nsim,shape1=alpha.beta[1],shape2=alpha.beta[2])
         if(prevalence==FALSE) final.mat<-cbind(final.mat,current.draws,rep(means[2,i]))
         if(prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
-      } else if(distn[i]=='triangular'){
+      } else if(distn[i]=='triangular') {
         omega<-c(0.08,0.08,0.06)
         hi<-c(2,1.6)
         values.to.sample<-SampDist(m=means[1,i],w=omega,h=hi,stepwidth=step.size)

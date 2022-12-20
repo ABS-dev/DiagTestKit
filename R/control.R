@@ -35,9 +35,9 @@ estimateSnSpControl <- function(seed = NULL, Sn.distn = NULL, Sn.spread=NULL,
                                              Sp.distn = NULL, Sp.spread=NULL, prev.distn=NULL,
                                              prev.spread=NULL, tolerance=1e-3, alpha=0.05,
                                              step.size=1e-06, parm=NULL,
-                                             rep.iter=TRUE, iter.n=50){
+                                             rep.iter=TRUE, iter.n=50) {
 
-  if(is.null(seed)){
+  if(is.null(seed)) {
     seed <- round(100000 * runif(1, 0, 1))
   }
 
