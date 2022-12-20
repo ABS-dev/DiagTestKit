@@ -35,12 +35,12 @@ The simplest case illustrated here is estimating the sensitivity and specificity
 In this example, samples randomly selected from a single population are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  There are 4 unique sets of testing combinations.  Further, the probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\phi_1$ = $\psi_1$ = $\phi_2$ = $\psi_2$ = 0. This example uses named data frames for the input variables `Sn.ref` and `Sp.ref`. 
 
 
-```{r,echo = T, eval = T}
+```{r A,echo = T, eval = T}
 ex1 <- estimateSnSp(dat = data1,
           Sn.ref = data.frame(ref = c(0.90, 0)),
           Sp.ref = data.frame(ref = c(0.99, 0)),
           prev.pop = c(A = 0.80),
-          control = estimateSnSpControl(seed = 64725, rep.iter = F))
+          control = estimateSnSpControl(seed = 64725, rep.iter = FALSE))
 unique(ex1$detailOut$Converge)
 unique(ex1$detailOut$Message)
 ex1
@@ -51,7 +51,7 @@ ex1
 
 The confidence level can be updated without requiring repeating the simulations.
 
-```{r, echo = T, eval = T}
+```{r B, echo = T, eval = T}
 ex1_update <- updateAlpha(ex1, newAlpha = 0.01)
 ex1_update
 ```
@@ -62,12 +62,12 @@ ex1_update
 In this example, samples randomly selected from 3 populations are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  Again there are 4 unique sets of testing combinations, but a total of 12 counts, one for each unique test combination in each of the three populations.  The probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\psi_1$ = $\phi_1$ = $\psi_2$ = $\phi_2$ = 0. This example uses named vectors for the input variables `Sn.ref` and `Sp.ref` because the reference test only had 2 states. 
 
 
-```{r, echo = T, eval = T}
+```{r C, echo = T, eval = T}
 ex2 <- estimateSnSp(dat = data2,
          Sn.ref = c(ref_result=0.90),
          Sp.ref = c(ref_result=0.94),
          prev.pop = c(A = 0.92, B = 0.20, C = 0.50),
-         control = estimateSnSpControl(seed=4902342, rep.iter = F))
+         control = estimateSnSpControl(seed=4902342, rep.iter = FALSE))
 unique(ex2$detailOut$Converge)
 unique(ex2$detailOut$Message)
 ex2
@@ -80,12 +80,12 @@ ex2
 Samples randomly selected from a single population are tested by one 3--state fallible reference test and a 2--state experimental test.   Here, $S_1$ = 2, $S_2$ = 3 and $K$ = 6.  There are 6 unique sets of testing combinations.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).  Because the reference test has 3 states, the input must include values of $\delta_2 = \frac{\psi_2}{1 - \pi_2}$ and $\gamma_2 = \frac{\phi_2}{1 - \theta_2}$.
 
 
-```{r, echo = T, eval = T}
+```{r D, echo = T, eval = T}
 ex3 <- estimateSnSp(dat = data3,
         Sn.ref = data.frame(ref = c(0.99, 0.75)),
         Sp.ref = data.frame(ref = c(0.85, 0.67)),
         prev.pop = c(A = 0.92),
-        control = estimateSnSpControl(seed = 896421, rep.iter = F))
+        control = estimateSnSpControl(seed = 896421, rep.iter = FALSE))
 
 unique(ex3$detailOut$Converge)
 unique(ex3$detailOut$Message)
@@ -99,12 +99,12 @@ ex3
 In this example, samples randomly selected from three populations are tested by one fallible 3--state reference test and a 2--state experimental test.  There are 6 unique sets of testing combinations ($S_1$ = 2, $S_2$ = 3 and $K$ = 6) and a total of 18 counts, one for each unique test combination in each population.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).
 
 
-```{r, echo = T, eval = T}
+```{r E, echo = T, eval = T}
 ex4 <- estimateSnSp(dat = data4,
         Sn.ref = data.frame(ref = c(0.95, 0.55)),
         Sp.ref = data.frame(ref = c(0.93, 0.48)),
         prev.pop = c(A = 0.97, B = 0.25, C = 0.68),
-        control=estimateSnSpControl(seed = 6589732, rep.iter = F))
+        control=estimateSnSpControl(seed = 6589732, rep.iter = FALSE))
 
 unique(ex4$detailOut$Converge)
 unique(ex4$detailOut$Message)
@@ -119,12 +119,12 @@ There are 6 unique testing combinations ($S_1$ = 3, $S_2$ = 2 and $K$ = 6) and a
 The probabilities associated with a suspect test result for the experimental test ($\psi_1$ and $\phi_1$) are included in the output (but the optimization occurs in terms of $\delta_1$ and $\gamma_1$). The function provides a message to inform the user that the experimental test has 3 states and the optimization will be more time consuming.
 
 
-```{r, echo = T, eval = T}
+```{r F, echo = T, eval = T}
 ex5 <- estimateSnSp(dat = data5,
          Sn.ref = c(Ref1 = 0.90),
          Sp.ref = c(Ref1 = 0.99),
          prev.pop = c(A = 0.80, B = 0.90),
-         control = estimateSnSpControl(seed = 1249856, rep.iter = F))
+         control = estimateSnSpControl(seed = 1249856, rep.iter = FALSE))
 
 unique(ex5$detailOut$Converge)
 unique(ex5$detailOut$Message)
@@ -138,12 +138,12 @@ In this example, samples randomly selected from a single population are tested w
 $S_1$ = 2, $S_2$ = 2, $S_3$ = 2 and $K$ = 8.  There are 8 unique sets of testing combinations.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).
 
 
-```{r, echo = T, eval = T}
+```{r G, echo = T, eval = T}
 ex6 <- estimateSnSp(dat = data6,
           Sn.ref = c(Ref1_result = 0.95, ref2 = 0.91),
           Sp.ref = c(Ref1_result = 0.85, ref2 = 0.98),
           prev.pop = c(A = 0.82),
-          control = estimateSnSpControl(seed = 2948217, rep.iter = F))
+          control = estimateSnSpControl(seed = 2948217, rep.iter = FALSE))
 
 unique(ex6$detailOut$Converge)
 unique(ex6$detailOut$Message)
@@ -157,12 +157,12 @@ In this example, samples selected from 2 populations were tested by two 3--state
 $S_1$ = 2, $S_2$ = 3, $S_3$ = 3 and $K$ = 18.  There are 18 unique sets of testing combinations and a total of 36 counts, one for each unique test combination in each of the 2 populations.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).
 
 
-```{r, echo = T, eval = T}
+```{r H, echo = T, eval = T}
 ex7 <- estimateSnSp(dat = data7,
           Sn.ref = data.frame(ref1 = c(0.88, 0.75), ref2 = c(0.90 ,0.55)),
           Sp.ref = data.frame(ref1 = c(0.97, 0.6), ref2 = c(0.95, 0.5)),
           prev.pop = c(A = 0.87, B = 0.35),
-          control = estimateSnSpControl(seed=1937457, rep.iter = F))
+          control = estimateSnSpControl(seed=1937457, rep.iter = FALSE))
 
 unique(ex7$detailOut$Converge)
 unique(ex7$detailOut$Message)
@@ -176,13 +176,13 @@ In this example, samples randomly selected from 3 populations were tested by thr
 $S_1$ = 3, $S_2$ = 2, $S_3$ = 2, $S_4$ = 2 and $K$ = 24.  There are 24 unique sets of testing combinations and a total of 72 counts, one for each unique test combination in each of the 3 populations.  The probabilities associated with a suspect test result for the experimental test ($\psi_1$ and $\phi_1$) are included in the output. The function provides a message to inform the user that the experimental test has 3 states and the optimization will be more time consuming.
 
 
-```{r, echo = T, eval = T}
+```{r I, echo = T, eval = T}
 
 ex8<-estimateSnSp(dat = data8,
        Sn.ref = c(ref1_result = 0.92, ref2_result = 0.88, ref3_result = 0.85),
        Sp.ref = c(ref1_result = 0.86, ref2_result = 0.90, ref3_result = 0.92),
        prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
-       control = estimateSnSpControl(seed = 865213, rep.iter = F))
+       control = estimateSnSpControl(seed = 865213, rep.iter = FALSE))
 
 unique(ex8$detailOut$Converge)
 unique(ex8$detailOut$Message)

@@ -4,105 +4,146 @@
 \alias{estimateSnSp}
 \title{Estimate Sensitivity and Specificity}
 \usage{
-estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
-  control = NULL)
+estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000, control = NULL)
 }
 \arguments{
-\item{dat}{\code{data.frame}  This is a data frame where the first column includes information for the population sampled
-(if more than one population is sampled).  The next column is the possible outcomes of the experimental test followed by one column for the possible outcomes for each
-reference test (one column per test).  The last column of the data frame provides the number of samples with each pattern of test outcomes.  The columns must be included in the order described.  If more than one population is sampled, the column name for the column containing the population
-information must be 'population'.  The column containing the test results for the experimental test must have 'exp' in the name, such as experimental, experiment, exp, Exp, etc.  The column names containing the
-reference test results much contain 'ref' in the name, such as Ref1, Ref2, ref1_results, Reference2, etc.}
+\item{dat}{\code{data.frame}  This is a data frame where the first column
+includes information for the population sampled (if more than one population
+is sampled).  The next column is the possible outcomes of the experimental
+test followed by one column for the possible outcomes for each reference
+test (one column per test).  The last column of the data frame provides the
+number of samples with each pattern of test outcomes.  The columns must be
+included in the order described.  If more than one population is sampled,
+the column name for the column containing the population information must be
+'population'.  The column containing the test results for the experimental
+test must have 'exp' in the name, such as experimental, experiment, exp,
+Exp, etc.  The column names containing the reference test results much
+contain 'ref' in the name, such as Ref1, Ref2, ref1_results, Reference2,
+etc.}
 
-\item{Sn.ref}{\code{data.frame}  Each column corresponds to one reference test.  Row 1 contains the sensitivity for the reference test(s).
-Row 2 contains the probability of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
-Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
-test (i.e. no suspect region).  Alternatively, if all reference tests are 2-state tests, the sensitivities can be input as a named vector.  Specifically, each element in the vector must be given a name which includes 'ref' (see above) and
-the column names (or names of the elements within the vector) must match those for Sp.ref.}
+\item{Sn.ref}{\code{data.frame}  Each column corresponds to one reference
+test.  Row 1 contains the sensitivity for the reference test(s). Row 2
+contains the probability of a suspect result as a fraction of the
+non-correct test result. This is a value between 0 and 1 (inclusive).
+Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where
+\eqn{\delta} is the second row for a given column (reference test).
+\eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero
+for a 2-state test (i.e. no suspect region).  Alternatively, if all
+reference tests are 2-state tests, the sensitivities can be input as a named
+vector.  Specifically, each element in the vector must be given a name which
+includes 'ref' (see above) and the column names (or names of the elements
+within the vector) must match those for Sp.ref.}
 
-\item{Sp.ref}{\code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for each reference test.
-Row 2 contains the probability of a suspect result as a fraction of the non-correct test result.  This is a value between 0 and 1 (inclusive).
-Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state
-test (i.e. no suspect region).  Alternatively, if all reference tests are 2-state tests, the specificities can can be input as a named vector.  Specifically, each element in the vector must be given a name which includes 'ref' (see above) and
-the column names (or names of the elements within the vector) must match those for Sn.ref.}
+\item{Sp.ref}{\code{data.frame} Each column corresponds to one reference test.
+Row 1 contains the specificity for each reference test. Row 2 contains the
+probability of a suspect result as a fraction of the non-correct test
+result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
+\eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
+second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1
+- \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state test
+(i.e. no suspect region).  Alternatively, if all reference tests are 2-state
+tests, the specificities can can be input as a named vector.  Specifically,
+each element in the vector must be given a name which includes 'ref' (see
+above) and the column names (or names of the elements within the vector)
+must match those for Sn.ref.}
 
-\item{prev.pop}{\code{vector}  A named vector containing the prevalence for each population sampled.  The names in the vector must match the
-population labels used in 'dat'.}
+\item{prev.pop}{\code{vector}  A named vector containing the prevalence for
+each population sampled.  The names in the vector must match the population
+labels used in 'dat'.}
 
-\item{nsim}{The number of simulations to draw from the sensitivity and specificity distribution(s) for each reference test and the prevalence
+\item{nsim}{The number of simulations to draw from the sensitivity and
+specificity distribution(s) for each reference test and the prevalence
 distribution from each population.}
 
-\item{control}{list of control values to replace defaults. See \code{\link{estimateSnSpControl}} for details.}
+\item{control}{list of control values to replace defaults. See
+\code{\link{estimateSnSpControl}} for details.}
 }
 \value{
 An object of type \code{snsp} that extends \code{list}. \cr \cr
-\describe{
-\item{\strong{calcVal}}{Point estimates and estimated simulated intervals for properties of the experimental kit. See below.}
-\item{\strong{detailOut}}{Detailed output values. See below.}
-\item{\strong{input}}{Simulated values.  See below.}
-}
+ \describe{ \item{\strong{calcVal}}{Point estimates and estimated simulated
+ intervals for properties of the experimental kit. See below.}
+ \item{\strong{detailOut}}{Detailed output values. See below.}
+ \item{\strong{input}}{Simulated values.  See below.} }
 }
 \description{
-A function written by CVB Statistics to estimate the sensitivity and specificity
-of an experimental diagnostic test kit in accordance with \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB STATWI0002}.
+A function written by CVB Statistics to estimate the sensitivity
+ and specificity of an experimental diagnostic test kit in accordance with
+ \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
+ STATWI0002}.
 }
 \section{\code{calcVal}}{
 
 
-A list with the following values which will include the following for both 2- and 3-state experimental tests -- \cr
-\itemize{
-\item{\strong{Nsim}}  Number of simulations performed.
-\item{\strong{Confidence}}   1 - \eqn{\alpha}.
-\item{\strong{SnPE}}  Sensitivity point estimate obtained as the median of the estimated values.
-\item{\strong{SnInterval}} Estimated simulated interval for sensitivity.
-\item{\strong{SpPE}} Specificity point estimate obtained as the median of the estimated values.
-\item{\strong{SpInterval}} Estimated simulated interval for specificity.
-}
+ A list with the following values which will include the following for both
+ 2- and 3-state experimental tests -- \cr \itemize{ \item{\strong{Nsim}}
+ Number of simulations performed. \item{\strong{Confidence}}   1 -
+ \eqn{\alpha}. \item{\strong{SnPE}}  Sensitivity point estimate obtained as
+ the median of the estimated values. \item{\strong{SnInterval}} Estimated
+ simulated interval for sensitivity. \item{\strong{SpPE}} Specificity point
+ estimate obtained as the median of the estimated values.
+ \item{\strong{SpInterval}} Estimated simulated interval for specificity. }
 
-If three states, the list will also include -- \cr
-\itemize{
-\item{\strong{SusDisPosPE}} Point estimate for the probability of test suspect given disease positive (\eqn{\psi}) which is the median of the calculated values (\eqn{\psi} = \eqn{\delta}*(1-\eqn{\pi})).
-\item{\strong{SusDisPosInterval}} Estimated simulated interval for the probability of test suspect given disease positive (\eqn{\psi}).
-\item{\strong{SusDisNegPE}} Point estimate for the probability of test suspect given disease negative (\eqn{\phi}) which is the median of the calculated values (\eqn{\phi} = \eqn{\gamma}*(1-\eqn{\theta})).
-\item{\strong{SusDisNegInterval}} Estimated simulated interval for the probability of test suspect given disease negative (\eqn{\phi}).
-}
+ If three states, the list will also include -- \cr \itemize{
+ \item{\strong{SusDisPosPE}} Point estimate for the probability of test
+ suspect given disease positive (\eqn{\psi}) which is the median of the
+ calculated values (\eqn{\psi} = \eqn{\delta}*(1-\eqn{\pi})).
+ \item{\strong{SusDisPosInterval}} Estimated simulated interval for the
+ probability of test suspect given disease positive (\eqn{\psi}).
+ \item{\strong{SusDisNegPE}} Point estimate for the probability of test
+ suspect given disease negative (\eqn{\phi}) which is the median of the
+ calculated values (\eqn{\phi} = \eqn{\gamma}*(1-\eqn{\theta})).
+ \item{\strong{SusDisNegInterval}} Estimated simulated interval for the
+ probability of test suspect given disease negative (\eqn{\phi}). }
 }
 
 \section{\code{detailOut}}{
 
 
-A list with the following detailed output values which will include the following for both 2-
-and 3-state experimental tests -- \cr
-\itemize{
-\item{\strong{Exp.Sn}}  \code{vector} The optimized values for the sensitivity of the experimental test kit.
-\item{\strong{Exp.Sp}}  \code{vector} The optimized values for the specificity of the experimental test kit.
-\item{\strong{Converge}}  \code{vector} Each entry is an integer code detailing the convergence of the optimization for each iteration.  0 indicates successful completion. See also \code{\link{optim}}.
-\item{\strong{Message}}  \code{vector}  Each entry includes a character string providing any additional information returned by the optimizer or NULL.  See also \code{\link{optim}}.
-}
+ A list with the following detailed output values which will include the
+ following for both 2- and 3-state experimental tests -- \cr \itemize{
+ \item{\strong{Exp.Sn}}  \code{vector} The optimized values for the
+ sensitivity of the experimental test kit. \item{\strong{Exp.Sp}}
+ \code{vector} The optimized values for the specificity of the experimental
+ test kit. \item{\strong{Converge}}  \code{vector} Each entry is an integer
+ code detailing the convergence of the optimization for each iteration.  0
+ indicates successful completion. See also \code{\link{optim}}.
+ \item{\strong{Message}}  \code{vector}  Each entry includes a character
+ string providing any additional information returned by the optimizer or
+ NULL.  See also \code{\link{optim}}. }
 
-If three states, the list will also inlcude -- \cr
-\itemize{
-\item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the proportion of the remaining probability (1-Sn) that corresponds to a suspect region for diseased samples, namely \eqn{\delta}.
-\item{\strong{Exp.sus.pos}}  \code{vector} The values for P(T? | D+) (\eqn{\psi}) calculated from Exp.sn and Exp.pos.p.
-P(T?|D+) = \eqn{\delta} * (1 - \eqn{\pi}).
-\item{\strong{Exp.neg.p}} \code{vector} The optimized value for the proportion of the remaining probability (1-Sp) that corresponds to a suspect region for non-diseased samples, namely \eqn{\gamma}.
-\item{\strong{Exp.sus.neg}} \code{vector} The values for P(T? | D-) (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p. P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta}).
-}
+ If three states, the list will also inlcude -- \cr \itemize{
+ \item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the
+ proportion of the remaining probability (1-Sn) that corresponds to a suspect
+ region for diseased samples, namely \eqn{\delta}.
+ \item{\strong{Exp.sus.pos}}  \code{vector} The values for P(T? | D+)
+ (\eqn{\psi}) calculated from Exp.sn and Exp.pos.p. P(T?|D+) = \eqn{\delta} *
+ (1 - \eqn{\pi}). \item{\strong{Exp.neg.p}} \code{vector} The optimized value
+ for the proportion of the remaining probability (1-Sp) that corresponds to a
+ suspect region for non-diseased samples, namely \eqn{\gamma}.
+ \item{\strong{Exp.sus.neg}} \code{vector} The values for P(T? | D-)
+ (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p. P(T?|D-) = \eqn{\gamma} *
+ (1 - \eqn{\theta}). }
 }
 
 \section{\code{input}}{
+ A list containing the seed used and the simulated
+ values.
 
-A list containing the seed used and the simulated values.
-
-\itemize{
-\item{\strong{seed}}  The seed used in the random generation of the distributions of sensitivity and specificity for all reference tests and
-prevalence of each population.  See also \code{\link{set.seed}}
-\item{\strong{Sn.sims}}  \code{matrix} The simulated values for the sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was specified in the second row of Sn.ref (or zero if Sn.ref was a vector).  The first two
-columns correspond to the first reference test, columns 3 and 4 to the second reference test if it exists, etc.
-\item{\strong{Sp.sims}} \code{matrix} The simulated values for the specificity of each reference test and \eqn{\phi} where \eqn{\phi} was specified in the second row of Sp.ref (or zero is Sp.ref was a vector).  The first two
-columns correspond to the first reference test, columns 3 and 4 to the second reference test if it exists, etc.
-\item{\strong{prev.sims}}  \code{matrix} The simulated values of prevalence for each population.  Each column correspond to one population.
-}
+ \itemize{ \item{\strong{seed}}  The seed used in the random generation of
+ the distributions of sensitivity and specificity for all reference tests and
+ prevalence of each population.  See also \code{\link{set.seed}}
+ \item{\strong{Sn.sims}}  \code{matrix} The simulated values for the
+ sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
+ specified in the second row of Sn.ref (or zero if Sn.ref was a vector).  The
+ first two columns correspond to the first reference test, columns 3 and 4 to
+ the second reference test if it exists, etc. \item{\strong{Sp.sims}}
+ \code{matrix} The simulated values for the specificity of each reference
+ test and \eqn{\phi} where \eqn{\phi} was specified in the second row of
+ Sp.ref (or zero is Sp.ref was a vector).  The first two columns correspond
+ to the first reference test, columns 3 and 4 to the second reference test if
+ it exists, etc. \item{\strong{prev.sims}}  \code{matrix} The simulated
+ values of prevalence for each population.  Each column correspond to one
+ population. }
 }
 
 \examples{
@@ -156,5 +197,8 @@ example.2 <- estimateSnSp(dat = data.2,
 \code{\link{estimateSnSpControl}}
 }
 \author{
+Monica Reising \email{monica.m.reising@aphis.usda.gov} with
+ modifications by CVB Statistics
+
 \link{DiagTestKit-package}
 }
