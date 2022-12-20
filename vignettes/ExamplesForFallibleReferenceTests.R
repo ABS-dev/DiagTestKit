@@ -100,5 +100,3 @@ ex8<-estimateSnSp(dat = data8,
 unique(ex8$detailOut$Converge)
 unique(ex8$detailOut$Message)
 ex8
-
-

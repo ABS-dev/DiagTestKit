@@ -49,7 +49,7 @@ blood_SnSp$input$seed
 blood2_SnSp$input$seed
 
 ## ---- echo=T, eval=T----------------------------
-blood2_a_SnSp <- 
+blood2_a_SnSp <-
   estimateSnSp(dat = blood2,
       Sn.ref = c(Ref1 = 0.95),
       Sp.ref = c(Ref1 = 0.98),
@@ -92,7 +92,6 @@ infal_Sn <- cloppearSnSp(dat = infallible)
 infal_Sn
 
 ## ---- echo = T, eval = T------------------------
-infal_Sp <- cloppearSnSp(dat = infallible, 
+infal_Sp <- cloppearSnSp(dat = infallible,
                          est.Sn = FALSE)
 infal_Sp
-

@@ -8,7 +8,7 @@
 #' @export
 # @author Dave Siev \email{david.siev@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
-emp.hpd <- function (X, alpha){
+emp.hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X <- sort(X)
   probs <- cbind(low=seq(0,alpha,.001),high=seq(1-alpha,1,.001))
