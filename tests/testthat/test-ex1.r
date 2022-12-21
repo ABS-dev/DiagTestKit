@@ -6,19 +6,23 @@ ex1 <- estimateSnSp(dat = data1,
                     Sn.ref = data.frame(ref = c(0.90, 0)),
                     Sp.ref = data.frame(ref = c(0.99, 0)),
                     prev.pop = c(A = 0.80),
-                    control = estimateSnSpControl(seed = 64725, rep.iter = FALSE))
+                    control = estimateSnSpControl(seed = 64725,
+                                                  rep.iter = FALSE))
 ex1_update <- updateAlpha(ex1, newAlpha = 0.01)
 
 test_that("initial values", {
   #calcVal
   expect_equal(ex1$calcVal$Nsim, expected = 1000, tolerance = 0)
   expect_equal(ex1$calcVal$Confidence, expected = 0.95, tolerance = 0)
-  expect_equal(round(ex1$calcVal$SnPE, digits = 7), expected = 0.9449821, tolerance = 0.000001)
+  expect_equal(round(ex1$calcVal$SnPE, digits = 7), expected = 0.9449821,
+               tolerance = 0.000001)
   expect_equal(ex1$calcVal$SnInterval,
-                   expected = round(c("5%" = 0.9019639, "100%" = 1), digits = 7), tolerance = 0.000001)
+               expected = round(c("5%" = 0.9019639, "100%" = 1), digits = 7),
+               tolerance = 0.000001)
   expect_equal(ex1$calcVal$SpPE, expected = 0.9062769, tolerance = 0.000001)
   expect_equal(ex1$calcVal$SpInterval,
-               expected = round(c('5%' = 0.7523346, '100%' = 1), digits = 7), tolerance = 0.000001)
+               expected = round(c("5%" = 0.7523346, "100%" = 1), digits = 7),
+               tolerance = 0.000001)
 
   #detailOut
   expect_equal(ex1$detailOut$Exp.Sn, ex1_detailOut$Exp.Sn, tolerance = 0.000001)
@@ -47,9 +51,11 @@ test_that("update values", {
   # calcVal
   expect_equal(ex1_update$calcVal$Confidence, expected = 0.99)
   expect_equal(ex1_update$calcVal$SnInterval,
-               expected = round(c('1%' = 0.8848417, '100%' = 1), digits = 7), tolerance = 0.000001)
+               expected = round(c("1%" = 0.8848417, "100%" = 1), digits = 7),
+               tolerance = 0.000001)
   expect_equal(ex1_update$calcVal$SpInterval,
-               expected = round(c('1%' = 0.7111645, '100%' = 1), digits = 7), tolerance = 0.000001)
+               expected = round(c("1%" = 0.7111645, "100%" = 1), digits = 7),
+               tolerance = 0.000001)
 })
 
 test_that("warnings and messages", {
@@ -57,7 +63,8 @@ test_that("warnings and messages", {
                               Sn.ref = data.frame(ref = c(0.90, 0)),
                               Sp.ref = data.frame(ref = c(0.99, 0)),
                               prev.pop = c(A = 0.80),
-                              control = estimateSnSpControl(seed = 64725, rep.iter = FALSE)),
+                              control = estimateSnSpControl(seed = 64725,
+                                                            rep.iter = FALSE)),
                  "The data suggests a single population was tested")
   # TODO: check message once it has been converted from cat statement to message
 })
