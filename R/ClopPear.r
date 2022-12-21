@@ -65,11 +65,11 @@ cloppearSnSp <- function(dat,alpha=0.05,est.Sn=TRUE) {
 
   dat[sapply(dat,is.character)]<-lapply(dat[sapply(dat,is.character)],as.factor)
 
-  if(sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
+ if (sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which is the experimental test')
   }
 
-  if(sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
+ if (sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which belong to the infallible reference test')
   }
 
@@ -82,11 +82,11 @@ cloppearSnSp <- function(dat,alpha=0.05,est.Sn=TRUE) {
   dat$exp[grepl(pattern='neg',dat$exp,ignore.case=TRUE)]<-'negative'
 
 
-  if(est.Sn) {
+ if (est.Sn) {
     y<-dat$count[dat$exp=='positive' & grepl(pattern='pos',dat$ref,ignore.case=TRUE)]
     n<-sum(dat$count[grepl(pattern='pos',dat$ref,ignore.case=TRUE)])
   }
-  if(!est.Sn) {
+ if (!est.Sn) {
     y<-dat$count[dat$exp=='negative' & grepl(pattern='neg',dat$ref,ignore.case=TRUE)]
     n<-sum(dat$count[grepl(pattern='neg',dat$ref,ignore.case=TRUE)])
 
@@ -100,7 +100,7 @@ calcVal <- list(p,cpl,cpu)
 if(est.Sn) {
   names(dataout) <- c('Test.Positive', 'Total.Positive')
   names(calcVal) <- c('Sn','Sn.LL','Sn.UL')
-} else if(!est.Sn) {
+} else if (!est.Sn) {
   names(dataout) <- c('Test.Negative','Total.Negative')
   names(calcVal) <- c('Sp','Sp.LL','Sp.UL')
 }

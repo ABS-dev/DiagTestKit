@@ -42,11 +42,11 @@
 #'   cell counts.
 #' @author \link{DiagTestKit-package}
 minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates) {
-  if(length(parm)==2) {
+ if (length(parm)==2) {
     SnE <- parm[1]
     SpE <- parm[2]
     sus.perc<-c(0, 0)
-  } else if(length(parm)==4) {
+  } else if (length(parm)==4) {
     SnE <- parm[1]
     SpE <- parm[3]
     sus.perc <- c(parm[2], parm[4])

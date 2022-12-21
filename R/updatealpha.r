@@ -12,9 +12,11 @@
 #' data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
 #'                      ref1_result = rep(c('positive', 'negative'), 2),
 #'                      count = c(82, 11, 5, 22))
-#' example.1 <- estimateSnSp(dat = data.1, Sn.ref = data.frame(ref = c(0.90, 0)),
-#'                      Sp.ref = data.frame(ref=c(0.99, 0)), prev.pop=c(A=0.80),
-#'                      control = estimateSnSpControl(seed = 64725))
+#' example.1 <- estimateSnSp(dat = data.1,
+#'                           Sn.ref = data.frame(ref = c(0.90, 0)),
+#'                           Sp.ref = data.frame(ref=c(0.99, 0)),
+#'                           prev.pop=c(A=0.80),
+#'                           control = estimateSnSpControl(seed = 64725))
 #' example.1a <- updateAlpha(example.1, newAlpha = 0.25)
 #' example.1a
 #'
@@ -29,13 +31,13 @@ updateAlpha <- function(x, newAlpha) {
   NEWinput <- x$input
 
   ## figure out if 2 states or 3
-  if(length(x$calcVal) == 6) {
-    nstates = 2
+ if (length(x$calcVal) == 6) {
+    nstates <- 2
   } else {
-    nstates = 3
+    nstates <- 3
   }
 
-  if(nstates == 2) {
+ if (nstates == 2) {
     NEWcalcVal <- list(Nsim = x$calcVal$Nsim,
                        Confidence = (1 - newAlpha),
                        SnPE = median(NEWdetailOut$Exp.Sn),

@@ -5,7 +5,8 @@ ex4 <- estimateSnSp(dat = data4,
                     Sn.ref = data.frame(ref = c(0.95, 0.55)),
                     Sp.ref = data.frame(ref = c(0.93, 0.48)),
                     prev.pop = c(A = 0.97, B = 0.25, C = 0.68),
-                    control=estimateSnSpControl(seed = 6589732, rep.iter = FALSE))
+                    control = estimateSnSpControl(seed = 6589732,
+                                                  rep.iter = FALSE))
 
 test_that("values", {
   #calcVal
@@ -13,11 +14,11 @@ test_that("values", {
   expect_equal(ex4$calcVal$Confidence, expected = 0.95)
   expect_equal(ex4$calcVal$SnPE, expected = 0.9101593, tolerance = 0.000001)
   expect_equal(ex4$calcVal$SnInterval,
-               expected = c('1.5%' = 0.8722713, '96.5%' = 0.9675238),
+               expected = c("1.5%" = 0.8722713, "96.5%" = 0.9675238),
                tolerance = 0.000001)
   expect_equal(ex4$calcVal$SpPE, expected = 0.8802044, tolerance = 0.000001)
   expect_equal(ex4$calcVal$SpInterval,
-               expected = c('0.2%' = 0.8221522, '95.2%' = 0.9373587),
+               expected = c("0.2%" = 0.8221522, "95.2%" = 0.9373587),
                tolerance = 0.000001)
 
   #detailOut

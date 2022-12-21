@@ -217,17 +217,17 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     stop('Sn.distn & Sn.spread must be the same length. Check values passed to control.')
   }
 
-  if(!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop('Sp.distn & Sp.spread must be the same length. Check values passed to control.')
+ if (!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop('Sp.distn & Sp.spread must be the same length. Check values passed to control.')
 
-  if(names(dat)[1]!='population') {
+ if (names(dat)[1]!='population') {
     warning('The data suggests a single population was tested',immediate.=TRUE)
   }
 
-  if(sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
+ if (sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which is the experimental test')
   }
 
-  if(sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
+ if (sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
     stop('Column names must indicate which belong to the reference test(s)')
   }
 
@@ -242,14 +242,14 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   y2<-grepl(pattern='ref',names(finding.n.states),ignore.case=TRUE)
   n.states<-finding.n.states[as.logical(y1+y2)]
 
-  if(!any(grepl(pattern='pop',colnames(dat),ignore.case=TRUE))) {
+ if (!any(grepl(pattern='pop',colnames(dat),ignore.case=TRUE))) {
     N<-c(A=sum(dat[,ncol(dat)]))
-  } else{
+  } else {
     #make sure the number of unique populations is the same in the dataset and in the prev.pop vector
-    if(length(levels(as.factor(dat$population)))==length(prev.pop)) {
+   if (length(levels(as.factor(dat$population)))==length(prev.pop)) {
       prev.pop<-prev.pop[order(names(prev.pop))]
       dat$population<-factor(dat$population,levels=names(prev.pop))
-    } else{
+    } else {
       stop('The number of populations specified in the data does not match the number of populations in the prev.pop vector')
     }
 
@@ -260,7 +260,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   }
 
   # moved to estimateSnSpControl 10/10/17 mcv
-  # if(is.null(seed)) seed<-round(100000*runif(1,0,1))
+  #if (is.null(seed)) seed<-round(100000*runif(1,0,1))
 
   set.seed(control$seed)
   prev.sims<-get.simulated.values(means = prev.pop,
@@ -275,7 +275,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   dat<-setorder(dat) #this will order the data according the factors in the columns  #if there are multiple populations, that should be the first column  #the counts should be the last column
 
-  if(n.states[1]==3) cat('Optimization is more time consuming for a 3-state experimental test, be patient!',fill=TRUE)
+ if (n.states[1]==3) cat('Optimization is more time consuming for a 3-state experimental test, be patient!',fill=TRUE)
   final.values <- get.values(dat = dat[,ncol(dat)],
                              SnR.vec = Sn.sims, SpR.vec = Sp.sims,
                              prev.vec = prev.sims, N.vec=N, nstates = n.states,
@@ -292,7 +292,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
       SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
       SpPE = median(final.values[[2]]),
       SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
-   } else if(n.states[1] == 3) {
+   } else if (n.states[1] == 3) {
     detailOut <- list(final.values[[1]], final.values[[2]],
       (1 - final.values[[1]]) * final.values[[2]],
       final.values[[3]], final.values[[4]],

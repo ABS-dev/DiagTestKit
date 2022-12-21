@@ -4,7 +4,8 @@ ex6 <- estimateSnSp(dat = data6,
                     Sn.ref = c(Ref1_result = 0.95, ref2 = 0.91),
                     Sp.ref = c(Ref1_result = 0.85, ref2 = 0.98),
                     prev.pop = c(A = 0.82),
-                    control = estimateSnSpControl(seed = 2948217, rep.iter = FALSE))
+                    control = estimateSnSpControl(seed = 2948217,
+                                                  rep.iter = FALSE))
 
 test_that("values", {
   #calcVal
@@ -12,11 +13,11 @@ test_that("values", {
   expect_equal(ex6$calcVal$Confidence, expected = 0.95)
   expect_equal(ex6$calcVal$SnPE, expected = 0.9589171, tolerance = 0.000001)
   expect_equal(ex6$calcVal$SnInterval,
-               expected = round(c('5%' = 0.9106663, '100%' = 1), digits = 7),
+               expected = round(c("5%" = 0.9106663, "100%" = 1), digits = 7),
                tolerance = 0.000001)
   expect_equal(ex6$calcVal$SpPE, expected = 0.9456264, tolerance = 0.000001)
   expect_equal(ex6$calcVal$SpInterval,
-               expected = round(c('5%' = 0.7962622, '100%' = 1), digits = 7),
+               expected = round(c("5%" = 0.7962622, "100%" = 1), digits = 7),
                tolerance = 0.000001)
 
   #detailOut

@@ -44,8 +44,8 @@ SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, su
   out <- data.frame(x,y,p)
   # truncate
   out <- out[out$x>=0 & out$x<=1,]
-  if(sumOne) out$p <- out$p/sum(out$p)
-  if(threestate) {
+ if (sumOne) out$p <- out$p/sum(out$p)
+ if (threestate) {
     out$xsus <- suspect*(1-out$x)
     out <- out[c(1,4,2,3)]
   }

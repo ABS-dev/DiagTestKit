@@ -12,11 +12,12 @@ updateAlpha(x, newAlpha)
 \item{newAlpha}{updated alpha value. Must be within [0, 1]}
 }
 \value{
-an object of type \code{snsp}. See output for \code{\link{estimateSnSp}}
+an object of type \code{snsp}. See output for
+  \code{\link{estimateSnSp}}
 }
 \description{
-Report interval estimates with updated alpha values, using a previously
-evaluated simulation.
+Report interval estimates with updated alpha values, using a
+  previously evaluated simulation.
 }
 \examples{
 data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
