@@ -176,7 +176,7 @@
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                          control = NULL) {
   #convert any character variables in dat to factors as this will be needed later
-  dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
+  dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)], as.factor)
   if (is.null(control)) {
     control <- estimateSnSpControl()
   }

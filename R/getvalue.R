@@ -157,7 +157,7 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
   if (length(parm) == 2) {
     return(list(sens.final,
                 spec.final,
-                converge,message))
+                converge, message))
   } else if (length(parm) == 4) {
     return(list(sens.final,
                 p.pos,

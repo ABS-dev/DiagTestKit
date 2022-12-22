@@ -70,7 +70,7 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
 
   ## look for the rows in the 2-state tests which have "suspect" case
   ## we use the data.frame to be able to handle case where length(twostatecols) == 1
-  suspect2staterows <- which(data.frame(X[,twostatecols]) == "suspect", arr.ind = TRUE)[,"row"]
+  suspect2staterows <- which(data.frame(X[, twostatecols]) == "suspect", arr.ind = TRUE)[, "row"]
 
   ## remove the rows which have a "suspect" value for the 2-state tests
 
