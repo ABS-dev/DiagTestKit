@@ -262,7 +262,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   }
 
   # moved to estimateSnSpControl 10/10/17 mcv
-  #if (is.null(seed)) seed<-round(100000*runif(1,0,1))
+  #if (is.null(seed)) seed<-round(100000*runif(1, 0, 1))
 
   set.seed(control$seed)
   prev.sims <- get.simulated.values(means = prev.pop,

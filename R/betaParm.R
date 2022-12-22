@@ -77,9 +77,9 @@ betaParm <- function(B, to = "alpha.beta") {
   }
   out <- switch(to,
                 alpha.beta = c(alpha = alpha, beta   = beta),
-                mu.phi     = c(mu    = mu,    phi    = phi),
-                mu.theta   = c(mu    = mu,    theta  = theta),
-                mu.sigma2  = c(mu    = mu,    sigma2 = sigma2)
+                mu.phi     = c(mu    = mu, phi    = phi),
+                mu.theta   = c(mu    = mu, theta  = theta),
+                mu.sigma2  = c(mu    = mu, sigma2 = sigma2)
   )
   return(out)
 }

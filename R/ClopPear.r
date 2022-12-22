@@ -5,7 +5,7 @@
 #'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
 #'    STATWI0002}.
 #' @param dat \code{data.frame}  A data frame with a column for the experimental
-#'   test results, a column for the infallible reference test results,  and a
+#'   test results, a column for the infallible reference test results, and a
 #'   column for the corresponding count.  The column name for the experimental
 #'   test results must contatin 'exp' and the column name for the infallible
 #'   reference test results must include 'ref'.  The counts should be the last
