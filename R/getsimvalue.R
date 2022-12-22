@@ -36,7 +36,7 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
 
   if (prevalence==TRUE) means<-matrix(means,nrow=1)
 
-  if (is.null(distn) & is.null(spread)) {
+  if (is.null(distn) && is.null(spread)) {
     #the default distribution is going to be a "wide" beta
     for(i in 1:ncol(means)) {
       alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=0.002))
@@ -44,7 +44,7 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
       if (prevalence==FALSE) final.mat<-cbind(final.mat,current.draws,rep(means[2,i]))
       if (prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
     }
-  } else if (!is.null(distn) & !is.null(spread)) {
+  } else if (!is.null(distn) && !is.null(spread)) {
     for(i in 1:ncol(means)) {
       if (distn[i]=="beta") {
         s2<-ifelse(spread[i]=="wide",0.002,ifelse(spread[i]=="medium",0.004,ifelse(spread[i]=="narrow",0.0001,stop("Spread must be wide, medium, or narrow"))))
@@ -77,7 +77,7 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
       }
 
     }
-  } else if (is.null(distn) & !is.null(spread)) {
+  } else if (is.null(distn) && !is.null(spread)) {
     for(i in 1:ncol(means)) {
       s2<-ifelse(spread[i]=="wide",0.002,ifelse(spread[i]=="medium",0.004,ifelse(spread[i]=="narrow",0.0001,stop("Spread must be wide, medium, or narrow"))))
       alpha.beta<-betaParm(B=c(mu=means[1,i],sigma2=s2))
@@ -86,7 +86,7 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
       if (prevalence==TRUE) final.mat<-cbind(final.mat,current.draws)
 
     }
-  } else if (!is.null(distn) & is.null(spread)) {
+  } else if (!is.null(distn) && is.null(spread)) {
     #this will defalut to wide
     for(i in 1:ncol(means)) {
       if (distn[i]=="beta") {
