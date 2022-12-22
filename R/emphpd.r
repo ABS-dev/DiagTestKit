@@ -10,11 +10,12 @@
 emp.hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X <- sort(X)
-  probs <- cbind(low=seq(0,alpha,.001),high=seq(1-alpha,1,.001))
-  int.len <- quantile(X,prob=probs[,"high"])-quantile(X,prob=probs[,"low"])
+  probs <- cbind(low = seq(0, alpha, .001), high = seq(1 - alpha, 1, .001))
+  int.len <- quantile(X, prob = probs[, "high"]) -
+    quantile(X, prob = probs[, "low"])
   shortest <- min(int.len)
-  first <- which(int.len==shortest)[1]
-  hpd <- quantile(X,prob=probs[first,],type=7)
+  first <- which(int.len == shortest)[1]
+  hpd <- quantile(X, prob = probs[first, ], type = 7)
   # see documentation for quantile() for type
   return(hpd)
 }

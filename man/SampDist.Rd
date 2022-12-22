@@ -15,21 +15,26 @@ SampDist(
 )
 }
 \arguments{
-\item{m}{This is a point estimate for the parameter in which you are obtaining the distribution, e.g. sensitivity, specificity, or prevalence.}
+\item{m}{This is a point estimate for the parameter in which you are
+obtaining the distribution, e.g. sensitivity, specificity, or prevalence.}
 
-\item{w}{\code{vector}  A vector that provides the half widths of the 3 regions, (w1 closest, w3 farthest).}
+\item{w}{\code{vector}  A vector that provides the half widths of the 3
+regions, (w1 closest, w3 farthest).}
 
-\item{h}{\code{vector}  A vector of "y" (pseduo-value until scaled to be a probability) corresponding
-to the height of the shoulder and the height of the plateau.}
+\item{h}{\code{vector}  A vector of "y" (pseduo-value until scaled to be a
+probability) corresponding to the height of the shoulder and the height of
+the plateau.}
 
-\item{threestate}{logical (TRUE/FALSE) Indicates whether or not there is a "suspect"
-region (i.e. positive/suspect/negative).}
+\item{threestate}{logical (TRUE/FALSE) Indicates whether or not there is a
+"suspect" region (i.e. positive/suspect/negative).}
 
-\item{suspect}{A fraction that indicates what percentage of the remaining probability would
-be assigned to the suspect region.  For instance, if the function gives sensitivity and
-then the probability of "suspect" is (1 - sensitivity)*suspect.}
+\item{suspect}{A fraction that indicates what percentage of the remaining
+probability would be assigned to the suspect region.  For instance, if the
+function gives sensitivity and then the probability of "suspect" is (1 -
+sensitivity)*suspect.}
 
-\item{stepwidth}{distance between the 'x' in the discrete distribution, resolution of possible observations of the created distribution.}
+\item{stepwidth}{distance between the 'x' in the discrete distribution,
+resolution of possible observations of the created distribution.}
 
 \item{sumOne}{whether to expresss 'p' as a proportion of its sum.}
 }
@@ -37,7 +42,9 @@ then the probability of "suspect" is (1 - sensitivity)*suspect.}
 \code{data.frame} of 'x', 'y', and 'p'.
 }
 \description{
-Creates a discrete step/triangular distribution that can be used to sample values for sensitivity or specificity of a reference test or prevalence of a population.
+Creates a discrete step/triangular distribution that can be used
+  to sample values for sensitivity or specificity of a reference test or
+  prevalence of a population.
 }
 \author{
 \link{DiagTestKit-package}

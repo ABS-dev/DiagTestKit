@@ -170,7 +170,7 @@ All optimized values for specificity of the experimental kit can be viewed using
 
 ```{r L,echo=F,eval=T}
 Sp.fig <- ggplot() +
-          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005)+
+          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005) +
           labs(x = "Experimental Test Specificity Estimates", y = "Count")
 Sp.fig
 ```
@@ -182,8 +182,8 @@ Similarly, the simulated values of sensitivity for the reference test can be ext
 distribution for the sensitivity of the reference test is displayed as a histogram.
 
 ```{r M, echo=F,eval=T}
-Sn.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025)+
+Sn.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025) +
           labs(x = "Simulated Sensitivity for Reference", y = "Count")
 Sn.ref
 ```
@@ -194,8 +194,8 @@ The simulated values of specificity for the reference test can be extracted usin
 distribution for the specificity of the reference is displayed as a histogram.
 
 ```{r N, echo=F,eval=T}
-Sp.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05)+
+Sp.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
           labs(x = "Simulated Specificity for Reference", y = "Count")
 Sp.ref
 ```

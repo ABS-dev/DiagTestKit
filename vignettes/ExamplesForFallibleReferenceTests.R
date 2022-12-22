@@ -1,5 +1,5 @@
 ## ----setup, include=FALSE-----------------------
-knitr::opts_chunk$set(echo = TRUE, tidy=FALSE)
+knitr::opts_chunk$set(echo = TRUE, tidy = FALSE)
 options(width = 50)
 library(DiagTestKit)
 data("ExampleData")
@@ -21,10 +21,10 @@ ex1_update
 
 ## ---- echo = T, eval = T------------------------
 ex2 <- estimateSnSp(dat = data2,
-         Sn.ref = c(ref_result=0.90),
-         Sp.ref = c(ref_result=0.94),
+         Sn.ref = c(ref_result = 0.90),
+         Sp.ref = c(ref_result = 0.94),
          prev.pop = c(A = 0.92, B = 0.20, C = 0.50),
-         control = estimateSnSpControl(seed=4902342, rep.iter = FALSE))
+         control = estimateSnSpControl(seed = 4902342, rep.iter = FALSE))
 unique(ex2$detailOut$Converge)
 unique(ex2$detailOut$Message)
 ex2
@@ -47,7 +47,7 @@ ex4 <- estimateSnSp(dat = data4,
         Sn.ref = data.frame(ref = c(0.95, 0.55)),
         Sp.ref = data.frame(ref = c(0.93, 0.48)),
         prev.pop = c(A = 0.97, B = 0.25, C = 0.68),
-        control=estimateSnSpControl(seed = 6589732, rep.iter = FALSE))
+        control = estimateSnSpControl(seed = 6589732, rep.iter = FALSE))
 
 unique(ex4$detailOut$Converge)
 unique(ex4$detailOut$Message)
@@ -82,7 +82,7 @@ ex7 <- estimateSnSp(dat = data7,
           Sn.ref = data.frame(ref1 = c(0.88, 0.75), ref2 = c(0.90 ,0.55)),
           Sp.ref = data.frame(ref1 = c(0.97, 0.6), ref2 = c(0.95, 0.5)),
           prev.pop = c(A = 0.87, B = 0.35),
-          control = estimateSnSpControl(seed=1937457, rep.iter = FALSE))
+          control = estimateSnSpControl(seed = 1937457, rep.iter = FALSE))
 
 unique(ex7$detailOut$Converge)
 unique(ex7$detailOut$Message)
@@ -91,7 +91,7 @@ ex7
 
 ## ---- echo = T, eval = T------------------------
 
-ex8<-estimateSnSp(dat = data8,
+ex8 <- estimateSnSp(dat = data8,
        Sn.ref = c(ref1_result = 0.92, ref2_result = 0.88, ref3_result = 0.85),
        Sp.ref = c(ref1_result = 0.86, ref2_result = 0.90, ref3_result = 0.92),
        prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
