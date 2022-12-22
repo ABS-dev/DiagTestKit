@@ -41,8 +41,8 @@ betaParm <- function(B, to="alpha.beta") {
     phi <- B["phi"]
     names(mu) <- NULL
     names(phi) <- NULL
-    theta <- (1-phi) / phi
-    sigma2 <- mu*(1 - mu) / (theta + 1)
+    theta <- (1 - phi) / phi
+    sigma2 <- mu * (1 - mu) / (theta + 1)
     alpha <- mu * theta
     beta <- (1 - mu) * theta
   } else if (from == "mu.sigma2") {

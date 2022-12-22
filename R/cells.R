@@ -41,21 +41,22 @@
 #'   methods.
 #' @author \link{DiagTestKit-package}
 cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
-  suspect.pos<-sus.perc[1]*(1-SnE)
-  suspect.neg<-sus.perc[2]*(1-SpE)
-  SnR[2,]<-SnR[2,]*(1-SnR[1,])
-  SpR[2,]<-SpR[2,]*(1-SpR[1,])
+  suspect.pos < -sus.perc[1] * (1 - SnE)
+  suspect.neg < -sus.perc[2] * (1 - SpE)
+  SnR[2, ] < -SnR[2, ] * (1 - SnR[1, ])
+  SpR[2, ] < -SpR[2, ] * (1 - SpR[1, ])
   Sn <- data.frame(Exp=c(SnE,suspect.pos), SnR)
   Sp <- data.frame(Exp=c(SpE,suspect.neg), SpR)
-  row.names(Sn)<-NULL
-  row.names(Sp)<-NULL
+  row.names(Sn) <- NULL
+  row.names(Sp) <- NULL
   ntests <- ncol(Sn)
-  tests <- data.frame(matrix(c("positive","suspect","negative"),3,ntests,dimnames=list(NULL,names(Sn))))
+  tests <- data.frame(matrix(c("positive", "suspect", "negative"), 3, ntests,
+                             dimnames = list(NULL, names(Sn))))
   X <- expand.grid(tests)
   ncells <- nrow(X)
-  Xpos <- as.matrix(1*(X=="positive"))
-  Xsus <- as.matrix(1*(X=="suspect"))
-  Xneg <- as.matrix(1*(X=="negative"))
+  Xpos <- as.matrix(1 * (X == "positive"))
+  Xsus <- as.matrix(1 * (X == "suspect"))
+  Xneg <- as.matrix(1 * (X == "negative"))
   tpdp <- matrix(unlist(Sn[1,]), ncells, ntests, byrow=TRUE)
   tsdp <- matrix(unlist(Sn[2,]), ncells, ntests, byrow=TRUE)
   tndp <- matrix(1-apply(Sn, 2, sum), ncells, ntests, byrow=TRUE)
@@ -87,7 +88,7 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
   setorder(X.short)
   rownames(X.short) <- 1:nrow(X.short)
   xcols<-ncol(X.short)
-  count.vec<-c(as.matrix(X.short[,(xcols-(length(N)-1)):xcols]))
+  count.vec <- c(as.matrix(X.short[, (xcols - (length(N) - 1)):xcols]))
   return(count.vec)
 
 }

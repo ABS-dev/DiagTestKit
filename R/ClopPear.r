@@ -126,7 +126,7 @@ cloppearSnSp <- function(dat,alpha=0.05,est.Sn=TRUE) {
   dataout <- list(y, n)
   calcVal <- list(p,cpl,cpu)
 
-  if(est.Sn) {
+  if (est.Sn) {
     names(dataout) <- c("Test.Positive", "Total.Positive")
     names(calcVal) <- c("Sn","Sn.LL","Sn.UL")
   } else if (!est.Sn) {

@@ -40,14 +40,14 @@ SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, su
   int[region==5] <- h[2] - slope[region==5] * X[5]
 
   y <- slope*x + int
-  p <- y/sum(y)
+  p <- y / sum(y)
   out <- data.frame(x,y,p)
   # truncate
-  out <- out[out$x>=0 & out$x<=1,]
+  out <- out[out$x >= 0 & out$x <= 1, ]
  if (sumOne) out$p <- out$p/sum(out$p)
  if (threestate) {
-    out$xsus <- suspect*(1-out$x)
-    out <- out[c(1,4,2,3)]
+    out$xsus <- suspect * (1 - out$x)
+    out <- out[c(1, 4, 2, 3)]
   }
 
   return(out)

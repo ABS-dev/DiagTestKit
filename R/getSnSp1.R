@@ -299,10 +299,20 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                       (1 - final.values[[3]]) * final.values[[4]],
                       final.values[[5]], final.values[[6]])
     names(detailOut) <- c("Exp.Sn","Exp.pos.p","Exp.sus.pos","Exp.Sp","Exp.neg.p","Exp.sus.neg","Convergence","Message")
-    calcVal <- list(Nsim=nsim,Confidence=(1 - control$alpha),SnPE=median(final.values[[1]]),SnInterval=emp.hpd(final.values[[1]],alpha=control$alpha),
-                    SpPE=median(final.values[[3]]),SpInterval=emp.hpd(final.values[[3]],alpha=control$alpha),
-                    SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]),SusDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]],alpha=control$alpha),
-                    SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]),SusDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]],alpha=control$alpha))
+    calcVal <- list(Nsim = nsim,
+                    Confidence = (1 - control$alpha),
+                    SnPE = median(final.values[[1]]),
+                    SnInterval = emp.hpd(final.values[[1]],
+                                         alpha = control$alpha),
+                    SpPE = median(final.values[[3]]),
+                    SpInterval = emp.hpd(final.values[[3]],
+                                         alpha = control$alpha),
+                    SusDisPosPE = median((1 - final.values[[1]]) * final.values[[2]]),
+                    SusDisPosInterval = emp.hpd((1 - final.values[[1]]) * final.values[[2]],
+                                                alpha = control$alpha),
+                    SusDisNegPE = median((1 - final.values[[3]]) * final.values[[4]]),
+                    SusDisNegInterval = emp.hpd((1 - final.values[[3]]) * final.values[[4]],
+                                                alpha = control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)
   names(input) <- c("seed", "Sn.sims", "Sp.sims", "prev.sims")
