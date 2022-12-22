@@ -96,11 +96,11 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
   for (i in 1:ndraws) {
     if (i == 1) cat("The optimization has begun", fill = TRUE)
 
-    SnR.current <- data.frame(matrix(SnR.vec[i,],
+    SnR.current <- data.frame(matrix(SnR.vec[i, ],
                                      nrow = 2,
                                      byrow = FALSE,
                                      dimnames = list(NULL, test.names)))
-    SpR.current <- data.frame(matrix(SpR.vec[i,],
+    SpR.current <- data.frame(matrix(SpR.vec[i, ],
                                      nrow = 2,
                                      byrow = FALSE,
                                      dimnames = list(NULL, test.names)))
@@ -166,5 +166,5 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                 converge,
                 message))
   }
-  #return(list(SnR.current,SpR.current,prev.current))
+  #return(list(SnR.current,SpR.current, prev.current))
 }

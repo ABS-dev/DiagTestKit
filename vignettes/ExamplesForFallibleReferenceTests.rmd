@@ -35,7 +35,7 @@ The simplest case illustrated here is estimating the sensitivity and specificity
 In this example, samples randomly selected from a single population are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  There are 4 unique sets of testing combinations.  Further, the probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\phi_1$ = $\psi_1$ = $\phi_2$ = $\psi_2$ = 0. This example uses named data frames for the input variables `Sn.ref` and `Sp.ref`. 
 
 
-```{r A,echo = T, eval = T}
+```{r A, echo = T, eval = T}
 ex1 <- estimateSnSp(dat = data1,
           Sn.ref = data.frame(ref = c(0.90, 0)),
           Sp.ref = data.frame(ref = c(0.99, 0)),

@@ -291,7 +291,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
         "be patient!",
         fill = TRUE)
   }
-  final.values <- get.values(dat = dat[,ncol(dat)],
+  final.values <- get.values(dat = dat[, ncol(dat)],
                              SnR.vec = Sn.sims,
                              SpR.vec = Sp.sims,
                              prev.vec = prev.sims,
