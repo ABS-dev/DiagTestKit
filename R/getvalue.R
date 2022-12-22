@@ -68,9 +68,9 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
   ndraws<-nrow(SnR.vec)
   ntests<-ncol(SnR.vec)/2
-  test.names<-paste('Ref',1:ntests,sep='')
+  test.names<-paste("Ref",1:ntests,sep="")
   if (is.vector(prev.vec)) {
-    pop.names<-'A'
+    pop.names<-"A"
   } else {
     pop.names<-LETTERS[1:ncol(prev.vec)]
   }
@@ -93,7 +93,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   message<-NULL
 
   for(i in 1:ndraws) {
-    if (i==1) cat('The optimization has begun',fill=TRUE)
+    if (i==1) cat("The optimization has begun",fill=TRUE)
 
     SnR.current<-data.frame(matrix(SnR.vec[i,],nrow=2,byrow=FALSE,dimnames=list(NULL,test.names)))
     SpR.current<-data.frame(matrix(SpR.vec[i,],nrow=2,byrow=FALSE,dimnames=list(NULL,test.names)))
@@ -109,13 +109,13 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
     names(prev.current)<-pop.names
 
-    current.fit<-optim(parm,minCell,SnR=SnR.current,SpR=SpR.current,Prev=prev.current,xdat=dat,N=N.vec,nstates=nstates,method='L-BFGS-B',lower=0,upper=1,control=list(pgtol=tolerance))
+    current.fit<-optim(parm,minCell,SnR=SnR.current,SpR=SpR.current,Prev=prev.current,xdat=dat,N=N.vec,nstates=nstates,method="L-BFGS-B",lower=0,upper=1,control=list(pgtol=tolerance))
 
     current.ests<-current.fit$par
     current.con<-current.fit$convergence
-    message.current<-ifelse(is.null(current.fit$message),'NA',current.fit$message)
+    message.current<-ifelse(is.null(current.fit$message),"NA",current.fit$message)
     if (rep.iter && i %% iter.n == 0) {
-      cat('The following is the number of iterations completed: ',
+      cat("The following is the number of iterations completed: ",
           i,
           fill = TRUE)
     }

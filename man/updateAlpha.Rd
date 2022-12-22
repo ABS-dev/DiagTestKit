@@ -23,9 +23,11 @@ Report interval estimates with updated alpha values, using a
 data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
                      ref1_result = rep(c('positive', 'negative'), 2),
                      count = c(82, 11, 5, 22))
-example.1 <- estimateSnSp(dat = data.1, Sn.ref = data.frame(ref = c(0.90, 0)),
-                     Sp.ref = data.frame(ref=c(0.99, 0)), prev.pop=c(A=0.80),
-                     control = estimateSnSpControl(seed = 64725))
+example.1 <- estimateSnSp(dat = data.1,
+                          Sn.ref = data.frame(ref = c(0.90, 0)),
+                          Sp.ref = data.frame(ref=c(0.99, 0)),
+                          prev.pop=c(A=0.80),
+                          control = estimateSnSpControl(seed = 64725))
 example.1a <- updateAlpha(example.1, newAlpha = 0.25)
 example.1a
 

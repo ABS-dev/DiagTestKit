@@ -174,7 +174,7 @@
 #' # SsN = P(T?|D-)     0.01534125 0.0000000 0.05604950
 #' }
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
-  control = NULL) {
+                         control = NULL) {
   #convert any character variables in dat to factors as this will be needed later
   dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
   if (is.null(control)) {
@@ -199,14 +199,14 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   }
 
   if (is.null(names(Sn.ref)) | is.null(names(Sp.ref))) {
-    stop('Sn.ref and Sp.ref must be named')
+    stop("Sn.ref and Sp.ref must be named")
   }
   if (!all(names(Sn.ref) == names(Sp.ref))) {
-    stop('SnR and SpR not named the same')
+    stop("SnR and SpR not named the same")
   }
 
   if (ncol(Sn.ref) != ncol(Sp.ref)) {
-    stop('Sn.ref and Sp.ref suggest different number of reference tests')
+    stop("Sn.ref and Sp.ref suggest different number of reference tests")
   }
 
 
@@ -214,43 +214,43 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   if (!is.null(control$Sn.distn) &
       !is.null(control$Sn.spread) &
       length(control$Sn.distn) != length(control$Sn.spread)) {
-    stop('Sn.distn & Sn.spread must be the same length. Check values passed to control.')
+    stop("Sn.distn & Sn.spread must be the same length. Check values passed to control.")
   }
 
- if (!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop('Sp.distn & Sp.spread must be the same length. Check values passed to control.')
+  if (!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop("Sp.distn & Sp.spread must be the same length. Check values passed to control.")
 
- if (names(dat)[1]!='population') {
-    warning('The data suggests a single population was tested',immediate.=TRUE)
+  if (names(dat)[1]!="population") {
+    warning("The data suggests a single population was tested",immediate.=TRUE)
   }
 
- if (sum(grepl(pattern='exp',names(dat),ignore.case=TRUE))==0) {
-    stop('Column names must indicate which is the experimental test')
+  if (sum(grepl(pattern="exp",names(dat),ignore.case=TRUE))==0) {
+    stop("Column names must indicate which is the experimental test")
   }
 
- if (sum(grepl(pattern='ref',names(dat),ignore.case=TRUE))==0) {
-    stop('Column names must indicate which belong to the reference test(s)')
+  if (sum(grepl(pattern="ref",names(dat),ignore.case=TRUE))==0) {
+    stop("Column names must indicate which belong to the reference test(s)")
   }
 
 
   #rename the last column in the data frame to counts
-  names(dat)[ncol(dat)]<-'count'
+  names(dat)[ncol(dat)]<-"count"
 
 
   #get the number of states for each test, experimental and all reference tests
   finding.n.states<-unlist(lapply(lapply(dat,levels),length))
-  y1<-grepl(pattern='exp',names(finding.n.states),ignore.case=TRUE)
-  y2<-grepl(pattern='ref',names(finding.n.states),ignore.case=TRUE)
+  y1<-grepl(pattern="exp",names(finding.n.states),ignore.case=TRUE)
+  y2<-grepl(pattern="ref",names(finding.n.states),ignore.case=TRUE)
   n.states<-finding.n.states[as.logical(y1+y2)]
 
- if (!any(grepl(pattern='pop',colnames(dat),ignore.case=TRUE))) {
+  if (!any(grepl(pattern="pop",colnames(dat),ignore.case=TRUE))) {
     N<-c(A=sum(dat[,ncol(dat)]))
   } else {
     #make sure the number of unique populations is the same in the dataset and in the prev.pop vector
-   if (length(levels(as.factor(dat$population)))==length(prev.pop)) {
+    if (length(levels(as.factor(dat$population)))==length(prev.pop)) {
       prev.pop<-prev.pop[order(names(prev.pop))]
       dat$population<-factor(dat$population,levels=names(prev.pop))
     } else {
-      stop('The number of populations specified in the data does not match the number of populations in the prev.pop vector')
+      stop("The number of populations specified in the data does not match the number of populations in the prev.pop vector")
     }
 
 
@@ -275,7 +275,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   dat<-setorder(dat) #this will order the data according the factors in the columns  #if there are multiple populations, that should be the first column  #the counts should be the last column
 
- if (n.states[1]==3) cat('Optimization is more time consuming for a 3-state experimental test, be patient!',fill=TRUE)
+  if (n.states[1]==3) cat("Optimization is more time consuming for a 3-state experimental test, be patient!",fill=TRUE)
   final.values <- get.values(dat = dat[,ncol(dat)],
                              SnR.vec = Sn.sims, SpR.vec = Sp.sims,
                              prev.vec = prev.sims, N.vec=N, nstates = n.states,
@@ -283,29 +283,29 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   if (n.states[1] == 2) {
     detailOut <- list(final.values[[1]], final.values[[2]],
-      final.values[[3]], final.values[[4]])
-    names(detailOut) <- c('Exp.Sn', 'Exp.Sp', 'Converge', 'Message')
+                      final.values[[3]], final.values[[4]])
+    names(detailOut) <- c("Exp.Sn", "Exp.Sp", "Converge", "Message")
 
     calcVal <- list(Nsim = nsim,
-      Confidence = (1 - control$alpha),
-      SnPE = median(final.values[[1]]),
-      SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
-      SpPE = median(final.values[[2]]),
-      SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
-   } else if (n.states[1] == 3) {
+                    Confidence = (1 - control$alpha),
+                    SnPE = median(final.values[[1]]),
+                    SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
+                    SpPE = median(final.values[[2]]),
+                    SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
+  } else if (n.states[1] == 3) {
     detailOut <- list(final.values[[1]], final.values[[2]],
-      (1 - final.values[[1]]) * final.values[[2]],
-      final.values[[3]], final.values[[4]],
-      (1 - final.values[[3]]) * final.values[[4]],
-      final.values[[5]], final.values[[6]])
-    names(detailOut) <- c('Exp.Sn','Exp.pos.p','Exp.sus.pos','Exp.Sp','Exp.neg.p','Exp.sus.neg','Convergence','Message')
+                      (1 - final.values[[1]]) * final.values[[2]],
+                      final.values[[3]], final.values[[4]],
+                      (1 - final.values[[3]]) * final.values[[4]],
+                      final.values[[5]], final.values[[6]])
+    names(detailOut) <- c("Exp.Sn","Exp.pos.p","Exp.sus.pos","Exp.Sp","Exp.neg.p","Exp.sus.neg","Convergence","Message")
     calcVal <- list(Nsim=nsim,Confidence=(1 - control$alpha),SnPE=median(final.values[[1]]),SnInterval=emp.hpd(final.values[[1]],alpha=control$alpha),
                     SpPE=median(final.values[[3]]),SpInterval=emp.hpd(final.values[[3]],alpha=control$alpha),
                     SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]),SusDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]],alpha=control$alpha),
                     SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]),SusDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]],alpha=control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)
-  names(input) <- c('seed', 'Sn.sims', 'Sp.sims', 'prev.sims')
+  names(input) <- c("seed", "Sn.sims", "Sp.sims", "prev.sims")
   out <- snsp$new(calcVal = calcVal,
                   detailOut = detailOut,
                   input = input)
@@ -314,4 +314,4 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 }
 
 # to keep R CMD happy
-utils::globalVariables(c('population', 'count'))
+utils::globalVariables(c("population", "count"))
