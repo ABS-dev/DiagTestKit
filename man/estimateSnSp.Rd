@@ -68,9 +68,7 @@ An object of type \code{snsp} that extends \code{list}. \cr \cr
 \description{
 A function written by CVB Statistics to estimate the sensitivity
  and specificity of an experimental diagnostic test kit in accordance with
- \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/
- veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
-  STATWI0002}.
+ \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB STATWI0002}.
 }
 \section{\code{calcVal}}{
 

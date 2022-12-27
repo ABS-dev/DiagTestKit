@@ -31,9 +31,7 @@ An object of type \code{cp} that extends \code{list}. \cr \cr
 Evaluate binomial confidence interval using Clopper-Pearson
   method. A function written by CVB Statistics to estimate the sensitivity
   and specificity of an experimental diagnostic test kit in accordance with
-  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/
-  veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
-   STATWI0002}.
+  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVBSTATWI0002}.
 }
 \note{
 A matrix with a single row.  If est.Sn = T the columns correspond to

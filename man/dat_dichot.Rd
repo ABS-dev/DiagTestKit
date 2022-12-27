@@ -34,8 +34,6 @@ dat_dichot
 \description{
 Results from testing by diagnostic test kits with a dichotomous response for
 assay validation. See CVB Data Guide Appendix 1.8.
-\href{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/
-DiagnosticKitDichotomous.zip}{DiagnosticKitDichotomous.zip/
-Diagnostic Kit Dichotomous SenSpec Example/dichotomoussenspec_deviceinfo.csv}
+\href{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/DiagnosticKitDichotomous.zip}{DiagnosticKitDichotomous.zip/Diagnostic Kit Dichotomous SenSpec Example/dichotomoussenspec_deviceinfo.csv}
 }
 \keyword{datasets}
