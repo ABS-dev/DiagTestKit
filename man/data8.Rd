@@ -6,21 +6,31 @@
 \title{Data set for Example 8 in vignette "DiagTestKit Examples"}
 \format{
 A data frame with 72 rows and six variables:
-\describe{
+
+  \describe{
+
   \item{Population}{population identifier (A, B, C).}
-  \item{exp_result}{result of experimental test (positive, negative, suspect).}
+
+  \item{exp_result}{result of experimental test (positive, negative,
+  suspect).}
+
   \item{ref1_result}{result of first reference test (positive, negative).}
+
   \item{ref2_result}{result of second reference test (positive, negative).}
+
   \item{ref3_result}{result of third reference test (positive, negative).}
+
   \item{count}{number of samples with the unique testing combination for the
+
   specific population.}
-}
+
+  }
 }
 \usage{
 data8
 }
 \description{
 Samples randomly selected from 3 populations tested by three 2–state
- reference tests and a 3–state experimental test.
+reference tests and a 3–state experimental test.
 }
 \keyword{datasets}

@@ -65,7 +65,8 @@
 #' @format A data frame with 11 rows and four variables:
 #' \describe{
 #'   \item{Population}{population identifier (A, B).}
-#'   \item{exp_result}{result of experimental test (positive, negative, suspect).}
+#'   \item{exp_result}{result of experimental test (positive, negative,
+#'   suspect).}
 #'   \item{ref_result}{result of reference test (positive, negative).}
 #'   \item{count}{number of samples with the unique testing combination for the
 #'   specific population.}
@@ -90,34 +91,54 @@
 #' Data set for Example 7 in vignette "DiagTestKit Examples"
 #'
 #' Samples randomly selected from 2 populations tested with two 3–state
-#'  reference test and a 2–state experimental test.
+#' reference test and a 2–state experimental test.
 #'
 #' @format A data frame with 39 rows and five variables:
-#' \describe{
+#'
+#'   \describe{
+#'
 #'   \item{Population}{population identifier (A, B).}
+#'
 #'   \item{exp_result}{result of experimental test (positive, negative).}
-#'   \item{ref1_result}{result of first reference test (positive, negative, suspect).}
-#'   \item{ref2_result}{result of second reference test (positive, negative, suspect).}
+#'
+#'   \item{ref1_result}{result of first reference test (positive, negative,
+#'   suspect).}
+#'
+#'   \item{ref2_result}{result of second reference test (positive, negative,
+#'   suspect).}
+#'
 #'   \item{count}{number of samples with the unique testing combination for the
+#'
 #'   specific population.}
-#' }
+#'
+#'   }
 "data7"
 
 #' Data set for Example 8 in vignette "DiagTestKit Examples"
 #'
 #' Samples randomly selected from 3 populations tested by three 2–state
-#'  reference tests and a 3–state experimental test.
+#' reference tests and a 3–state experimental test.
 #'
 #' @format A data frame with 72 rows and six variables:
-#' \describe{
+#'
+#'   \describe{
+#'
 #'   \item{Population}{population identifier (A, B, C).}
-#'   \item{exp_result}{result of experimental test (positive, negative, suspect).}
+#'
+#'   \item{exp_result}{result of experimental test (positive, negative,
+#'   suspect).}
+#'
 #'   \item{ref1_result}{result of first reference test (positive, negative).}
+#'
 #'   \item{ref2_result}{result of second reference test (positive, negative).}
+#'
 #'   \item{ref3_result}{result of third reference test (positive, negative).}
+#'
 #'   \item{count}{number of samples with the unique testing combination for the
+#'
 #'   specific population.}
-#' }
+#'
+#'   }
 "data8"
 
 
@@ -126,7 +147,9 @@
 #'
 #' Results from testing by diagnostic test kits with a dichotomous response for
 #' assay validation. See CVB Data Guide Appendix 1.8.
-#' \href{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/DiagnosticKitDichotomous.zip}{DiagnosticKitDichotomous.zip/Diagnostic Kit Dichotomous SenSpec Example/dichotomoussenspec_deviceinfo.csv}
+#' \href{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/
+#' DiagnosticKitDichotomous.zip}{DiagnosticKitDichotomous.zip/
+#' Diagnostic Kit Dichotomous SenSpec Example/dichotomoussenspec_deviceinfo.csv}
 #'
 #' @format A data frame with 202 rows and 14 variables:
 #' \describe{
@@ -145,7 +168,8 @@
 #'   \item{ref_result}{Test interpretation of the reference.}
 #'   \item{prod_code}{Veterinary Services Product Code}
 #' }
-#' @source \url{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/DiagnosticKitDichotomous.zip}
+#' @source \url{https://www.aphis.usda.gov/animal_health/vet_biologics/
+#' publications/DiagnosticKitDichotomous.zip}
 "dat_dichot"
 
 #' Counts data used in vignette "DiagTestKit GettingStarted" section 4
@@ -155,9 +179,16 @@
 #' used to determine the true disease status of each sample.
 #'
 #' @format A data frame with 4 rows and 3 variables:
-#' \describe{
-#'   \item{Experimental}{Result of the experimental test (positive or negative).}
+#'
+#'   \describe{
+#'
+#'   \item{Experimental}{Result of the experimental test (positive or
+#'   negative).}
+#'
 #'   \item{Reference}{Result of the reference test (positive or negative).}
-#'   \item{Count}{Number of samples observed with the unique testing combination.}
-#' }
+#'
+#'   \item{Count}{Number of samples observed with the unique testing
+#'   combination.}
+#'
+#'   }
 "dat_infal"

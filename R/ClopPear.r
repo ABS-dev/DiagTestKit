@@ -2,7 +2,8 @@
 #' @description Evaluate binomial confidence interval using Clopper-Pearson
 #'   method. A function written by CVB Statistics to estimate the sensitivity
 #'   and specificity of an experimental diagnostic test kit in accordance with
-#'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
+#'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/
+#'   veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
 #'    STATWI0002}.
 #' @param dat \code{data.frame}  A data frame with a column for the experimental
 #'   test results, a column for the infallible reference test results, and a
@@ -92,14 +93,16 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   # show.warnings=F suppresses unnecessary warnings from ifelse
   #-------------------------------------------------------
 
-  dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)], as.factor)
+  dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)],
+                                           as.factor)
 
   if (sum(grepl(pattern = "exp", names(dat), ignore.case = TRUE)) == 0) {
     stop("Column names must indicate which is the experimental test")
   }
 
   if (sum(grepl(pattern = "ref", names(dat), ignore.case = TRUE)) == 0) {
-    stop("Column names must indicate which belong to the infallible reference test")
+    stop("Column names must indicate which belong",
+         " to the infallible reference test")
   }
 
   #rename the last column in the data frame to counts
@@ -112,11 +115,13 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
 
 
   if (est.Sn) {
-    y <- dat$count[dat$exp == "positive" & grepl(pattern = "pos", dat$ref, ignore.case = TRUE)]
+    y <- dat$count[dat$exp == "positive" & grepl(pattern = "pos", dat$ref,
+                                                 ignore.case = TRUE)]
     n <- sum(dat$count[grepl(pattern = "pos", dat$ref, ignore.case = TRUE)])
   }
   if (!est.Sn) {
-    y <- dat$count[dat$exp == "negative" & grepl(pattern = "neg", dat$ref, ignore.case = TRUE)]
+    y <- dat$count[dat$exp == "negative" & grepl(pattern = "neg", dat$ref,
+                                                 ignore.case = TRUE)]
     n <- sum(dat$count[grepl(pattern = "neg", dat$ref, ignore.case = TRUE)])
 
   }

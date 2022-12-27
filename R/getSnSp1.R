@@ -1,8 +1,9 @@
 #'@title Estimate Sensitivity and Specificity
 #'@description A function written by CVB Statistics to estimate the sensitivity
 #'  and specificity of an experimental diagnostic test kit in accordance with
-#'  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
-#'  STATWI0002}.
+#'  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/
+#'  veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
+#'   STATWI0002}.
 #'@param dat \code{data.frame}  This is a data frame where the first column
 #'  includes information for the population sampled (if more than one population
 #'  is sampled).  The next column is the possible outcomes of the experimental
@@ -57,49 +58,79 @@
 #'@section \code{calcVal}:
 #'
 #'  A list with the following values which will include the following for both
-#'  2- and 3-state experimental tests -- \cr \itemize{ \item{\strong{Nsim}}
-#'  Number of simulations performed. \item{\strong{Confidence}}   1 -
-#'  \eqn{\alpha}. \item{\strong{SnPE}}  Sensitivity point estimate obtained as
-#'  the median of the estimated values. \item{\strong{SnInterval}} Estimated
-#'  simulated interval for sensitivity. \item{\strong{SpPE}} Specificity point
-#'  estimate obtained as the median of the estimated values.
+#'  2- and 3-state experimental tests -- \cr
+#'
+#'  \itemize{
+#'
+#'  \item{\strong{Nsim}} Number of simulations performed.
+#'  \item{\strong{Confidence}}   1 - \eqn{\alpha}.
+#'
+#'  \item{\strong{SnPE}}  Sensitivity point estimate obtained as the median of
+#'  the estimated values.
+#'
+#'  \item{\strong{SnInterval}} Estimated simulated interval for sensitivity.
+#'
+#'  \item{\strong{SpPE}} Specificity point estimate obtained as the median of
+#'  the estimated values.
+#'
 #'  \item{\strong{SpInterval}} Estimated simulated interval for specificity. }
 #'
-#'  If three states, the list will also include -- \cr \itemize{
+#'  If three states, the list will also include -- \cr
+#'
+#'  \itemize{
+#'
 #'  \item{\strong{SusDisPosPE}} Point estimate for the probability of test
 #'  suspect given disease positive (\eqn{\psi}) which is the median of the
 #'  calculated values (\eqn{\psi} = \eqn{\delta}*(1-\eqn{\pi})).
+#'
 #'  \item{\strong{SusDisPosInterval}} Estimated simulated interval for the
 #'  probability of test suspect given disease positive (\eqn{\psi}).
+#'
 #'  \item{\strong{SusDisNegPE}} Point estimate for the probability of test
-#'  suspect given disease negative (\eqn{\phi}) which is the median of the
+#'  uspect given disease negative (\eqn{\phi}) which is the median of the
 #'  calculated values (\eqn{\phi} = \eqn{\gamma}*(1-\eqn{\theta})).
+#'
 #'  \item{\strong{SusDisNegInterval}} Estimated simulated interval for the
 #'  probability of test suspect given disease negative (\eqn{\phi}). }
 #'
 #'@section \code{detailOut}:
 #'
 #'  A list with the following detailed output values which will include the
-#'  following for both 2- and 3-state experimental tests -- \cr \itemize{
+#'  following for both 2- and 3-state experimental tests -- \cr
+#'
+#'  \itemize{
+#'
+#'
 #'  \item{\strong{Exp.Sn}}  \code{vector} The optimized values for the
 #'  sensitivity of the experimental test kit. \item{\strong{Exp.Sp}}
 #'  \code{vector} The optimized values for the specificity of the experimental
-#'  test kit. \item{\strong{Converge}}  \code{vector} Each entry is an integer
-#'  code detailing the convergence of the optimization for each iteration.  0
+#'  test kit.
+#'
+#'  \item{\strong{Converge}}  \code{vector} Each entry is an integer code
+#'  detailing the convergence of the optimization for each iteration.  0
 #'  indicates successful completion. See also \code{\link{optim}}.
+#'
+#'
 #'  \item{\strong{Message}}  \code{vector}  Each entry includes a character
 #'  string providing any additional information returned by the optimizer or
 #'  NULL.  See also \code{\link{optim}}. }
 #'
-#'  If three states, the list will also inlcude -- \cr \itemize{
+#'  If three states, the list will also inlcude -- \cr
+#'
+#'  \itemize{
+#'
 #'  \item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the
 #'  proportion of the remaining probability (1-Sn) that corresponds to a suspect
 #'  region for diseased samples, namely \eqn{\delta}.
+#'
 #'  \item{\strong{Exp.sus.pos}}  \code{vector} The values for P(T? | D+)
 #'  (\eqn{\psi}) calculated from Exp.sn and Exp.pos.p. P(T?|D+) = \eqn{\delta} *
-#'  (1 - \eqn{\pi}). \item{\strong{Exp.neg.p}} \code{vector} The optimized value
-#'  for the proportion of the remaining probability (1-Sp) that corresponds to a
-#'  suspect region for non-diseased samples, namely \eqn{\gamma}.
+#'  (1 - \eqn{\pi}).
+#'
+#'  \item{\strong{Exp.neg.p}} \code{vector} The optimized value for the
+#'  proportion of the remaining probability (1-Sp) that corresponds to a suspect
+#'  region for non-diseased samples, namely \eqn{\gamma}.
+#'
 #'  \item{\strong{Exp.sus.neg}} \code{vector} The values for P(T? | D-)
 #'  (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p. P(T?|D-) = \eqn{\gamma} *
 #'  (1 - \eqn{\theta}). }
@@ -107,21 +138,26 @@
 #'@section \code{input}: A list containing the seed used and the simulated
 #'  values.
 #'
-#'  \itemize{ \item{\strong{seed}}  The seed used in the random generation of
-#'  the distributions of sensitivity and specificity for all reference tests and
+#'  \itemize{
+#'
+#'  \item{\strong{seed}}  The seed used in the random generation of the
+#'  distributions of sensitivity and specificity for all reference tests and
 #'  prevalence of each population.  See also \code{\link{set.seed}}
+#'
 #'  \item{\strong{Sn.sims}}  \code{matrix} The simulated values for the
 #'  sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
 #'  specified in the second row of Sn.ref (or zero if Sn.ref was a vector).  The
 #'  first two columns correspond to the first reference test, columns 3 and 4 to
-#'  the second reference test if it exists, etc. \item{\strong{Sp.sims}}
-#'  \code{matrix} The simulated values for the specificity of each reference
-#'  test and \eqn{\phi} where \eqn{\phi} was specified in the second row of
-#'  Sp.ref (or zero is Sp.ref was a vector).  The first two columns correspond
-#'  to the first reference test, columns 3 and 4 to the second reference test if
-#'  it exists, etc. \item{\strong{prev.sims}}  \code{matrix} The simulated
-#'  values of prevalence for each population.  Each column correspond to one
-#'  population. }
+#'  the second reference test if it exists, etc.
+#'
+#'  \item{\strong{Sp.sims}} \code{matrix} The simulated values for the
+#'  specificity of each reference test and \eqn{\phi} where \eqn{\phi} was
+#'  specified in the second row of Sp.ref (or zero is Sp.ref was a vector).  The
+#'  first two columns correspond to the first reference test, columns 3 and 4 to
+#'  the second reference test if it exists, etc.
+#'
+#'  \item{\strong{prev.sims}}  \code{matrix} The simulated values of prevalence
+#'  for each population.  Each column correspond to one population. }
 #'@author Monica Reising \email{monica.m.reising@@aphis.usda.gov} with
 #'  modifications by CVB Statistics
 #'@author \link{DiagTestKit-package}
@@ -131,9 +167,11 @@
 #' data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
 #'                      ref1_result = rep(c('positive', 'negative'), 2),
 #'                      count = c(82, 11, 5, 22))
-#' example.1 <- estimateSnSp(dat = data.1, Sn.ref = data.frame(ref = c(0.90, 0)),
-#'                      Sp.ref = data.frame(ref=c(0.99, 0)), prev.pop=c(A=0.80),
-#'                      control = estimateSnSpControl(seed = 64725))
+#' example.1 <- estimateSnSp(dat = data.1,
+#'                           Sn.ref = data.frame(ref = c(0.90, 0)),
+#'                           Sp.ref = data.frame(ref=c(0.99, 0)),
+#'                                               prev.pop=c(A=0.80),
+#'                           control = estimateSnSpControl(seed = 64725))
 #' example.1
 #'
 #' # 1000  simulations
@@ -146,15 +184,19 @@
 #'
 #' \dontrun{
 #' data.2 <- data.frame(Population = rep(LETTERS[1:3], each = 24),
-#'                      exp_result = rep(rep(c('negative', 'positive', 'suspect'), each = 8), 3),
-#'                      ref1_result = rep(rep(c('negative', 'positive'), each = 4), 9),
-#'                      ref2_result = rep(rep(c('negative', 'positive'), each = 2), 18),
+#'                      exp_result = rep(rep(c('negative',
+#'                                             'positive',
+#'                                             'suspect'), each = 8), 3),
+#'                      ref1_result = rep(rep(c('negative',
+#'                                              'positive'), each = 4), 9),
+#'                      ref2_result = rep(rep(c('negative',
+#'                                              'positive'), each = 2), 18),
 #'                      ref3_result = rep(c('negative', 'positive'), 36),
-#'                      count = c(3, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 5, 1, 8, 11, 62,
-#'                                0, 0, 0, 0, 0, 0, 0, 2, 27, 2, 3, 0, 4, 0, 1, 1, 0,
-#'                                0, 1, 4, 1, 6, 7, 41, 0, 0, 0, 0, 0, 0, 0, 2, 57, 5,
-#'                                6, 1, 9, 1, 1, 0, 0, 0, 0, 1, 0, 2, 2, 12, 1, 0, 0,
-#'                                0, 0, 0, 0, 0))
+#'                      count = c(3, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 5, 1, 8, 11,
+#'                                62, 0, 0, 0, 0, 0, 0, 0, 2, 27, 2, 3, 0, 4, 0,
+#'                                1, 0, 0, 1, 4, 1, 6, 7, 41, 0, 0, 0, 0, 0,
+#'                                0, 2, 57, 5, 6, 1, 9, 1, 1, 0, 0, 0, 0, 1,
+#'                                0, 2, 12, 1, 0, 0, 0, 0, 0, 0, 0))
 #' example.2 <- estimateSnSp(dat = data.2,
 #'   Sn.ref = data.frame(ref1 = c(0.92, 0),
 #'                       ref2 = c(0.88, 0),
@@ -175,27 +217,34 @@
 #' }
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                          control = NULL) {
-  #convert any character variables in dat to factors as this will be needed later
-  dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)], as.factor)
+  #convert any character variables in dat to factors as this will be needed
+  #later
+  dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)],
+                                           as.factor)
   if (is.null(control)) {
     control <- estimateSnSpControl()
   }
 
-  #Sn.ref and Sp.ref are data.frames with the means of sensitivity and specificity for all reference tests, one column per test
-  #two rows, the second row being a value between 0 and 1 representing the proportion of the remaining probability (i.e. 1-Sn or 1-Sp) that is "suspect"
-  #so the P(suspect|disease +) = p * (1-Sn) where p is the the 2nd row for a given column (reference test)
-  #Use a zero for a 2-state test (i.e. no suspect region)
+  #Sn.ref and Sp.ref are data.frames with the means of sensitivity and
+  #specificity for all reference tests, one column per test two rows, the second
+  #row being a value between 0 and 1 representing the proportion of the
+  #remaining probability (i.e. 1-Sn or 1-Sp) that is "suspect" so the
+  #P(suspect|disease +) = p * (1-Sn) where p is the the 2nd row for a given
+  #column (reference test) Use a zero for a 2-state test (i.e. no suspect
+  #region)
 
   #these will be used to obtain the distribution to sample
   #coerce all the names in the data frame to lower case
   names(dat) <- tolower(names(dat))
 
   if (is.vector(Sn.ref)) {
-    Sn.ref <- data.frame(rbind(Sn.ref, rep(0, length(Sn.ref))), row.names = NULL)
+    Sn.ref <- data.frame(rbind(Sn.ref, rep(0, length(Sn.ref))),
+                         row.names = NULL)
   }
 
   if (is.vector(Sp.ref)) {
-    Sp.ref <- data.frame(rbind(Sp.ref, rep(0, length(Sp.ref))), row.names = NULL)
+    Sp.ref <- data.frame(rbind(Sp.ref, rep(0, length(Sp.ref))),
+                         row.names = NULL)
   }
 
   if (is.null(names(Sn.ref)) || is.null(names(Sp.ref))) {
@@ -210,21 +259,25 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   }
 
 
-  # check that if distn is not null that the length is equal to the number of columns of Sn.ref
+  # check that if distn is not null that the length is equal to the number of
+  # columns of Sn.ref
   if (!is.null(control$Sn.distn) &&
       !is.null(control$Sn.spread) &&
       length(control$Sn.distn) != length(control$Sn.spread)) {
-    stop("Sn.distn & Sn.spread must be the same length. Check values passed to control.")
+    stop("Sn.distn & Sn.spread must be the same length.",
+         " Check values passed to control.")
   }
 
   if (!is.null(control$Sp.distn) &&
       !is.null(control$Sp.spread) &&
       length(control$Sp.distn) != length(control$Sp.spread)) {
-    stop("Sp.distn & Sp.spread must be the same length. Check values passed to control.")
+    stop("Sp.distn & Sp.spread must be the same length.",
+         " Check values passed to control.")
   }
 
   if (names(dat)[1] != "population") {
-    warning("The data suggests a single population was tested", immediate. = TRUE)
+    warning("The data suggests a single population was tested",
+            immediate. = TRUE)
   }
 
   if (sum(grepl(pattern = "exp", names(dat), ignore.case = TRUE)) == 0) {
@@ -235,10 +288,10 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     stop("Column names must indicate which belong to the reference test(s)")
   }
 
-  #rename the last column in the data frame to counts
+  # rename the last column in the data frame to counts
   names(dat)[ncol(dat)] <- "count"
 
-  #get the number of states for each test, experimental and all reference tests
+  # get the number of states for each test, experimental and all reference tests
   finding.n.states <- unlist(lapply(lapply(dat, levels), length))
   y1 <- grepl(pattern = "exp", names(finding.n.states), ignore.case = TRUE)
   y2 <- grepl(pattern = "ref", names(finding.n.states), ignore.case = TRUE)
@@ -247,7 +300,8 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   if (!any(grepl(pattern = "pop", colnames(dat), ignore.case = TRUE))) {
     N <- c(A = sum(dat[, ncol(dat)]))
   } else {
-    #make sure the number of unique populations is the same in the dataset and in the prev.pop vector
+    # make sure the number of unique populations is the same in the dataset and
+    # in the prev.pop vector
     if (length(levels(as.factor(dat$population))) == length(prev.pop)) {
       prev.pop <- prev.pop[order(names(prev.pop))]
       dat$population <- factor(dat$population, levels = names(prev.pop))
@@ -284,7 +338,10 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                                   step.size = control$step.size,
                                   prevalence = FALSE)
 
-  dat <- setorder(dat) #this will order the data according the factors in the columns  #if there are multiple populations, that should be the first column  #the counts should be the last column
+  # this will order the data according the factors in the columns  #if there are
+  # multiple populations, that should be the first column  #the counts should be
+  # the last column
+  dat <- setorder(dat)
 
   if (n.states[1] == 3) {
     cat("Optimization is more time consuming for a 3-state experimental test,",
@@ -310,9 +367,11 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     calcVal <- list(Nsim = nsim,
                     Confidence = (1 - control$alpha),
                     SnPE = median(final.values[[1]]),
-                    SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
+                    SnInterval = emp.hpd(final.values[[1]],
+                                         alpha = control$alpha),
                     SpPE = median(final.values[[2]]),
-                    SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
+                    SpInterval = emp.hpd(final.values[[2]],
+                                         alpha = control$alpha))
   } else if (n.states[1] == 3) {
     detailOut <- list(final.values[[1]], final.values[[2]],
                       (1 - final.values[[1]]) * final.values[[2]],
@@ -329,12 +388,16 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                     SpPE = median(final.values[[3]]),
                     SpInterval = emp.hpd(final.values[[3]],
                                          alpha = control$alpha),
-                    SusDisPosPE = median((1 - final.values[[1]]) * final.values[[2]]),
-                    SusDisPosInterval = emp.hpd((1 - final.values[[1]]) * final.values[[2]],
-                                                alpha = control$alpha),
-                    SusDisNegPE = median((1 - final.values[[3]]) * final.values[[4]]),
-                    SusDisNegInterval = emp.hpd((1 - final.values[[3]]) * final.values[[4]],
-                                                alpha = control$alpha))
+                    SusDisPosPE = median(
+                      (1 - final.values[[1]]) * final.values[[2]]),
+                    SusDisPosInterval = emp.hpd(
+                      (1 - final.values[[1]]) * final.values[[2]],
+                      alpha = control$alpha),
+                    SusDisNegPE = median(
+                      (1 - final.values[[3]]) * final.values[[4]]),
+                    SusDisNegInterval = emp.hpd(
+                      (1 - final.values[[3]]) * final.values[[4]],
+                      alpha = control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)
   names(input) <- c("seed", "Sn.sims", "Sp.sims", "prev.sims")

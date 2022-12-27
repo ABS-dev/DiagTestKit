@@ -14,7 +14,8 @@ test_that("values", {
   expect_equal(ex2$calcVal$Confidence, expected = 0.95)
   expect_equal(ex2$calcVal$SnPE, expected = 0.8614248, tolerance = 0.000001)
   expect_equal(ex2$calcVal$SnInterval,
-               expected = round(c("1.2%" = 0.8171083, "96.2%" = 0.9162939), digits = 7),
+               expected = round(c("1.2%" = 0.8171083, "96.2%" = 0.9162939),
+                                digits = 7),
                tolerance = 0.000001)
   expect_equal(ex2$calcVal$SpPE, expected = 0.9818038, tolerance = 0.000001)
   expect_equal(ex2$calcVal$SpInterval,

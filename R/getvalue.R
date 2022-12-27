@@ -62,10 +62,12 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                        tolerance, rep.iter, iter.n, parm = NULL) {
   #Put in the error checking...
 
-  #dat should be a vector of counts ordered in a manner consistent that was output from the cellS function
-  #i tried to put this in an order that would be consistent with a ddply statment that had .variables = .(Exp,Ref1,Ref2, etc.)
+  #dat should be a vector of counts ordered in a manner consistent that was
+  #output from the cellS function i tried to put this in an order that would be
+  #consistent with a ddply statment that had .variables = .(Exp,Ref1,Ref2, etc.)
 
-  #I need to create the named vectors required for the cellS function (used within minCell)
+  #I need to create the named vectors required for the cellS function (used
+  #within minCell)
 
   ndraws <- nrow(SnR.vec)
   ntests <- ncol(SnR.vec) / 2

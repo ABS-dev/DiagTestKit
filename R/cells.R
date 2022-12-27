@@ -63,14 +63,21 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
   tndn <- matrix(unlist(Sp[1, ]), ncells, ntests, byrow = TRUE)
   tsdn <- matrix(unlist(Sp[2, ]), ncells, ntests, byrow = TRUE)
   tpdn <- matrix(1 - apply(Sp, 2, sum), ncells, ntests, byrow = TRUE)
-  cellP <- as.matrix(apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*% matrix(Prev, nrow = 1) + apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*% matrix((1 - Prev), nrow = 1))
+  cellP <- as.matrix(apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp),
+                           1, prod) %*%
+                       matrix(Prev, nrow = 1) + apply((Xpos * tpdn) +
+                                                        (Xneg * tndn) +
+                                                        (Xsus * tsdn),
+                                                      1, prod) %*%
+                       matrix((1 - Prev), nrow = 1))
   colnames(cellP) < -paste("P", names(N), sep = "_")
   ## identify the column ids for 2-state tests
   twostatecols <- which(nstates == 2)
 
-  ## look for the rows in the 2-state tests which have "suspect" case
-  ## we use the data.frame to be able to handle case where length(twostatecols) == 1
-  suspect2staterows <- which(data.frame(X[, twostatecols]) == "suspect", arr.ind = TRUE)[, "row"]
+  ## look for the rows in the 2-state tests which have "suspect" case we use the
+  ## data.frame to be able to handle case where length(twostatecols) == 1
+  suspect2staterows <- which(data.frame(X[, twostatecols]) == "suspect",
+                             arr.ind = TRUE)[, "row"]
 
   ## remove the rows which have a "suspect" value for the 2-state tests
 
@@ -78,7 +85,9 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
   cellP.short <- as.matrix(cellP[-suspect2staterows, ])
   #print(cellP.short)
   colnames(cellP.short) <- paste("P", names(N), sep = "_")
-  cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])), ncol = length(N), byrow = FALSE) * cellP
+  cellN <- matrix(rep(N, each = ifelse(is.vector(cellP),
+                                       1, dim(cellP)[1])),
+                  ncol = length(N), byrow = FALSE) * cellP
   colnames(cellN) <- paste("N", names(N), sep = "_")
   cellN.short <- as.matrix(cellN[-suspect2staterows, ])
   #print(cellN.short)

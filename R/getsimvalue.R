@@ -57,7 +57,8 @@ get.simulated.values <- function(means, distn, spread,
         s2 <- ifelse(spread[i] == "wide", 0.002,
                      ifelse(spread[i] == "medium", 0.004,
                             ifelse(spread[i] == "narrow", 0.0001,
-                                   stop("Spread must be wide, medium, or narrow"))))
+                                   stop("Spread must be wide,",
+                                        " medium, or narrow"))))
         alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = s2))
         current.draws <- rbeta(nsim,
                                shape1 = alpha.beta[1],
@@ -108,7 +109,8 @@ get.simulated.values <- function(means, distn, spread,
       s2 <- ifelse(spread[i] == "wide", 0.002,
                    ifelse(spread[i] == "medium", 0.004,
                           ifelse(spread[i] == "narrow", 0.0001,
-                                 stop("Spread must be wide, medium, or narrow"))))
+                                 stop("Spread must be wide, medium,",
+                                      " or narrow"))))
       alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = s2))
       current.draws <- rbeta(nsim,
                              shape1 = alpha.beta[1],
