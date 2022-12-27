@@ -1,9 +1,7 @@
 #'@title Estimate Sensitivity and Specificity
 #'@description A function written by CVB Statistics to estimate the sensitivity
 #'  and specificity of an experimental diagnostic test kit in accordance with
-#'  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/
-#'  veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
-#'   STATWI0002}.
+#'  \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB STATWI0002}.
 #'@param dat \code{data.frame}  This is a data frame where the first column
 #'  includes information for the population sampled (if more than one population
 #'  is sampled).  The next column is the possible outcomes of the experimental
