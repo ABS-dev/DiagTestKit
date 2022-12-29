@@ -12,7 +12,9 @@ Authors@R: c(
   person ("David", "Siev", , , "aut", comment = "until 2019"))
 Depends:
     R (>= 3.5)
-Imports: data.table, plyr, methods
+Imports: data.table, 
+    plyr, 
+    methods
 VignetteBuilder: knitr
 Suggests:
     knitr,

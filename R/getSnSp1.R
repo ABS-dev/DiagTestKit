@@ -213,6 +213,10 @@
 #' # SsP = P(T?|D+)     0.02568427 0.0000000 0.06339616
 #' # SsN = P(T?|D-)     0.01534125 0.0000000 0.05604950
 #' }
+#' @importFrom data.table setorder
+#' @importFrom plyr summarize ddply "."
+#' @importFrom stats median
+#' @importFrom methods new
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                          control = NULL) {
   #convert any character variables in dat to factors as this will be needed

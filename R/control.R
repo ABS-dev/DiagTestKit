@@ -57,6 +57,7 @@
 #' @examples
 #' estimateSnSpControl()
 #' estimateSnSpControl(seed = 64725)
+#' @importFrom stats runif
 estimateSnSpControl <- function(seed = NULL,
                                 Sn.distn = NULL,
                                 Sn.spread = NULL,

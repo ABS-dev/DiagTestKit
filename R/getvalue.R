@@ -58,6 +58,7 @@
 #'   as a fraction of the non-correct test result for non-diseased samples. }
 #' @author \link{DiagTestKit-package}
 #' @author Monica Reising \email{monica.m.reising@@usda.gov}
+#' @importFrom stats optim
 get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                        tolerance, rep.iter, iter.n, parm = NULL) {
   #Put in the error checking...

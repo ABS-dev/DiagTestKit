@@ -83,6 +83,8 @@
 #' CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = FALSE)
 #' CP.Sp
 #' # Sp = P(T-|D-): 0.970297 (95% CI: 0.915643, 0.915643)
+#' @importFrom stats optim qbeta
+#' @importFrom methods new
 cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   #-------------------------------------------------------
   # Clopper-Pearson exact binomial confidence interval by

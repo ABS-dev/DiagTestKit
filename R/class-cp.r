@@ -1,5 +1,6 @@
 #' @title cp-class
 #' @export
+#' @importFrom methods setRefClass
 cp <- setRefClass("cp",
                   fields = list(calcVal = "list",
                                 data = "list",

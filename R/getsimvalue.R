@@ -31,6 +31,7 @@
 #'   in the same pattern for all reference tests.
 #' @author Monica Reising \email{monica.m.reising@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
+#' @importFrom stats rbeta
 get.simulated.values <- function(means, distn, spread,
                                  nsim, step.size, prevalence) {
   final.mat <- NULL

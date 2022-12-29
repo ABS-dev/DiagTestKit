@@ -5,8 +5,10 @@
 #' @param alpha 1 - confidence
 #' @return highest posterior density (1-alpha) interval
 #' @note Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
+#' @importFrom stats quantile
 #' @export
 #' @author \link{DiagTestKit-package}
+#' @importFrom stats quantile
 emp.hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X <- sort(X)

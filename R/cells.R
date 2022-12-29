@@ -40,11 +40,12 @@
 #'   are obtained based on a conditional independence assumption of all test
 #'   methods.
 #' @author \link{DiagTestKit-package}
+#' @importFrom data.table setorder
 cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
   suspect.pos <- sus.perc[1] * (1 - SnE)
   suspect.neg <- sus.perc[2] * (1 - SpE)
-  SnR[2, ] < -SnR[2, ] * (1 - SnR[1, ])
-  SpR[2, ] < -SpR[2, ] * (1 - SpR[1, ])
+  SnR[2, ] <- SnR[2, ] * (1 - SnR[1, ])
+  SpR[2, ] <- SpR[2, ] * (1 - SpR[1, ])
   Sn <- data.frame(Exp = c(SnE, suspect.pos), SnR)
   Sp <- data.frame(Exp = c(SpE, suspect.neg), SpR)
   row.names(Sn) <- NULL
@@ -70,7 +71,7 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
                                                         (Xsus * tsdn),
                                                       1, prod) %*%
                        matrix((1 - Prev), nrow = 1))
-  colnames(cellP) < -paste("P", names(N), sep = "_")
+  colnames(cellP) <- paste("P", names(N), sep = "_")
   ## identify the column ids for 2-state tests
   twostatecols <- which(nstates == 2)
 

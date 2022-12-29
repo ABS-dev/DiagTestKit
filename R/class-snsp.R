@@ -1,5 +1,6 @@
 #' @title snsp-class
 #' @export
+#' @importFrom methods setRefClass
 snsp <- setRefClass(
   "snsp",
   fields = list(calcVal = "list",

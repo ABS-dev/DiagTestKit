@@ -26,6 +26,8 @@
 #' #                    Point.Estimate     Lower     Upper
 #' # Sn = P(T+|D+)      0.9449821          0.9053901 0.9791017
 #' # Sp = P(T-|D-)      0.9062769          0.8336064 1.0000000
+#' @importFrom stats median
+#' @importFrom methods new
 updateAlpha <- function(x, newAlpha) {
   NEWdetailOut <- x$detailOut
   NEWinput <- x$input
