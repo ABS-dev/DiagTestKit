@@ -84,19 +84,19 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates) {
 
 
   cellP.short <- as.matrix(cellP[-suspect2staterows, ])
-  #print(cellP.short)
+  # This code is not used print(cellP.short)
   colnames(cellP.short) <- paste("P", names(N), sep = "_")
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP),
                                        1, dim(cellP)[1])),
                   ncol = length(N), byrow = FALSE) * cellP
   colnames(cellN) <- paste("N", names(N), sep = "_")
   cellN.short <- as.matrix(cellN[-suspect2staterows, ])
-  #print(cellN.short)
+  # This code is not used print(cellN.short)
   colnames(cellN.short) <- paste("N", names(N), sep = "_")
 
   X.short <- cbind(X[-suspect2staterows, ], cellP.short, cellN.short)
   setorder(X.short)
-  rownames(X.short) <- 1:nrow(X.short)
+  rownames(X.short) <- seq_len(nrow(X.short))
   xcols <- ncol(X.short)
   count.vec <- c(as.matrix(X.short[, (xcols - (length(N) - 1)):xcols]))
   return(count.vec)

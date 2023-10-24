@@ -50,10 +50,10 @@ The data input for the `estimateSnSp` function requires creating a data frame th
 ```{r B, echo=TRUE, eval=T}
 #Blood Samples
 blood <- ddply(.data = subset(dat, specimen == "wholeblood"),
-                  .variables = .(visual_read, ref_result),
-                  .drop = FALSE,
-                  .fun = summarize,
-                  Count = length(deviceID))
+               .variables = .(visual_read, ref_result),
+               .drop = FALSE,
+               .fun = summarize,
+               Count = length(deviceID))
 ```
 
 
@@ -72,7 +72,7 @@ Alternatively, the data frame including the counts from all possible testing com
 
 ```{r D, echo=T, eval=T}
 blood2 <- data.frame(table(Exp = dat$visual_read[dat$specimen == "wholeblood"],
-                          Ref1 = dat$ref_result[dat$specimen == "wholeblood"]))
+                           Ref1 = dat$ref_result[dat$specimen == "wholeblood"]))
 ```
 
 # Fallible Reference Test(s)
@@ -109,10 +109,10 @@ As this example has a single 2--state reference test, a named vector can be used
 
 ```{r G, echo=TRUE, eval=T}
 blood2_SnSp <- estimateSnSp(dat = blood2,
-                           Sn.ref = c(Ref1 = 0.95),
-                           Sp.ref = c(Ref1 = 0.98),
-                           prev.pop = c(A = 0.70),
-                           control = estimateSnSpControl(iter.n = 250))
+                            Sn.ref = c(Ref1 = 0.95),
+                            Sp.ref = c(Ref1 = 0.98),
+                            prev.pop = c(A = 0.70),
+                            control = estimateSnSpControl(iter.n = 250))
 blood2_SnSp
 ```
 
@@ -132,11 +132,11 @@ The output can be forced to be the same by controlling the seed.  This will be i
 ```{r I, echo=T, eval=T}
 blood2_a_SnSp <-
   estimateSnSp(dat = blood2,
-      Sn.ref = c(Ref1 = 0.95),
-      Sp.ref = c(Ref1 = 0.98),
-      prev.pop = c(A = 0.70),
-      control = estimateSnSpControl(seed = blood_SnSp$input$seed,
-                                      rep.iter = FALSE))
+               Sn.ref = c(Ref1 = 0.95),
+               Sp.ref = c(Ref1 = 0.98),
+               prev.pop = c(A = 0.70),
+               control = estimateSnSpControl(seed = blood_SnSp$input$seed,
+                                             rep.iter = FALSE))
 blood2_a_SnSp
 ```
 
@@ -162,7 +162,6 @@ Sn.fig <- ggplot() +
           geom_histogram(aes(blood_SnSp$detailOut$Exp.Sn), binwidth = 0.005) +
           labs(x = "Experimental Test Sensitivity Estimates", y = "Count")
 Sn.fig
-
 ```
 \pagebreak
 
@@ -195,8 +194,8 @@ distribution for the specificity of the reference is displayed as a histogram.
 
 ```{r N, echo=F, eval=T}
 Sp.ref <- ggplot() +
-          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
-          labs(x = "Simulated Specificity for Reference", y = "Count")
+  geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
+  labs(x = "Simulated Specificity for Reference", y = "Count")
 Sp.ref
 ```
 

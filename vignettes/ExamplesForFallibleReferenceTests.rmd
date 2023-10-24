@@ -37,10 +37,11 @@ In this example, samples randomly selected from a single population are tested b
 
 ```{r A, echo = T, eval = T}
 ex1 <- estimateSnSp(dat = data1,
-          Sn.ref = data.frame(ref = c(0.90, 0)),
-          Sp.ref = data.frame(ref = c(0.99, 0)),
-          prev.pop = c(A = 0.80),
-          control = estimateSnSpControl(seed = 64725, rep.iter = FALSE))
+                    Sn.ref = data.frame(ref = c(0.90, 0)),
+                    Sp.ref = data.frame(ref = c(0.99, 0)),
+                    prev.pop = c(A = 0.80),
+                    control = estimateSnSpControl(seed = 64725,
+                                                  rep.iter = FALSE))
 unique(ex1$detailOut$Converge)
 unique(ex1$detailOut$Message)
 ex1
@@ -64,14 +65,14 @@ In this example, samples randomly selected from 3 populations are tested by one 
 
 ```{r C, echo = T, eval = T}
 ex2 <- estimateSnSp(dat = data2,
-         Sn.ref = c(ref_result = 0.90),
-         Sp.ref = c(ref_result = 0.94),
-         prev.pop = c(A = 0.92, B = 0.20, C = 0.50),
-         control = estimateSnSpControl(seed = 4902342, rep.iter = FALSE))
+                    Sn.ref = c(ref_result = 0.90),
+                    Sp.ref = c(ref_result = 0.94),
+                    prev.pop = c(A = 0.92, B = 0.20, C = 0.50),
+                    control = estimateSnSpControl(seed = 4902342,
+                                                  rep.iter = FALSE))
 unique(ex2$detailOut$Converge)
 unique(ex2$detailOut$Message)
 ex2
-
 ```
 
 
@@ -82,15 +83,15 @@ Samples randomly selected from a single population are tested by one 3--state fa
 
 ```{r D, echo = T, eval = T}
 ex3 <- estimateSnSp(dat = data3,
-        Sn.ref = data.frame(ref = c(0.99, 0.75)),
-        Sp.ref = data.frame(ref = c(0.85, 0.67)),
-        prev.pop = c(A = 0.92),
-        control = estimateSnSpControl(seed = 896421, rep.iter = FALSE))
+                    Sn.ref = data.frame(ref = c(0.99, 0.75)),
+                    Sp.ref = data.frame(ref = c(0.85, 0.67)),
+                    prev.pop = c(A = 0.92),
+                    control = estimateSnSpControl(seed = 896421,
+                                                  rep.iter = FALSE))
 
 unique(ex3$detailOut$Converge)
 unique(ex3$detailOut$Message)
 ex3
-
 ```
 
 
@@ -101,10 +102,11 @@ In this example, samples randomly selected from three populations are tested by 
 
 ```{r E, echo = T, eval = T}
 ex4 <- estimateSnSp(dat = data4,
-        Sn.ref = data.frame(ref = c(0.95, 0.55)),
-        Sp.ref = data.frame(ref = c(0.93, 0.48)),
-        prev.pop = c(A = 0.97, B = 0.25, C = 0.68),
-        control = estimateSnSpControl(seed = 6589732, rep.iter = FALSE))
+                    Sn.ref = data.frame(ref = c(0.95, 0.55)),
+                    Sp.ref = data.frame(ref = c(0.93, 0.48)),
+                    prev.pop = c(A = 0.97, B = 0.25, C = 0.68),
+                    control = estimateSnSpControl(seed = 6589732,
+                                                  rep.iter = FALSE))
 
 unique(ex4$detailOut$Converge)
 unique(ex4$detailOut$Message)
@@ -121,15 +123,15 @@ The probabilities associated with a suspect test result for the experimental tes
 
 ```{r F, echo = T, eval = T}
 ex5 <- estimateSnSp(dat = data5,
-         Sn.ref = c(Ref1 = 0.90),
-         Sp.ref = c(Ref1 = 0.99),
-         prev.pop = c(A = 0.80, B = 0.90),
-         control = estimateSnSpControl(seed = 1249856, rep.iter = FALSE))
+                    Sn.ref = c(Ref1 = 0.90),
+                    Sp.ref = c(Ref1 = 0.99),
+                    prev.pop = c(A = 0.80, B = 0.90),
+                    control = estimateSnSpControl(seed = 1249856,
+                                                  rep.iter = FALSE))
 
 unique(ex5$detailOut$Converge)
 unique(ex5$detailOut$Message)
 ex5
-
 ```
 
 # Example 6 --- Two, 2--state reference tests, One population, 2--state experimental
@@ -140,15 +142,15 @@ $S_1$ = 2, $S_2$ = 2, $S_3$ = 2 and $K$ = 8.  There are 8 unique sets of testing
 
 ```{r G, echo = T, eval = T}
 ex6 <- estimateSnSp(dat = data6,
-          Sn.ref = c(Ref1_result = 0.95, ref2 = 0.91),
-          Sp.ref = c(Ref1_result = 0.85, ref2 = 0.98),
-          prev.pop = c(A = 0.82),
-          control = estimateSnSpControl(seed = 2948217, rep.iter = FALSE))
+                    Sn.ref = c(Ref1_result = 0.95, ref2 = 0.91),
+                    Sp.ref = c(Ref1_result = 0.85, ref2 = 0.98),
+                    prev.pop = c(A = 0.82),
+                    control = estimateSnSpControl(seed = 2948217,
+                                                  rep.iter = FALSE))
 
 unique(ex6$detailOut$Converge)
 unique(ex6$detailOut$Message)
 ex6
-
 ```
 
 # Example 7 --- Two, 3--state reference tests, Two populations, 2--state experimental
@@ -159,15 +161,17 @@ $S_1$ = 2, $S_2$ = 3, $S_3$ = 3 and $K$ = 18.  There are 18 unique sets of testi
 
 ```{r H, echo = T, eval = T}
 ex7 <- estimateSnSp(dat = data7,
-          Sn.ref = data.frame(ref1 = c(0.88, 0.75), ref2 = c(0.90, 0.55)),
-          Sp.ref = data.frame(ref1 = c(0.97, 0.6), ref2 = c(0.95, 0.5)),
-          prev.pop = c(A = 0.87, B = 0.35),
-          control = estimateSnSpControl(seed = 1937457, rep.iter = FALSE))
+                    Sn.ref = data.frame(ref1 = c(0.88, 0.75),
+                                        ref2 = c(0.90, 0.55)),
+                    Sp.ref = data.frame(ref1 = c(0.97, 0.6),
+                                        ref2 = c(0.95, 0.5)),
+                    prev.pop = c(A = 0.87, B = 0.35),
+                    control = estimateSnSpControl(seed = 1937457,
+                                                  rep.iter = FALSE))
 
 unique(ex7$detailOut$Converge)
 unique(ex7$detailOut$Message)
 ex7
-
 ```
 
 # Example 8 --- Three, 2--state reference tests, Three populations, 3--state experimental
@@ -177,12 +181,16 @@ $S_1$ = 3, $S_2$ = 2, $S_3$ = 2, $S_4$ = 2 and $K$ = 24.  There are 24 unique se
 
 
 ```{r I, echo = T, eval = T}
-
 ex8 <- estimateSnSp(dat = data8,
-         Sn.ref = c(ref1_result = 0.92, ref2_result = 0.88, ref3_result = 0.85),
-         Sp.ref = c(ref1_result = 0.86, ref2_result = 0.90, ref3_result = 0.92),
-         prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
-         control = estimateSnSpControl(seed = 865213, rep.iter = FALSE))
+                    Sn.ref = c(ref1_result = 0.92,
+                               ref2_result = 0.88,
+                               ref3_result = 0.85),
+                    Sp.ref = c(ref1_result = 0.86,
+                               ref2_result = 0.90,
+                               ref3_result = 0.92),
+                    prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
+                    control = estimateSnSpControl(seed = 865213,
+                                                  rep.iter = FALSE))
 
 unique(ex8$detailOut$Converge)
 unique(ex8$detailOut$Message)

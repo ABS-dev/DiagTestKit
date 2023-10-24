@@ -33,13 +33,13 @@ updateAlpha <- function(x, newAlpha) {
   NEWinput <- x$input
 
   ## figure out if 2 states or 3
- if (length(x$calcVal) == 6) {
+  if (length(x$calcVal) == 6) {
     nstates <- 2
   } else {
     nstates <- 3
   }
 
- if (nstates == 2) {
+  if (nstates == 2) {
     NEWcalcVal <- list(Nsim = x$calcVal$Nsim,
                        Confidence = (1 - newAlpha),
                        SnPE = median(NEWdetailOut$Exp.Sn),

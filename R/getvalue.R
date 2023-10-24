@@ -76,7 +76,7 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
   if (is.vector(prev.vec)) {
     pop.names <- "A"
   } else {
-    pop.names <- LETTERS[1:ncol(prev.vec)]
+    pop.names <- LETTERS[seq_len(ncol(prev.vec))]
   }
 
   if (is.null(parm)) {
@@ -169,5 +169,5 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                 converge,
                 message))
   }
-  #return(list(SnR.current,SpR.current, prev.current))
+  # This code is not used return(list(SnR.current,SpR.current, prev.current))
 }

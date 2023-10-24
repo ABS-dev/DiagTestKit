@@ -25,7 +25,7 @@ SampDist <- function(m, w, h,
                      suspect = 2 / 3,
                      stepwidth = 0.005,
                      sumOne = TRUE) {
-  halfwidth <- sum(w)
+  # This code is not used: halfwidth <- sum(w)
   H <- cumsum(w)
   X <- m + c(-rev(H), H)
   x <- seq(min(X), max(X), stepwidth)
@@ -54,8 +54,8 @@ SampDist <- function(m, w, h,
   out <- data.frame(x, y, p)
   # truncate
   out <- out[out$x >= 0 & out$x <= 1, ]
- if (sumOne) out$p <- out$p / sum(out$p)
- if (threestate) {
+  if (sumOne) out$p <- out$p / sum(out$p)
+  if (threestate) {
     out$xsus <- suspect * (1 - out$x)
     out <- out[c(1, 4, 2, 3)]
   }

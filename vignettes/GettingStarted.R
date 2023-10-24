@@ -95,4 +95,3 @@ infal_Sn
 infal_Sp <- cloppearSnSp(dat = infallible,
                          est.Sn = FALSE)
 infal_Sp
-

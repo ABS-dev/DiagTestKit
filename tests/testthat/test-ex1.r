@@ -39,16 +39,16 @@ test_that("initial values", {
 
 test_that("update values", {
   ### values that haven't changed with update
-  # calcVal
+  # check calcVal
   expect_equal(ex1_update$calcVal$Nsim, expected = ex1$calcVal$Nsim)
   expect_equal(ex1_update$calcVal$SnPE, expected = ex1$calcVal$SnPE)
   expect_equal(ex1_update$calcVal$SpPE, expected = ex1$calcVal$SpPE)
-  # detailOut & input
+  # check detailOut and input
   expect_equal(ex1_update$detailOut, expected = ex1$detailOut)
   expect_equal(ex1_update$input, expected = ex1$input)
 
   ### values that have changed
-  # calcVal
+  # check calcVal
   expect_equal(ex1_update$calcVal$Confidence, expected = 0.99)
   expect_equal(ex1_update$calcVal$SnInterval,
                expected = round(c("1%" = 0.8848417, "100%" = 1), digits = 7),

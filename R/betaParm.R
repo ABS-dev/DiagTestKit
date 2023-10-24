@@ -25,12 +25,12 @@ betaParm <- function(B, to = "alpha.beta") {
   # description of theta
 
   # sometimes the beta is parameterized in terms of the mean (mu) and the
-  # "sample size" (theta = alpha + beta (not a true sample size but minics that
+  # "sample size" (theta = alpha + beta (not a true sample size but mimics that
   # "role"))
   #
   # theta = alpha + beta which can also be expressed as ((mu (1-mu))/sigma2) - 1
 
-  # phi = 1/(theta + 1)
+  # and we cam set phi = 1/(theta + 1)
 
   # so alpha can be expressed as mu(((mu(1-mu))/sigma2)-1) or as mu*theta
   # so beta can be expressed as (1-mu)theta

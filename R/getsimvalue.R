@@ -40,7 +40,7 @@ get.simulated.values <- function(means, distn, spread,
 
   if (is.null(distn) && is.null(spread)) {
     #the default distribution is going to be a "wide" beta
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = 0.002))
       current.draws <- rbeta(nsim,
                              shape1 = alpha.beta[1],
@@ -53,7 +53,7 @@ get.simulated.values <- function(means, distn, spread,
       }
     }
   } else if (!is.null(distn) && !is.null(spread)) {
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       if (distn[i] == "beta") {
         s2 <- ifelse(spread[i] == "wide", 0.002,
                      ifelse(spread[i] == "medium", 0.004,
@@ -106,7 +106,7 @@ get.simulated.values <- function(means, distn, spread,
 
     }
   } else if (is.null(distn) && !is.null(spread)) {
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       s2 <- ifelse(spread[i] == "wide", 0.002,
                    ifelse(spread[i] == "medium", 0.004,
                           ifelse(spread[i] == "narrow", 0.0001,
@@ -125,7 +125,7 @@ get.simulated.values <- function(means, distn, spread,
     }
   } else if (!is.null(distn) && is.null(spread)) {
     #this will defalut to wide
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       if (distn[i] == "beta") {
         alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = 0.002))
         current.draws <- rbeta(nsim,
