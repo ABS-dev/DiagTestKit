@@ -53,6 +53,10 @@ dt <- as.data.table(v3$prev.vec)
 ggplot(dt, aes(V1)) +
   geom_density()
 
+ggplot(data=rbind(data.frame(value = v3$prev.vec[,1], fit="v3"),
+                  data.frame(value = v4$prev.vec[,1], fit="v4")), aes(value, color=fit)) +
+  geom_density()
+
 # rep.iter logical
 length(v3$rep.iter)
 length(v4$rep.iter)
@@ -61,19 +65,30 @@ v3$rep.iter == v4$rep.iter
 # SnR.vec matrix
 dim(v3$SnR.vec)
 dim(v4$SnR.vec)
-all(v3$SnR.vec == v4$SnR.vec)
+all(v3$SnR.vec[,1] == v4$SnR.vec[,1])
 dt <- as.data.table(v3$SnR.vec)
 ggplot(dt, aes(V1)) +
   geom_density()
 
+ggplot(data=rbind(data.frame(value = v3$SnR.vec[,1], fit="v3"),
+      data.frame(value = v4$SnR.vec[,1], fit="v4")), aes(value, color=fit)) +
+  geom_density()
+
+
+
+
 # SpR.vec matrix
 dim(v4$SpR.vec)
 dim(v3$SpR.vec)
-all(v3$SpR.vec == v4$SpR.vec)
+all(v3$SpR.vec[,1] == v4$SpR.vec[,1])
 dt <- as.data.table(v3$SpR.vec)
 ggplot(dt, aes(V1)) +
   geom_density()
 ggplot(dt, aes(V2)) +
+  geom_density()
+
+ggplot(data=rbind(data.frame(value = v3$SpR.vec[,1], fit="v3"),
+                  data.frame(value = v4$SpR.vec[,1], fit="v4")), aes(value, color=fit)) +
   geom_density()
 
 # tolerance numeric
@@ -173,4 +188,7 @@ length(v3$ex1$calcVal$SpInterval)
 all(v3$ex1$calcVal$SpInterval == v4$ex1$calcVal$SpInterval)
 v3$ex1$calcVal$SpInterval
 v4$ex1$calcVal$SpInterval
+
+
+
 
