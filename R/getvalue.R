@@ -35,6 +35,11 @@
 #' @author \link{DiagTestKit-package}
 # @author Monica Reising \email{monica.m.reising@@usda.gov}
 get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.iter,iter.n,parm=NULL){
+
+
+  params <- as.list(environment())
+  list2env(params, .GlobalEnv)
+
   #Put in the error checking...
 
   #dat should be a vector of counts ordered in a manner consistent that was output from the cellS function
@@ -85,7 +90,18 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
     names(prev.current)<-pop.names
 
-    current.fit<-optim(parm,minCell,SnR=SnR.current,SpR=SpR.current,Prev=prev.current,xdat=dat,N=N.vec,nstates=nstates,method='L-BFGS-B',lower=0,upper=1,control=list(pgtol=tolerance))
+    current.fit<-optim(parm,
+                       minCell,
+                       SnR=SnR.current,
+                       SpR=SpR.current,
+                       Prev=prev.current,
+                       xdat=dat,
+                       N=N.vec,
+                       nstates=nstates,
+                       method='L-BFGS-B',
+                       lower=0,
+                       upper=1,
+                       control=list(pgtol=tolerance))
 
     current.ests<-current.fit$par
     current.con<-current.fit$convergence

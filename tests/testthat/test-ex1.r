@@ -7,11 +7,11 @@ test_that("initial values", {
 
   ex1 <- suppressWarnings(
     estimateSnSp(dat = data1,
-                      Sn.ref = data.frame(ref = c(0.90, 0)),
-                      Sp.ref = data.frame(ref = c(0.99, 0)),
-                      prev.pop = c(A = 0.80),
-                      control = estimateSnSpControl(seed = 64725,
-                                                    rep.iter = FALSE))
+                 Sn.ref = data.frame(ref = c(0.90, 0)),
+                 Sp.ref = data.frame(ref = c(0.99, 0)),
+                 prev.pop = c(A = 0.80),
+                 control = estimateSnSpControl(seed = 64725,
+                                               rep.iter = FALSE))
   )
   ex1_update <- updateAlpha(ex1, newAlpha = 0.01)
 
