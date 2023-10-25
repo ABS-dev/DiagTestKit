@@ -10,7 +10,7 @@ ex1 <- suppressWarnings(
 )
 
 lst <- as.list(environment())
-save(lst, file = "version3.6.3.optmr.rdata")
+save(lst, file = "notes/version3.6.3.optmr.rdata")
 lst
 ex1
 

@@ -4,10 +4,11 @@ devtools::load_all()
 lst <- NULL
 v3 <- new.env()
 v4 <- new.env()
+getwd()
 
-load("version3.6.3.rdata")
+load("notes/version3.6.3.rdata")
 list2env(lst, envir = v3)
-load("version4.0.3.rdata")
+load("notes/version4.0.3.rdata")
 list2env(lst, envir = v4)
 
 v3$ex1
@@ -51,8 +52,6 @@ dt <- as.data.table(v3$prev.vec)
 
 ggplot(dt, aes(V1)) +
   geom_density()
-
-v3$prev.vec
 
 # rep.iter logical
 length(v3$rep.iter)
@@ -110,8 +109,8 @@ ggplot(dt, aes(x = value, color = variable)) +
 # ex1$detailOut$Exp.Sp FALSE v3 is random numbers, but v4 is all 1's
 class(v3$ex1$detailOut$Exp.Sp)
 all(v3$ex1$detailOut$Exp.Sp == v4$ex1$detailOut$Exp.Sp)
-v3$ex1$detailOut$Exp.Sp
-v4$ex1$detailOut$Exp.Sp
+# v3$ex1$detailOut$Exp.Sp
+# v4$ex1$detailOut$Exp.Sp
 
 summary(v3$ex1$detailOut$Exp.Sp)
 summary(v4$ex1$detailOut$Exp.Sp)
