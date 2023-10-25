@@ -232,7 +232,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   dat<-setorder(dat) #this will order the data according the factors in the columns  #if there are multiple populations, that should be the first column  #the counts should be the last column
 
-  if(n.states[1]==3) cat('Optimization is more time consuming for a 3-state experimental test, be patient!',fill=TRUE)
+  if(n.states[1] == 3) {} # cat('\nOptimization is more time consuming for a 3-state experimental test, be patient!',fill=TRUE)
   final.values <- get.values(dat = dat[,ncol(dat)],
                              SnR.vec = Sn.sims, SpR.vec = Sp.sims,
                              prev.vec = prev.sims, N.vec=N, nstates = n.states,

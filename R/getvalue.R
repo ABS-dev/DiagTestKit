@@ -69,7 +69,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   message<-NULL
 
   for(i in 1:ndraws){
-    if(i==1) cat('The optimization has begun',fill=TRUE)
+    if (i == 1) {} # cat('\nThe optimization has begun',fill=TRUE)
 
     SnR.current<-data.frame(matrix(SnR.vec[i,],nrow=2,byrow=F,dimnames=list(NULL,test.names)))
     SpR.current<-data.frame(matrix(SpR.vec[i,],nrow=2,byrow=F,dimnames=list(NULL,test.names)))
@@ -90,7 +90,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
     current.ests<-current.fit$par
     current.con<-current.fit$convergence
     message.current<-ifelse(is.null(current.fit$message),'NA',current.fit$message)
-    if(rep.iter) if(i%%iter.n==0) cat('The following is the number of iterations completed: ',i,fill=T)
+    if(rep.iter) if(i%%iter.n==0) cat('\nThe following is the number of iterations completed: ',i,fill=T)
 
     if(length(parm)==2){
       sens.final<-c(sens.final,current.ests[1])
