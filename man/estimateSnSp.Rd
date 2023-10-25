@@ -4,8 +4,7 @@
 \alias{estimateSnSp}
 \title{Estimate Sensitivity and Specificity}
 \usage{
-estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
-  control = NULL)
+estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000, control = NULL)
 }
 \arguments{
 \item{dat}{\code{data.frame}  This is a data frame where the first column includes information for the population sampled

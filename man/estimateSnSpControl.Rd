@@ -4,10 +4,21 @@
 \alias{estimateSnSpControl}
 \title{control values for estimateSnSp}
 \usage{
-estimateSnSpControl(seed = NULL, Sn.distn = NULL, Sn.spread = NULL,
-  Sp.distn = NULL, Sp.spread = NULL, prev.distn = NULL,
-  prev.spread = NULL, tolerance = 0.001, alpha = 0.05,
-  step.size = 1e-06, parm = NULL, rep.iter = TRUE, iter.n = 50)
+estimateSnSpControl(
+  seed = NULL,
+  Sn.distn = NULL,
+  Sn.spread = NULL,
+  Sp.distn = NULL,
+  Sp.spread = NULL,
+  prev.distn = NULL,
+  prev.spread = NULL,
+  tolerance = 0.001,
+  alpha = 0.05,
+  step.size = 1e-06,
+  parm = NULL,
+  rep.iter = TRUE,
+  iter.n = 50
+)
 }
 \arguments{
 \item{seed}{The seed used in the random generation of the distributions of sensitivity and specificity for all reference tests and

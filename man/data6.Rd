@@ -4,13 +4,15 @@
 \name{data6}
 \alias{data6}
 \title{Data set for Example 6 in vignette "DiagTestKit Examples"}
-\format{A data frame with 8 rows and four variables:
+\format{
+A data frame with 8 rows and four variables:
 \describe{
   \item{exp_result}{result of experimental test (positive, negative).}
   \item{ref1_result}{result of first reference test (positive, negative).}
   \item{ref2_result}{result of second reference test (positive, negative).}
   \item{count}{number of samples with the unique testing combination.}
-}}
+}
+}
 \usage{
 data6
 }
