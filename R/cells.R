@@ -47,8 +47,6 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates){
   SpR[2,] <- SpR[2,] * (1 - SpR[1,])
   Sn <- data.frame(Exp = c(SnE, suspect.pos), SnR)
   Sp <- data.frame(Exp = c(SpE, suspect.neg), SpR)
-  row.names(Sn) <- NULL
-  row.names(Sp) <- NULL
   ntests <- ncol(Sn)
   tests <- data.frame(matrix(c('positive','suspect','negative'),
                              3,
@@ -71,7 +69,6 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates){
       matrix(Prev, nrow = 1) +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*%
       matrix((1 - Prev), nrow = 1))
-  colnames(cellP) <- paste('P', names(N), sep='_')
   ## identify the column ids for 2-state tests
   twostatecols <- which(nstates == 2)
 
@@ -84,19 +81,15 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates){
 
 
   cellP.short <- as.matrix(cellP[-suspect2staterows, ])
-  #print(cellP.short)
-  colnames(cellP.short) <- paste('P', names(N), sep = '_')
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),
                   ncol = length(N),
                   byrow = FALSE) * cellP
-  colnames(cellN) <- paste('N', names(N),sep='_')
   cellN.short <- as.matrix(cellN[-suspect2staterows,])
-  #print(cellN.short)
-  colnames(cellN.short) <- paste('N',names(N), sep = '_')
 
   X.short <- cbind(X[-suspect2staterows,], cellP.short, cellN.short)
   setorder(X.short)
-  rownames(X.short) <- 1:nrow(X.short)
+
+
   xcols <- ncol(X.short)
   count.vec <- c(as.matrix(X.short[, (xcols - (length(N) - 1)):xcols]))
   return(count.vec)

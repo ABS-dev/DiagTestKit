@@ -12,8 +12,15 @@ ex1 <- suppressWarnings(
 print(proc.time()[3] - t0)
 ex1
 
+# 1000  simulations
+# 95 % Interval Estimates
+#
+#               Point.Estimate     Lower Upper
+# Sn = P(T+|D+)      0.9449821 0.9019639     1
+# Sp = P(T-|D-)      0.9062769 0.7523346     1
 
-
+117, 111, 128 w/o names
+85, 106, 124, w/ names
 
 lst <- as.list(environment())
 save(lst, file = "notes/version4.1.3.optmr.rdata")
@@ -24,3 +31,4 @@ ex1
 S
 
 estimateSnSpControl(64725, rep.iter = FALSE)
+
