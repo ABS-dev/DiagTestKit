@@ -40,7 +40,7 @@
 #'   are obtained based on a conditional independence assumption of all test
 #'   methods.
 #' @author \link{DiagTestKit-package}
-cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, X, Xpos, Xsus, Xneg) {
+cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2staterows, X, Xpos, Xsus, Xneg) {
   suspect.pos <- sus.perc[1] * (1 - SnE)
   suspect.neg <- sus.perc[2] * (1 - SpE)
   SnR[2,] <- SnR[2,] * (1 - SnR[1,])
@@ -62,16 +62,6 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, X, Xpos, Xsus,
       matrix(Prev, nrow = 1) +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*%
       matrix((1 - Prev), nrow = 1))
-  ## identify the column ids for 2-state tests
-  twostatecols <- which(nstates == 2)
-
-  ## look for the rows in the 2-state tests which have "suspect" case we use the
-  ## data.frame to be able to handle case where length(twostatecols) == 1
-  suspect2staterows <- which(data.frame(X[, twostatecols]) == "suspect",
-                             arr.ind = TRUE)[,"row"]
-
-  ## remove the rows which have a "suspect" value for the 2-state tests
-
 
   cellP.short <- as.matrix(cellP[-suspect2staterows, ])
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),

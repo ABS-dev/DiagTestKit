@@ -89,6 +89,14 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   Xneg <- as.matrix(1 * (X == 'negative'))
   # X <- Xpos <- Xsus <- Xneg <- NULL
 
+  ## identify the column ids for 2-state tests
+  twostatecols <- which(nstates == 2)
+  ## look for the rows in the 2-state tests which have "suspect" case we use the
+  ## data.frame to be able to handle case where length(twostatecols) == 1
+  suspect2staterows <-
+    sort(unique(which(X[, twostatecols, drop = FALSE] == "suspect",
+          arr.ind = TRUE)[, "row"]))
+
   for(i in 1:ndraws){
     if (i == 1) {} # cat('\nThe optimization has begun',fill=TRUE)
 
@@ -100,7 +108,6 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
     if(is.null(dim(prev.vec))){
       prev.current<-as.vector(prev.vec[i])
-
     } else{
       prev.current<-prev.vec[i,]
     }
@@ -115,6 +122,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
                        xdat=dat,
                        N=N.vec,
                        nstates=nstates,
+                       suspect2staterows=suspect2staterows,
                        X    = X,
                        Xpos = Xpos,
                        Xsus = Xsus,
