@@ -19,12 +19,11 @@ ex1
 # Sn = P(T+|D+)      0.9449821 0.9019639     1
 # Sp = P(T-|D-)      0.9062769 0.7523346     1
 
-117, 111, 128 w/o names
-85, 106, 124, w/ names
+# 117, 111, 128 w/o names
+# 85, 106, 124, w/ names
 
 lst <- as.list(environment())
 save(lst, file = "notes/version4.1.3.optmr.rdata")
-
 lst
 ex1
 
