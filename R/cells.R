@@ -60,13 +60,11 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2stater
     apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*% Prev +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*% (1 - Prev)
 
-  cellP.short <- cellP[-suspect2staterows, , drop = FALSE]
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),
                   ncol = length(N),
                   byrow = FALSE) * cellP
-  cellN.short <- cellN[-suspect2staterows, , drop = FALSE]
 
-  X.short <- cbind(X[-suspect2staterows,], cellP.short, cellN.short)
+  X.short <- cbind(X, cellP, cellN)[-suspect2staterows, ]
   setorder(X.short)
 
 
