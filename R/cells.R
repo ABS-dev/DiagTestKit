@@ -57,10 +57,8 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2stater
   tsdn <- matrix(Sp[2,],                  ncells, ntests, byrow = TRUE)
   tpdn <- matrix(1 - apply(Sp, 2, sum),   ncells, ntests, byrow = TRUE)
   cellP <-
-    apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*%
-      matrix(Prev, nrow = 1) +
-      apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*%
-      matrix((1 - Prev), nrow = 1)
+    apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*% Prev +
+      apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*% (1 - Prev)
 
   cellP.short <- cellP[-suspect2staterows, , drop = FALSE]
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),

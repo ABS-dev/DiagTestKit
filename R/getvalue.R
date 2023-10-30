@@ -111,6 +111,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
     } else{
       prev.current<-prev.vec[i,]
     }
+    prev.current <- matrix(prev.current, nrow = 1)
 
     names(prev.current)<-pop.names
 
