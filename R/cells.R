@@ -50,15 +50,15 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2stater
 
   tpdp <- matrix(Sn[1, ],                 ncells, ntests, byrow = TRUE)
   tsdp <- matrix(Sn[2, ],                 ncells, ntests, byrow = TRUE)
-  tndp <- matrix(1 - apply(Sn, 2, sum),   ncells, ntests, byrow = TRUE)
+  tndp <- 1 - tpdp - tsdp
   tndn <- matrix(Sp[1,],                  ncells, ntests, byrow = TRUE)
   tsdn <- matrix(Sp[2,],                  ncells, ntests, byrow = TRUE)
-  tpdn <- matrix(1 - apply(Sp, 2, sum),   ncells, ntests, byrow = TRUE)
+  tpdn <- 1 - tndn - tsdn
   cellP <-
     apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*% Prev +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*% (1 - Prev)
 
-  cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, nrow(cellP))),
+  cellN <- matrix(rep(N, each = nrow(cellP)),
                   ncol = length(N),
                   byrow = FALSE) * cellP
 

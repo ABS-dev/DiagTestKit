@@ -7,7 +7,7 @@ ex1 <- suppressWarnings(
                Sp.ref = data.frame(ref = c(0.99, 0)),
                prev.pop = c(A = 0.80),
                control = estimateSnSpControl(seed = 64725,
-                                             rep.iter = FALSE), nsim = 1000)
+                                             rep.iter = FALSE), nsim = 1)
 )
 print(proc.time()[3] - t0)
 ex1
