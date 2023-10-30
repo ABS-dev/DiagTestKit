@@ -40,15 +40,13 @@
 #'   are obtained based on a conditional independence assumption of all test
 #'   methods.
 #' @author \link{DiagTestKit-package}
-cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2staterows, X, Xpos, Xsus, Xneg) {
+cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests) {
   suspect.pos <- sus.perc[1] * (1 - SnE)
   suspect.neg <- sus.perc[2] * (1 - SpE)
   SnR[2,] <- SnR[2,] * (1 - SnR[1,])
   SpR[2,] <- SpR[2,] * (1 - SpR[1,])
   Sn <- cbind(matrix(c(SnE, suspect.pos), nrow = 2), SnR)
   Sp <- cbind(matrix(c(SpE, suspect.neg), nrow = 2), SpR)
-  ntests <- ncol(Sn)
-  ncells <- nrow(X)
 
   tpdp <- matrix(Sn[1, ],                 ncells, ntests, byrow = TRUE)
   tsdp <- matrix(Sn[2, ],                 ncells, ntests, byrow = TRUE)
@@ -60,7 +58,7 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2stater
     apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*% Prev +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*% (1 - Prev)
 
-  cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),
+  cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, nrow(cellP))),
                   ncol = length(N),
                   byrow = FALSE) * cellP
 

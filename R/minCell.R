@@ -40,7 +40,7 @@
 #' @author David Siev \email{david.siev@@aphis.usda.gov} modified by Monica
 #'   Reising \email{monica.m.reising@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
-minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg){
+minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests){
   if(length(parm)==2){
     SnE <- parm[1]
     SpE <- parm[2]
@@ -50,7 +50,7 @@ minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates,suspect2staterows, X, Xpos,
     SpE <- parm[3]
     sus.perc <- c(parm[2], parm[4])
   }
-  x <- cellS(SnR,SpR,Prev,SnE,SpE,sus.perc,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg)
+  x <- cellS(SnR,SpR,Prev,SnE,SpE,sus.perc,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
   return(sum((x-xdat)^2))
 }
 

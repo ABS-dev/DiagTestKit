@@ -88,6 +88,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   Xsus <- as.matrix(1 * (X == 'suspect'))
   Xneg <- as.matrix(1 * (X == 'negative'))
   # X <- Xpos <- Xsus <- Xneg <- NULL
+  ncells <- nrow(X)
 
   ## identify the column ids for 2-state tests
   twostatecols <- which(nstates == 2)
@@ -128,6 +129,8 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
                        Xpos = Xpos,
                        Xsus = Xsus,
                        Xneg = Xneg,
+                       ncells = ncells,
+                       ntests = ntests,
                        method='L-BFGS-B',
                        lower=0,
                        upper=1,
