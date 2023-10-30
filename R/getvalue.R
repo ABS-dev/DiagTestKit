@@ -73,12 +73,29 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   converge<-NULL
   message<-NULL
 
+  # ndraws appears to be just nsim
+
+  ntests <- ncol(SnR.vec) / 2 + 1
+
+  tests <- data.frame(matrix(c('positive','suspect','negative'),
+                             3,
+                             ntests,
+                             dimnames = list(NULL,
+                                             c("Exp", test.names))))
+  X <- expand.grid(tests)
+  # ncells <- nrow(X)
+  Xpos <- as.matrix(1 * (X == 'positive'))
+  Xsus <- as.matrix(1 * (X == 'suspect'))
+  Xneg <- as.matrix(1 * (X == 'negative'))
+  # X <- Xpos <- Xsus <- Xneg <- NULL
+
   for(i in 1:ndraws){
     if (i == 1) {} # cat('\nThe optimization has begun',fill=TRUE)
 
-    SnR.current<-data.frame(matrix(SnR.vec[i,],nrow=2,byrow=F,dimnames=list(NULL,test.names)))
-    SpR.current<-data.frame(matrix(SpR.vec[i,],nrow=2,byrow=F,dimnames=list(NULL,test.names)))
 
+    SnR.current <- data.frame(matrix(SnR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names)))
+    SpR.current <- data.frame(matrix(SpR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names)))
+    # print(dim(SnR.current))
 
 
     if(is.null(dim(prev.vec))){
@@ -98,6 +115,10 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
                        xdat=dat,
                        N=N.vec,
                        nstates=nstates,
+                       X    = X,
+                       Xpos = Xpos,
+                       Xsus = Xsus,
+                       Xneg = Xneg,
                        method='L-BFGS-B',
                        lower=0,
                        upper=1,
