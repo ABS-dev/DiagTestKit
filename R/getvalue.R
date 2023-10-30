@@ -101,8 +101,8 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
     if (i == 1) {} # cat('\nThe optimization has begun',fill=TRUE)
 
 
-    SnR.current <- data.frame(matrix(SnR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names)))
-    SpR.current <- data.frame(matrix(SpR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names)))
+    SnR.current <- matrix(SnR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names))
+    SpR.current <- matrix(SpR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names))
     # print(dim(SnR.current))
 
 

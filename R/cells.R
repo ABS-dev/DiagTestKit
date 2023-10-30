@@ -45,29 +45,28 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N, nstates, suspect2stater
   suspect.neg <- sus.perc[2] * (1 - SpE)
   SnR[2,] <- SnR[2,] * (1 - SnR[1,])
   SpR[2,] <- SpR[2,] * (1 - SpR[1,])
-  Sn <- data.frame(Exp = c(SnE, suspect.pos), SnR)
-  Sp <- data.frame(Exp = c(SpE, suspect.neg), SpR)
+  Sn <- cbind(matrix(c(SnE, suspect.pos), nrow = 2), SnR)
+  Sp <- cbind(matrix(c(SpE, suspect.neg), nrow = 2), SpR)
   ntests <- ncol(Sn)
-
   ncells <- nrow(X)
 
-  tpdp <- matrix(unlist(Sn[1, ]),         ncells, ntests, byrow = TRUE)
-  tsdp <- matrix(unlist(Sn[2, ]),         ncells, ntests, byrow = TRUE)
+  tpdp <- matrix(Sn[1, ],                 ncells, ntests, byrow = TRUE)
+  tsdp <- matrix(Sn[2, ],                 ncells, ntests, byrow = TRUE)
   tndp <- matrix(1 - apply(Sn, 2, sum),   ncells, ntests, byrow = TRUE)
-  tndn <- matrix(unlist(Sp[1,]),          ncells, ntests, byrow = TRUE)
-  tsdn <- matrix(unlist(Sp[2,]),          ncells, ntests, byrow = TRUE)
+  tndn <- matrix(Sp[1,],                  ncells, ntests, byrow = TRUE)
+  tsdn <- matrix(Sp[2,],                  ncells, ntests, byrow = TRUE)
   tpdn <- matrix(1 - apply(Sp, 2, sum),   ncells, ntests, byrow = TRUE)
-  cellP <- as.matrix(
+  cellP <-
     apply((Xpos * tpdp) + (Xneg * tndp) + (Xsus * tsdp), 1, prod) %*%
       matrix(Prev, nrow = 1) +
       apply((Xpos * tpdn) + (Xneg * tndn) + (Xsus * tsdn), 1, prod) %*%
-      matrix((1 - Prev), nrow = 1))
+      matrix((1 - Prev), nrow = 1)
 
-  cellP.short <- as.matrix(cellP[-suspect2staterows, ])
+  cellP.short <- cellP[-suspect2staterows, , drop = FALSE]
   cellN <- matrix(rep(N, each = ifelse(is.vector(cellP), 1, dim(cellP)[1])),
                   ncol = length(N),
                   byrow = FALSE) * cellP
-  cellN.short <- as.matrix(cellN[-suspect2staterows,])
+  cellN.short <- cellN[-suspect2staterows, , drop = FALSE]
 
   X.short <- cbind(X[-suspect2staterows,], cellP.short, cellN.short)
   setorder(X.short)
