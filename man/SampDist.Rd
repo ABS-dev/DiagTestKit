@@ -36,7 +36,7 @@ sensitivity)*suspect.}
 \item{stepwidth}{distance between the 'x' in the discrete distribution,
 resolution of possible observations of the created distribution.}
 
-\item{sumOne}{whether to expresss 'p' as a proportion of its sum.}
+\item{sumOne}{whether to express 'p' as a proportion of its sum.}
 }
 \value{
 \code{data.frame} of 'x', 'y', and 'p'.

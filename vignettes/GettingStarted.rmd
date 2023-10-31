@@ -89,7 +89,7 @@ Here, the dataset blood is used as the input data (dat).  Both Sn.ref and Sp.ref
 blood_SnSp <- estimateSnSp(dat = blood,
                            Sn.ref = data.frame(Ref1 = c(0.95, 0)),
                            Sp.ref = data.frame(Ref1 = c(0.98, 0)),
-                           prev.pop = (A = 0.70))
+                           prev.pop = c(A = 0.70))
 ```
 
 `## The optimization has begun `  
@@ -111,7 +111,7 @@ As this example has a single 2--state reference test, a named vector can be used
 blood2_SnSp <- estimateSnSp(dat = blood2,
                            Sn.ref = c(Ref1 = 0.95),
                            Sp.ref = c(Ref1 = 0.98),
-                           prev.pop = (A = 0.70),
+                           prev.pop = c(A = 0.70),
                            control = estimateSnSpControl(iter.n = 250))
 blood2_SnSp
 ```

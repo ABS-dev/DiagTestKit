@@ -22,7 +22,6 @@
 #' @author \link{DiagTestKit-package}
 SampDist <- function(m, w, h, threestate = FALSE,
                      suspect = 2 / 3, stepwidth = 0.005, sumOne = TRUE) {
-  halfwidth <- sum(w)
   H <- cumsum(w)
   X <- m + c(-rev(H), H)
   x <- seq(min(X), max(X), stepwidth)

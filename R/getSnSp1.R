@@ -197,7 +197,7 @@
 #' # SsN = P(T?|D-)     0.01534125 0.0000000 0.05604950
 #' }
 estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
-  control = NULL) {
+                         control = NULL) {
   # convert any character variables in dat to factors as this will be needed later
   dat[sapply(dat, is.character)] <- lapply(dat[sapply(dat, is.character)], as.factor)
   if (is.null(control)) {
@@ -224,7 +224,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     Sp.ref <- data.frame(rbind(Sp.ref, rep(0, length(Sp.ref))), row.names = NULL)
   }
 
-  if (is.null(names(Sn.ref)) | is.null(names(Sp.ref))) {
+  if (is.null(names(Sn.ref)) || is.null(names(Sp.ref))) {
     stop("Sn.ref and Sp.ref must be named")
   }
   if (!all(names(Sn.ref) == names(Sp.ref))) {
@@ -237,13 +237,15 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   # check that if distn is not null that the length is equal to the number of
   # columns of Sn.ref
-  if (!is.null(control$Sn.distn) &
-      !is.null(control$Sn.spread) &
+  if (!is.null(control$Sn.distn) &&
+      !is.null(control$Sn.spread) &&
       length(control$Sn.distn) != length(control$Sn.spread)) {
     stop("Sn.distn & Sn.spread must be the same length. Check values passed to control.")
   }
 
-  if (!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop("Sp.distn & Sp.spread must be the same length. Check values passed to control.")
+  if (!is.null(control$Sp.distn) &&
+      !is.null(control$Sp.spread) &&
+      length(control$Sp.distn) != length(control$Sp.spread)) stop("Sp.distn & Sp.spread must be the same length. Check values passed to control.")
 
   if (names(dat)[1]!="population") {
     warning("The data suggests a single population was tested", immediate.=TRUE)
@@ -299,7 +301,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   # the last column
   dat <- setorder(dat)
 
-  if ( n.states[1] == 3)
+  if (n.states[1] == 3)
     cat("\nOptimization is more time consuming for a 3-state experimental test, be patient!", fill = TRUE)
   final.values <- get.values(dat = dat[, ncol(dat)],
                              SnR.vec = Sn.sims, SpR.vec = Sp.sims,
@@ -308,21 +310,21 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   if (n.states[1] == 2) {
     detailOut <- list(final.values[[1]], final.values[[2]],
-      final.values[[3]], final.values[[4]])
+                      final.values[[3]], final.values[[4]])
     names(detailOut) <- c("Exp.Sn", "Exp.Sp", "Converge", "Message")
 
     calcVal <- list(Nsim = nsim,
-      Confidence = (1 - control$alpha),
-      SnPE = median(final.values[[1]]),
-      SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
-      SpPE = median(final.values[[2]]),
-      SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
-   } else if (n.states[1] == 3) {
+                    Confidence = (1 - control$alpha),
+                    SnPE = median(final.values[[1]]),
+                    SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
+                    SpPE = median(final.values[[2]]),
+                    SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
+  } else if (n.states[1] == 3) {
     detailOut <- list(final.values[[1]], final.values[[2]],
-      (1 - final.values[[1]]) * final.values[[2]],
-      final.values[[3]], final.values[[4]],
-      (1 - final.values[[3]]) * final.values[[4]],
-      final.values[[5]], final.values[[6]])
+                      (1 - final.values[[1]]) * final.values[[2]],
+                      final.values[[3]], final.values[[4]],
+                      (1 - final.values[[3]]) * final.values[[4]],
+                      final.values[[5]], final.values[[6]])
     names(detailOut) <- c("Exp.Sn", "Exp.pos.p", "Exp.sus.pos", "Exp.Sp", "Exp.neg.p", "Exp.sus.neg", "Convergence", "Message")
     calcVal <- list(Nsim=nsim, confidence = (1 - control$alpha), snPE=median(final.values[[1]]), snInterval=emp.hpd(final.values[[1]], alpha=control$alpha),
                     SpPE=median(final.values[[3]]), spInterval=emp.hpd(final.values[[3]], alpha=control$alpha),

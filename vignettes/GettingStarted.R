@@ -30,7 +30,7 @@ blood2 <- data.frame(table(Exp = dat$visual_read[dat$specimen == "wholeblood"],
 blood_SnSp <- estimateSnSp(dat = blood,
                            Sn.ref = data.frame(Ref1 = c(0.95, 0)),
                            Sp.ref = data.frame(Ref1 = c(0.98, 0)),
-                           prev.pop = (A = 0.70))
+                           prev.pop = c(A = 0.70))
 
 ## ----echo=T,eval=T------------------------------
 blood_SnSp
@@ -40,7 +40,7 @@ blood_SnSp
 blood2_SnSp <- estimateSnSp(dat = blood2,
                            Sn.ref = c(Ref1 = 0.95),
                            Sp.ref = c(Ref1 = 0.98),
-                           prev.pop = (A = 0.70),
+                           prev.pop = c(A = 0.70),
                            control = estimateSnSpControl(iter.n = 250))
 blood2_SnSp
 

@@ -30,7 +30,7 @@ betaParm <- function(B, to = "alpha.beta") {
   #
   # theta = alpha + beta which can also be expressed as ((mu (1-mu))/sigma2) - 1
   #
-  # phi = 1/(theta + 1)
+  # and phi = 1/(theta + 1)
   #
   # so alpha can be expressed as mu(((mu(1-mu))/sigma2)-1) or as mu*theta
   #

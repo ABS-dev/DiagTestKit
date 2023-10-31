@@ -85,9 +85,9 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
   ntests<-ncol(SnR.vec)/2
   test.names<-paste("Ref", 1:ntests, sep="")
   if (is.vector(prev.vec)) {
-    pop.names<-"A"
+    pop.names <- "A"
   } else {
-    pop.names<-LETTERS[1:ncol(prev.vec)]
+    pop.names <- LETTERS[seq_len(ncol(prev.vec))]
   }
 
   if (is.null(parm)) {
@@ -118,11 +118,9 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
                                              c("Exp", test.names))),
                       stringsAsFactors = TRUE)
   X <- expand.grid(tests)
-  # ncells <- nrow(X)
   Xpos <- as.matrix(1 * (X == "positive"))
   Xsus <- as.matrix(1 * (X == "suspect"))
   Xneg <- as.matrix(1 * (X == "negative"))
-  # X <- Xpos <- Xsus <- Xneg <- NULL
   ncells <- nrow(X)
 
   ## identify the column ids for 2-state tests

@@ -35,16 +35,16 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
 
   if (prevalence==TRUE) means<-matrix(means, nrow=1)
 
-  if (is.null(distn) & is.null(spread)) {
+  if (is.null(distn) && is.null(spread)) {
     # the default distribution is going to be a "wide" beta
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
       current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
       if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i]))
       if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
     }
-  } else if (!is.null(distn) & !is.null(spread)) {
-    for (i in 1:ncol(means)) {
+  } else if (!is.null(distn) && !is.null(spread)) {
+    for (i in seq_len(ncol(means))) {
       if (distn[i]=="beta") {
         s2<-ifelse(spread[i]=="wide", 0.002, ifelse(spread[i]=="medium", 0.004, ifelse(spread[i]=="narrow", 0.0001, stop("Spread must be wide, medium, or narrow"))))
         alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=s2))
@@ -75,8 +75,8 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
         stop("Distribution must be beta or triangular")
       }
     }
-  } else if (is.null(distn) & !is.null(spread)) {
-    for (i in 1:ncol(means)) {
+  } else if (is.null(distn) && !is.null(spread)) {
+    for (i in seq_len(ncol(means))) {
       s2<-ifelse(spread[i]=="wide", 0.002, ifelse(spread[i]=="medium", 0.004, ifelse(spread[i]=="narrow", 0.0001, stop("Spread must be wide, medium, or narrow"))))
       alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=s2))
       current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
@@ -84,9 +84,9 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
       if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
 
     }
-  } else if (!is.null(distn) & is.null(spread)) {
+  } else if (!is.null(distn) && is.null(spread)) {
     # this will default to wide
-    for (i in 1:ncol(means)) {
+    for (i in seq_len(ncol(means))) {
       if (distn[i]=="beta") {
         alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
         current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
