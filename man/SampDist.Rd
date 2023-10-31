@@ -21,7 +21,7 @@ obtaining the distribution, e.g. sensitivity, specificity, or prevalence.}
 \item{w}{\code{vector}  A vector that provides the half widths of the 3
 regions, (w1 closest, w3 farthest).}
 
-\item{h}{\code{vector}  A vector of "y" (pseduo-value until scaled to be a
+\item{h}{\code{vector}  A vector of "y" (pseudo-value until scaled to be a
 probability) corresponding to the height of the shoulder and the height of
 the plateau.}
 
@@ -36,7 +36,7 @@ sensitivity)*suspect.}
 \item{stepwidth}{distance between the 'x' in the discrete distribution,
 resolution of possible observations of the created distribution.}
 
-\item{sumOne}{whether to expresss 'p' as a proportion of its sum.}
+\item{sumOne}{whether to express 'p' as a proportion of its sum.}
 }
 \value{
 \code{data.frame} of 'x', 'y', and 'p'.

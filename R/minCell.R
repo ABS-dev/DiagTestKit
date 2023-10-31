@@ -54,6 +54,7 @@ minCell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
     SpE <- parm[3]
     sus.perc <- c(parm[2], parm[4])
   }
-  x <- cellS(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates, suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
+  x <- cellS(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
+             suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
   return(sum((x - xdat)^2))
 }

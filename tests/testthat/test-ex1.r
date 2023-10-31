@@ -73,7 +73,7 @@ test_that("update values", {
                expected = ex1$calcVal$SnPE)
   expect_equal(ex1_update$calcVal$SpPE,
                expected = ex1$calcVal$SpPE)
-  # detailOut & input
+  # detailOut and input
   attributes(ex1_update$detailOut) <- NULL
   attributes(ex1$detailOut) <- NULL
   expect_equal(ex1_update$detailOut,

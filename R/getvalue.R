@@ -66,7 +66,8 @@
 #' }
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats optim
-get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance, rep.iter, iter.n, parm=NULL) {
+get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
+                       tolerance, rep.iter, iter.n, parm = NULL) {
 
 
   params <- as.list(environment())
@@ -82,31 +83,31 @@ get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance,
   # I need to create the named vectors required for the cellS function (used
   # within minCell)
 
-  ndraws<-nrow(SnR.vec)
-  ntests<-ncol(SnR.vec)/2
-  test.names<-paste("Ref", 1:ntests, sep="")
+  ndraws <- nrow(SnR.vec)
+  ntests <- ncol(SnR.vec) / 2
+  test.names <- paste("Ref", 1:ntests, sep = "")
   if (is.vector(prev.vec)) {
-    pop.names<-"A"
+    pop.names <- "A"
   } else {
-    pop.names<-LETTERS[seq_len(ncol(prev.vec))]
+    pop.names <- LETTERS[seq_len(ncol(prev.vec))]
   }
 
   if (is.null(parm)) {
-    if (nstates[1]==2) {
-      parm<-c(0.9, 0.9)
-    } else if (nstates[1]==3) {
-      parm<-c(0.9, 0.67, 0.9, 0.67)
+    if (nstates[1] == 2) {
+      parm <- c(0.9, 0.9)
+    } else if (nstates[1] == 3) {
+      parm <- c(0.9, 0.67, 0.9, 0.67)
     }
   }
 
-  sens.final<-NULL
-  spec.final<-NULL
-  if (length(parm)==4) {
-    p.pos<-NULL
-    p.neg<-NULL
+  sens.final <- NULL
+  spec.final <- NULL
+  if (length(parm) == 4) {
+    p.pos <- NULL
+    p.neg <- NULL
   }
-  converge<-NULL
-  message<-NULL
+  converge <- NULL
+  message <- NULL
 
   # ndraws appears to be just nsim
 
@@ -119,11 +120,9 @@ get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance,
                                              c("Exp", test.names))),
                       stringsAsFactors = TRUE)
   X <- expand.grid(tests)
-  # ncells <- nrow(X)
   Xpos <- as.matrix(1 * (X == "positive"))
   Xsus <- as.matrix(1 * (X == "suspect"))
   Xneg <- as.matrix(1 * (X == "negative"))
-  # X <- Xpos <- Xsus <- Xneg <- NULL
   ncells <- nrow(X)
 
   ## identify the column ids for 2-state tests
@@ -132,7 +131,7 @@ get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance,
   ## data.frame to be able to handle case where length(twostatecols) == 1
   suspect2staterows <-
     sort(unique(which(X[, twostatecols, drop = FALSE] == "suspect",
-          arr.ind = TRUE)[, "row"]))
+                      arr.ind = TRUE)[, "row"]))
   N_mat <- matrix(rep(N.vec,  each = 3^ntests),
                   ncol = length(N.vec),
                   byrow = FALSE)
@@ -140,61 +139,70 @@ get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance,
     if (i == 1) message("The optimization has begun")
 
 
-    SnR.current <- matrix(SnR.vec[i, ], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
-    SpR.current <- matrix(SpR.vec[i, ], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
+    SnR.current <- matrix(SnR.vec[i, ],
+                          nrow     = 2,
+                          byrow    = FALSE,
+                          dimnames = list(NULL, test.names))
+    SpR.current <- matrix(SpR.vec[i, ],
+                          nrow     = 2,
+                          byrow    = FALSE,
+                          dimnames = list(NULL, test.names))
 
     if (is.null(dim(prev.vec))) {
-      prev.current<-as.vector(prev.vec[i])
+      prev.current <- as.vector(prev.vec[i])
     } else {
-      prev.current<-prev.vec[i, ]
+      prev.current <- prev.vec[i, ]
     }
     prev.current <- matrix(prev.current, nrow = 1)
 
-    names(prev.current)<-pop.names
+    names(prev.current) <- pop.names
 
-    current.fit<-optim(parm,
-                       minCell,
-                       SnR=SnR.current,
-                       SpR=SpR.current,
-                       Prev=prev.current,
-                       xdat=dat,
-                       N_mat=N_mat,
-                       nstates=nstates,
-                       suspect2staterows=suspect2staterows,
-                       X    = X,
-                       Xpos = Xpos,
-                       Xsus = Xsus,
-                       Xneg = Xneg,
-                       ncells = ncells,
-                       ntests = ntests,
-                       method="L-BFGS-B",
-                       lower=0,
-                       upper=1,
-                       control=list(pgtol=tolerance))
+    current.fit <- optim(parm,
+                         minCell,
+                         SnR = SnR.current,
+                         SpR = SpR.current,
+                         Prev = prev.current,
+                         xdat = dat,
+                         N_mat = N_mat,
+                         nstates = nstates,
+                         suspect2staterows = suspect2staterows,
+                         X    = X,
+                         Xpos = Xpos,
+                         Xsus = Xsus,
+                         Xneg = Xneg,
+                         ncells = ncells,
+                         ntests = ntests,
+                         method = "L-BFGS-B",
+                         lower = 0,
+                         upper = 1,
+                         control = list(pgtol = tolerance))
 
-    current.ests<-current.fit$par
-    current.con<-current.fit$convergence
-    message.current<-ifelse(is.null(current.fit$message), "NA", current.fit$message)
-    if (rep.iter) if (i%%iter.n==0) cat("\nThe following is the number of iterations completed: ", i, fill=TRUE)
+    current.ests <- current.fit$par
+    current.con <- current.fit$convergence
+    message.current <- ifelse(is.null(current.fit$message),
+                              "NA", current.fit$message)
+    if (rep.iter && i %% iter.n == 0) {
+      message("The following is the number of iterations completed: ", i)
+    }
 
-    if (length(parm)==2) {
-      sens.final<-c(sens.final, current.ests[1])
-      spec.final<-c(spec.final, current.ests[2])
-      converge<-c(converge, current.con)
-      message<-c(message, message.current)
-    } else if (length(parm)==4) {
-      sens.final<-c(sens.final, current.ests[1])
-      spec.final<-c(spec.final, current.ests[3])
-      p.pos<-c(p.pos, current.ests[2])
-      p.neg<-c(p.neg, current.ests[4])
-      converge<-c(converge, current.con)
-      message<-c(message, message.current)
+    if (length(parm) == 2) {
+      sens.final <- c(sens.final, current.ests[1])
+      spec.final <- c(spec.final, current.ests[2])
+      converge <- c(converge, current.con)
+      message <- c(message, message.current)
+    } else if (length(parm) == 4) {
+      sens.final <- c(sens.final, current.ests[1])
+      spec.final <- c(spec.final, current.ests[3])
+      p.pos <- c(p.pos, current.ests[2])
+      p.neg <- c(p.neg, current.ests[4])
+      converge <- c(converge, current.con)
+      message <- c(message, message.current)
     }
 
   }
-  if (length(parm)==2) {
+  if (length(parm) == 2) {
     return(list(sens.final, spec.final, converge, message))
-  } else if (length(parm)==4) {
+  } else if (length(parm) == 4) {
     return(list(sens.final, p.pos, spec.final, p.neg, converge, message))
   }
 

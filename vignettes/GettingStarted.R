@@ -71,19 +71,19 @@ Sn.fig
 
 ## ----echo=F,eval=T------------------------------
 Sp.fig <- ggplot() +
-          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005)+
+          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005) +
           labs(x = "Experimental Test Specificity Estimates", y = "Count")
 Sp.fig
 
 ## ---- echo=F,eval=T-----------------------------
-Sn.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025)+
+Sn.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025) +
           labs(x = "Simulated Sensitivity for Reference", y = "Count")
 Sn.ref
 
 ## ---- echo=F,eval=T-----------------------------
-Sp.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05)+
+Sp.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
           labs(x = "Simulated Specificity for Reference", y = "Count")
 Sp.ref
 
