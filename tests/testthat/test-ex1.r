@@ -36,8 +36,8 @@ test_that("initial values", {
                expected = 0.9062769,
                tolerance = 0.000001)
   expect_equal(ex1$calcVal$SpInterval,
-               expected = round(c('5%' = 0.7523346,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.7523346,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
 
@@ -65,7 +65,7 @@ test_that("initial values", {
 
 test_that("update values", {
   load("./data/ex1.rdata")
-  ### values that haven't changed with update
+  ### values that haven"t changed with update
   # calcVal
   expect_equal(ex1_update$calcVal$Nsim,
                expected = ex1$calcVal$Nsim)
@@ -89,13 +89,13 @@ test_that("update values", {
   # calcVal
   expect_equal(ex1_update$calcVal$Confidence, expected = 0.99)
   expect_equal(ex1_update$calcVal$SnInterval,
-               expected = round(c('1%' = 0.8848417,
-                                  '100%' = 1),
+               expected = round(c("1%" = 0.8848417,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
   expect_equal(ex1_update$calcVal$SpInterval,
-               expected = round(c('1%' = 0.7111645,
-                                  '100%' = 1),
+               expected = round(c("1%" = 0.7111645,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
 })

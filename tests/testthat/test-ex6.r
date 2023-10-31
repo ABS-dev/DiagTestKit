@@ -14,7 +14,7 @@ test_that("values", {
                                                rep.iter = FALSE))
   )
 
-  #calcVal
+  # calcVal
   expect_equal(ex6$calcVal$Nsim,
                expected = 1000)
   expect_equal(ex6$calcVal$Confidence,
@@ -23,20 +23,20 @@ test_that("values", {
                expected = 0.9589171,
                tolerance = 0.000001)
   expect_equal(ex6$calcVal$SnInterval,
-               expected = round(c('5%' = 0.9106663,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.9106663,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
   expect_equal(ex6$calcVal$SpPE,
                expected = 0.9456264,
                tolerance = 0.000001)
   expect_equal(ex6$calcVal$SpInterval,
-               expected = round(c('5%' = 0.7962622,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.7962622,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
 
-  #detailOut
+  # detailOut
   expect_equal(ex6$detailOut$Exp.Sn,
                ex6_detailOut$Exp.Sn,
                tolerance = 0.000001)
@@ -49,7 +49,7 @@ test_that("values", {
   expect_equal(ex6$detailOut$Message,
                ex6_detailOut$Message)
 
-  #input
+  # input
   expect_equal(ex6$input$seed,
                expected = 2948217)
   # TODO: look at ex6$input$Sn.sims after naming fixed

@@ -9,8 +9,10 @@ A data frame with 39 rows and five variables:
 \describe{
   \item{Population}{population identifier (A, B).}
   \item{exp_result}{result of experimental test (positive, negative).}
-  \item{ref1_result}{result of first reference test (positive, negative, suspect).}
-  \item{ref2_result}{result of second reference test (positive, negative, suspect).}
+  \item{ref1_result}{result of first reference test
+  (positive, negative, suspect).}
+  \item{ref2_result}{result of second reference test
+   (positive, negative, suspect).}
   \item{count}{number of samples with the unique testing combination for the
   specific population.}
 }

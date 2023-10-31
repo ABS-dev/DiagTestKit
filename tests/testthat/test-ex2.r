@@ -12,25 +12,25 @@ test_that("values", {
                       control = estimateSnSpControl(seed = 4902342,
                                                     rep.iter = FALSE))
 
-  #calcVal
+  # calcVal
   expect_equal(ex2$calcVal$Nsim, expected = 1000)
   expect_equal(ex2$calcVal$Confidence, expected = 0.95)
   expect_equal(ex2$calcVal$SnPE, expected = 0.8614248,
                tolerance = 0.000001)
   expect_equal(ex2$calcVal$SnInterval,
-               expected = round(c('1.2%' = 0.8171083,
-                                  '96.2%' = 0.9162939),
+               expected = round(c("1.2%" = 0.8171083,
+                                  "96.2%" = 0.9162939),
                                 digits = 7),
                tolerance = 0.000001)
   expect_equal(ex2$calcVal$SpPE, expected = 0.9818038,
                tolerance = 0.000001)
   expect_equal(ex2$calcVal$SpInterval,
-               expected = round(c('5%' = 0.9260871,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.9260871,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
 
-  #detailOut
+  # detailOut
   expect_equal(ex2$detailOut$Exp.Sn,
                ex2_detailOut$Exp.Sn,
                tolerance = 0.000001)
@@ -43,7 +43,7 @@ test_that("values", {
   expect_equal(ex2$detailOut$Message,
                ex2_detailOut$Message)
 
-  #input
+  # input
   expect_equal(ex2$input$seed, expected = 4902342)
   # TODO: look at ex2$input$Sn.sims after naming fixed
   dimnames(ex2$input$prev.sims) <- NULL

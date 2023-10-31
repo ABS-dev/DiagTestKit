@@ -8,10 +8,14 @@
 A data frame with 72 rows and six variables:
 \describe{
   \item{Population}{population identifier (A, B, C).}
-  \item{exp_result}{result of experimental test (positive, negative, suspect).}
-  \item{ref1_result}{result of first reference test (positive, negative).}
-  \item{ref2_result}{result of second reference test (positive, negative).}
-  \item{ref3_result}{result of third reference test (positive, negative).}
+  \item{exp_result}{result of experimental test
+   (positive, negative, suspect).}
+  \item{ref1_result}{result of first reference test
+   (positive, negative).}
+  \item{ref2_result}{result of second reference test
+  (positive, negative).}
+  \item{ref3_result}{result of third reference test
+   (positive, negative).}
   \item{count}{number of samples with the unique testing combination for the
   specific population.}
 }

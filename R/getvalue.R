@@ -1,57 +1,91 @@
 #' @title Optimization of Sensitivity and Specificity
-#' @description Determine final optimized values for the sensitivity and specificity of an experimental test kit (and probability of suspect given disease positive and given disease negative for a 3-state kit).
-#' @param dat \code{vector} A vector of counts ordered in a manner consistent with output from the cellS function.
-#' @param SnR.vec \code{data.frame}  Each column corresponds to one reference test.  Row 1 contains the sensitivity for the reference test(s).
-#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
-#' Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
-#' test (i.e. no suspect region).
-#' @param SpR.vec \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for each reference test.
-#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result.  This is a value between 0 and 1 (inclusive).
-#' Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state
-#' test (i.e. no suspect region).
-#' @param prev.vec \code{vector}  A named vector containing the prevalence for each population sampled.
-#' @param N.vec \code{vector}  A named vector containing the sample size for each population sampled.
-#' @param nstates \code{vector} A vector with length one more than the number of reference tests.  The first element is the number of states of the experimental test and the remaining entries are the number
-#' of states of each reference test (using the same ordering as SnR.vec and SpR.vec).
-#' @param tolerance Setting a limit on the pgtol used in the optim function with the 'L-BFGS-B' method. See also \code{\link{optim}}.
-#' @param rep.iter logical (TRUE/FALSE)  Indicates if updates should be printed regarding the number of iterations completed.
-#' @param iter.n  integer indicating the frequency of updates for the number of iterations completed.
-#' @param parm \code{vector}  A vector of starting values to be used for the optimization that is passed to \code{minCell}.  For a 2-state experimental test, this is a vector of length 2 with entries (\eqn{\pi}, \eqn{\theta}).
-#' For a 3-state experimental test, this is a vector of length 4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See also \code{\link{estimateSnSp}}.
-#' @return A list: \cr \cr
-#' The following will be returned for both 2 and 3-state experimental tests -- \cr
+#' @description Determine final optimized values for the sensitivity and
+#'   specificity of an experimental test kit (and probability of suspect given
+#'   disease positive and given disease negative for a 3-state kit).
+#' @param dat \code{vector} A vector of counts ordered in a manner consistent
+#'   with output from the cellS function.
+#' @param SnR.vec \code{data.frame}  Each column corresponds to one reference
+#'   test.  Row 1 contains the sensitivity for the reference test(s). Row 2
+#'   contains the probability of a suspect result as a fraction of the
+#'   non-correct test result. This is a value between 0 and 1 (inclusive).
+#'   Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where
+#'   \eqn{\delta} is the second row for a given column (reference test).
+#'   \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero
+#'   for a 2-state test (i.e. no suspect region).
+#' @param SpR.vec \code{data.frame} Each column corresponds to one reference
+#'   test.  Row 1 contains the specificity for each reference test. Row 2
+#'   contains the probability of a suspect result as a fraction of the
+#'   non-correct test result.  This is a value between 0 and 1 (inclusive).
+#'   Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where
+#'   \eqn{\gamma} is the second row for a given column (reference test).
+#'   \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use
+#'   a zero for a 2-state test (i.e. no suspect region).
+#' @param prev.vec \code{vector}  A named vector containing the prevalence for
+#'   each population sampled.
+#' @param N.vec \code{vector}  A named vector containing the sample size for
+#'   each population sampled.
+#' @param nstates \code{vector} A vector with length one more than the number of
+#'   reference tests.  The first element is the number of states of the
+#'   experimental test and the remaining entries are the number of states of
+#'   each reference test (using the same ordering as SnR.vec and SpR.vec).
+#' @param tolerance Setting a limit on the pgtol used in the optim function with
+#'   the 'L-BFGS-B' method. See also \code{\link{optim}}.
+#' @param rep.iter logical (TRUE/FALSE)  Indicates if updates should be printed
+#'   regarding the number of iterations completed.
+#' @param iter.n  integer indicating the frequency of updates for the number of
+#'   iterations completed.
+#' @param parm \code{vector}  A vector of starting values to be used for the
+#'   optimization that is passed to \code{minCell}.  For a 2-state experimental
+#'   test, this is a vector of length 2 with entries (\eqn{\pi}, \eqn{\theta}).
+#'   For a 3-state experimental test, this is a vector of length 4 with entries
+#'   (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See also
+#'   \code{\link{estimateSnSp}}.
+#' @return A list: \cr \cr The following will be returned for both 2 and 3-state
+#'   experimental tests -- \cr
 #' \itemize{
-#' \item{sens.final}  \code{vector} The optimized values for the sensitivity of the experimental test kit.
-#' \item{spec.final}  \code{vector} The optimized values for the specificity of the experimental test kit.
-#' \item{converge}  \code{vector} Each entry is an integer code detailing the convergence of the optimization for each iteration.  0 indicates successful completion. See also \code{\link{optim}}.
-#' \item{message}  \code{vector}  Each entry includes a character string giving any additional information returned by the optimizer or NULL.  See also \code{\link{optim}}.
+#' \item{sens.final}  \code{vector} The optimized values for the sensitivity of
+#' the experimental test kit.
+#' \item{spec.final}  \code{vector} The optimized values for the specificity of
+#' the experimental test kit.
+#' \item{converge}  \code{vector} Each entry is an integer code detailing the
+#'  convergence of the optimization for each iteration.  0 indicates successful
+#'   completion. See also \code{\link{optim}}.
+#' \item{message}  \code{vector}  Each entry includes a character string giving
+#'  any additional information returned by the optimizer or NULL.  See also
+#'   \code{\link{optim}}.
 #' }
 #'
-#' If three states -- \cr
+#'   If three states -- \cr
 #' \itemize{
-#' \item{\eqn{\delta}}  \code{vector} The optimized values for the probability of a suspect result as a fraction of the non-correct test result for diseased samples.
-#' \item{\eqn{\gamma}} \code{vector} The optimized value for the probability of a suspect result as a fraction of the non-correct test result for non-diseased samples.
+#' \item{\eqn{\delta}}  \code{vector} The optimized values for the probability
+#'  of a suspect result as a fraction of the non-correct test result for
+#'  diseased samples.
+#' \item{\eqn{\gamma}} \code{vector} The optimized value for the probability
+#' of a suspect result as a fraction of the non-correct test result for
+#'  non-diseased samples.
 #' }
 #' @author \link{DiagTestKit-package}
-# @author Monica Reising \email{monica.m.reising@@usda.gov}
 get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.iter,iter.n,parm=NULL){
 
 
   params <- as.list(environment())
   list2env(params, .GlobalEnv)
 
-  #Put in the error checking...
+  # Put in the error checking...
 
-  #dat should be a vector of counts ordered in a manner consistent that was output from the cellS function
-  #i tried to put this in an order that would be consistent with a ddply statment that had .variables = .(Exp,Ref1,Ref2, etc.)
+  # dat should be a vector of counts ordered in a manner consistent that was
+  # output from the cellS function i tried to put this in an order that would be
+  # consistent with a ddply statment that had .variables = .(Exp,Ref1,Ref2,
+  # etc.)
 
-  #I need to create the named vectors required for the cellS function (used within minCell)
+  # I need to create the named vectors required for the cellS function (used
+  # within minCell)
 
   ndraws<-nrow(SnR.vec)
   ntests<-ncol(SnR.vec)/2
-  test.names<-paste('Ref',1:ntests,sep='')
+  test.names<-paste("Ref",1:ntests,sep="")
   if(is.vector(prev.vec)){
-    pop.names<-'A'
+    pop.names<-"A"
   } else{
     pop.names<-LETTERS[1:ncol(prev.vec)]
   }
@@ -77,16 +111,17 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
   ntests <- ncol(SnR.vec) / 2 + 1
 
-  tests <- data.frame(matrix(c('positive','suspect','negative'),
+  tests <- data.frame(matrix(c("positive","suspect","negative"),
                              3,
                              ntests,
                              dimnames = list(NULL,
-                                             c("Exp", test.names))))
+                                             c("Exp", test.names))),
+                      stringsAsFactors = TRUE)
   X <- expand.grid(tests)
   # ncells <- nrow(X)
-  Xpos <- as.matrix(1 * (X == 'positive'))
-  Xsus <- as.matrix(1 * (X == 'suspect'))
-  Xneg <- as.matrix(1 * (X == 'negative'))
+  Xpos <- as.matrix(1 * (X == "positive"))
+  Xsus <- as.matrix(1 * (X == "suspect"))
+  Xneg <- as.matrix(1 * (X == "negative"))
   # X <- Xpos <- Xsus <- Xneg <- NULL
   ncells <- nrow(X)
 
@@ -97,15 +132,15 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   suspect2staterows <-
     sort(unique(which(X[, twostatecols, drop = FALSE] == "suspect",
           arr.ind = TRUE)[, "row"]))
-
+  N_mat <- matrix(rep(N.vec,  each = 3^ntests),
+                  ncol = length(N.vec),
+                  byrow = FALSE)
   for(i in 1:ndraws){
-    if (i == 1) {} # cat('\nThe optimization has begun',fill=TRUE)
+    if (i == 1) message("The optimization has begun")
 
 
     SnR.current <- matrix(SnR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names))
     SpR.current <- matrix(SpR.vec[i,], nrow = 2, byrow = F, dimnames = list(NULL, test.names))
-    # print(dim(SnR.current))
-
 
     if(is.null(dim(prev.vec))){
       prev.current<-as.vector(prev.vec[i])
@@ -122,7 +157,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
                        SpR=SpR.current,
                        Prev=prev.current,
                        xdat=dat,
-                       N=N.vec,
+                       N_mat=N_mat,
                        nstates=nstates,
                        suspect2staterows=suspect2staterows,
                        X    = X,
@@ -131,15 +166,15 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
                        Xneg = Xneg,
                        ncells = ncells,
                        ntests = ntests,
-                       method='L-BFGS-B',
+                       method="L-BFGS-B",
                        lower=0,
                        upper=1,
                        control=list(pgtol=tolerance))
 
     current.ests<-current.fit$par
     current.con<-current.fit$convergence
-    message.current<-ifelse(is.null(current.fit$message),'NA',current.fit$message)
-    if(rep.iter) if(i%%iter.n==0) cat('\nThe following is the number of iterations completed: ',i,fill=T)
+    message.current<-ifelse(is.null(current.fit$message),"NA",current.fit$message)
+    if(rep.iter) if(i%%iter.n==0) cat("\nThe following is the number of iterations completed: ",i,fill=T)
 
     if(length(parm)==2){
       sens.final<-c(sens.final,current.ests[1])
@@ -161,7 +196,5 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   } else if(length(parm)==4){
     return(list(sens.final,p.pos,spec.final,p.neg,converge,message))
   }
-  #return(list(SnR.current,SpR.current,prev.current))
-
 
 }

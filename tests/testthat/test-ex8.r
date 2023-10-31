@@ -15,7 +15,7 @@ test_that("values", {
                                    C = 0.18),
                       control = estimateSnSpControl(seed = 865213,
                                                     rep.iter = FALSE))
-  #calcVal
+  # calcVal
   expect_equal(ex8$calcVal$Nsim,
                expected = 1000)
   expect_equal(ex8$calcVal$Confidence,
@@ -24,20 +24,20 @@ test_that("values", {
                expected = 0.965417,
                tolerance = 0.000001)
   expect_equal(ex8$calcVal$SnInterval,
-               expected = round(c('5%' = 0.8879949,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.8879949,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
   expect_equal(ex8$calcVal$SpPE,
                expected = 0.9835192,
                tolerance = 0.000001)
   expect_equal(ex8$calcVal$SpInterval,
-               expected = round(c('5%' = 0.9016964,
-                                  '100%' = 1),
+               expected = round(c("5%" = 0.9016964,
+                                  "100%" = 1),
                                 digits = 7),
                tolerance = 0.000001)
 
-  #detailOut
+  # detailOut
   expect_equal(ex8$detailOut$Exp.Sn,
                ex8_detailOut$Exp.Sn,
                tolerance = 0.000001)
@@ -50,7 +50,7 @@ test_that("values", {
   expect_equal(ex8$detailOut$Message,
                ex8_detailOut$Message)
 
-  #input
+  # input
   expect_equal(ex8$input$seed,
                expected = 865213)
   # TODO: look at ex8$input$Sn.sims after naming fixed

@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = TRUE, tidy=FALSE)
 options(width = 50)
 library(DiagTestKit)
-data('ExampleData')
+data("ExampleData")
 
 ## ----echo = T, eval = T-------------------------
 ex1 <- estimateSnSp(dat = data1,

@@ -1,5 +1,4 @@
 #' @title minimize cell
-
 #' @description A function used for optimizing the values of sensitivity and
 #'   specificity (and \eqn{\delta} and \eqn{\gamma} for a 3-state kit). The
 #'   objective function minimizes the sum of the squared deviations (expected -
@@ -37,20 +36,20 @@
 #'   each reference test (using the same ordering as SnR and SpR).
 #' @return The sum of the squared deviations between the expected and observed
 #'   cell counts.
-#' @author David Siev \email{david.siev@@aphis.usda.gov} modified by Monica
-#'   Reising \email{monica.m.reising@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
-minCell <- function(parm,SnR,SpR,Prev,xdat,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests){
-  if(length(parm)==2){
+minCell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
+                    suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests) {
+  if (length(parm) == 2) {
     SnE <- parm[1]
     SpE <- parm[2]
     sus.perc <- c(0,0)
-  } else if(length(parm)==4){
+  } else if (length(parm) == 4) {
     SnE <- parm[1]
     SpE <- parm[3]
     sus.perc <- c(parm[2], parm[4])
   }
-  x <- cellS(SnR,SpR,Prev,SnE,SpE,sus.perc,N,nstates,suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
-  return(sum((x-xdat)^2))
+  x <- cellS(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
+             suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
+  return(sum((x - xdat)^2))
 }
 

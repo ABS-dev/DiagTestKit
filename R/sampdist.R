@@ -1,18 +1,24 @@
 #' @title Create Triangular Distribution
-#' @description Creates a discrete step/triangular distribution that can be used to sample values for sensitivity or specificity of a reference test or prevalence of a population.
-#' @param m This is a point estimate for the parameter in which you are obtaining the distribution, e.g. sensitivity, specificity, or prevalence.
-#' @param w \code{vector}  A vector that provides the half widths of the 3 regions, (w1 closest, w3 farthest).
-#' @param h \code{vector}  A vector of "y" (pseduo-value until scaled to be a probability) corresponding
-#' to the height of the shoulder and the height of the plateau.
-#' @param threestate logical (TRUE/FALSE) Indicates whether or not there is a "suspect"
-#' region (i.e. positive/suspect/negative).
-#' @param suspect A fraction that indicates what percentage of the remaining probability would
-#' be assigned to the suspect region.  For instance, if the function gives sensitivity and
-#' then the probability of "suspect" is (1 - sensitivity)*suspect.
-#' @param stepwidth distance between the 'x' in the discrete distribution, resolution of possible observations of the created distribution.
+#' @description Creates a discrete step/triangular distribution that can be used
+#'   to sample values for sensitivity or specificity of a reference test or
+#'   prevalence of a population.
+#' @param m This is a point estimate for the parameter in which you are
+#'   obtaining the distribution, e.g. sensitivity, specificity, or prevalence.
+#' @param w \code{vector}  A vector that provides the half widths of the 3
+#'   regions, (w1 closest, w3 farthest).
+#' @param h \code{vector}  A vector of "y" (pseduo-value until scaled to be a
+#'   probability) corresponding to the height of the shoulder and the height of
+#'   the plateau.
+#' @param threestate logical (TRUE/FALSE) Indicates whether or not there is a
+#'   "suspect" region (i.e. positive/suspect/negative).
+#' @param suspect A fraction that indicates what percentage of the remaining
+#'   probability would be assigned to the suspect region.  For instance, if the
+#'   function gives sensitivity and then the probability of "suspect" is (1 -
+#'   sensitivity)*suspect.
+#' @param stepwidth distance between the 'x' in the discrete distribution,
+#'   resolution of possible observations of the created distribution.
 #' @param sumOne whether to expresss 'p' as a proportion of its sum.
 #' @return \code{data.frame} of 'x', 'y', and 'p'.
-# @author Dave Siev \email{david.siev@@aphis.usda.gov}
 #' @author \link{DiagTestKit-package}
 SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, sumOne=TRUE){
   halfwidth <- sum(w)
