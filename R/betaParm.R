@@ -52,22 +52,22 @@ betaParm <- function(B, to = "alpha.beta") {
     sigma2 <- B["sigma2"]
     names(mu) <- NULL
     names(sigma2) <- NULL
-    theta <- (mu*(1-mu)/sigma2) - 1
-    phi <- 1/(theta + 1)
-    alpha <- mu*theta
-    beta <- (1-mu)*theta
+    theta <- (mu * (1 - mu) / sigma2) - 1
+    phi <- 1 / (theta + 1)
+    alpha <- mu * theta
+    beta <- (1 - mu) * theta
   }
-  else if (from=="mu.theta") {
+  else if (from == "mu.theta") {
     mu <- B["mu"]
     theta <- B["theta"]
     names(mu) <- NULL
     names(theta) <- NULL
     phi <- 1 / (theta + 1)
-    sigma2 <- (mu * (1-mu))/(theta + 1)
+    sigma2 <- (mu * (1 - mu)) / (theta + 1)
     alpha <- mu * theta
-    beta <- (1-mu) * theta
+    beta <- (1 - mu) * theta
   }
-  else if (from=="alpha.beta") {
+  else if (from == "alpha.beta") {
     alpha <- B["alpha"]
     beta <- B["beta"]
     names(alpha) <- NULL
@@ -75,14 +75,14 @@ betaParm <- function(B, to = "alpha.beta") {
     theta <- alpha + beta
     mu <- alpha / theta
     phi <- 1 / (theta + 1)
-    sigma2 <- (mu * (1-mu))/(theta + 1)
+    sigma2 <- (mu * (1 - mu)) / (theta + 1)
   }
   else stop("check your parameter vector")
   out <- switch(to,
-                alpha.beta=c(alpha=alpha, beta=beta),
-                mu.phi=c(mu=mu, phi=phi),
-                mu.theta=c(mu=mu, theta=theta),
-                mu.sigma2=c(mu=mu, sigma2=sigma2)
+                alpha.beta = c(alpha = alpha, beta = beta),
+                mu.phi = c(mu = mu, phi = phi),
+                mu.theta = c(mu = mu, theta = theta),
+                mu.sigma2 = c(mu = mu, sigma2 = sigma2)
   )
   return(out)
 }

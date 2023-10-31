@@ -72,56 +72,56 @@
 #' CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = FALSE)
 #' CP.Sp
 #' # Sp = P(T-|D-): 0.970297 (95% CI: 0.915643, 0.915643)
-cloppearSnSp <- function(dat,alpha=0.05,est.Sn=TRUE) {
-# -------------------------------------------------------
-# Clopper-Pearson exact binomial confidence interval by
-#   beta distribution method (changed from F dist method pre-92)
-# coded by D.Siev 11/04/92, updated 1/9/10
-# show.warnings=F suppresses unnecessary warnings from ifelse
-# -------------------------------------------------------
+cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
+  # -------------------------------------------------------
+  # Clopper-Pearson exact binomial confidence interval by
+  #   beta distribution method (changed from F dist method pre-92)
+  # coded by D.Siev 11/04/92, updated 1/9/10
+  # show.warnings=F suppresses unnecessary warnings from ifelse
+  # -------------------------------------------------------
 
-  dat[sapply(dat,is.character)]<-lapply(dat[sapply(dat,is.character)],as.factor)
+  dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
 
-  if (sum(grepl(pattern="exp",names(dat),ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern = "exp", names(dat), ignore.case = TRUE)) == 0) {
     stop("Column names must indicate which is the experimental test")
   }
 
-  if (sum(grepl(pattern="ref",names(dat),ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern = "ref", names(dat), ignore.case = TRUE)) == 0) {
     stop("Column names must indicate which belong to the infallible reference test")
   }
 
   # rename the last column in the data frame to counts
-  names(dat)[ncol(dat)]<-"count"
-  names(dat)[grepl(pattern="exp",names(dat),ignore.case=TRUE)]<-"exp"
-  names(dat)[grepl(pattern="ref",names(dat),ignore.case=TRUE)]<-"ref"
+  names(dat)[ncol(dat)] <- "count"
+  names(dat)[grepl(pattern = "exp", names(dat), ignore.case = TRUE)] <- "exp"
+  names(dat)[grepl(pattern = "ref", names(dat), ignore.case = TRUE)] <- "ref"
 
-  dat$exp[grepl(pattern="pos",dat$exp,ignore.case=TRUE)]<-"positive"
-  dat$exp[grepl(pattern="neg",dat$exp,ignore.case=TRUE)]<-"negative"
+  dat$exp[grepl(pattern = "pos", dat$exp, ignore.case = TRUE)] <- "positive"
+  dat$exp[grepl(pattern = "neg", dat$exp, ignore.case = TRUE)] <- "negative"
 
 
   if (est.Sn) {
-    y<-dat$count[dat$exp=="positive" & grepl(pattern="pos",dat$ref,ignore.case=TRUE)]
-    n<-sum(dat$count[grepl(pattern="pos",dat$ref,ignore.case=TRUE)])
+    y <- dat$count[dat$exp == "positive" & grepl(pattern = "pos", dat$ref, ignore.case = TRUE)]
+    n <- sum(dat$count[grepl(pattern = "pos", dat$ref, ignore.case = TRUE)])
   }
   if (!est.Sn) {
-    y<-dat$count[dat$exp=="negative" & grepl(pattern="neg",dat$ref,ignore.case=TRUE)]
-    n<-sum(dat$count[grepl(pattern="neg",dat$ref,ignore.case=TRUE)])
+    y <- dat$count[dat$exp == "negative" & grepl(pattern = "neg", dat$ref, ignore.case = TRUE)]
+    n <- sum(dat$count[grepl(pattern = "neg", dat$ref, ignore.case = TRUE)])
 
   }
-p <- y/n
-cpl <- ifelse(y>0,qbeta(alpha/2,y,n-y+1),0)
-cpu <- ifelse(y<n,qbeta(1-alpha/2,y+1,n-y),1)
-dataout <- list(y, n)
-calcVal <- list(p,cpl,cpu)
+  p <- y / n
+  cpl <- ifelse(y > 0, qbeta(alpha / 2, y, n - y + 1), 0)
+  cpu <- ifelse(y < n, qbeta(1 - alpha / 2, y + 1, n - y), 1)
+  dataout <- list(y, n)
+  calcVal <- list(p, cpl, cpu)
 
-if (est.Sn) {
-  names(dataout) <- c("Test.Positive", "Total.Positive")
-  names(calcVal) <- c("Sn","Sn.LL","Sn.UL")
-} else if (!est.Sn) {
-  names(dataout) <- c("Test.Negative","Total.Negative")
-  names(calcVal) <- c("Sp","Sp.LL","Sp.UL")
-}
+  if (est.Sn) {
+    names(dataout) <- c("Test.Positive", "Total.Positive")
+    names(calcVal) <- c("Sn", "Sn.LL", "Sn.UL")
+  } else if (!est.Sn) {
+    names(dataout) <- c("Test.Negative", "Total.Negative")
+    names(calcVal) <- c("Sp", "Sp.LL", "Sp.UL")
+  }
 
-out <- cp$new(calcVal = calcVal, data = dataout, alpha = alpha)
-return(out)
+  out <- cp$new(calcVal = calcVal, data = dataout, alpha = alpha)
+  return(out)
 }

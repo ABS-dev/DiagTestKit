@@ -7,7 +7,7 @@
 #' @note Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
 #' @importFrom stats quantile
 #' @author \link{DiagTestKit-package}
-emp.hpd <- function (X, alpha) {
+emp.hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X        <- sort(X)
   probs    <- cbind(low  = seq(0, alpha, .001),

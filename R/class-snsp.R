@@ -30,4 +30,3 @@ snsp <- setRefClass(
       print(summary)
     }
   ))
-

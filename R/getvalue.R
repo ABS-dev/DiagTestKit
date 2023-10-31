@@ -88,7 +88,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   if (is.vector(prev.vec)) {
     pop.names<-"A"
   } else{
-    pop.names<-LETTERS[1:ncol(prev.vec)]
+    pop.names<-LETTERS[seq_len(ncol(prev.vec))]
   }
 
   if (is.null(parm)) {

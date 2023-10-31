@@ -58,4 +58,3 @@ minCell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
              suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
   return(sum((x - xdat)^2))
 }
-

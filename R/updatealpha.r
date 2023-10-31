@@ -34,9 +34,9 @@ updateAlpha <- function(x, newAlpha) {
 
   ## figure out if 2 states or 3
   if (length(x$calcVal) == 6) {
-    nstates = 2
+    nstates <- 2
   } else {
-    nstates = 3
+    nstates <- 3
   }
 
   if (nstates == 2) {
