@@ -38,7 +38,7 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
   if (is.null(distn) && is.null(spread)) {
     # the default distribution is going to be a "wide" beta
     for (i in seq_len(ncol(means))) {
-      alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
+      alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2= 0.002))
       current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
       if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i]))
       if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
@@ -88,7 +88,7 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
     # this will default to wide
     for (i in seq_len(ncol(means))) {
       if (distn[i]=="beta") {
-        alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
+        alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2= 0.002))
         current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
         if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i]))
         if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)

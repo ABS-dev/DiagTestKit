@@ -8,7 +8,7 @@ betaParm(B, to = "alpha.beta")
 }
 \arguments{
 \item{B}{\code{vector}  A named vector specifying non-NULL values for 2
-parameters. e.g. c(alpha=NA, beta=NA, mu=.6, theta=NA, phi=1.6, sigma2=NA)
+parameters. e.g. c(alpha =NA, beta =NA, mu=.6, theta =NA, phi=1.6, sigma2=NA)
 or just c(mu=.6, phi=1.6)}
 
 \item{to}{Specification of desired parameters, options are one of

@@ -251,11 +251,11 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     warning("The data suggests a single population was tested", immediate.=TRUE)
   }
 
-  if (sum(grepl(pattern="exp", names(dat), ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern="exp", names(dat), ignore.case=TRUE))== 0) {
     stop("Column names must indicate which is the experimental test")
   }
 
-  if (sum(grepl(pattern="ref", names(dat), ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern="ref", names(dat), ignore.case=TRUE))== 0) {
     stop("Column names must indicate which belong to the reference test(s)")
   }
 
@@ -332,10 +332,10 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
                       (1 - final.values[[3]]) * final.values[[4]],
                       final.values[[5]], final.values[[6]])
     names(detailOut) <- c("Exp.Sn", "Exp.pos.p", "Exp.sus.pos", "Exp.Sp", "Exp.neg.p", "Exp.sus.neg", "Convergence", "Message")
-    calcVal <- list(Nsim=nsim, confidence = (1 - control$alpha), snPE=median(final.values[[1]]), snInterval=emp.hpd(final.values[[1]], alpha=control$alpha),
-                    SpPE=median(final.values[[3]]), spInterval=emp.hpd(final.values[[3]], alpha=control$alpha),
-                    SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]), susDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]], alpha=control$alpha),
-                    SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]), susDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]], alpha=control$alpha))
+    calcVal <- list(Nsim=nsim, confidence = (1 - control$alpha), snPE=median(final.values[[1]]), snInterval=emp.hpd(final.values[[1]], alpha =control$alpha),
+                    SpPE=median(final.values[[3]]), spInterval=emp.hpd(final.values[[3]], alpha =control$alpha),
+                    SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]), susDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]], alpha =control$alpha),
+                    SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]), susDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]], alpha =control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)
   names(input) <- c("seed", "Sn.sims", "Sp.sims", "prev.sims")

@@ -70,7 +70,7 @@
 #' CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = FALSE)
 #' CP.Sp
 #' # Sp = P(T-|D-): 0.970297 (95% CI: 0.915643, 0.915643)
-cloppearSnSp <- function(dat, alpha=0.05, est.Sn=TRUE) {
+cloppearSnSp <- function(dat, alpha = 0.05, est.Sn=TRUE) {
 # -------------------------------------------------------
 # Clopper-Pearson exact binomial confidence interval by
 #   beta distribution method (changed from F dist method pre-92)
@@ -80,11 +80,11 @@ cloppearSnSp <- function(dat, alpha=0.05, est.Sn=TRUE) {
 
   dat[sapply(dat, is.character)]<-lapply(dat[sapply(dat, is.character)], as.factor)
 
-  if (sum(grepl(pattern="exp", names(dat), ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern="exp", names(dat), ignore.case=TRUE))== 0) {
     stop("Column names must indicate which is the experimental test")
   }
 
-  if (sum(grepl(pattern="ref", names(dat), ignore.case=TRUE))==0) {
+  if (sum(grepl(pattern="ref", names(dat), ignore.case=TRUE))== 0) {
     stop("Column names must indicate which belong to the infallible reference test")
   }
 

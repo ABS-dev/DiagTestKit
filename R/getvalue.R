@@ -166,14 +166,14 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                        ncells = ncells,
                        ntests = ntests,
                        method="L-BFGS-B",
-                       lower=0,
+                       lower= 0,
                        upper=1,
                        control=list(pgtol=tolerance))
 
     current.ests<-current.fit$par
     current.con<-current.fit$convergence
     message.current<-ifelse(is.null(current.fit$message), "NA", current.fit$message)
-    if (rep.iter) if (i%%iter.n==0) cat("\nThe following is the number of iterations completed: ", i, fill=TRUE)
+    if (rep.iter) if (i%%iter.n== 0) cat("\nThe following is the number of iterations completed: ", i, fill=TRUE)
 
     if (length(parm)==2) {
       sens.final<-c(sens.final, current.ests[1])
