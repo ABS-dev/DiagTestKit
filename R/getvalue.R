@@ -65,7 +65,8 @@
 #'  non-diseased samples.
 #' }
 #' @author \link{DiagTestKit-package}
-get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance, rep.iter, iter.n, parm=NULL) {
+get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
+                       tolerance, rep.iter, iter.n, parm = NULL) {
 
 
   params <- as.list(environment())
@@ -129,7 +130,7 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
   ## data.frame to be able to handle case where length(twostatecols) == 1
   suspect2staterows <-
     sort(unique(which(X[, twostatecols, drop = FALSE] == "suspect",
-          arr.ind = TRUE)[, "row"]))
+                      arr.ind = TRUE)[, "row"]))
   N_mat <- matrix(rep(N.vec,  each = 3^ntests),
                   ncol = length(N.vec),
                   byrow = FALSE)

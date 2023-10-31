@@ -303,10 +303,16 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   if (n.states[1] == 3)
     cat("\nOptimization is more time consuming for a 3-state experimental test, be patient!", fill = TRUE)
-  final.values <- get.values(dat = dat[, ncol(dat)],
-                             SnR.vec = Sn.sims, SpR.vec = Sp.sims,
-                             prev.vec = prev.sims, N.vec=N, nstates = n.states,
-                             tolerance = control$tolerance, parm = control$parm, rep.iter=control$rep.iter, iter.n=control$iter.n)
+  final.values <- get.values(dat       = dat[, ncol(dat)],
+                             SnR.vec   = Sn.sims,
+                             SpR.vec   = Sp.sims,
+                             prev.vec  = prev.sims,
+                             N.vec     = N,
+                             nstates   = n.states,
+                             tolerance = control$tolerance,
+                             parm      = control$parm,
+                             rep.iter  = control$rep.iter,
+                             iter.n    = control$iter.n)
 
   if (n.states[1] == 2) {
     detailOut <- list(final.values[[1]], final.values[[2]],
