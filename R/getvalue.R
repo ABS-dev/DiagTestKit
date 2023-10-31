@@ -86,7 +86,7 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
   test.names<-paste("Ref", 1:ntests, sep="")
   if (is.vector(prev.vec)) {
     pop.names<-"A"
-  } else{
+  } else {
     pop.names<-LETTERS[1:ncol(prev.vec)]
   }
 
@@ -135,7 +135,7 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
   N_mat <- matrix(rep(N.vec,  each = 3^ntests),
                   ncol = length(N.vec),
                   byrow = FALSE)
-  for(i in 1:ndraws) {
+  for (i in 1:ndraws) {
     if (i == 1) message("The optimization has begun")
 
 
@@ -144,7 +144,7 @@ get.values<-function(dat, snR.vec, spR.vec, prev.vec, n.vec, nstates, tolerance,
 
     if (is.null(dim(prev.vec))) {
       prev.current<-as.vector(prev.vec[i])
-    } else{
+    } else {
       prev.current<-prev.vec[i, ]
     }
     prev.current <- matrix(prev.current, nrow = 1)

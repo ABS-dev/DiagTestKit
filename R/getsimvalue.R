@@ -37,14 +37,14 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
 
   if (is.null(distn) & is.null(spread)) {
     # the default distribution is going to be a "wide" beta
-    for(i in 1:ncol(means)) {
+    for (i in 1:ncol(means)) {
       alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
       current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
       if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i]))
       if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
     }
   } else if (!is.null(distn) & !is.null(spread)) {
-    for(i in 1:ncol(means)) {
+    for (i in 1:ncol(means)) {
       if (distn[i]=="beta") {
         s2<-ifelse(spread[i]=="wide", 0.002, ifelse(spread[i]=="medium", 0.004, ifelse(spread[i]=="narrow", 0.0001, stop("Spread must be wide, medium, or narrow"))))
         alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=s2))
@@ -63,7 +63,7 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
         } else if (spread[i]=="narrow") {
           omega<-c(0.005, 0.01, 0.01)
           hi<-c(2, 0.5)
-        } else{
+        } else {
           stop("Spread must be wide, medium, or narrow")
         }
 
@@ -71,13 +71,12 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
         current.draws<-sample(x=values.to.sample$x, size=nsim, prob=values.to.sample$p, replace=TRUE)
         if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i], nsim))
         if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
-      }else{
+      } else {
         stop("Distribution must be beta or triangular")
       }
-
     }
   } else if (is.null(distn) & !is.null(spread)) {
-    for(i in 1:ncol(means)) {
+    for (i in 1:ncol(means)) {
       s2<-ifelse(spread[i]=="wide", 0.002, ifelse(spread[i]=="medium", 0.004, ifelse(spread[i]=="narrow", 0.0001, stop("Spread must be wide, medium, or narrow"))))
       alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=s2))
       current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
@@ -87,7 +86,7 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
     }
   } else if (!is.null(distn) & is.null(spread)) {
     # this will default to wide
-    for(i in 1:ncol(means)) {
+    for (i in 1:ncol(means)) {
       if (distn[i]=="beta") {
         alpha.beta<-betaParm(B=c(mu=means[1, i], sigma2=0.002))
         current.draws<-rbeta(nsim, shape1=alpha.beta[1], shape2=alpha.beta[2])
@@ -101,7 +100,7 @@ get.simulated.values<-function(means, distn, spread, nsim, step.size, prevalence
         if (prevalence==FALSE) final.mat<-cbind(final.mat, current.draws, rep(means[2, i], nsim))
         if (prevalence==TRUE) final.mat<-cbind(final.mat, current.draws)
 
-      } else{
+      } else {
         stop("Distribution must be beta or triangular")
       }
     }

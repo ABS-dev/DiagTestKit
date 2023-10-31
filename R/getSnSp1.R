@@ -268,12 +268,12 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 
   if (!any(grepl(pattern="pop", colnames(dat), ignore.case=TRUE))) {
     N<-c(A=sum(dat[, ncol(dat)]))
-  } else{
+  } else {
     # make sure the number of unique populations is the same in the dataset and in the prev.pop vector
     if (length(levels(as.factor(dat$population)))==length(prev.pop)) {
       prev.pop<-prev.pop[order(names(prev.pop))]
       dat$population<-factor(dat$population, levels=names(prev.pop))
-    } else{
+    } else {
       stop("The number of populations specified in the data does not match the number of populations in the prev.pop vector")
     }
 
@@ -324,7 +324,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
       (1 - final.values[[3]]) * final.values[[4]],
       final.values[[5]], final.values[[6]])
     names(detailOut) <- c("Exp.Sn", "Exp.pos.p", "Exp.sus.pos", "Exp.Sp", "Exp.neg.p", "Exp.sus.neg", "Convergence", "Message")
-    calcVal <- list(Nsim=nsim, confidence=(1 - control$alpha), snPE=median(final.values[[1]]), snInterval=emp.hpd(final.values[[1]], alpha=control$alpha),
+    calcVal <- list(Nsim=nsim, confidence = (1 - control$alpha), snPE=median(final.values[[1]]), snInterval=emp.hpd(final.values[[1]], alpha=control$alpha),
                     SpPE=median(final.values[[3]]), spInterval=emp.hpd(final.values[[3]], alpha=control$alpha),
                     SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]), susDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]], alpha=control$alpha),
                     SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]), susDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]], alpha=control$alpha))
