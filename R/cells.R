@@ -44,8 +44,8 @@ cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
                   suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests) {
   suspect.pos <- sus.perc[1] * (1 - SnE)
   suspect.neg <- sus.perc[2] * (1 - SpE)
-  SnR[2, ] <- SnR[2,] * (1 - SnR[1,])
-  SpR[2, ] <- SpR[2,] * (1 - SpR[1,])
+  SnR[2, ] <- SnR[2, ] * (1 - SnR[1, ])
+  SpR[2, ] <- SpR[2, ] * (1 - SpR[1, ])
   Sn <- cbind(matrix(c(SnE, suspect.pos), nrow = 2), SnR)
   Sp <- cbind(matrix(c(SpE, suspect.neg), nrow = 2), SpR)
 

@@ -49,7 +49,7 @@ updateAlpha <- function(x, newAlpha) {
     NEWcalcVal <- list( Nsim = x$calcVal$Nsim,
                         Confidence = (1 - newAlpha),
                         SnPE = median(NEWdetailOut$Exp.Sn),
-                        SnInterval = emp.hpd(NEWdetailOut$Exp.Sn,alpha = newAlpha),
+                        SnInterval = emp.hpd(NEWdetailOut$Exp.Sn, alpha = newAlpha),
                         SpPE = median(NEWdetailOut$Exp.Sp),
                         SpInterval = emp.hpd(NEWdetailOut$Exp.Sp, alpha = newAlpha),
                         SusDisPosPE = median((1 - NEWdetailOut$Exp.Sn) * NEWdetailOut$Exp.pos.p),

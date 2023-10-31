@@ -17,10 +17,11 @@
 #'   sensitivity)*suspect.
 #' @param stepwidth distance between the 'x' in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
-#' @param sumOne whether to expresss 'p' as a proportion of its sum.
+#' @param sumOne whether to express 'p' as a proportion of its sum.
 #' @return \code{data.frame} of 'x', 'y', and 'p'.
 #' @author \link{DiagTestKit-package}
-SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, sumOne=TRUE) {
+SampDist <- function(m, w, h, threestate = FALSE,
+                     suspect = 2 / 3, stepwidth = 0.005, sumOne = TRUE) {
   halfwidth <- sum(w)
   H <- cumsum(w)
   X <- m + c(-rev(H), H)
@@ -34,26 +35,26 @@ SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, su
   region[x >= X[4] & x < X[5]] <- 4
   region[x >= X[5]] <- 5
 
-  slope[region==1] <- h[2]/w[3]
-  slope[region==2] <- (h[1]-h[2])/w[2]
-  slope[region==3] <- 0
-  slope[region==4] <- unique(-slope[region==2])
-  slope[region==5] <- unique(-slope[region==1])
-  int[region==1] <- -slope[region==1] * X[1]
-  int[region==2] <- h[2] - slope[region==2] * X[2]
-  int[region==3] <- h[1]
-  int[region==4] <- h[1] - slope[region==4] * X[4]
-  int[region==5] <- h[2] - slope[region==5] * X[5]
+  slope[region == 1] <- h[2] / w[3]
+  slope[region == 2] <- (h[1] - h[2]) / w[2]
+  slope[region == 3] <- 0
+  slope[region == 4] <- unique(-slope[region == 2])
+  slope[region == 5] <- unique(-slope[region == 1])
+  int[region == 1] <- -slope[region == 1] * X[1]
+  int[region == 2] <- h[2] - slope[region == 2] * X[2]
+  int[region == 3] <- h[1]
+  int[region == 4] <- h[1] - slope[region == 4] * X[4]
+  int[region == 5] <- h[2] - slope[region == 5] * X[5]
 
   y <- slope*x + int
   p <- y/sum(y)
-  out <- data.frame(x,y,p)
+  out <- data.frame(x, y, p)
   # truncate
-  out <- out[out$x>=0 & out$x<=1,]
-  if (sumOne) out$p <- out$p/sum(out$p)
+  out <- out[out$x >= 0 & out$x <= 1, ]
+  if (sumOne) out$p <- out$p / sum(out$p)
   if (threestate) {
-    out$xsus <- suspect*(1-out$x)
-    out <- out[c(1,4,2,3)]
+    out$xsus <- suspect * (1 - out$x)
+    out <- out[c(1, 4, 2, 3)]
   }
 
   return(out)
