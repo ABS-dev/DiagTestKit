@@ -300,19 +300,19 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
   }
 
   set.seed(control$seed)
-  prev.sims <- get_simulated_values(means      = prev.pop,
+  prev.sims <- .get_simulated_values(means      = prev.pop,
                                     distn      = control$prev.distn,
                                     spread     = control$prev.spread,
                                     nsim       = nsim,
                                     step_size  = control$step.size,
                                     prevalence = TRUE)
-  Sn.sims <- get_simulated_values(means      = Sn.ref,
+  Sn.sims <- .get_simulated_values(means      = Sn.ref,
                                   distn      = control$Sn.distn,
                                   spread     = control$Sn.spread,
                                   nsim       = nsim,
                                   step_size  = control$step.size,
                                   prevalence = FALSE)
-  Sp.sims <- get_simulated_values(means      = Sp.ref,
+  Sp.sims <- .get_simulated_values(means      = Sp.ref,
                                   distn      = control$Sp.distn,
                                   spread     = control$Sp.spread,
                                   nsim       = nsim,
@@ -328,7 +328,7 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
     message("Optimization is more time consuming for a ",
             "3-state experimental test, be patient!")
   }
-  final_values <- get_values(dat = dat[, ncol(dat)],
+  final_values <- .get_values(dat = dat[, ncol(dat)],
                              SnR.vec   = Sn.sims,
                              SpR.vec   = Sp.sims,
                              prev.vec  = prev.sims,
@@ -348,9 +348,9 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
       Nsim       = nsim,
       Confidence = (1 - control$alpha),
       SnPE       = median(final_values[[1]]),
-      SnInterval = emp_hpd(final_values[[1]], alpha = control$alpha),
+      SnInterval = .emp_hpd(final_values[[1]], alpha = control$alpha),
       SpPE       = median(final_values[[2]]),
-      SpInterval = emp_hpd(final_values[[2]], alpha = control$alpha))
+      SpInterval = .emp_hpd(final_values[[2]], alpha = control$alpha))
   } else if (n.states[1] == 3) {
     detailOut <- list(final_values[[1]], final_values[[2]],
                       (1 - final_values[[1]]) * final_values[[2]],
@@ -363,15 +363,15 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
       Nsim              = nsim,
       Confidence        = (1 - control$alpha),
       SnPE              = median(final_values[[1]]),
-      SnInterval        = emp_hpd(final_values[[1]], alpha = control$alpha),
+      SnInterval        = .emp_hpd(final_values[[1]], alpha = control$alpha),
       SpPE              = median(final_values[[3]]),
-      SpInterval        = emp_hpd(final_values[[3]],
+      SpInterval        = .emp_hpd(final_values[[3]],
                                   alpha = control$alpha),
       SusDisPosPE       = median((1 - final_values[[1]]) * final_values[[2]]),
-      SusDisPosInterval = emp_hpd((1 - final_values[[1]]) * final_values[[2]],
+      SusDisPosInterval = .emp_hpd((1 - final_values[[1]]) * final_values[[2]],
                                   alpha = control$alpha),
       SusDisNegPE       = median((1 - final_values[[3]]) * final_values[[4]]),
-      SusDisNegInterval = emp_hpd((1 - final_values[[3]]) * final_values[[4]],
+      SusDisNegInterval = .emp_hpd((1 - final_values[[3]]) * final_values[[4]],
                                   alpha = control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)

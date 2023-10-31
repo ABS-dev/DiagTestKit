@@ -1,4 +1,4 @@
-#' @name emp_hpd
+#' @name .emp_hpd
 #' @title Calculate the empirical hpd.
 #' @description Empirical highest posterior density by shortest length interval.
 #' @param X vector of values
@@ -7,7 +7,7 @@
 #' @note Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
 #' @importFrom stats quantile
 #' @author \link{DiagTestKit-package}
-emp_hpd <- function(X, alpha) {
+.emp_hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X        <- sort(X)
   probs    <- cbind(low  = seq(0, alpha, .001),

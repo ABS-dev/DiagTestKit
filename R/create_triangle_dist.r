@@ -15,16 +15,16 @@
 #'   probability would be assigned to the suspect region.  For instance, if the
 #'   function gives sensitivity and then the probability of "suspect" is (1 -
 #'   sensitivity) * suspect.
-#' @param stepwidth distance between the 'x' in the discrete distribution,
+#' @param step_size distance between the 'x' in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
-#' @param sumOne whether to express 'p' as a proportion of its sum.
+#' @param p_proportion whether to express 'p' as a proportion of its sum.
 #' @return \code{data.frame} of 'x', 'y', and 'p'.
 #' @author \link{DiagTestKit-package}
-SampDist <- function(m, w, h, threestate = FALSE,
-                     suspect = 2 / 3, stepwidth = 0.005, sumOne = TRUE) {
+.create_triangle_dist <- function(m, w, h, threestate = FALSE, suspect = 2 / 3,
+                                  step_size = 0.005, p_proportion = TRUE) {
   H <- cumsum(w)
   X <- m + c(-rev(H), H)
-  x <- seq(min(X), max(X), stepwidth)
+  x <- seq(min(X), max(X), step_size)
 
   region <- y <- slope <- int <- rep(NA, length(x))
   region[x < X[1]] <- 1
@@ -49,8 +49,10 @@ SampDist <- function(m, w, h, threestate = FALSE,
   p <- y / sum(y)
   out <- data.frame(x, y, p)
   # truncate
-  out <- out[out$x >= 0 & out$x <= 1, ]
-  if (sumOne) out$p <- out$p / sum(out$p)
+  out <- out[0 <= out$x & out$x <= 1, ]
+  if (p_proportion) {
+    out$p <- out$p / sum(out$p)
+  }
   if (threestate) {
     out$xsus <- suspect * (1 - out$x)
     out <- out[c(1, 4, 2, 3)]

@@ -16,7 +16,7 @@
 #' @param nsim The number of simulations to draw from the sensitivity and
 #'   specificity distribution(s) for each reference test or the prevalence
 #'   distribution from each population.
-#' @param step.size Provides the level of resolution in values simulated from a
+#' @param step_size Provides the level of resolution in values simulated from a
 #'   triangular distribution.
 #' @param prevalence logical (TRUE/FALSE)  TRUE indicates that the function is
 #'   simulating values of prevalence.  This will determine the structure of the
@@ -31,8 +31,8 @@
 #'   in the same pattern for all reference tests.
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats rbeta
-get_simulated_values <- function(means, distn, spread,
-                                 nsim, step_size, prevalence) {
+.get_simulated_values <- function(means, distn, spread,
+                                  nsim, step_size, prevalence) {
   final_mat <- NULL
 
   if (prevalence == TRUE) means <- matrix(means, nrow = 1)
@@ -85,10 +85,10 @@ get_simulated_values <- function(means, distn, spread,
           stop("Spread must be wide, medium, or narrow")
         }
 
-        values_to_sample <- SampDist(m = means[1, i],
-                                     w = omega,
-                                     h = hi,
-                                     stepwidth = step.size)
+        values_to_sample <- .create_triangle_dist(m = means[1, i],
+                                                  w = omega,
+                                                  h = hi,
+                                                  step_size = step_size)
         current_draws <- sample(x = values_to_sample$x,
                                 size = nsim,
                                 prob = values_to_sample$p,
@@ -99,7 +99,7 @@ get_simulated_values <- function(means, distn, spread,
         if (prevalence == TRUE) {
           final_mat <- cbind(final_mat, current_draws)
         }
-      }else {
+      } else {
         stop("Distribution must be beta or triangular")
       }
 
@@ -140,10 +140,10 @@ get_simulated_values <- function(means, distn, spread,
       } else if (distn[i] == "triangular") {
         omega <- c(0.08, 0.08, 0.06)
         hi <- c(2, 1.6)
-        values_to_sample <- SampDist(m = means[1, i],
-                                     w = omega,
-                                     h = hi,
-                                     stepwidth = step.size)
+        values_to_sample <- .create_triangle_dist(m = means[1, i],
+                                                  w = omega,
+                                                  h = hi,
+                                                  step_size = step_size)
         current_draws <- sample(x = values_to_sample$x,
                                 size = nsim,
                                 prob = values_to_sample$p,

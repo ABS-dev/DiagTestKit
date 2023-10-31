@@ -4,11 +4,11 @@
 #'   objective function minimizes the sum of the squared deviations (expected -
 #'   observed cell counts).
 #' @param parm \code{vector}   A vector of starting values to be used for the
-#'   optimization that is passed to \code{minCell}.  For a 2-state experimental
-#'   test, this is a vector of length 2 with entries (\eqn{\pi}, \eqn{\theta})
-#'   For a 3-state experimental test, this is a vector of length 4 with entries
-#'   (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See also
-#'   \code{\link{estimateSnSp}}.
+#'   optimization that is passed to \code{.minimize_cell}.  For a 2-state
+#'   experimental test, this is a vector of length 2 with entries (\eqn{\pi},
+#'   \eqn{\theta}) For a 3-state experimental test, this is a vector of length 4
+#'   with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
+#'   also \code{\link{estimateSnSp}}.
 #' @param SnR \code{data.frame}  Each column corresponds to one reference test.
 #'   Row 1 contains the sensitivity for the reference test(s). Row 2 contains
 #'   the probability of a suspect result as a fraction of the non-correct test
@@ -43,8 +43,9 @@
 #' @return The sum of the squared deviations between the expected and observed
 #'   cell counts.
 #' @author \link{DiagTestKit-package}
-minCell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
-                    suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests) {
+.minimize_cell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
+                           suspect2staterows, X, Xpos, Xsus, Xneg, ncells,
+                           ntests) {
   if (length(parm) == 2) {
     SnE <- parm[1]
     SpE <- parm[2]
@@ -55,6 +56,6 @@ minCell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,
     sus.perc <- c(parm[2], parm[4])
   }
   x <- .cell_counts(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
-             suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
+                    suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests)
   return(sum((x - xdat)^2))
 }

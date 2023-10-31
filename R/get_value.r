@@ -35,11 +35,11 @@
 #' @param iter.n  integer indicating the frequency of updates for the number of
 #'   iterations completed.
 #' @param parm \code{vector}  A vector of starting values to be used for the
-#'   optimization that is passed to \code{minCell}.  For a 2-state experimental
-#'   test, this is a vector of length 2 with entries (\eqn{\pi}, \eqn{\theta}).
-#'   For a 3-state experimental test, this is a vector of length 4 with entries
-#'   (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See also
-#'   \code{\link{estimateSnSp}}.
+#'   optimization that is passed to \code{.minimize_cell}.  For a 2-state
+#'   experimental test, this is a vector of length 2 with entries (\eqn{\pi},
+#'   \eqn{\theta}). For a 3-state experimental test, this is a vector of length
+#'   4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
+#'   also \code{\link{estimateSnSp}}.
 #' @return A list: \cr \cr The following will be returned for both 2 and 3-state
 #'   experimental tests -- \cr
 #' \itemize{
@@ -66,8 +66,8 @@
 #' }
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats optim
-get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
-                       tolerance, rep.iter, iter.n, parm = NULL) {
+.get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
+                        tolerance, rep.iter, iter.n, parm = NULL) {
 
 
   params <- as.list(environment())
@@ -76,12 +76,12 @@ get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
   # Put in the error checking...
 
   # dat should be a vector of counts ordered in a manner consistent that was
-  # output from the .cell_counts function i tried to put this in an order that would be
-  # consistent with a ddply statment that had .variables = .(Exp, Ref1, Ref2,
-  # etc.)
+  # output from the .cell_counts function i tried to put this in an order that
+  # would be consistent with a ddply statment that had .variables = .(Exp, Ref1,
+  # Ref2, etc.)
 
   # I need to create the named vectors required for the .cell_counts function (used
-  # within minCell)
+  # within .minimize_cell)
 
   ndraws <- nrow(SnR.vec)
   ntests <- ncol(SnR.vec) / 2
@@ -158,7 +158,7 @@ get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
     names(prev.current) <- pop.names
 
     current.fit <- optim(parm,
-                         minCell,
+                         .minimize_cell,
                          SnR = SnR.current,
                          SpR = SpR.current,
                          Prev = prev.current,
