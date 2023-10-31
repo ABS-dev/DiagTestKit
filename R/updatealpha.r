@@ -27,18 +27,18 @@
 #' #                    Point.Estimate     Lower     Upper
 #' # Sn = P(T+|D+)      0.9449821          0.9053901 0.9791017
 #' # Sp = P(T-|D-)      0.9062769          0.8336064 1.0000000
-updateAlpha <- function(x, newAlpha){
+updateAlpha <- function(x, newAlpha) {
   NEWdetailOut <- x$detailOut
   NEWinput <- x$input
 
   ## figure out if 2 states or 3
-  if(length(x$calcVal) == 6){
+  if (length(x$calcVal) == 6) {
     nstates = 2
   } else {
     nstates = 3
   }
 
-  if(nstates == 2){
+  if (nstates == 2) {
     NEWcalcVal <- list( Nsim = x$calcVal$Nsim,
                         Confidence = (1 - newAlpha),
                         SnPE = median(NEWdetailOut$Exp.Sn),

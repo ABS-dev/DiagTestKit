@@ -8,7 +8,7 @@
 #' @author \link{DiagTestKit-package}
 #' @return \code{vector} A named vector with values for the parameters specified
 #'   in the "to" argument of the input.
-betaParm <- function(B, to = "alpha.beta"){
+betaParm <- function(B, to = "alpha.beta") {
   # convert parameterizations
   # from and to must be one of alpha.beta, mu.theta, mu.sigma2, or mu.phi
   # input is named vector
@@ -37,7 +37,7 @@ betaParm <- function(B, to = "alpha.beta"){
   # so beta can be expressed as (1-mu)theta
 
   from <- paste(names(B[!is.na(B)]), collapse = ".")
-  if (from == "mu.phi"){
+  if (from == "mu.phi") {
     mu <- B["mu"]
     phi <- B["phi"]
     names(mu) <- NULL
@@ -47,7 +47,7 @@ betaParm <- function(B, to = "alpha.beta"){
     alpha <- mu * theta
     beta <- (1 - mu) * theta
   }
-  else if (from == "mu.sigma2"){
+  else if (from == "mu.sigma2") {
     mu <- B["mu"]
     sigma2 <- B["sigma2"]
     names(mu) <- NULL
@@ -57,7 +57,7 @@ betaParm <- function(B, to = "alpha.beta"){
     alpha <- mu*theta
     beta <- (1-mu)*theta
   }
-  else if(from=="mu.theta"){
+  else if (from=="mu.theta") {
     mu <- B["mu"]
     theta <- B["theta"]
     names(mu) <- NULL
@@ -67,7 +67,7 @@ betaParm <- function(B, to = "alpha.beta"){
     alpha <- mu * theta
     beta <- (1-mu) * theta
   }
-  else if(from=="alpha.beta"){
+  else if (from=="alpha.beta") {
     alpha <- B["alpha"]
     beta <- B["beta"]
     names(alpha) <- NULL

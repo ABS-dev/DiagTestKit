@@ -4,7 +4,7 @@ snsp <- setRefClass(
   "snsp",
   fields = list(calcVal = "list", detailOut = "list", input = "list"),
   methods = list(
-    show = function(){
+    show = function() {
       cat(paste(calcVal$Nsim, " simulations \n"))
       cat(paste(calcVal$Confidence * 100, "% Interval Estimates\n\n"))
 
@@ -15,7 +15,7 @@ snsp <- setRefClass(
                             "Upper" = c(calcVal$SnInterval[2],
                                         calcVal$SpInterval[2]),
                             stringsAsFactors = FALSE)
-      if(length(calcVal) > 6){
+      if (length(calcVal) > 6) {
         summary <- rbind(summary,
                          c(calcVal$SusDisPosPE,
                            as.vector(calcVal$SusDisPosInterval)),

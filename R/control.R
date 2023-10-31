@@ -69,10 +69,10 @@ estimateSnSpControl <- function(seed        = NULL,
                                 step.size   = 1e-06,
                                 parm        = NULL,
                                 rep.iter    = TRUE,
-                                iter.n      = 50){
+                                iter.n      = 50) {
 
   if (is.null(seed)) {
-    seed <- round(100000 * runif(1, 0, 1))
+    seed <- round(100000 * runif (1, 0, 1))
   }
 
   return(list(seed        = seed,

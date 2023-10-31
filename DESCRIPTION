@@ -23,4 +23,4 @@ URL: https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues
 LazyData: true
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
