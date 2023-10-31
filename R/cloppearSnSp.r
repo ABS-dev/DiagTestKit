@@ -115,16 +115,16 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   cpl <- ifelse(y > 0, qbeta(alpha / 2, y, n - y + 1), 0)
   cpu <- ifelse(y < n, qbeta(1 - alpha / 2, y + 1, n - y), 1)
   dataout <- list(y, n)
-  calcVal <- list(p, cpl, cpu)
+  calc_val <- list(p, cpl, cpu)
 
   if (est.Sn) {
     names(dataout) <- c("Test.Positive", "Total.Positive")
-    names(calcVal) <- c("Sn", "Sn.LL", "Sn.UL")
+    names(calc_val) <- c("Sn", "Sn.LL", "Sn.UL")
   } else if (!est.Sn) {
     names(dataout) <- c("Test.Negative", "Total.Negative")
-    names(calcVal) <- c("Sp", "Sp.LL", "Sp.UL")
+    names(calc_val) <- c("Sp", "Sp.LL", "Sp.UL")
   }
 
-  out <- cp$new(calcVal = calcVal, data = dataout, alpha = alpha)
+  out <- cp$new(calcVal = calc_val, data = dataout, alpha = alpha)
   return(out)
 }

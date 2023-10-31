@@ -3,7 +3,7 @@
 #'   specificity of an experimental test kit (and probability of suspect given
 #'   disease positive and given disease negative for a 3-state kit).
 #' @param dat \code{vector} A vector of counts ordered in a manner consistent
-#'   with output from the cellS function.
+#'   with output from the .cell_counts function.
 #' @param SnR.vec \code{data.frame}  Each column corresponds to one reference
 #'   test.  Row 1 contains the sensitivity for the reference test(s). Row 2
 #'   contains the probability of a suspect result as a fraction of the
@@ -66,7 +66,7 @@
 #' }
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats optim
-get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
+get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
                        tolerance, rep.iter, iter.n, parm = NULL) {
 
 
@@ -76,11 +76,11 @@ get.values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,
   # Put in the error checking...
 
   # dat should be a vector of counts ordered in a manner consistent that was
-  # output from the cellS function i tried to put this in an order that would be
+  # output from the .cell_counts function i tried to put this in an order that would be
   # consistent with a ddply statment that had .variables = .(Exp, Ref1, Ref2,
   # etc.)
 
-  # I need to create the named vectors required for the cellS function (used
+  # I need to create the named vectors required for the .cell_counts function (used
   # within minCell)
 
   ndraws <- nrow(SnR.vec)

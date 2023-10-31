@@ -1,6 +1,6 @@
 #' @title Convert Beta Parameterizations
 #' @description Convert between the paramaterizations of a beta distribution.
-#' @param B  \code{vector}  A named vector specifying non-NULL values for 2
+#' @param b  \code{vector} A named vector specifying non-NULL values for 2
 #'   parameters. e.g. c(alpha=NA, beta=NA, mu=.6, theta=NA, phi=1.6, sigma2=NA)
 #'   or just c(mu=.6, phi=1.6)
 #' @param to Specification of desired parameters, options are one of
@@ -8,7 +8,7 @@
 #' @author \link{DiagTestKit-package}
 #' @return \code{vector} A named vector with values for the parameters specified
 #'   in the "to" argument of the input.
-betaParm <- function(B, to = "alpha.beta") {
+.beta_parm <- function(b, to = "alpha.beta") {
   # convert parameterizations
   # from and to must be one of alpha.beta, mu.theta, mu.sigma2, or mu.phi
   # input is named vector
@@ -36,10 +36,10 @@ betaParm <- function(B, to = "alpha.beta") {
   #
   # so beta can be expressed as (1-mu)theta
 
-  from <- paste(names(B[!is.na(B)]), collapse = ".")
+  from <- paste(names(b[!is.na(b)]), collapse = ".")
   if (from == "mu.phi") {
-    mu <- B["mu"]
-    phi <- B["phi"]
+    mu <- b["mu"]
+    phi <- b["phi"]
     names(mu) <- NULL
     names(phi) <- NULL
     theta <- (1 - phi) / phi
@@ -47,8 +47,8 @@ betaParm <- function(B, to = "alpha.beta") {
     alpha <- mu * theta
     beta <- (1 - mu) * theta
   } else if (from == "mu.sigma2") {
-    mu <- B["mu"]
-    sigma2 <- B["sigma2"]
+    mu <- b["mu"]
+    sigma2 <- b["sigma2"]
     names(mu) <- NULL
     names(sigma2) <- NULL
     theta <- (mu * (1 - mu) / sigma2) - 1
@@ -56,8 +56,8 @@ betaParm <- function(B, to = "alpha.beta") {
     alpha <- mu * theta
     beta <- (1 - mu) * theta
   } else if (from == "mu.theta") {
-    mu <- B["mu"]
-    theta <- B["theta"]
+    mu <- b["mu"]
+    theta <- b["theta"]
     names(mu) <- NULL
     names(theta) <- NULL
     phi <- 1 / (theta + 1)
@@ -65,8 +65,8 @@ betaParm <- function(B, to = "alpha.beta") {
     alpha <- mu * theta
     beta <- (1 - mu) * theta
   } else if (from == "alpha.beta") {
-    alpha <- B["alpha"]
-    beta <- B["beta"]
+    alpha <- b["alpha"]
+    beta <- b["beta"]
     names(alpha) <- NULL
     names(beta) <- NULL
     theta <- alpha + beta
@@ -78,9 +78,9 @@ betaParm <- function(B, to = "alpha.beta") {
   }
   out <- switch(to,
                 alpha.beta = c(alpha = alpha, beta = beta),
-                mu.phi = c(mu = mu, phi = phi),
-                mu.theta = c(mu = mu, theta = theta),
-                mu.sigma2 = c(mu = mu, sigma2 = sigma2)
+                mu.phi     = c(mu = mu, phi = phi),
+                mu.theta   = c(mu = mu, theta = theta),
+                mu.sigma2  = c(mu = mu, sigma2 = sigma2)
   )
   return(out)
 }

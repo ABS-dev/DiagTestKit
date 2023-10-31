@@ -21,9 +21,9 @@
 #' @param prevalence logical (TRUE/FALSE)  TRUE indicates that the function is
 #'   simulating values of prevalence.  This will determine the structure of the
 #'   output.
-#' @return final.mat A matrix of simulated values.  If prevalence is TRUE,
-#'   final.mat will have the number of columns corresponding to the number of
-#'   populations sampled else if prevalence is FALSE, final.mat will have number
+#' @return final_mat A matrix of simulated values.  If prevalence is TRUE,
+#'   final_mat will have the number of columns corresponding to the number of
+#'   populations sampled else if prevalence is FALSE, final_mat will have number
 #'   of columns twice the number of reference tests.  The columns are
 #'   sensitivity (or specificity) of the first reference test, the probability
 #'   of a suspect result as a fraction of the non-correct test result (i.e.
@@ -31,24 +31,24 @@
 #'   in the same pattern for all reference tests.
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats rbeta
-get.simulated.values <- function(means, distn, spread,
-                                 nsim, step.size, prevalence) {
-  final.mat <- NULL
+get_simulated_values <- function(means, distn, spread,
+                                 nsim, step_size, prevalence) {
+  final_mat <- NULL
 
   if (prevalence == TRUE) means <- matrix(means, nrow = 1)
 
   if (is.null(distn) && is.null(spread)) {
     # the default distribution is going to be a "wide" beta
     for (i in seq_len(ncol(means))) {
-      alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = 0.002))
-      current.draws <- rbeta(nsim,
-                             shape1 = alpha.beta[1],
-                             shape2 = alpha.beta[2])
+      alpha_beta <- .beta_parm(b = c(mu = means[1, i], sigma2 = 0.002))
+      current_draws <- rbeta(nsim,
+                             shape1 = alpha_beta[1],
+                             shape2 = alpha_beta[2])
       if (prevalence == FALSE) {
-        final.mat <- cbind(final.mat, current.draws, rep(means[2, i]))
+        final_mat <- cbind(final_mat, current_draws, rep(means[2, i]))
       }
       if (prevalence == TRUE) {
-        final.mat <- cbind(final.mat, current.draws)
+        final_mat <- cbind(final_mat, current_draws)
       }
     }
   } else if (!is.null(distn) && !is.null(spread)) {
@@ -59,15 +59,15 @@ get.simulated.values <- function(means, distn, spread,
                  ifelse(spread[i] == "medium", 0.004,
                         ifelse(spread[i] == "narrow", 0.0001,
                                stop("Spread must be wide, medium, or narrow"))))
-        alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = s2))
-        current.draws <- rbeta(nsim,
-                               shape1 = alpha.beta[1],
-                               shape2 = alpha.beta[2])
+        alpha_beta <- .beta_parm(b = c(mu = means[1, i], sigma2 = s2))
+        current_draws <- rbeta(nsim,
+                               shape1 = alpha_beta[1],
+                               shape2 = alpha_beta[2])
         if (prevalence == FALSE) {
-          final.mat <- cbind(final.mat, current.draws, rep(means[2, i], nsim))
+          final_mat <- cbind(final_mat, current_draws, rep(means[2, i], nsim))
         }
         if (prevalence == TRUE) {
-          final.mat <- cbind(final.mat, current.draws)
+          final_mat <- cbind(final_mat, current_draws)
         }
 
       } else if (distn[i] == "triangular") {
@@ -85,19 +85,19 @@ get.simulated.values <- function(means, distn, spread,
           stop("Spread must be wide, medium, or narrow")
         }
 
-        values.to.sample <- SampDist(m = means[1, i],
+        values_to_sample <- SampDist(m = means[1, i],
                                      w = omega,
                                      h = hi,
                                      stepwidth = step.size)
-        current.draws <- sample(x = values.to.sample$x,
+        current_draws <- sample(x = values_to_sample$x,
                                 size = nsim,
-                                prob = values.to.sample$p,
+                                prob = values_to_sample$p,
                                 replace = TRUE)
         if (prevalence == FALSE) {
-          final.mat <- cbind(final.mat, current.draws, rep(means[2, i], nsim))
+          final_mat <- cbind(final_mat, current_draws, rep(means[2, i], nsim))
         }
         if (prevalence == TRUE) {
-          final.mat <- cbind(final.mat, current.draws)
+          final_mat <- cbind(final_mat, current_draws)
         }
       }else {
         stop("Distribution must be beta or triangular")
@@ -111,15 +111,15 @@ get.simulated.values <- function(means, distn, spread,
                ifelse(spread[i] == "medium", 0.004,
                       ifelse(spread[i] == "narrow", 0.0001,
                              stop("Spread must be wide, medium, or narrow"))))
-      alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = s2))
-      current.draws <- rbeta(nsim,
-                             shape1 = alpha.beta[1],
-                             shape2 = alpha.beta[2])
+      alpha_beta <- .beta_parm(b = c(mu = means[1, i], sigma2 = s2))
+      current_draws <- rbeta(nsim,
+                             shape1 = alpha_beta[1],
+                             shape2 = alpha_beta[2])
       if (prevalence == FALSE) {
-        final.mat <- cbind(final.mat, current.draws, rep(means[2, i], nsim))
+        final_mat <- cbind(final_mat, current_draws, rep(means[2, i], nsim))
       }
       if (prevalence == TRUE) {
-        final.mat <- cbind(final.mat, current.draws)
+        final_mat <- cbind(final_mat, current_draws)
       }
 
     }
@@ -127,32 +127,32 @@ get.simulated.values <- function(means, distn, spread,
     # this will default to wide
     for (i in seq_len(ncol(means))) {
       if (distn[i] == "beta") {
-        alpha.beta <- betaParm(B = c(mu = means[1, i], sigma2 = 0.002))
-        current.draws <- rbeta(nsim,
-                               shape1 = alpha.beta[1],
-                               shape2 = alpha.beta[2])
+        alpha_beta <- .beta_parm(b = c(mu = means[1, i], sigma2 = 0.002))
+        current_draws <- rbeta(nsim,
+                               shape1 = alpha_beta[1],
+                               shape2 = alpha_beta[2])
         if (prevalence == FALSE) {
-          final.mat <- cbind(final.mat, current.draws, rep(means[2, i]))
+          final_mat <- cbind(final_mat, current_draws, rep(means[2, i]))
         }
         if (prevalence == TRUE) {
-          final.mat <- cbind(final.mat, current.draws)
+          final_mat <- cbind(final_mat, current_draws)
         }
       } else if (distn[i] == "triangular") {
         omega <- c(0.08, 0.08, 0.06)
         hi <- c(2, 1.6)
-        values.to.sample <- SampDist(m = means[1, i],
+        values_to_sample <- SampDist(m = means[1, i],
                                      w = omega,
                                      h = hi,
                                      stepwidth = step.size)
-        current.draws <- sample(x = values.to.sample$x,
+        current_draws <- sample(x = values_to_sample$x,
                                 size = nsim,
-                                prob = values.to.sample$p,
+                                prob = values_to_sample$p,
                                 replace = TRUE)
         if (prevalence == FALSE) {
-          final.mat <- cbind(final.mat, current.draws, rep(means[2, i], nsim))
+          final_mat <- cbind(final_mat, current_draws, rep(means[2, i], nsim))
         }
         if (prevalence == TRUE) {
-          final.mat <- cbind(final.mat, current.draws)
+          final_mat <- cbind(final_mat, current_draws)
         }
 
       } else {
@@ -161,6 +161,6 @@ get.simulated.values <- function(means, distn, spread,
     }
   }
   ## remove colnames that are an artifact of cbind
-  colnames(final.mat) <- NULL
-  return(final.mat)
+  colnames(final_mat) <- NULL
+  return(final_mat)
 }

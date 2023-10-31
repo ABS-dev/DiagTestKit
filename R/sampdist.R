@@ -14,7 +14,7 @@
 #' @param suspect A fraction that indicates what percentage of the remaining
 #'   probability would be assigned to the suspect region.  For instance, if the
 #'   function gives sensitivity and then the probability of "suspect" is (1 -
-#'   sensitivity)*suspect.
+#'   sensitivity) * suspect.
 #' @param stepwidth distance between the 'x' in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
 #' @param sumOne whether to express 'p' as a proportion of its sum.

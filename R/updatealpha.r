@@ -44,26 +44,26 @@ updateAlpha <- function(x, newAlpha) {
       Nsim       = x$calcVal$Nsim,
       Confidence = (1 - newAlpha),
       SnPE       = median(NEWdetailOut$Exp.Sn),
-      SnInterval = emp.hpd(NEWdetailOut$Exp.Sn, alpha = newAlpha),
+      SnInterval = emp_hpd(NEWdetailOut$Exp.Sn, alpha = newAlpha),
       SpPE       = median(NEWdetailOut$Exp.Sp),
-      SpInterval = emp.hpd(NEWdetailOut$Exp.Sp, alpha = newAlpha))
+      SpInterval = emp_hpd(NEWdetailOut$Exp.Sp, alpha = newAlpha))
   } else {
     NEWcalcVal <- list(
       Nsim              = x$calcVal$Nsim,
       Confidence        = (1 - newAlpha),
       SnPE              = median(NEWdetailOut$Exp.Sn),
-      SnInterval        = emp.hpd(NEWdetailOut$Exp.Sn, alpha = newAlpha),
+      SnInterval        = emp_hpd(NEWdetailOut$Exp.Sn, alpha = newAlpha),
       SpPE              = median(NEWdetailOut$Exp.Sp),
-      SpInterval        = emp.hpd(NEWdetailOut$Exp.Sp, alpha = newAlpha),
+      SpInterval        = emp_hpd(NEWdetailOut$Exp.Sp, alpha = newAlpha),
       SusDisPosPE       =
         median((1 - NEWdetailOut$Exp.Sn) * NEWdetailOut$Exp.pos.p),
       SusDisPosInterval =
-        emp.hpd((1 - NEWdetailOut$Exp.Sn) * NEWdetailOut$Exp.pos.p,
+        emp_hpd((1 - NEWdetailOut$Exp.Sn) * NEWdetailOut$Exp.pos.p,
                 alpha = newAlpha),
       SusDisNegPE       =
         median((1 - NEWdetailOut$Exp.Sp) * NEWdetailOut$Exp.neg.p),
       SusDisNegInterval =
-        emp.hpd((1 - NEWdetailOut$Exp.Sp) * NEWdetailOut$Exp.neg.p,
+        emp_hpd((1 - NEWdetailOut$Exp.Sp) * NEWdetailOut$Exp.neg.p,
                 alpha = newAlpha))
 
   }
