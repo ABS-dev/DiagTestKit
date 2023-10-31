@@ -29,17 +29,24 @@
 #'   probability (i.e. 1 - \eqn{\pi} or 1 - \eqn{\theta}) that is suspect
 #'   (\eqn{\psi} or \eqn{\phi}).  \eqn{\delta = \frac{\psi}{(1-\pi)}} and
 #'   \eqn{\gamma = \frac{\phi}{(1-\theta)}}.
-#' @param N \code{vector}  A named vector containing the sample size for each
-#'   population sampled.
+#' @param N_mat \code{matrix} Needs to be filled out
 #' @param nstates \code{vector} A vector with length one greater than the number
 #'   of reference tests.  The first element is the number of states of the
 #'   experimental test and the remaining entries are the number of states of
 #'   each reference test (using the same ordering as SnR and SpR).
+#' @param suspect2staterows Needs to be filled out.
+#' @param X Needs to be filled out.
+#' @param Xpos Needs to be filled out.
+#' @param Xsus Needs to be filled out.
+#' @param Xneg Needs to be filled out.
+#' @param ncells Needs to be filled out.
+#' @param ntests Needs to be filled out.
 #' @return  \code{vector} A vector of expected counts corresponding to the
 #'   properties of the reference and experimental tests.  The expected counts
 #'   are obtained based on a conditional independence assumption of all test
 #'   methods.
 #' @author \link{DiagTestKit-package}
+#' @importFrom data.table setorder
 cellS <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
                   suspect2staterows, X, Xpos, Xsus, Xneg, ncells, ntests) {
   suspect.pos <- sus.perc[1] * (1 - SnE)

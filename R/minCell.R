@@ -28,12 +28,18 @@
 #' @param Prev \code{vector}  A named vector containing the prevalence for each
 #'   population sampled.
 #' @param xdat \code{vector}  A vector of the observed cell counts.
-#' @param N \code{vector}  A named vector containing the sample size for each
-#'   population sampled passed to \code{\link{cellS}}.
+#' @param N_mat \code{matrix}  Needs to be filled out
 #' @param nstates \code{vector} A vector with length one more than the number of
 #'   reference tests.  The first element is the number of states of the
 #'   experimental test and the remaining entries are the number of states of
 #'   each reference test (using the same ordering as SnR and SpR).
+#' @param suspect2staterows Needs to be filled out.
+#' @param X Needs to be filled out.
+#' @param Xpos Needs to be filled out.
+#' @param Xsus Needs to be filled out.
+#' @param Xneg Needs to be filled out.
+#' @param ncells Needs to be filled out.
+#' @param ntests Needs to be filled out.
 #' @return The sum of the squared deviations between the expected and observed
 #'   cell counts.
 #' @author \link{DiagTestKit-package}

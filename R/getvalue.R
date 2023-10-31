@@ -65,6 +65,7 @@
 #'  non-diseased samples.
 #' }
 #' @author \link{DiagTestKit-package}
+#' @importFrom stats optim
 get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.iter,iter.n,parm=NULL) {
 
 

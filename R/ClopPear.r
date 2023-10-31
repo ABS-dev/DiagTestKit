@@ -61,6 +61,7 @@
 #' @references Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial
 #'   limits illustrated in the case of the binomial. \emph{Biometrika}
 #'   26:404-413.
+#' @importFrom stats qbeta
 #' @export
 #' @author \link{DiagTestKit-package}
 #' @examples

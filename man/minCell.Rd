@@ -52,13 +52,26 @@ population sampled.}
 
 \item{xdat}{\code{vector}  A vector of the observed cell counts.}
 
+\item{N_mat}{\code{matrix}  Needs to be filled out}
+
 \item{nstates}{\code{vector} A vector with length one more than the number of
 reference tests.  The first element is the number of states of the
 experimental test and the remaining entries are the number of states of
 each reference test (using the same ordering as SnR and SpR).}
 
-\item{N}{\code{vector}  A named vector containing the sample size for each
-population sampled passed to \code{\link{cellS}}.}
+\item{suspect2staterows}{Needs to be filled out.}
+
+\item{X}{Needs to be filled out.}
+
+\item{Xpos}{Needs to be filled out.}
+
+\item{Xsus}{Needs to be filled out.}
+
+\item{Xneg}{Needs to be filled out.}
+
+\item{ncells}{Needs to be filled out.}
+
+\item{ntests}{Needs to be filled out.}
 }
 \value{
 The sum of the squared deviations between the expected and observed

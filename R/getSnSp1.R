@@ -143,6 +143,9 @@
 #' }
 #' @author \link{DiagTestKit-package}
 #' @seealso \code{\link{estimateSnSpControl}}
+#' @importFrom data.table setorder
+#' @importFrom plyr ddply
+#' @importFrom stats median
 #' @export
 #' @examples
 #' data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),

@@ -30,6 +30,7 @@
 #'   either \eqn{\delta} or \eqn{\gamma}) for the first reference and continues
 #'   in the same pattern for all reference tests.
 #' @author \link{DiagTestKit-package}
+#' @importFrom stats rbeta
 get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence) {
   final.mat<-NULL
 

@@ -7,6 +7,7 @@
 #'   \code{\link{estimateSnSp}}
 #' @author \link{DiagTestKit-package}
 #' @seealso \code{\link{estimateSnSpControl}}
+#' @importFrom stats median
 #' @export
 #' @examples
 #' data.1 <- data.frame(

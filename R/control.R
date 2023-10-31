@@ -53,6 +53,7 @@
 #'   Sn.disn, Sn.spread, Sp.distn,} \code{ Sp.spread, prev.distn, prev.spread,
 #'   tolerance, step.size, parm}
 #' @author \link{DiagTestKit-package}
+#' @importFrom stats runif
 #' @export
 #' @examples
 #' estimateSnSpControl()

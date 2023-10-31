@@ -56,13 +56,26 @@ probability (i.e. 1 - \eqn{\pi} or 1 - \eqn{\theta}) that is suspect
 (\eqn{\psi} or \eqn{\phi}).  \eqn{\delta = \frac{\psi}{(1-\pi)}} and
 \eqn{\gamma = \frac{\phi}{(1-\theta)}}.}
 
+\item{N_mat}{\code{matrix} Needs to be filled out}
+
 \item{nstates}{\code{vector} A vector with length one greater than the number
 of reference tests.  The first element is the number of states of the
 experimental test and the remaining entries are the number of states of
 each reference test (using the same ordering as SnR and SpR).}
 
-\item{N}{\code{vector}  A named vector containing the sample size for each
-population sampled.}
+\item{suspect2staterows}{Needs to be filled out.}
+
+\item{X}{Needs to be filled out.}
+
+\item{Xpos}{Needs to be filled out.}
+
+\item{Xsus}{Needs to be filled out.}
+
+\item{Xneg}{Needs to be filled out.}
+
+\item{ncells}{Needs to be filled out.}
+
+\item{ntests}{Needs to be filled out.}
 }
 \value{
 \code{vector} A vector of expected counts corresponding to the
