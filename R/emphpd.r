@@ -17,7 +17,7 @@ emp.hpd <- function(X, alpha) {
     quantile(X, prob = probs[, "low"])
   shortest <- min(int.len)
   first    <- which(int.len == shortest)[1]
-  hpd      <- quantile(X,prob = probs[first, ], type = 7)
+  hpd      <- quantile(X, prob = probs[first, ], type = 7)
   # see documentation for quantile() for type
   return(hpd)
 }

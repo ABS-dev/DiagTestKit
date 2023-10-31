@@ -66,7 +66,7 @@
 #' }
 #' @author \link{DiagTestKit-package}
 #' @importFrom stats optim
-get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.iter,iter.n,parm=NULL) {
+get.values<-function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates, tolerance, rep.iter, iter.n, parm=NULL) {
 
 
   params <- as.list(environment())
@@ -76,7 +76,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
   # dat should be a vector of counts ordered in a manner consistent that was
   # output from the cellS function i tried to put this in an order that would be
-  # consistent with a ddply statment that had .variables = .(Exp,Ref1,Ref2,
+  # consistent with a ddply statment that had .variables = .(Exp, Ref1, Ref2,
   # etc.)
 
   # I need to create the named vectors required for the cellS function (used
@@ -84,18 +84,18 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
   ndraws<-nrow(SnR.vec)
   ntests<-ncol(SnR.vec)/2
-  test.names<-paste("Ref",1:ntests,sep="")
+  test.names<-paste("Ref", 1:ntests, sep="")
   if (is.vector(prev.vec)) {
     pop.names<-"A"
-  } else{
+  } else {
     pop.names<-LETTERS[seq_len(ncol(prev.vec))]
   }
 
   if (is.null(parm)) {
     if (nstates[1]==2) {
-      parm<-c(0.9,0.9)
+      parm<-c(0.9, 0.9)
     } else if (nstates[1]==3) {
-      parm<-c(0.9,0.67,0.9,0.67)
+      parm<-c(0.9, 0.67, 0.9, 0.67)
     }
   }
 
@@ -112,7 +112,7 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
   ntests <- ncol(SnR.vec) / 2 + 1
 
-  tests <- data.frame(matrix(c("positive","suspect","negative"),
+  tests <- data.frame(matrix(c("positive", "suspect", "negative"),
                              3,
                              ntests,
                              dimnames = list(NULL,
@@ -136,17 +136,17 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
   N_mat <- matrix(rep(N.vec,  each = 3^ntests),
                   ncol = length(N.vec),
                   byrow = FALSE)
-  for(i in 1:ndraws) {
+  for (i in 1:ndraws) {
     if (i == 1) message("The optimization has begun")
 
 
-    SnR.current <- matrix(SnR.vec[i,], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
-    SpR.current <- matrix(SpR.vec[i,], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
+    SnR.current <- matrix(SnR.vec[i, ], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
+    SpR.current <- matrix(SpR.vec[i, ], nrow = 2, byrow = FALSE, dimnames = list(NULL, test.names))
 
     if (is.null(dim(prev.vec))) {
       prev.current<-as.vector(prev.vec[i])
-    } else{
-      prev.current<-prev.vec[i,]
+    } else {
+      prev.current<-prev.vec[i, ]
     }
     prev.current <- matrix(prev.current, nrow = 1)
 
@@ -174,28 +174,28 @@ get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.it
 
     current.ests<-current.fit$par
     current.con<-current.fit$convergence
-    message.current<-ifelse(is.null(current.fit$message),"NA",current.fit$message)
-    if (rep.iter) if (i%%iter.n==0) cat("\nThe following is the number of iterations completed: ",i,fill=TRUE)
+    message.current<-ifelse(is.null(current.fit$message), "NA", current.fit$message)
+    if (rep.iter) if (i%%iter.n==0) cat("\nThe following is the number of iterations completed: ", i, fill=TRUE)
 
     if (length(parm)==2) {
-      sens.final<-c(sens.final,current.ests[1])
-      spec.final<-c(spec.final,current.ests[2])
-      converge<-c(converge,current.con)
-      message<-c(message,message.current)
+      sens.final<-c(sens.final, current.ests[1])
+      spec.final<-c(spec.final, current.ests[2])
+      converge<-c(converge, current.con)
+      message<-c(message, message.current)
     } else if (length(parm)==4) {
-      sens.final<-c(sens.final,current.ests[1])
-      spec.final<-c(spec.final,current.ests[3])
-      p.pos<-c(p.pos,current.ests[2])
-      p.neg<-c(p.neg,current.ests[4])
-      converge<-c(converge,current.con)
-      message<-c(message,message.current)
+      sens.final<-c(sens.final, current.ests[1])
+      spec.final<-c(spec.final, current.ests[3])
+      p.pos<-c(p.pos, current.ests[2])
+      p.neg<-c(p.neg, current.ests[4])
+      converge<-c(converge, current.con)
+      message<-c(message, message.current)
     }
 
   }
   if (length(parm)==2) {
-    return(list(sens.final,spec.final,converge,message))
+    return(list(sens.final, spec.final, converge, message))
   } else if (length(parm)==4) {
-    return(list(sens.final,p.pos,spec.final,p.neg,converge,message))
+    return(list(sens.final, p.pos, spec.final, p.neg, converge, message))
   }
 
 }

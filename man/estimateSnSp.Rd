@@ -39,14 +39,13 @@ test. Row 1 contains the specificity for each reference test. Row 2
 contains the probability of a suspect result as a fraction of the
 non-correct test result.  This is a value between 0 and 1 (inclusive).
 Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where
-\eqn{\gamma} is the
-second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1
-- \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state test
-(i.e. no suspect region).  Alternatively, if all reference tests are 2-state
-tests, the specificities can can be input as a named vector.  Specifically,
-each element in the vector must be given a name which includes 'ref' (see
-above) and the column names (or names of the elements within the vector)
-must match those for Sn.ref.}
+\eqn{\gamma} is the second row for a given column (reference test).
+\eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}. Use a
+zero for a 2-state test (i.e. no suspect region).  Alternatively, if all
+reference tests are 2-state tests, the specificity can can be input as a
+named vector.  Specifically, each element in the vector must be given a
+name which includes 'ref' (see above) and the column names (or names of the
+elements within the vector) must match those for Sn.ref.}
 
 \item{prev.pop}{\code{vector}  A named vector containing the prevalence for
 each population sampled.  The names in the vector must match the population
@@ -78,7 +77,7 @@ A function written by CVB Statistics to estimate the sensitivity
 
 
   A list with the following values which will include the following for both
- 2- and 3-state experimental tests -- \cr
+  2- and 3-state experimental tests -- \cr
 \itemize{
 \item{\strong{Nsim}}  Number of simulations performed.
 \item{\strong{Confidence}}   1 - \eqn{\alpha}.
@@ -90,7 +89,7 @@ the estimated values.
 \item{\strong{SpInterval}} Estimated simulated interval for specificity.
 }
 
- If three states, the list will also include -- \cr
+  If three states, the list will also include -- \cr
 \itemize{
 \item{\strong{SusDisPosPE}} Point estimate for the probability of test
  suspect given disease positive (\eqn{\psi}) which is the median of the
@@ -108,8 +107,8 @@ the estimated values.
 \section{\code{detailOut}}{
 
 
- A list with the following detailed output values which will include the
- following for both 2- and 3-state experimental tests -- \cr
+  A list with the following detailed output values which will include the
+  following for both 2- and 3-state experimental tests -- \cr
 \itemize{
 \item{\strong{Exp.Sn}}  \code{vector} The optimized values for the
 sensitivity of the experimental test kit.
@@ -123,7 +122,7 @@ string providing any additional information returned by the optimizer or
  NULL.  See also \code{\link{optim}}.
 }
 
- If three states, the list will also inlcude -- \cr
+  If three states, the list will also inlcude -- \cr
 \itemize{
 \item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the
 proportion of the remaining probability (1-Sn) that corresponds to a
@@ -142,7 +141,7 @@ P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta}).
 
 \section{\code{input}}{
  A list containing the seed used and the simulated
- values.
+  values.
 
 \itemize{
 \item{\strong{seed}}  The seed used in the random generation of the

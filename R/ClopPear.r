@@ -80,14 +80,16 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   # show.warnings=F suppresses unnecessary warnings from ifelse
   # -------------------------------------------------------
 
-  dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
+  dat[sapply(dat, is.character)] <-
+    lapply(dat[sapply(dat, is.character)], as.factor)
 
   if (sum(grepl(pattern = "exp", names(dat), ignore.case = TRUE)) == 0) {
     stop("Column names must indicate which is the experimental test")
   }
 
   if (sum(grepl(pattern = "ref", names(dat), ignore.case = TRUE)) == 0) {
-    stop("Column names must indicate which belong to the infallible reference test")
+    stop("Column names must indicate which",
+         "belong to the infallible reference test")
   }
 
   # rename the last column in the data frame to counts
@@ -98,13 +100,14 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   dat$exp[grepl(pattern = "pos", dat$exp, ignore.case = TRUE)] <- "positive"
   dat$exp[grepl(pattern = "neg", dat$exp, ignore.case = TRUE)] <- "negative"
 
-
   if (est.Sn) {
-    y <- dat$count[dat$exp == "positive" & grepl(pattern = "pos", dat$ref, ignore.case = TRUE)]
+    y <- dat$count[dat$exp == "positive" &
+                     grepl(pattern = "pos", dat$ref, ignore.case = TRUE)]
     n <- sum(dat$count[grepl(pattern = "pos", dat$ref, ignore.case = TRUE)])
   }
   if (!est.Sn) {
-    y <- dat$count[dat$exp == "negative" & grepl(pattern = "neg", dat$ref, ignore.case = TRUE)]
+    y <- dat$count[dat$exp == "negative" &
+                     grepl(pattern = "neg", dat$ref, ignore.case = TRUE)]
     n <- sum(dat$count[grepl(pattern = "neg", dat$ref, ignore.case = TRUE)])
 
   }

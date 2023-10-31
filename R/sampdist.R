@@ -21,7 +21,6 @@
 #' @return \code{data.frame} of 'x', 'y', and 'p'.
 #' @author \link{DiagTestKit-package}
 SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, sumOne=TRUE) {
-  halfwidth <- sum(w)
   H <- cumsum(w)
   X <- m + c(-rev(H), H)
   x <- seq(min(X), max(X), stepwidth)
@@ -47,13 +46,13 @@ SampDist <- function(m, w, h, threestate=FALSE, suspect=2/3, stepwidth=0.005, su
 
   y <- slope*x + int
   p <- y/sum(y)
-  out <- data.frame(x,y,p)
+  out <- data.frame(x, y, p)
   # truncate
-  out <- out[out$x>=0 & out$x<=1,]
+  out <- out[out$x>=0 & out$x<=1, ]
   if (sumOne) out$p <- out$p/sum(out$p)
   if (threestate) {
-    out$xsus <- suspect*(1-out$x)
-    out <- out[c(1,4,2,3)]
+    out$xsus <- suspect * (1 - out$x)
+    out <- out[c(1, 4, 2, 3)]
   }
 
   return(out)

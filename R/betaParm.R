@@ -30,7 +30,7 @@ betaParm <- function(B, to = "alpha.beta") {
   #
   # theta = alpha + beta which can also be expressed as ((mu (1-mu))/sigma2) - 1
   #
-  # phi = 1/(theta + 1)
+  # and phi = 1/(theta + 1)
   #
   # so alpha can be expressed as mu(((mu(1-mu))/sigma2)-1) or as mu*theta
   #
@@ -46,8 +46,7 @@ betaParm <- function(B, to = "alpha.beta") {
     sigma2 <- mu * (1 - mu) / (theta + 1)
     alpha <- mu * theta
     beta <- (1 - mu) * theta
-  }
-  else if (from == "mu.sigma2") {
+  } else if (from == "mu.sigma2") {
     mu <- B["mu"]
     sigma2 <- B["sigma2"]
     names(mu) <- NULL
@@ -56,8 +55,7 @@ betaParm <- function(B, to = "alpha.beta") {
     phi <- 1 / (theta + 1)
     alpha <- mu * theta
     beta <- (1 - mu) * theta
-  }
-  else if (from == "mu.theta") {
+  } else if (from == "mu.theta") {
     mu <- B["mu"]
     theta <- B["theta"]
     names(mu) <- NULL
@@ -66,8 +64,7 @@ betaParm <- function(B, to = "alpha.beta") {
     sigma2 <- (mu * (1 - mu)) / (theta + 1)
     alpha <- mu * theta
     beta <- (1 - mu) * theta
-  }
-  else if (from == "alpha.beta") {
+  } else if (from == "alpha.beta") {
     alpha <- B["alpha"]
     beta <- B["beta"]
     names(alpha) <- NULL
@@ -76,8 +73,9 @@ betaParm <- function(B, to = "alpha.beta") {
     mu <- alpha / theta
     phi <- 1 / (theta + 1)
     sigma2 <- (mu * (1 - mu)) / (theta + 1)
+  } else {
+    stop("check your parameter vector")
   }
-  else stop("check your parameter vector")
   out <- switch(to,
                 alpha.beta = c(alpha = alpha, beta = beta),
                 mu.phi = c(mu = mu, phi = phi),
