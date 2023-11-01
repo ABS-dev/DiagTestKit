@@ -34,18 +34,18 @@ output.}
 }
 \value{
 final_mat A matrix of simulated values.  If prevalence is TRUE,
-  final_mat will have the number of columns corresponding to the number of
-  populations sampled else if prevalence is FALSE, final_mat will have number
-  of columns twice the number of reference tests.  The columns are
-  sensitivity (or specificity) of the first reference test, the probability
-  of a suspect result as a fraction of the non-correct test result (i.e.
-  either \eqn{\delta} or \eqn{\gamma}) for the first reference and continues
-  in the same pattern for all reference tests.
+final_mat will have the number of columns corresponding to the number of
+populations sampled else if prevalence is FALSE, final_mat will have number
+of columns twice the number of reference tests.  The columns are
+sensitivity (or specificity) of the first reference test, the probability
+of a suspect result as a fraction of the non-correct test result (i.e.
+either \eqn{\delta} or \eqn{\gamma}) for the first reference and continues
+in the same pattern for all reference tests.
 }
 \description{
 Simulate values for use in optimization.  This function is used
-  to obtain draws from a distribution for the sensitivity and specificity for
-  each reference test and for the prevalence of each population tested.
+to obtain draws from a distribution for the sensitivity and specificity for
+each reference test and for the prevalence of each population tested.
 }
 \author{
 \link{DiagTestKit-package}

@@ -7,11 +7,11 @@
 \format{
 A data frame with 18 rows and four variables:
 \describe{
-  \item{population}{population identifier (A, B, C).}
-  \item{exp_result}{result of experimental test (positive, negative).}
-  \item{ref_result}{result of reference test (positive, negative, suspect).}
-  \item{count}{number of samples with the unique testing combination for the
-  specific population.}
+\item{population}{population identifier (A, B, C).}
+\item{exp_result}{result of experimental test (positive, negative).}
+\item{ref_result}{result of reference test (positive, negative, suspect).}
+\item{count}{number of samples with the unique testing combination for the
+specific population.}
 }
 }
 \usage{

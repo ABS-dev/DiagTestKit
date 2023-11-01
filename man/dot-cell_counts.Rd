@@ -29,7 +29,7 @@ the probability of a suspect result as a fraction of the non-correct test
 result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
 \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
 second row for a given column (reference test).  \eqn{\delta =
-\frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
+  \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
 test (i.e. no suspect region).}
 
 \item{SpR}{\code{data.frame} Each column corresponds to one reference test.
@@ -38,7 +38,7 @@ probability of a suspect result as a fraction of the non-correct test
 result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
 \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
 second row for a given column (reference test). \eqn{\gamma =
-\frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a
+  \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a
 2-state test (i.e. no suspect region).}
 
 \item{Prev}{\code{vector}  A named vector containing the prevalence for each
@@ -79,14 +79,14 @@ each reference test (using the same ordering as SnR and SpR).}
 }
 \value{
 \code{vector} A vector of expected counts corresponding to the
-  properties of the reference and experimental tests.  The expected counts
-  are obtained based on a conditional independence assumption of all test
-  methods.
+properties of the reference and experimental tests.  The expected counts
+are obtained based on a conditional independence assumption of all test
+methods.
 }
 \description{
 This function creates expected cell counts (and probabilities)
-  for a specific test pattern based on the diagnostic characteristics of the
-  reference test(s) and experimental test.
+for a specific test pattern based on the diagnostic characteristics of the
+reference test(s) and experimental test.
 }
 \author{
 \link{DiagTestKit-package}

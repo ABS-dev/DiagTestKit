@@ -7,10 +7,10 @@
 \format{
 A data frame with 8 rows and four variables:
 \describe{
-  \item{exp_result}{result of experimental test (positive, negative).}
-  \item{ref1_result}{result of first reference test (positive, negative).}
-  \item{ref2_result}{result of second reference test (positive, negative).}
-  \item{count}{number of samples with the unique testing combination.}
+\item{exp_result}{result of experimental test (positive, negative).}
+\item{ref1_result}{result of first reference test (positive, negative).}
+\item{ref2_result}{result of second reference test (positive, negative).}
+\item{count}{number of samples with the unique testing combination.}
 }
 }
 \usage{
@@ -18,6 +18,6 @@ data6
 }
 \description{
 Samples randomly selected from a single population tested with two 2–state
- reference test and a 2–state experimental test.
+reference test and a 2–state experimental test.
 }
 \keyword{datasets}

@@ -43,8 +43,8 @@ resolution of possible observations of the created distribution.}
 }
 \description{
 Creates a discrete step/triangular distribution that can be used
-  to sample values for sensitivity or specificity of a reference test or
-  prevalence of a population.
+to sample values for sensitivity or specificity of a reference test or
+prevalence of a population.
 }
 \author{
 \link{DiagTestKit-package}

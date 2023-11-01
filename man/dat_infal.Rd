@@ -7,12 +7,12 @@
 \format{
 A data frame with 4 rows and 3 variables:
 \describe{
-  \item{Experimental}{Result of the experimental test
-   (positive or negative).}
-  \item{Reference}{Result of the reference test
-   (positive or negative).}
-  \item{Count}{Number of samples observed with the unique
-   testing combination.}
+\item{Experimental}{Result of the experimental test
+(positive or negative).}
+\item{Reference}{Result of the reference test
+(positive or negative).}
+\item{Count}{Number of samples observed with the unique
+testing combination.}
 }
 }
 \usage{

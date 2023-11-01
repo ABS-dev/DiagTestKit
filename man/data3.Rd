@@ -7,9 +7,9 @@
 \format{
 A data frame with six rows and three variables:
 \describe{
-  \item{exp_result}{result of experimental test (positive, negative).}
-  \item{ref_result}{result of reference test (positive, negative, suspect).}
-  \item{count}{number of samples with the unique testing combination.}
+\item{exp_result}{result of experimental test (positive, negative).}
+\item{ref_result}{result of reference test (positive, negative, suspect).}
+\item{count}{number of samples with the unique testing combination.}
 }
 }
 \usage{

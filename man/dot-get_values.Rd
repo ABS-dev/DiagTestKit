@@ -68,34 +68,34 @@ also \code{\link{estimateSnSp}}.}
 }
 \value{
 A list: \cr \cr The following will be returned for both 2 and 3-state
-  experimental tests -- \cr
+experimental tests -- \cr
 \itemize{
 \item{sens.final}  \code{vector} The optimized values for the sensitivity of
 the experimental test kit.
 \item{spec.final}  \code{vector} The optimized values for the specificity of
 the experimental test kit.
 \item{converge}  \code{vector} Each entry is an integer code detailing the
- convergence of the optimization for each iteration.  0 indicates successful
-  completion. See also \code{\link{optim}}.
+convergence of the optimization for each iteration.  0 indicates successful
+completion. See also \code{\link{optim}}.
 \item{message}  \code{vector}  Each entry includes a character string giving
- any additional information returned by the optimizer or NULL.  See also
-  \code{\link{optim}}.
+any additional information returned by the optimizer or NULL.  See also
+\code{\link{optim}}.
 }
 
-  If three states -- \cr
+If three states -- \cr
 \itemize{
 \item{\eqn{\delta}}  \code{vector} The optimized values for the probability
- of a suspect result as a fraction of the non-correct test result for
- diseased samples.
+of a suspect result as a fraction of the non-correct test result for
+diseased samples.
 \item{\eqn{\gamma}} \code{vector} The optimized value for the probability
 of a suspect result as a fraction of the non-correct test result for
- non-diseased samples.
+non-diseased samples.
 }
 }
 \description{
 Determine final optimized values for the sensitivity and
-  specificity of an experimental test kit (and probability of suspect given
-  disease positive and given disease negative for a 3-state kit).
+specificity of an experimental test kit (and probability of suspect given
+disease positive and given disease negative for a 3-state kit).
 }
 \author{
 \link{DiagTestKit-package}

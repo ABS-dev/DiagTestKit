@@ -16,7 +16,7 @@ or just c(mu=.6, phi=1.6)}
 }
 \value{
 \code{vector} A named vector with values for the parameters specified
-  in the "to" argument of the input.
+in the "to" argument of the input.
 }
 \description{
 Convert between the paramaterizations of a beta distribution.
