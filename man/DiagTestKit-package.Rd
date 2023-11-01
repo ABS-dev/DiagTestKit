@@ -22,8 +22,9 @@ Useful links:
 
 Authors:
 \itemize{
-  \item CVB Statistics (starting 2017)
+  \item Marie V. (2017-2019)
   \item David Siev (until 2019)
+  \item Thoams Kent (Starting 2020)
 }
 
 }

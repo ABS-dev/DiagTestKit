@@ -4,12 +4,13 @@ Title: Functions used in evaluating sensitivity and specificity at CVB Statistic
 Description: A package written by CVB Statistics to estimate the sensitivity and 
     specificity of an experimental diagnostic test kit in accordance with CVB STATWI0002
     supporting the 2018 revision to VSM 800.73.
-Version: 0.5.4
+Version: 0.6.0
 Date: 2019-08-15
 Authors@R: c(
   person("CVB", "Statistics", , "CVB.Data.Help@usda.gov",  'cre'),
-  person("CVB", "Statistics", , , "aut", comment = "starting 2017"),
-  person ("David", "Siev", , , "aut", comment = "until 2019"))
+  person("Marie", "V.", , , "aut", comment = "2017-2019"),
+  person ("David", "Siev", , , "aut", comment = "until 2019"),
+  person("Thoams", "Kent", , , "aut", comment = "Starting 2020"))
 Depends:
     R (>= 3.5)
 Imports: data.table, 
