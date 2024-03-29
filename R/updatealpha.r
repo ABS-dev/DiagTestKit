@@ -2,7 +2,7 @@
 #' @description Report interval estimates with updated alpha values, using a
 #'   previously evaluated simulation.
 #' @param x output from \code{\link{estimateSnSp}}
-#' @param newAlpha updated alpha value. Must be within [0, 1]
+#' @param newAlpha updated alpha value. Must be within \[0, 1\]
 #' @return an object of type \code{snsp}. See output for
 #'   \code{\link{estimateSnSp}}
 #' @author \link{DiagTestKit-package}
