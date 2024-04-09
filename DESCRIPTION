@@ -16,14 +16,16 @@ URL: https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues
 LazyData: true
 Depends:
-    R (>= 3.5)
-Imports: data.table, 
-    plyr, 
-    methods
+  R (>= 3.5)
 Suggests:
-    knitr,
-    testthat,
-    ggplot2
+  knitr,
+  testthat,
+  ggplot2
+  rmarkdown
+Imports: 
+  data.table, 
+  plyr, 
+  methods
 Config/build/clean-inst-doc: FALSE
 VignetteBuilder: knitr
 Encoding: UTF-8
