@@ -1,8 +1,8 @@
 ---
-title: "DiagTestKit Package"
+title: "Getting Started"
 author: "Center for Veterinary Biologics - Statistics Section"
 date: "August 2019"
-output: pdf_document
+output: rmarkdown::html_vignette
 numbersections: yes
 number_sections: yes
 subtitle: |
@@ -11,7 +11,7 @@ fontsize: 12pt
 toc: yes
 urlcolor: blue
 vignette: >
-  %\VignetteIndexEntry{DiagTestKit Getting Started} 
+  %\VignetteIndexEntry{Getting Started} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
 ---
