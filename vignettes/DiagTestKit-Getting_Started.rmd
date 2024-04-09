@@ -2,7 +2,7 @@
 title: "Getting Started"
 author: "Center for Veterinary Biologics - Statistics Section"
 date: "August 2019"
-output: rmarkdown::html_vignette
+output: pdf_document
 numbersections: yes
 number_sections: yes
 subtitle: |

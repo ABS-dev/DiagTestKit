@@ -4,7 +4,7 @@ subtitle: |
   | Examples
 author: Center for Veterinary Biologics - Statistics Section
 date: August 2019
-output: rmarkdown::html_vignette
+output: pdf_document
 toc: true
 number_sections: true
 numbersections: true
