@@ -20,7 +20,7 @@ Depends:
 Suggests:
   knitr,
   testthat,
-  ggplot2
+  ggplot2,
   rmarkdown
 Imports: 
   data.table, 
