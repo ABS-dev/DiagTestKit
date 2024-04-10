@@ -4,6 +4,9 @@
 
 files <- dir("vignettes", pattern = "rmd")
 
+if (!dir.exists("inst")) dir.create("inst")
+if (!dir.exists("inst/doc")) dir.create("inst/doc")
+
 for (ff in files) {
   print(ff)
   rmarkdown::render(file.path("vignettes", ff),
