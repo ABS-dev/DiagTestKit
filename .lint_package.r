@@ -11,44 +11,23 @@ path <- getwd()
 linter <- N <- NULL
 
 # Variables that don't follow stylistic guidelines, which we are not changing.
-okay_vars <- c("UA",
-               "RP",
-               "plateID",
-               "3PL",
-               "checkSerialTest",
-               "serialID",
-               "HTML",
-               "displayPlateLayout",
-               "flattened2Stacked",
-               "stacked2Stacked",
-               "getComparisons",
-               "Nminus1",
-               "getMinus1comparisons",
-               "expandComparisons",
-               "importELISA",
-               "_idx",
-               "_tmp",
-               "RelPot",
-               "setLinearValidity",
-               "setLinearBestComp",
-               "setLayDilutionFactor",
-               "setLayReference",
-               "setLayPositiveControl",
-               "setLayNegativeControl",
-               "setLayBlank",
-               "setLaySerial",
-               "setLayNPS",
-               "setLayNA",
-               "setLayRole",
-               "resetLayRoles",
-               "countLayRoles",
-               "ID",
-               "initLogis_USP",
-               "SSlogis_USP",
-               "mCall",
-               "tieBreaker",
-               ".plateID",
-               "\\._.*")
+okay_vars <- c("H", "N", "X", "Sn", "Sp", "SnE", "SnR", "SpE", "SpR", "Prev",
+               "Xneg", "Xpos", "Xsus", "CP.Sn", "CP.Sp", "N.vec", "N_mat",
+               "cellN", "cellP", "p.neg", "p.pos", "Sn.fig", "Sn.ref", "Sp.fig",
+               "Sp.ref", "est.Sn", "iter.n", "Sn.sims", "SnR.vec", "Sp.sims",
+               "SpR.vec", "X.short", "calcVal", "NEWinput", "Sn.distn",
+               "Sp.distn", "infal_Sn", "infal_Sp", "n.states", "newAlpha",
+               "prev.pop", "prev.vec", "sus.perc", "Sn.spread", "Sp.spread",
+               "count.vec", "detailOut", "pop.names", "prev.sims", "step.size",
+               "NEWcalcVal", "blood_SnSp", "prev.distn", "sens.final",
+               "spec.final", "test.names", "updatedOut", "SnR.current",
+               "SpR.current", "blood2_SnSp", "current.con", "current.fit",
+               "prev.spread", "updateAlpha", "NEWdetailOut", "cloppearSnSp",
+               "current.ests", "estimateSnSp", "prev.current", "blood2_a_SnSp",
+               "ex1_detailOut", "ex2_detailOut", "ex3_detailOut",
+               "ex4_detailOut", "ex5_detailOut", "ex6_detailOut",
+               "ex7_detailOut", "ex8_detailOut", "message.current",
+               "estimateSnSpControl")
 
 ## Change This Value ##
 # Determine whose files should be linted.  Change the number in the [.]
@@ -72,7 +51,7 @@ tmp <- codeDiagnostics::lint_package_extended(
 
 # Send results to Markers screen
 if (length(tmp) == 0) {
-  message("Sucess!  No lintr issues!")  
+  message("Sucess!  No lintr issues!")
 } else {
   tmp
 }
