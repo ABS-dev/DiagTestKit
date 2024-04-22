@@ -13,8 +13,7 @@ snsp <- setRefClass(
                             "Lower" = c(calcVal$SnInterval[1],
                                         calcVal$SpInterval[1]),
                             "Upper" = c(calcVal$SnInterval[2],
-                                        calcVal$SpInterval[2]),
-                            stringsAsFactors = FALSE)
+                                        calcVal$SpInterval[2]))
       if (length(calcVal) > 6) {
         summary <- rbind(summary,
                          c(calcVal$SusDisPosPE,
