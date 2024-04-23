@@ -384,4 +384,4 @@ estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
 }
 
 # to keep R CMD happy
-utils::globalVariables(c("population", "count"))
+globalVariables(c("population", "count"))
