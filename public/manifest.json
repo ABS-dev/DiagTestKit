@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "locale": "en_US",
+  "platform": "4.3.2",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "index.html",
+    "content_category": "site",
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    "404.html": {
+      "checksum": "8942ceb1b9b469f9b195a5aa04e303f0"
+    },
+    "articles/DiagTestKit-Examples.html": {
+      "checksum": "720551f5c5cd1a14c2fe5f89e3cc8324"
+    },
+    "articles/DiagTestKit-Getting_Started.html": {
+      "checksum": "509c47f1c66a47e407898a40a95a9cec"
+    },
+    "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-11-1.png": {
+      "checksum": "1d7357f73d80b61fb9b4b067f9c23ecf"
+    },
+    "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-12-1.png": {
+      "checksum": "fb7294c5113d06cc90f3a810bd8daf0e"
+    },
+    "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-13-1.png": {
+      "checksum": "53f56be816be1e9bd7be21ac8bbc72f5"
+    },
+    "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-14-1.png": {
+      "checksum": "8c1ee43c76a49e4163087fb21013c8b8"
+    },
+    "articles/index.html": {
+      "checksum": "48fa4071da2b0a2b0f8396e500b2076a"
+    },
+    "authors.html": {
+      "checksum": "586047a738cca6320fcd82af64c8f101"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.bundle.min.js": {
+      "checksum": "d2b0d31f74e62440ea1a557f126d0c64"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.bundle.min.js.map": {
+      "checksum": "458916405b5ef70e2e5ee10e85b09acb"
+    },
+    "deps/bootstrap-5.2.2/bootstrap.min.css": {
+      "checksum": "c2d21862999ca0dea73bc04af237a1a0"
+    },
+    "deps/data-deps.txt": {
+      "checksum": "be1e8f6884e833c9b4dfa05681edbcc4"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.js": {
+      "checksum": "2849239b95f5a9a2aea3f6ed9420bb88"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.js": {
+      "checksum": "8fb8fee4fcc3cc86ff6c724154c49c42"
+    },
+    "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
+      "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
+    },
+    "index.html": {
+      "checksum": "d4c36484a3dd63f49dd706d4175d85c6"
+    },
+    "LICENSE-text.html": {
+      "checksum": "3cd012235f895237af5e5ff0b15f4b65"
+    },
+    "link.svg": {
+      "checksum": "4759f31f8a585e9af173fc579d730265"
+    },
+    "pkgdown.js": {
+      "checksum": "9c627b6b2c41322b8f362fac07a2ae5a"
+    },
+    "pkgdown.yml": {
+      "checksum": "148d08a414ff4fd4aa1174b4b2c0264a"
+    },
+    "reference/cloppearSnSp.html": {
+      "checksum": "d099a16ee2fed6fffab86b2107a4fed1"
+    },
+    "reference/cp-class.html": {
+      "checksum": "505d892407503032de23e6582eeb413f"
+    },
+    "reference/dat_dichot.html": {
+      "checksum": "f792e5c8230a3c5fa3222160ccf7e5f7"
+    },
+    "reference/dat_infal.html": {
+      "checksum": "25c76b6ff89a419b8c8bd785f30d2c2c"
+    },
+    "reference/data1.html": {
+      "checksum": "e520f915f64325302d6a6e071f7632ca"
+    },
+    "reference/data2.html": {
+      "checksum": "a4219f3b8bc8c04fc2706cb53eccdb07"
+    },
+    "reference/data3.html": {
+      "checksum": "92f128d30ace9d69789b2db302717122"
+    },
+    "reference/data4.html": {
+      "checksum": "e2c884da36498a62fb049aab9d53dcbf"
+    },
+    "reference/data5.html": {
+      "checksum": "00bc9619222eaf3516c708008d0a586e"
+    },
+    "reference/data6.html": {
+      "checksum": "6068e9554441439d86b5c52ba496a262"
+    },
+    "reference/data7.html": {
+      "checksum": "29ac75569d7cb5c9a8d87b23e5d97f3c"
+    },
+    "reference/data8.html": {
+      "checksum": "73657364b5982185f6c9df3e1b41e5ca"
+    },
+    "reference/DiagTestKit-package.html": {
+      "checksum": "ae087d32b417d7ce0439d6690831136a"
+    },
+    "reference/dot-beta_parm.html": {
+      "checksum": "54c28121a9aa633f735bbc9e29ccada8"
+    },
+    "reference/dot-cell_counts.html": {
+      "checksum": "b17207b7169ee0e52539f95f92c8a30b"
+    },
+    "reference/dot-create_triangle_dist.html": {
+      "checksum": "eaaf9f90f3e737386bae47c78599b743"
+    },
+    "reference/dot-emp_hpd.html": {
+      "checksum": "6b21ca0cc229e3ff9795507d8602f5c2"
+    },
+    "reference/dot-get_simulated_values.html": {
+      "checksum": "bae254784b1b993609fb29e25b47f931"
+    },
+    "reference/dot-get_values.html": {
+      "checksum": "eaf811ff171ac099f15d360ad04af56c"
+    },
+    "reference/dot-minimize_cell.html": {
+      "checksum": "292d6e8d4a65cc5400b3e63a3f53f982"
+    },
+    "reference/estimateSnSp.html": {
+      "checksum": "c659a02b7b909ca341d2c32231c1c978"
+    },
+    "reference/estimateSnSpControl.html": {
+      "checksum": "bc85f6f9c93b36f5d0c80bb01795265c"
+    },
+    "reference/index.html": {
+      "checksum": "e078d582ea9bb79eb7d8564375396726"
+    },
+    "reference/Rplot001.png": {
+      "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
+    },
+    "reference/snsp-class.html": {
+      "checksum": "481ef4ba29cc6a6c9875e6939a9f8262"
+    },
+    "reference/updateAlpha.html": {
+      "checksum": "7ef8ea18374de5deb5723adcba4eb8e1"
+    },
+    "search.json": {
+      "checksum": "a59d918d6e5f202b806927e81642e073"
+    },
+    "sitemap.xml": {
+      "checksum": "242909972b26d5b8c4b89066249d432b"
+    }
+  },
+  "users": null
+}
