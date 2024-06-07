@@ -12,31 +12,49 @@
   "packages": null,
   "files": {
     "404.html": {
-      "checksum": "8942ceb1b9b469f9b195a5aa04e303f0"
+      "checksum": "1b9ef5bd538e85c7a44d877242b7357d"
+    },
+    "apple-touch-icon-120x120.png": {
+      "checksum": "1dbc1234326aaa006e3f8aea73ebc19e"
+    },
+    "apple-touch-icon-152x152.png": {
+      "checksum": "7dcb84810c6fa341f064168e420e2018"
+    },
+    "apple-touch-icon-180x180.png": {
+      "checksum": "1e2cfd8da33b07a3e0bd5760d40b683f"
+    },
+    "apple-touch-icon-60x60.png": {
+      "checksum": "2347d016fc96c99e9c99d023ed1e9afe"
+    },
+    "apple-touch-icon-76x76.png": {
+      "checksum": "0ed82eaa54e782dd8110dab6e399cf94"
+    },
+    "apple-touch-icon.png": {
+      "checksum": "6ec14e89ee7d6f1cb62532f66ee81267"
     },
     "articles/DiagTestKit-Examples.html": {
-      "checksum": "720551f5c5cd1a14c2fe5f89e3cc8324"
+      "checksum": "cde89e5a51c4ece0717c2e56923e5ee2"
     },
     "articles/DiagTestKit-Getting_Started.html": {
-      "checksum": "509c47f1c66a47e407898a40a95a9cec"
+      "checksum": "cb5650763267b1af9da22b77dbfb3198"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-11-1.png": {
-      "checksum": "1d7357f73d80b61fb9b4b067f9c23ecf"
+      "checksum": "4d3ae7ad044da519d38268c57e10c7f7"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-12-1.png": {
-      "checksum": "fb7294c5113d06cc90f3a810bd8daf0e"
+      "checksum": "8937aa4046f8dd76d9661c1c1ad67076"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-13-1.png": {
-      "checksum": "53f56be816be1e9bd7be21ac8bbc72f5"
+      "checksum": "c043421070377aff7c9d64597742974f"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-14-1.png": {
-      "checksum": "8c1ee43c76a49e4163087fb21013c8b8"
+      "checksum": "859164af43de859670f72cb83ae615c2"
     },
     "articles/index.html": {
-      "checksum": "48fa4071da2b0a2b0f8396e500b2076a"
+      "checksum": "60025854e3419b9ff06526c683ad1932"
     },
     "authors.html": {
-      "checksum": "586047a738cca6320fcd82af64c8f101"
+      "checksum": "194ca75bd924c748f12317ed4d22d53c"
     },
     "deps/bootstrap-5.2.2/bootstrap.bundle.min.js": {
       "checksum": "d2b0d31f74e62440ea1a557f126d0c64"
@@ -59,101 +77,116 @@
     "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
       "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
     },
+    "favicon-16x16.png": {
+      "checksum": "fd78516e91ffc7d29a9deda239a41366"
+    },
+    "favicon-32x32.png": {
+      "checksum": "b04f7f705fe11a2f3f4bed07cf9908b9"
+    },
+    "favicon.ico": {
+      "checksum": "6983646ab816110ee882b27fa2f01157"
+    },
     "index.html": {
-      "checksum": "d4c36484a3dd63f49dd706d4175d85c6"
+      "checksum": "e5bb18a356b8415c53dfccbf49013e23"
     },
     "LICENSE-text.html": {
-      "checksum": "3cd012235f895237af5e5ff0b15f4b65"
+      "checksum": "66e09d81a0674949568881e17d3294a8"
     },
     "link.svg": {
       "checksum": "4759f31f8a585e9af173fc579d730265"
+    },
+    "logo.png": {
+      "checksum": "b1b180bddfaf712c04577a375b466049"
     },
     "pkgdown.js": {
       "checksum": "9c627b6b2c41322b8f362fac07a2ae5a"
     },
     "pkgdown.yml": {
-      "checksum": "148d08a414ff4fd4aa1174b4b2c0264a"
+      "checksum": "40d659d7e83f03c8b58a8ad7947f2b5c"
     },
     "reference/cloppearSnSp.html": {
-      "checksum": "d099a16ee2fed6fffab86b2107a4fed1"
+      "checksum": "d34fdb936b341c2d0f4e9e0483d903c6"
     },
     "reference/cp-class.html": {
-      "checksum": "505d892407503032de23e6582eeb413f"
+      "checksum": "5294b729235254a549fafa3bf5eb1ab7"
     },
     "reference/dat_dichot.html": {
-      "checksum": "f792e5c8230a3c5fa3222160ccf7e5f7"
+      "checksum": "646f791f45663f6fc3f86c3a5b1c6c45"
     },
     "reference/dat_infal.html": {
-      "checksum": "25c76b6ff89a419b8c8bd785f30d2c2c"
+      "checksum": "8a837a34831d85ff9f518087964cf5e8"
     },
     "reference/data1.html": {
-      "checksum": "e520f915f64325302d6a6e071f7632ca"
+      "checksum": "c9f924755ea83b782089ba15359f8fe7"
     },
     "reference/data2.html": {
-      "checksum": "a4219f3b8bc8c04fc2706cb53eccdb07"
+      "checksum": "c66896bfadd4d3c902263e10dc7a9406"
     },
     "reference/data3.html": {
-      "checksum": "92f128d30ace9d69789b2db302717122"
+      "checksum": "f5ce40be314f389900af11145bc11c86"
     },
     "reference/data4.html": {
-      "checksum": "e2c884da36498a62fb049aab9d53dcbf"
+      "checksum": "35c578f23cd10b63ae33a29c11d8e8ca"
     },
     "reference/data5.html": {
-      "checksum": "00bc9619222eaf3516c708008d0a586e"
+      "checksum": "b37486ecf4efe60f4defc5df99b65b29"
     },
     "reference/data6.html": {
-      "checksum": "6068e9554441439d86b5c52ba496a262"
+      "checksum": "9e5512fb0bd2326a06565ec121d4da28"
     },
     "reference/data7.html": {
-      "checksum": "29ac75569d7cb5c9a8d87b23e5d97f3c"
+      "checksum": "d465794138839ff64caffe5b5b489de0"
     },
     "reference/data8.html": {
-      "checksum": "73657364b5982185f6c9df3e1b41e5ca"
+      "checksum": "d82e58555e6325d092d116ba3792b1d5"
     },
     "reference/DiagTestKit-package.html": {
-      "checksum": "ae087d32b417d7ce0439d6690831136a"
+      "checksum": "0bea77a2f484e7e6c7fc818290b82ffd"
     },
     "reference/dot-beta_parm.html": {
-      "checksum": "54c28121a9aa633f735bbc9e29ccada8"
+      "checksum": "fbc1546bfa50fe72879117cd57b4e621"
     },
     "reference/dot-cell_counts.html": {
-      "checksum": "b17207b7169ee0e52539f95f92c8a30b"
+      "checksum": "2d36f53a373b3f7327ec11e1f15d0dec"
     },
     "reference/dot-create_triangle_dist.html": {
-      "checksum": "eaaf9f90f3e737386bae47c78599b743"
+      "checksum": "18ec89899d47f982e0f2fe5866fd49c5"
     },
     "reference/dot-emp_hpd.html": {
-      "checksum": "6b21ca0cc229e3ff9795507d8602f5c2"
+      "checksum": "51240a9529bb54b8dba6706305105ec9"
     },
     "reference/dot-get_simulated_values.html": {
-      "checksum": "bae254784b1b993609fb29e25b47f931"
+      "checksum": "f9d8015aef8f9648c056ce96e0d52dd6"
     },
     "reference/dot-get_values.html": {
-      "checksum": "eaf811ff171ac099f15d360ad04af56c"
+      "checksum": "6bb3231e5864bce36175c250872cdb38"
     },
     "reference/dot-minimize_cell.html": {
-      "checksum": "292d6e8d4a65cc5400b3e63a3f53f982"
+      "checksum": "2c3d1e54f43d5c127e2e22ada91f491a"
     },
     "reference/estimateSnSp.html": {
-      "checksum": "c659a02b7b909ca341d2c32231c1c978"
+      "checksum": "d80d90584626284ec06d83a7bd17e26f"
     },
     "reference/estimateSnSpControl.html": {
-      "checksum": "bc85f6f9c93b36f5d0c80bb01795265c"
+      "checksum": "1dae7ef704ab27582cac4f27bae4c1d1"
+    },
+    "reference/figures/logo.png": {
+      "checksum": "b1b180bddfaf712c04577a375b466049"
     },
     "reference/index.html": {
-      "checksum": "e078d582ea9bb79eb7d8564375396726"
+      "checksum": "caf6caf6ca432bd36b869130f2869713"
     },
     "reference/Rplot001.png": {
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/snsp-class.html": {
-      "checksum": "481ef4ba29cc6a6c9875e6939a9f8262"
+      "checksum": "e74b4694e0b18d19b7533aeb80c32219"
     },
     "reference/updateAlpha.html": {
-      "checksum": "7ef8ea18374de5deb5723adcba4eb8e1"
+      "checksum": "3e1724e17cc578178cab1688025bda21"
     },
     "search.json": {
-      "checksum": "a59d918d6e5f202b806927e81642e073"
+      "checksum": "8f845ecf3bf5bd98a82c23efc0dbe529"
     },
     "sitemap.xml": {
       "checksum": "242909972b26d5b8c4b89066249d432b"
