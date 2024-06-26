@@ -6,6 +6,8 @@
 \alias{DiagTestKit-package}
 \title{DiagTestKit: Functions used in evaluating sensitivity and specificity at CVB Statistics}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic test kit in accordance with CVB STATWI0002 supporting the 2018 revision to VSM 800.73.
 }
 \seealso{
