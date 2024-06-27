@@ -51,7 +51,7 @@ experimental test and the remaining entries are the number of states of
 each reference test (using the same ordering as SnR.vec and SpR.vec).}
 
 \item{tolerance}{Setting a limit on the pgtol used in the optim function with
-the 'L-BFGS-B' method. See also \code{\link{optim}}.}
+the 'L-BFGS-B' method. See also \link{optim}.}
 
 \item{rep.iter}{logical (TRUE/FALSE)  Indicates if updates should be printed
 regarding the number of iterations completed.}
@@ -64,7 +64,7 @@ optimization that is passed to \code{.minimize_cell}.  For a 2-state
 experimental test, this is a vector of length 2 with entries (\eqn{\pi},
 \eqn{\theta}). For a 3-state experimental test, this is a vector of length
 4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
-also \code{\link{estimateSnSp}}.}
+also \link{estimateSnSp}.}
 }
 \value{
 A list: \cr \cr The following will be returned for both 2 and 3-state
@@ -76,10 +76,10 @@ the experimental test kit.
 the experimental test kit.
 \item{converge}  \code{vector} Each entry is an integer code detailing the
 convergence of the optimization for each iteration.  0 indicates successful
-completion. See also \code{\link{optim}}.
+completion. See also \link{optim}.
 \item{message}  \code{vector}  Each entry includes a character string giving
 any additional information returned by the optimizer or NULL.  See also
-\code{\link{optim}}.
+\link{optim}.
 }
 
 If three states -- \cr

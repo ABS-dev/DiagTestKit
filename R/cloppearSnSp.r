@@ -4,7 +4,7 @@
 #'   and specificity of an experimental diagnostic test kit in accordance with
 #'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
 #'   STATWI0002}.
-#' @param dat \code{data.frame}  A data frame with a column for the experimental
+#' @param dat `data.frame`  A data frame with a column for the experimental
 #'   test results, a column for the infallible reference test results,  and a
 #'   column for the corresponding count.  The column name for the experimental
 #'   test results must contatin 'exp' and the column name for the infallible
@@ -14,7 +14,7 @@
 #'   confidence interval should be supplied (TRUE) or if the specificity and its
 #'   confidence interval should be supplied (FALSE).
 #' @param alpha Complement of confidence level.
-#' @return An object of type \code{cp} that extends \code{list}. \cr \cr
+#' @return An object of type `cp` that extends `list`. \cr \cr
 #' \describe{
 #' \item{\strong{calcVal}}{Named vector of point estimates and estimated
 #'   simulated intervals. See below.}
@@ -23,30 +23,30 @@
 #'   above.}
 #' }
 #'
-#' @section If \code{est.Sn == TRUE}:
+#' @section If `est.Sn == TRUE`:
 #'
-#'   \code{calcVal} is a list with the following elements \cr
+#'   `calcVal` is a list with the following elements \cr
 #' \itemize{
 #' \item{\strong{Sn}} Sensitivity estimate.
 #' \item{\strong{Sn.LL}} Lower confidence limit for sensitivity.
 #' \item{\strong{Sn.UL}} Upper confidence limit for sensitivity.
 #' }
-#'   \code{data} is a list with the following elements \cr
+#'   `data` is a list with the following elements \cr
 #' \itemize{
 #' \item{\strong{Test.Positive}} Number of experimental test positives.
 #' \item{\strong{Total.Positive}} Total number of positive samples.
 #' }
 #'
-#' @section If \code{est.Sn == FALSE}:
+#' @section If `st.Sn == FALSE`:
 #'
-#'   \code{calcVal} is a list with the following elements \cr
+#'   `calcVal` is a list with the following elements \cr
 #' \itemize{
 #' \item{\strong{Sp}} Specificity estimate.
 #' \item{\strong{Sp.LL}} Lower confidence limit for specificity.
 #' \item{\strong{Sp.UL}} Upper confidence limit for specificity.
 #' }
 #'
-#'   \code{data} is a list with the following elements \cr
+#'   `data` is a list with the following elements \cr
 #' \itemize{
 #' \item{\strong{Test.Negative}} Number of experimental test negatives.
 #' \item{\strong{Total.Negative}} Total number of negative samples.
@@ -64,7 +64,7 @@
 #' @importFrom stats qbeta
 #' @importFrom methods new
 #' @export
-#' @author \link{DiagTestKit-package}
+#' @author [DiagTestKit-package]
 #' @examples
 #' CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = TRUE)
 #' CP.Sn

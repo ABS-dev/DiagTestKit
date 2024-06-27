@@ -1,12 +1,12 @@
 #' @title Update alpha values for existing simulation
 #' @description Report interval estimates with updated alpha values, using a
 #'   previously evaluated simulation.
-#' @param x output from \code{\link{estimateSnSp}}
+#' @param x output from [estimateSnSp]
 #' @param newAlpha updated alpha value. Must be within \[0, 1\]
-#' @return an object of type \code{snsp}. See output for
-#'   \code{\link{estimateSnSp}}
-#' @author \link{DiagTestKit-package}
-#' @seealso \code{\link{estimateSnSpControl}}
+#' @return an object of type `snsp`. See output for
+#'   [estimateSnSp]
+#' @author [DiagTestKit-package]
+#' @seealso [estimateSnSpControl]
 #' @importFrom stats median
 #' @export
 #' @examples

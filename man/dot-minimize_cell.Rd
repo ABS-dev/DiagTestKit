@@ -27,7 +27,7 @@ optimization that is passed to \code{.minimize_cell}.  For a 2-state
 experimental test, this is a vector of length 2 with entries (\eqn{\pi},
 \eqn{\theta}) For a 3-state experimental test, this is a vector of length 4
 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
-also \code{\link{estimateSnSp}}.}
+also \link{estimateSnSp}.}
 
 \item{SnR}{\code{data.frame}  Each column corresponds to one reference test.
 Row 1 contains the sensitivity for the reference test(s). Row 2 contains

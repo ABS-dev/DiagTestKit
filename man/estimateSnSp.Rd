@@ -56,7 +56,7 @@ specificity distribution(s) for each reference test and the prevalence
 distribution from each population.}
 
 \item{control}{list of control values to replace defaults. See
-\code{\link{estimateSnSpControl}} for details.}
+\link{estimateSnSpControl} for details.}
 }
 \value{
 An object of type \code{snsp} that extends \code{list}. \cr \cr
@@ -116,10 +116,10 @@ sensitivity of the experimental test kit.
 specificity of the experimental test kit.
 \item{\strong{Converge}}  \code{vector} Each entry is an integer code
 detailing the convergence of the optimization for each iteration.  0
-indicates successful completion. See also \code{\link{optim}}.
+indicates successful completion. See also \link{optim}.
 \item{\strong{Message}}  \code{vector}  Each entry includes a character
 string providing any additional information returned by the optimizer or
-NULL.  See also \code{\link{optim}}.
+NULL.  See also \link{optim}.
 }
 
 If three states, the list will also include -- \cr
@@ -146,7 +146,7 @@ values.
 \itemize{
 \item{\strong{seed}}  The seed used in the random generation of the
 distributions of sensitivity and specificity for all reference tests and
-prevalence of each population.  See also \code{\link{set.seed}}
+prevalence of each population.  See also \link{set.seed}
 \item{\strong{Sn.sims}}  \code{matrix} The simulated values for the
 sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
 specified in the second row of Sn.ref (or zero if Sn.ref was a vector).
@@ -218,7 +218,7 @@ example.2 <- estimateSnSp(dat = data.2,
 }
 }
 \seealso{
-\code{\link{estimateSnSpControl}}
+\link{estimateSnSpControl}
 }
 \author{
 \link{DiagTestKit-package}

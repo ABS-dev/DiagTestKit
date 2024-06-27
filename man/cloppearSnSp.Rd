@@ -53,7 +53,7 @@ STATWI0002}.
 }
 }
 
-\section{If \code{est.Sn == FALSE}}{
+\section{If \code{st.Sn == FALSE}}{
 
 
 \code{calcVal} is a list with the following elements \cr

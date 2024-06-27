@@ -3,7 +3,7 @@
 #'   and specificity of an experimental diagnostic test kit in accordance with
 #'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
 #'   STATWI0002}.
-#' @param dat \code{data.frame}  This is a data frame where the first column
+#' @param dat `data.frame`  This is a data frame where the first column
 #'   includes information for the population sampled (if more than one
 #'   population is sampled).  The next column is the possible outcomes of the
 #'   experimental test followed by one column for the possible outcomes for each
@@ -16,7 +16,7 @@
 #'   experimental, experiment, exp, Exp, etc.  The column names containing the
 #'   reference test results much contain 'ref' in the name, such as Ref1, Ref2,
 #'   ref1_results, Reference2, etc.
-#' @param Sn.ref \code{data.frame}  Each column corresponds to one reference
+#' @param Sn.ref `data.frame`  Each column corresponds to one reference
 #'   test.  Row 1 contains the sensitivity for the reference test(s). Row 2
 #'   contains the probability of a suspect result as a fraction of the
 #'   non-correct test result. This is a value between 0 and 1 (inclusive).
@@ -28,7 +28,7 @@
 #'   named vector.  Specifically, each element in the vector must be given a
 #'   name which includes 'ref' (see above) and the column names (or names of the
 #'   elements within the vector) must match those for Sp.ref.
-#' @param Sp.ref \code{data.frame} Each column corresponds to one reference
+#' @param Sp.ref `data.frame` Each column corresponds to one reference
 #'   test. Row 1 contains the specificity for each reference test. Row 2
 #'   contains the probability of a suspect result as a fraction of the
 #'   non-correct test result.  This is a value between 0 and 1 (inclusive).
@@ -40,15 +40,15 @@
 #'   named vector.  Specifically, each element in the vector must be given a
 #'   name which includes 'ref' (see above) and the column names (or names of the
 #'   elements within the vector) must match those for Sn.ref.
-#' @param prev.pop \code{vector}  A named vector containing the prevalence for
+#' @param prev.pop `vector`  A named vector containing the prevalence for
 #'   each population sampled.  The names in the vector must match the population
 #'   labels used in 'dat'.
 #' @param nsim The number of simulations to draw from the sensitivity and
 #'   specificity distribution(s) for each reference test and the prevalence
 #'   distribution from each population.
 #' @param control list of control values to replace defaults. See
-#'   \code{\link{estimateSnSpControl}} for details.
-#' @return An object of type \code{snsp} that extends \code{list}. \cr \cr
+#'   [estimateSnSpControl] for details.
+#' @return An object of type `snsp` that extends `list`. \cr \cr
 #'  \describe{
 #'  \item{\strong{calcVal}}{Point estimates and estimated simulated intervals
 #'  for properties of the experimental kit. See below.}
@@ -56,7 +56,7 @@
 #'  \item{\strong{input}}{Simulated values.  See below.}
 #'  }
 #'
-#' @section \code{calcVal}:
+#' @section `calcVal`:
 #'
 #'   A list with the following values which will include the following for both
 #'   2- and 3-state experimental tests -- \cr
@@ -85,63 +85,63 @@
 #'  probability of test suspect given disease negative (\eqn{\phi}).
 #' }
 #'
-#' @section \code{detailOut}:
+#' @section `detailOut`:
 #'
 #'   A list with the following detailed output values which will include the
 #'   following for both 2- and 3-state experimental tests -- \cr
 #' \itemize{
-#' \item{\strong{Exp.Sn}}  \code{vector} The optimized values for the
+#' \item{\strong{Exp.Sn}}  `vector` The optimized values for the
 #'    sensitivity of the experimental test kit.
-#' \item{\strong{Exp.Sp}}  \code{vector} The optimized values for the
+#' \item{\strong{Exp.Sp}}  `vector` The optimized values for the
 #'    specificity of the experimental test kit.
-#' \item{\strong{Converge}}  \code{vector} Each entry is an integer code
+#' \item{\strong{Converge}}  `vector` Each entry is an integer code
 #'    detailing the convergence of the optimization for each iteration.  0
-#'    indicates successful completion. See also \code{\link{optim}}.
-#' \item{\strong{Message}}  \code{vector}  Each entry includes a character
+#'    indicates successful completion. See also [optim].
+#' \item{\strong{Message}}  `vector`  Each entry includes a character
 #'    string providing any additional information returned by the optimizer or
-#'    NULL.  See also \code{\link{optim}}.
+#'    NULL.  See also [optim].
 #' }
 #'
 #' If three states, the list will also include -- \cr
 #' \itemize{
-#' \item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the
+#' \item{\strong{Exp.pos.p}}  `vector` The optimized values for the
 #' proportion of the remaining probability (1-Sn) that corresponds to a
 #' suspect region for diseased samples, namely \eqn{\delta}.
-#' \item{\strong{Exp.sus.pos}}  \code{vector} The values for
+#' \item{\strong{Exp.sus.pos}}  `vector` The values for
 #' `P(T? | D+)` (\eqn{\psi}) calculated from `Exp.sn` and Exp.pos.p.
 #' `P(T?|D+) =` \eqn{\delta} * (1 - \eqn{\pi}).
-#' \item{\strong{Exp.neg.p}} \code{vector} The optimized value for the
+#' \item{\strong{Exp.neg.p}} `vector` The optimized value for the
 #' proportion of the remaining probability `(1-Sp)` that corresponds to a
 #' suspect region for non-diseased samples, namely \eqn{\gamma}.
-#' \item{\strong{Exp.sus.neg}} \code{vector} The values for
+#' \item{\strong{Exp.sus.neg}} `vector` The values for
 #' P(T? | D-) (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p.
 #' P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta}).
 #' }
 #'
-#' @section \code{input}: A list containing the seed used and the simulated
+#' @section `input`: A list containing the seed used and the simulated
 #'   values.
 #'
 #' \itemize{
 #' \item{\strong{seed}}  The seed used in the random generation of the
 #' distributions of sensitivity and specificity for all reference tests and
-#' prevalence of each population.  See also \code{\link{set.seed}}
-#' \item{\strong{Sn.sims}}  \code{matrix} The simulated values for the
+#' prevalence of each population.  See also [set.seed]
+#' \item{\strong{Sn.sims}}  `matrix` The simulated values for the
 #'  sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
 #'  specified in the second row of Sn.ref (or zero if Sn.ref was a vector).
 #'  The first two
 #' columns correspond to the first reference test, columns 3 and 4 to the
 #' second reference test if it exists, etc.
-#' \item{\strong{Sp.sims}} \code{matrix} The simulated values for the
+#' \item{\strong{Sp.sims}} `matrix` The simulated values for the
 #'  specificity of each reference test and \eqn{\phi} where \eqn{\phi} was
 #'  specified in the second row of Sp.ref (or zero is Sp.ref was a vector).
 #'  The first two
 #' columns correspond to the first reference test, columns 3 and 4 to the
 #' second reference test if it exists, etc.
-#' \item{\strong{prev.sims}}  \code{matrix} The simulated values of prevalence
+#' \item{\strong{prev.sims}}  `matrix` The simulated values of prevalence
 #' for each population.  Each column correspond to one population.
 #' }
-#' @author \link{DiagTestKit-package}
-#' @seealso \code{\link{estimateSnSpControl}}
+#' @author [DiagTestKit-package]
+#' @seealso [estimateSnSpControl]
 #' @importFrom data.table setorder
 #' @importFrom plyr ddply summarize "."
 #' @importFrom stats median

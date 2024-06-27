@@ -2,7 +2,7 @@
 % Please edit documentation in R/beta_parm.r
 \name{.beta_parm}
 \alias{.beta_parm}
-\title{Convert Beta Parameterizations}
+\title{Convert Beta  Paramaterizations}
 \usage{
 .beta_parm(b, to = "alpha.beta")
 }

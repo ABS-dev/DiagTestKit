@@ -18,7 +18,7 @@ highest posterior density (1-alpha) interval
 Empirical highest posterior density by shortest length interval.
 }
 \note{
-Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
+Uses type 7 \link{quantile}. Also used in package \code{MF}
 }
 \author{
 \link{DiagTestKit-package}

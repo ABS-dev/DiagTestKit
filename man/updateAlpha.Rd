@@ -7,13 +7,13 @@
 updateAlpha(x, newAlpha)
 }
 \arguments{
-\item{x}{output from \code{\link{estimateSnSp}}}
+\item{x}{output from \link{estimateSnSp}}
 
 \item{newAlpha}{updated alpha value. Must be within [0, 1]}
 }
 \value{
 an object of type \code{snsp}. See output for
-\code{\link{estimateSnSp}}
+\link{estimateSnSp}
 }
 \description{
 Report interval estimates with updated alpha values, using a
@@ -40,7 +40,7 @@ example.1a
 # Sp = P(T-|D-)      0.9062769          0.8336064 1.0000000
 }
 \seealso{
-\code{\link{estimateSnSpControl}}
+\link{estimateSnSpControl}
 }
 \author{
 \link{DiagTestKit-package}

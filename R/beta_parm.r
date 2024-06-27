@@ -1,12 +1,12 @@
-#' @title Convert Beta Parameterizations
+#' @title Convert Beta  Paramaterizations
 #' @description Convert between the paramaterizations of a beta distribution.
-#' @param b  \code{vector} A named vector specifying non-NULL values for 2
+#' @param b  `vector` A named vector specifying non-NULL values for 2
 #'   parameters. e.g. c(alpha=NA, beta=NA, mu=.6, theta=NA, phi=1.6, sigma2=NA)
 #'   or just c(mu=.6, phi=1.6)
 #' @param to Specification of desired parameters, options are one of
 #'   "alpha.beta", "mu.phi", "mu.theta" or "mu.sigma2".
-#' @author \link{DiagTestKit-package}
-#' @return \code{vector} A named vector with values for the parameters specified
+#' @author [DiagTestKit-package]
+#' @return `vector` A named vector with values for the parameters specified
 #'   in the "to" argument of the input.
 .beta_parm <- function(b, to = "alpha.beta") {
   # convert parameterizations
