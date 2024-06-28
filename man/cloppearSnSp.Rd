@@ -21,12 +21,12 @@ confidence interval should be supplied (TRUE) or if the specificity and its
 confidence interval should be supplied (FALSE).}
 }
 \value{
-An object of type \code{cp} that extends \code{list}. \cr \cr
+An object of type \code{cp} that extends \code{list}.
 \describe{
-\item{\strong{calcVal}}{Named vector of point estimates and estimated
+\item{\code{calcVal}}{Named vector of point estimates and estimated
 simulated intervals. See below.}
-\item{\strong{data}}{Test and Total values of the data. See below.}
-\item{\strong{alpha}}{Complement of the confidence interval as provided
+\item{\code{data}}{Test and Total values of the data. See below.}
+\item{\code{alpha}}{Complement of the confidence interval as provided
 above.}
 }
 }
@@ -40,33 +40,34 @@ STATWI0002}.
 \section{If \code{est.Sn == TRUE}}{
 
 
-\code{calcVal} is a list with the following elements \cr
-\itemize{
-\item{\strong{Sn}} Sensitivity estimate.
-\item{\strong{Sn.LL}} Lower confidence limit for sensitivity.
-\item{\strong{Sn.UL}} Upper confidence limit for sensitivity.
+\code{calcVal} is a list with the following elements
+\describe{
+\item{\code{Sn}}{Sensitivity estimate.}
+\item{\code{Sn.LL}}{Lower confidence limit for sensitivity.}
+\item{\code{Sn.UL}}{Upper confidence limit for sensitivity.}
 }
-\code{data} is a list with the following elements \cr
-\itemize{
-\item{\strong{Test.Positive}} Number of experimental test positives.
-\item{\strong{Total.Positive}} Total number of positive samples.
+
+\code{data} is a list with the following elements
+\describe{
+\item{\code{Test.Positive}}{Number of experimental test positives.}
+\item{\code{Total.Positive}}{Total number of positive samples.}
 }
 }
 
 \section{If \code{st.Sn == FALSE}}{
 
 
-\code{calcVal} is a list with the following elements \cr
-\itemize{
-\item{\strong{Sp}} Specificity estimate.
-\item{\strong{Sp.LL}} Lower confidence limit for specificity.
-\item{\strong{Sp.UL}} Upper confidence limit for specificity.
+\code{calcVal} is a list with the following elements
+\describe{
+\item{\code{Sp}}{Specificity estimate.}
+\item{\code{Sp.LL}}{Lower confidence limit for specificity.}
+\item{\code{Sp.UL}}{Upper confidence limit for specificity.}
 }
 
-\code{data} is a list with the following elements \cr
-\itemize{
-\item{\strong{Test.Negative}} Number of experimental test negatives.
-\item{\strong{Total.Negative}} Total number of negative samples.
+\code{data} is a list with the following elements
+\describe{
+\item{\code{Test.Negative}}{Number of experimental test negatives.}
+\item{\code{Total.Negative}}{Total number of negative samples.}
 }
 A matrix with a single row.  If est.Sn = T the columns correspond to the
 number of experimental test positives, the total number of positive

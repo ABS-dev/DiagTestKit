@@ -82,7 +82,7 @@ iterations completed.  Defaluts to 50.}
 }
 \value{
 A list with the following elements (as defined above): \code{seed},
-\code{Sn.disn}, \code{Sn.spread}, \code{Sp.distn},} \code{Sp.spread}, \code{prev.distn},
+\code{Sn.disn}, \code{Sn.spread}, \code{Sp.distn}, \code{Sp.spread}, \code{prev.distn},
 \code{prev.spread}, \code{tolerance}, \code{step.size}, \code{parm}.
 }
 \description{

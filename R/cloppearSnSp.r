@@ -14,42 +14,43 @@
 #'   confidence interval should be supplied (TRUE) or if the specificity and its
 #'   confidence interval should be supplied (FALSE).
 #' @param alpha Complement of confidence level.
-#' @return An object of type `cp` that extends `list`. \cr \cr
+#' @return An object of type `cp` that extends `list`.
 #' \describe{
-#' \item{\strong{calcVal}}{Named vector of point estimates and estimated
+#' \item{`calcVal`}{Named vector of point estimates and estimated
 #'   simulated intervals. See below.}
-#' \item{\strong{data}}{Test and Total values of the data. See below.}
-#' \item{\strong{alpha}}{Complement of the confidence interval as provided
+#' \item{`data`}{Test and Total values of the data. See below.}
+#' \item{`alpha`}{Complement of the confidence interval as provided
 #'   above.}
 #' }
 #'
 #' @section If `est.Sn == TRUE`:
 #'
-#'   `calcVal` is a list with the following elements \cr
-#' \itemize{
-#' \item{\strong{Sn}} Sensitivity estimate.
-#' \item{\strong{Sn.LL}} Lower confidence limit for sensitivity.
-#' \item{\strong{Sn.UL}} Upper confidence limit for sensitivity.
+#' `calcVal` is a list with the following elements
+#' \describe{
+#' \item{`Sn`}{Sensitivity estimate.}
+#' \item{`Sn.LL`}{Lower confidence limit for sensitivity.}
+#' \item{`Sn.UL`}{Upper confidence limit for sensitivity.}
 #' }
-#'   `data` is a list with the following elements \cr
-#' \itemize{
-#' \item{\strong{Test.Positive}} Number of experimental test positives.
-#' \item{\strong{Total.Positive}} Total number of positive samples.
+#'
+#' `data` is a list with the following elements
+#' \describe{
+#' \item{`Test.Positive`}{Number of experimental test positives.}
+#' \item{`Total.Positive`}{Total number of positive samples.}
 #' }
 #'
 #' @section If `st.Sn == FALSE`:
 #'
-#'   `calcVal` is a list with the following elements \cr
-#' \itemize{
-#' \item{\strong{Sp}} Specificity estimate.
-#' \item{\strong{Sp.LL}} Lower confidence limit for specificity.
-#' \item{\strong{Sp.UL}} Upper confidence limit for specificity.
+#' `calcVal` is a list with the following elements
+#' \describe{
+#' \item{`Sp`}{Specificity estimate.}
+#' \item{`Sp.LL`}{Lower confidence limit for specificity.}
+#' \item{`Sp.UL`}{Upper confidence limit for specificity.}
 #' }
 #'
-#'   `data` is a list with the following elements \cr
-#' \itemize{
-#' \item{\strong{Test.Negative}} Number of experimental test negatives.
-#' \item{\strong{Total.Negative}} Total number of negative samples.
+#' `data` is a list with the following elements
+#' \describe{
+#' \item{`Test.Negative`}{Number of experimental test negatives.}
+#' \item{`Total.Negative`}{Total number of negative samples.}
 #' }
 #'   A matrix with a single row.  If est.Sn = T the columns correspond to the
 #'   number of experimental test positives, the total number of positive
@@ -59,7 +60,7 @@
 #'   samples, specificity, the lower confidence limit for specificity and the
 #'   upper confidence limit for specificity.
 #' @references Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial
-#'   limits illustrated in the case of the binomial. \emph{Biometrika}
+#'   limits illustrated in the case of the binomial. *Biometrika*
 #'   26:404-413.
 #' @importFrom stats qbeta
 #' @importFrom methods new
