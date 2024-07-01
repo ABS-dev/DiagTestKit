@@ -16,11 +16,12 @@
   # or just c(mu = .6, phi = 1.6)
   #
   # R uses the "usual" alpha, beta parametrization of the beta distribution
-
+  #
   # mu is the mean of the distribution; mu = alpha / (alpha + beta)
   #
-  # sigma2 is the variance of the distribution;  sigma2 = (alpha * beta) /
-  # (((alpha + beta)^2)(alpha + beta + 1))
+  # sigma2 is the variance of the distribution;
+  #
+  # formula sigma2 = (alpha * beta) / (((alpha + beta)^2)(alpha + beta + 1))
   #
   # sigma2 can also be expressed as mu(1 - mu) / (theta + 1)  #see below for a
   # description of theta

@@ -10,8 +10,8 @@
 #'   result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
 #'   \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
 #'   second row for a given column (reference test). \eqn{\delta =
-#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a 2-state
-#'   test (i.e. no suspect region).
+#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a
+#'   2-state test (i.e. no suspect region).
 #' @param SpR.vec `data.frame` Each column corresponds to one reference test.
 #'   Row 1 contains the specificity for each reference test. Row 2 contains the
 #'   probability of a suspect result as a fraction of the non-correct test
@@ -81,8 +81,8 @@
   # would be consistent with a ddply statment that had .variables = .(Exp, Ref1,
   # Ref2, etc.)
 
-  # I need to create the named vectors required for the .cell_counts function (used
-  # within .minimize_cell)
+  # I need to create the named vectors required for the .cell_counts function
+  # (used within .minimize_cell)
 
   ndraws <- nrow(SnR.vec)
   ntests <- ncol(SnR.vec) / 2

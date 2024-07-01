@@ -4,10 +4,10 @@
 #'   and specificity of an experimental diagnostic test kit in accordance with
 #'   \href{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}{CVB
 #'   STATWI0002}.
-#' @param dat `data.frame`  A data frame with a column for the experimental
-#'   test results, a column for the infallible reference test results,  and a
-#'   column for the corresponding count.  The column name for the experimental
-#'   test results must contatin "exp" and the column name for the infallible
+#' @param dat `data.frame`  A data frame with a column for the experimental test
+#'   results, a column for the infallible reference test results,  and a column
+#'   for the corresponding count.  The column name for the experimental test
+#'   results must contatin "exp" and the column name for the infallible
 #'   reference test results must include "ref".  The counts should be the last
 #'   column.
 #' @param est.Sn logical (TRUE/FALSE) Indicating if the sensitivity and its
@@ -25,14 +25,14 @@
 #'
 #' @section If `est.Sn == TRUE`:
 #'
-#' `calcVal` is a list with the following elements
+#'   `calcVal` is a list with the following elements
 #' \describe{
 #' \item{`Sn`}{Sensitivity estimate.}
 #' \item{`Sn.LL`}{Lower confidence limit for sensitivity.}
 #' \item{`Sn.UL`}{Upper confidence limit for sensitivity.}
 #' }
 #'
-#' `data` is a list with the following elements
+#'   `data` is a list with the following elements
 #' \describe{
 #' \item{`Test.Positive`}{Number of experimental test positives.}
 #' \item{`Total.Positive`}{Total number of positive samples.}
@@ -40,14 +40,14 @@
 #'
 #' @section If `st.Sn == FALSE`:
 #'
-#' `calcVal` is a list with the following elements
+#'   `calcVal` is a list with the following elements
 #' \describe{
 #' \item{`Sp`}{Specificity estimate.}
 #' \item{`Sp.LL`}{Lower confidence limit for specificity.}
 #' \item{`Sp.UL`}{Upper confidence limit for specificity.}
 #' }
 #'
-#' `data` is a list with the following elements
+#'   `data` is a list with the following elements
 #' \describe{
 #' \item{`Test.Negative`}{Number of experimental test negatives.}
 #' \item{`Total.Negative`}{Total number of negative samples.}
@@ -55,13 +55,12 @@
 #'   A matrix with a single row.  If est.Sn = TRUE the columns correspond to the
 #'   number of experimental test positives, the total number of positive
 #'   samples, sensitivity, the lower confidence limit for sensitivity and the
-#'   upper confidence limit for sensitivity. If est.Sn = FALSE, the columns correspond
-#'   to the number of experimental test negatives, the total number of negative
-#'   samples, specificity, the lower confidence limit for specificity and the
-#'   upper confidence limit for specificity.
+#'   upper confidence limit for sensitivity. If est.Sn = FALSE, the columns
+#'   correspond to the number of experimental test negatives, the total number
+#'   of negative samples, specificity, the lower confidence limit for
+#'   specificity and the upper confidence limit for specificity.
 #' @references Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial
-#'   limits illustrated in the case of the binomial. *Biometrika*
-#'   26:404-413.
+#'   limits illustrated in the case of the binomial. *Biometrika* 26:404-413.
 #' @importFrom stats qbeta
 #' @importFrom methods new
 #' @export

@@ -2,16 +2,16 @@
 #' @description This function creates expected cell counts (and probabilities)
 #'   for a specific test pattern based on the diagnostic characteristics of the
 #'   reference test(s) and experimental test.
-#' @param SnR `data.frame`  Each column corresponds to one reference test.
-#'   Row 1 contains the sensitivity for the reference test(s). Row 2 contains
-#'   the probability of a suspect result as a fraction of the non-correct test
+#' @param SnR `data.frame`  Each column corresponds to one reference test. Row 1
+#'   contains the sensitivity for the reference test(s). Row 2 contains the
+#'   probability of a suspect result as a fraction of the non-correct test
 #'   result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
 #'   \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
 #'   second row for a given column (reference test).  \eqn{\delta =
-#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a 2-state
-#'   test (i.e. no suspect region).
-#' @param SpR `data.frame` Each column corresponds to one reference test.
-#'   Row 1 contains the specificity for each reference test. Row 2 contains the
+#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a
+#'   2-state test (i.e. no suspect region).
+#' @param SpR `data.frame` Each column corresponds to one reference test. Row 1
+#'   contains the specificity for each reference test. Row 2 contains the
 #'   probability of a suspect result as a fraction of the non-correct test
 #'   result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
 #'   \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
@@ -30,8 +30,8 @@
 #'   (\eqn{\psi} or \eqn{\phi}).  \eqn{\delta = \frac{\psi}{(1-\pi)}} and
 #'   \eqn{\gamma = \frac{\phi}{(1-\theta)}}.
 #' @param N_mat `matrix` Needs to be filled out
-#' @param nstates `vector` A vector with length one greater than the number
-#'   of reference tests.  The first element is the number of states of the
+#' @param nstates `vector` A vector with length one greater than the number of
+#'   reference tests.  The first element is the number of states of the
 #'   experimental test and the remaining entries are the number of states of
 #'   each reference test (using the same ordering as SnR and SpR).
 #' @param suspect2staterows Needs to be filled out.
@@ -41,10 +41,9 @@
 #' @param Xneg Needs to be filled out.
 #' @param ncells Needs to be filled out.
 #' @param ntests Needs to be filled out.
-#' @return  `vector` A vector of expected counts corresponding to the
-#'   properties of the reference and experimental tests.  The expected counts
-#'   are obtained based on a conditional independence assumption of all test
-#'   methods.
+#' @return  `vector` A vector of expected counts corresponding to the properties
+#'   of the reference and experimental tests.  The expected counts are obtained
+#'   based on a conditional independence assumption of all test methods.
 #' @author [DiagTestKit-package]
 #' @importFrom data.table setorder
 .cell_counts <- function(SnR, SpR, Prev, SnE, SpE, sus.perc, N_mat, nstates,
