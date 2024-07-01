@@ -10,8 +10,8 @@ cloppearSnSp(dat, alpha = 0.05, est.Sn = TRUE)
 \item{dat}{\code{data.frame}  A data frame with a column for the experimental
 test results, a column for the infallible reference test results,  and a
 column for the corresponding count.  The column name for the experimental
-test results must contatin 'exp' and the column name for the infallible
-reference test results must include 'ref'.  The counts should be the last
+test results must contatin "exp" and the column name for the infallible
+reference test results must include "ref".  The counts should be the last
 column.}
 
 \item{alpha}{Complement of confidence level.}
@@ -69,10 +69,10 @@ STATWI0002}.
 \item{\code{Test.Negative}}{Number of experimental test negatives.}
 \item{\code{Total.Negative}}{Total number of negative samples.}
 }
-A matrix with a single row.  If est.Sn = T the columns correspond to the
+A matrix with a single row.  If est.Sn = TRUE the columns correspond to the
 number of experimental test positives, the total number of positive
 samples, sensitivity, the lower confidence limit for sensitivity and the
-upper confidence limit for sensitivity. If est.Sn=F, the columns correspond
+upper confidence limit for sensitivity. If est.Sn = FALSE, the columns correspond
 to the number of experimental test negatives, the total number of negative
 samples, specificity, the lower confidence limit for specificity and the
 upper confidence limit for specificity.

@@ -27,36 +27,36 @@ population.  See also \link{set.seed}.}
 
 \item{Sn.distn}{\code{vector}  A named vector with length equal to the number of
 reference tests.  Determines which disibution should be used for sampling
-sensitivity of each reference test.  Inputs are 'beta' or 'triangular'.
-Defaults to 'beta' for each reference test.}
+sensitivity of each reference test.  Inputs are "beta" or "triangular".
+Defaults to "beta" for each reference test.}
 
 \item{Sn.spread}{\code{vector}  A named vector with length equal to the number of
 reference tests. Describes the width of the distribution for the
-sensitivity of each reference test.  Inputs are 'wide', 'medium', or
-'narrow'.  Defaults to 'wide' for each reference test.}
+sensitivity of each reference test.  Inputs are "wide", "medium", or
+"narrow".  Defaults to "wide" for each reference test.}
 
 \item{Sp.distn}{\code{vector}  A named vector with length equal to the number of
 reference tests.  Determines which disibution should be used for sampling
-specificity of each reference test.  Inputs are 'beta' or 'triangular'.
-Defaults to 'beta' for each reference test.}
+specificity of each reference test.  Inputs are "beta" or "triangular".
+Defaults to "beta" for each reference test.}
 
 \item{Sp.spread}{\code{vector}  A named vector with length equal to the number of
 reference tests. Describes the width of the distribution for the
-specificity of each reference test.  Inputs are 'wide', 'medium', or
-'narrow'.  Defaults to 'wide' for each reference test.}
+specificity of each reference test.  Inputs are "wide", "medium", or
+"narrow".  Defaults to "wide" for each reference test.}
 
 \item{prev.distn}{\code{vector}  A named vector with length equal to the number of
 populations. Determines which disibution should be used for sampling the
-prevalence of each population.  Inputs are 'beta' or 'triangular'. Defaults
-to 'beta'.}
+prevalence of each population.  Inputs are "beta" or "triangular". Defaults
+to "beta".}
 
 \item{prev.spread}{\code{vector}  A named vector with length equal to the number
 of populations. Describes the width of the distribution for the prevalence
-of each population.  Inputs are 'wide', 'medium', or 'narrow'. Defaults to
-'wide' for each population.}
+of each population.  Inputs are "wide", "medium", or "narrow". Defaults to
+"wide" for each population.}
 
 \item{tolerance}{Setting a limit on the pgtol used in the \link{optim} function
-with the 'L-BFGS-B' method. See also \link{optim}. Defaults to 1E-03.}
+with the "L-BFGS-B" method. See also \link{optim}. Defaults to 1E-03.}
 
 \item{alpha}{Significance levels.  Defaults to 0.05.}
 

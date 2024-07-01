@@ -11,8 +11,8 @@
 #' @export
 #' @examples
 #' data.1 <- data.frame(
-#'   exp_result = rep(c('positive', 'negative'), each = 2),
-#'   ref1_result = rep(c('positive', 'negative'), 2),
+#'   exp_result = rep(c("positive", "negative"), each = 2),
+#'   ref1_result = rep(c("positive", "negative"), 2),
 #'   count = c(82, 11, 5, 22))
 #' example.1 <- estimateSnSp(dat      = data.1,
 #'                           Sn.ref   = data.frame(ref = c(0.90, 0)),

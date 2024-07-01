@@ -7,8 +7,8 @@
 #' @param dat `data.frame`  A data frame with a column for the experimental
 #'   test results, a column for the infallible reference test results,  and a
 #'   column for the corresponding count.  The column name for the experimental
-#'   test results must contatin 'exp' and the column name for the infallible
-#'   reference test results must include 'ref'.  The counts should be the last
+#'   test results must contatin "exp" and the column name for the infallible
+#'   reference test results must include "ref".  The counts should be the last
 #'   column.
 #' @param est.Sn logical (TRUE/FALSE) Indicating if the sensitivity and its
 #'   confidence interval should be supplied (TRUE) or if the specificity and its
@@ -52,10 +52,10 @@
 #' \item{`Test.Negative`}{Number of experimental test negatives.}
 #' \item{`Total.Negative`}{Total number of negative samples.}
 #' }
-#'   A matrix with a single row.  If est.Sn = T the columns correspond to the
+#'   A matrix with a single row.  If est.Sn = TRUE the columns correspond to the
 #'   number of experimental test positives, the total number of positive
 #'   samples, sensitivity, the lower confidence limit for sensitivity and the
-#'   upper confidence limit for sensitivity. If est.Sn=F, the columns correspond
+#'   upper confidence limit for sensitivity. If est.Sn = FALSE, the columns correspond
 #'   to the number of experimental test negatives, the total number of negative
 #'   samples, specificity, the lower confidence limit for specificity and the
 #'   upper confidence limit for specificity.
@@ -78,7 +78,7 @@ cloppearSnSp <- function(dat, alpha = 0.05, est.Sn = TRUE) {
   # Clopper-Pearson exact binomial confidence interval by
   #   beta distribution method (changed from F dist method pre-92)
   # coded by D.Siev 11/04/92, updated 1/9/10
-  # show.warnings=F suppresses unnecessary warnings from ifelse
+  # show.warnings = FALSE suppresses unnecessary warnings from ifelse
   # -------------------------------------------------------
 
   dat[sapply(dat, is.character)] <-

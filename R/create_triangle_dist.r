@@ -15,10 +15,10 @@
 #'   probability would be assigned to the suspect region.  For instance, if the
 #'   function gives sensitivity and then the probability of "suspect" is (1 -
 #'   sensitivity) * suspect.
-#' @param step_size distance between the 'x' in the discrete distribution,
+#' @param step_size distance between the "x" in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
-#' @param p_proportion whether to express 'p' as a proportion of its sum.
-#' @return `data.frame` of 'x', 'y', and 'p'.
+#' @param p_proportion whether to express "p" as a proportion of its sum.
+#' @return `data.frame` of "x", "y", and "p".
 #' @author [DiagTestKit-package]
 .create_triangle_dist <- function(m, w, h, threestate = FALSE, suspect = 2 / 3,
                                   step_size = 0.005, p_proportion = TRUE) {

@@ -8,15 +8,15 @@
 }
 \arguments{
 \item{b}{\code{vector} A named vector specifying non-NULL values for 2
-parameters. e.g. c(alpha=NA, beta=NA, mu=.6, theta=NA, phi=1.6, sigma2=NA)
-or just c(mu=.6, phi=1.6)}
+parameters. e.g. c(alpha = NA, beta = NA, mu = .6, theta = NA, phi = 1.6,
+sigma2 = NA) or just c(mu = .6, phi = 1.6)}
 
 \item{to}{Specification of desired parameters, options are one of
 "alpha.beta", "mu.phi", "mu.theta" or "mu.sigma2".}
 }
 \value{
-\code{vector} A named vector with values for the parameters specified
-in the "to" argument of the input.
+\code{vector} A named vector with values for the parameters specified in
+the "to" argument of the input.
 }
 \description{
 Convert between the paramaterizations of a beta distribution.

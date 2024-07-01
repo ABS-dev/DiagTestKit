@@ -11,10 +11,10 @@
 #'   number of samples with each pattern of test outcomes.  The columns must be
 #'   included in the order described.  If more than one population is sampled,
 #'   the column name for the column containing the population information must
-#'   be 'population'.  The column containing the test results for the
-#'   experimental test must have 'exp' in the name, such as experimental,
+#'   be "population".  The column containing the test results for the
+#'   experimental test must have "exp" in the name, such as experimental,
 #'   experiment, exp, Exp, etc.  The column names containing the reference test
-#'   results much contain 'ref' in the name, such as Ref1, Ref2, ref1_results,
+#'   results much contain "ref" in the name, such as Ref1, Ref2, ref1_results,
 #'   Reference2, etc.
 #' @param Sn.ref `data.frame`  Each column corresponds to one reference test.
 #'   Row 1 contains the sensitivity for the reference test(s). Row 2 contains
@@ -22,11 +22,11 @@
 #'   result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
 #'   \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
 #'   second row for a given column (reference test). \eqn{\delta =
-#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
+#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a 2-state
 #'   test (i.e. no suspect region).  Alternatively, if all reference tests are
 #'   2-state tests, the sensitivities can be input as a named vector.
 #'   Specifically, each element in the vector must be given a name which
-#'   includes 'ref' (see above) and the column names (or names of the elements
+#'   includes "ref" (see above) and the column names (or names of the elements
 #'   within the vector) must match those for Sp.ref.
 #' @param Sp.ref `data.frame` Each column corresponds to one reference test. Row
 #'   1 contains the specificity for each reference test. Row 2 contains the
@@ -34,15 +34,15 @@
 #'   result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
 #'   \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
 #'   second row for a given column (reference test). \eqn{\gamma =
-#'   \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}. Use a zero for a
+#'   \frac{\phi}{(1 - \theta)}}{\gamma = \phi / (1 - \theta)}. Use a zero for a
 #'   2-state test (i.e. no suspect region).  Alternatively, if all reference
 #'   tests are 2-state tests, the specificity can can be input as a named
 #'   vector.  Specifically, each element in the vector must be given a name
-#'   which includes 'ref' (see above) and the column names (or names of the
+#'   which includes "ref" (see above) and the column names (or names of the
 #'   elements within the vector) must match those for Sn.ref.
 #' @param prev.pop `vector`  A named vector containing the prevalence for each
 #'   population sampled.  The names in the vector must match the population
-#'   labels used in 'dat'.
+#'   labels used in "dat".
 #' @param nsim The number of simulations to draw from the sensitivity and
 #'   specificity distribution(s) for each reference test and the prevalence
 #'   distribution from each population.
@@ -146,8 +146,8 @@
 #' @importFrom methods new
 #' @export
 #' @examples
-#' data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
-#'                      ref1_result = rep(c('positive', 'negative'), 2),
+#' data.1 <- data.frame(exp_result = rep(c("positive", "negative"), each = 2),
+#'                      ref1_result = rep(c("positive", "negative"), 2),
 #'                      count = c(82, 11, 5, 22))
 #' example.1 <- estimateSnSp(dat = data.1,
 #'                           Sn.ref = data.frame(ref = c(0.90, 0)),
@@ -167,12 +167,12 @@
 #' \dontrun{
 #' data.2 <- data.frame(Population = rep(LETTERS[1:3], each = 24),
 #'                      exp_result = rep(rep(
-#'                        c('negative', 'positive', 'suspect'), each = 8), 3),
+#'                        c("negative", "positive", "suspect"), each = 8), 3),
 #'                      ref1_result = rep(rep(
-#'                        c('negative', 'positive'), each = 4), 9),
+#'                        c("negative", "positive"), each = 4), 9),
 #'                      ref2_result = rep(rep(
-#'                        c('negative', 'positive'), each = 2), 18),
-#'                      ref3_result = rep(c('negative', 'positive'), 36),
+#'                        c("negative", "positive"), each = 2), 18),
+#'                      ref3_result = rep(c("negative", "positive"), 36),
 #'                      count = c(3, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 5,
 #'                                1, 8, 11, 62, 0, 0, 0, 0, 0, 0, 0,
 #'                                2, 27, 2, 3, 0, 4, 0, 1, 1, 0, 0, 1,

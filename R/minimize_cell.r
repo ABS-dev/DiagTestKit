@@ -15,7 +15,7 @@
 #'   result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
 #'   \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
 #'   second row for a given column (reference test).  \eqn{\delta =
-#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
+#'   \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a 2-state
 #'   test (i.e. no suspect region).
 #' @param SpR `data.frame` Each column corresponds to one reference test.
 #'   Row 1 contains the specificity for each reference test. Row 2 contains the
@@ -23,7 +23,7 @@
 #'   result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
 #'   \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
 #'   second row for a given column (reference test). \eqn{\gamma =
-#'   \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a
+#'   \frac{\phi}{(1 - \theta)}}{\gamma = \phi / (1 - \theta)}.  Use a zero for a
 #'   2-state test (i.e. no suspect region).
 #' @param Prev `vector`  A named vector containing the prevalence for each
 #'   population sampled.

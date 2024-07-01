@@ -8,9 +8,9 @@
 #'   sensitivity (\eqn{\pi}) and \eqn{\psi} (or specificity (\eqn{\theta})  and
 #'   \eqn{\phi}).
 #' @param distn `vector`  A vector of same length as `means.` Values may be one
-#'   of `NULL`, 'beta', or 'triangular'. `NULL` will be treated as 'beta'
+#'   of `NULL`, "beta", or "triangular". `NULL` will be treated as "beta"
 #' @param spread `vector` A vector of same length as `means`. Values may be one
-#'   of `NULL`, 'wide', 'medium', or 'narrow'. `NULL` will be treated as 'wide'.
+#'   of `NULL`, "wide", "medium", or "narrow". `NULL` will be treated as "wide".
 #' @param nsim The number of simulations to draw from the sensitivity and
 #'   specificity distribution(s) for each reference test or the prevalence
 #'   distribution from each population.
