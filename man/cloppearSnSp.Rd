@@ -22,12 +22,11 @@ confidence interval should be supplied (FALSE).}
 }
 \value{
 An object of type \code{cp} that extends \code{list}.
-\describe{
-\item{\code{calcVal}}{Named vector of point estimates and estimated
-simulated intervals. See below.}
-\item{\code{data}}{Test and Total values of the data. See below.}
-\item{\code{alpha}}{Complement of the confidence interval as provided
-above.}
+\itemize{
+\item \code{calcVal}: Named vector of point estimates and estimated simulated
+intervals. See below.
+\item \code{data}: Test and Total values of the data. See below.
+\item \code{alpha}: Complement of the confidence interval as provided above.
 }
 }
 \description{
@@ -41,16 +40,16 @@ STATWI0002}.
 
 
 \code{calcVal} is a list with the following elements
-\describe{
-\item{\code{Sn}}{Sensitivity estimate.}
-\item{\code{Sn.LL}}{Lower confidence limit for sensitivity.}
-\item{\code{Sn.UL}}{Upper confidence limit for sensitivity.}
+\itemize{
+\item \code{Sn}: Sensitivity estimate.
+\item \code{Sn.LL}: Lower confidence limit for sensitivity.
+\item \code{Sn.UL}: Upper confidence limit for sensitivity.
 }
 
 \code{data} is a list with the following elements
-\describe{
-\item{\code{Test.Positive}}{Number of experimental test positives.}
-\item{\code{Total.Positive}}{Total number of positive samples.}
+\itemize{
+\item \code{Test.Positive}: Number of experimental test positives.
+\item \code{Total.Positive}: Total number of positive samples.
 }
 }
 
@@ -58,17 +57,18 @@ STATWI0002}.
 
 
 \code{calcVal} is a list with the following elements
-\describe{
-\item{\code{Sp}}{Specificity estimate.}
-\item{\code{Sp.LL}}{Lower confidence limit for specificity.}
-\item{\code{Sp.UL}}{Upper confidence limit for specificity.}
+\itemize{
+\item \code{Sp}: Specificity estimate.
+\item \code{Sp.LL}: Lower confidence limit for specificity.
+\item \code{Sp.UL}: Upper confidence limit for specificity.
 }
 
 \code{data} is a list with the following elements
-\describe{
-\item{\code{Test.Negative}}{Number of experimental test negatives.}
-\item{\code{Total.Negative}}{Total number of negative samples.}
+\itemize{
+\item \code{Test.Negative}: Number of experimental test negatives.
+\item \code{Total.Negative}: Total number of negative samples.
 }
+
 A matrix with a single row.  If est.Sn = TRUE the columns correspond to the
 number of experimental test positives, the total number of positive
 samples, sensitivity, the lower confidence limit for sensitivity and the

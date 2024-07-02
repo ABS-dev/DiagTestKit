@@ -6,19 +6,19 @@
 \title{Data set for Example 2 in vignette "DiagTestKit Examples"}
 \format{
 A data frame with 12 rows and four variables:
-\describe{
-\item{population}{population identifier (A, B, C.}
-\item{exp_result}{result of experimental test (positive, negative).}
-\item{ref_result}{result of reference test (positive, negative).}
-\item{count}{number of samples with the unique testing combination for the
-specific population.}
+\itemize{
+\item \code{population}: population identifier (A, B, C).
+\item \code{exp_result}: result of experimental test (positive, negative).
+\item \code{ref_result}: result of reference test (positive, negative).
+\item \code{count}: number of samples with the unique testing combination for the
+specific population.
 }
 }
 \usage{
 data2
 }
 \description{
-Samples randomly selected from 3 populations are tested by one 2–state
-fallible reference test and a 2–state experimental test.
+Samples randomly selected from 3 populations are tested by one 2-state
+fallible reference test and a 2-state experimental test.
 }
 \keyword{datasets}

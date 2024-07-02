@@ -40,31 +40,35 @@
 #'   \eqn{\theta}). For a 3-state experimental test, this is a vector of length
 #'   4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
 #'   also [estimateSnSp].
-#' @return A list:
+#' @returns A list:
 #'
 #' The following will be returned for both 2 and 3-state experimental tests --
-#' \describe{
-#' \item{`sens.final`}{`vector` The optimized values for the sensitivity of
-#' the experimental test kit.}
-#' \item{`spec.final`}{`vector` The optimized values for the specificity of
-#' the experimental test kit.}
-#' \item{`converge`}{`vector` Each entry is an integer code detailing the
-#'  convergence of the optimization for each iteration.  0 indicates successful
-#'   completion. See also [optim].}
-#' \item{`message`}{`vector`  Each entry includes a character string giving
-#'  any additional information returned by the optimizer or NULL.  See also
-#'   [optim].}
-#' }
+#'
+#' * `sens.final`: `vector` The optimized values for the sensitivity of the
+#' experimental test kit.
+#'
+#' * `spec.final`: `vector` The optimized values for the specificity of the
+#' experimental test kit.
+#'
+#' * `converge`: `vector` Each entry is an integer code detailing the
+#' convergence of the optimization for each iteration.  0 indicates successful
+#' completion. See also [optim].
+#'
+#' * `message`: `vector`  Each entry includes a character string giving any
+#' additional information returned by the optimizer or NULL.  See also [optim].
+#'
 #'
 #' If three states --
-#' \describe{
-#' \item{\eqn{\delta}}{`vector` The optimized values for the probability
+#'
+#'
+#' * \eqn{\delta}: `vector` The optimized values for the probability
 #'  of a suspect result as a fraction of the non-correct test result for
-#'  diseased samples.}
-#' \item{\eqn{\gamma}}{`vector` The optimized value for the probability
+#'  diseased samples.
+#'
+#' * \eqn{\gamma}: `vector` The optimized value for the probability
 #' of a suspect result as a fraction of the non-correct test result for
-#'  non-diseased samples.}
-#' }
+#'  non-diseased samples.
+#'
 #' @author [DiagTestKit-package]
 #' @importFrom stats optim
 .get_values <- function(dat, SnR.vec, SpR.vec, prev.vec, N.vec, nstates,

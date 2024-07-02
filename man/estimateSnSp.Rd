@@ -60,11 +60,11 @@ distribution from each population.}
 }
 \value{
 An object of type \code{snsp} that extends \code{list}.
-\describe{
-\item{\code{calcVal}}{Point estimates and estimated simulated intervals
-for properties of the experimental kit. See below.}
-\item{\code{detailOut}}{Detailed output values. See below.}
-\item{\code{input}}{Simulated values.  See below.}
+\itemize{
+\item \code{calcVal}: Point estimates and estimated simulated intervals
+for properties of the experimental kit. See below;
+\item \code{detailOut}: Detailed output values. See below;
+\item \code{input}: Simulated values.  See below;
 }
 }
 \description{
@@ -78,29 +78,27 @@ STATWI0002}.
 
 A list with the following values which will include the following for both
 2- and 3-state experimental tests --
-\describe{
-\item{\code{Nsim}}{Number of simulations performed.}
-\item{\code{Confidence}}{1 - \eqn{\alpha}.}
-\item{\code{SnPE}}{Sensitivity point estimate obtained as the median of
-the estimated values.}
-\item{\code{SnInterval}}{Estimated simulated interval for sensitivity.}
-\item{\code{SpPE}}{Specificity point estimate obtained as the median of
-the estimated values.}
-\item{\code{SpInterval}}{Estimated simulated interval for specificity.}
-}
+\itemize{
+\item \code{Nsim}: Number of simulations performed.
+\item \code{Confidence}: 1 - \eqn{\alpha}.
+\item \code{SnPE}: Sensitivity point estimate obtained as the median of
+the estimated values.
+\item \code{SnInterval}: Estimated simulated interval for sensitivity;
+\item \code{SpPE}: Specificity point estimate obtained as the median of
+the estimated values;
+\item \code{SpInterval}: Estimated simulated interval for specificity;
 
 If three states, the list will also include --
-\describe{
-\item{\code{SusDisPosPE}}{Point estimate for the probability of test
+\item \code{SusDisPosPE}: Point estimate for the probability of test
 suspect given disease positive (\eqn{\psi}) which is the median of the
-calculated values (\eqn{\psi} = \eqn{\delta}(1-\eqn{\pi})).}
-\item{\code{SusDisPosInterval}}{Estimated simulated interval for the
-probability of test suspect given disease positive (\eqn{\psi}).}
-\item{\code{SusDisNegPE}}{Point estimate for the probability of test
+calculated values (\eqn{\psi} = \eqn{\delta}(1-\eqn{\pi}));
+\item \code{SusDisPosInterval}: Estimated simulated interval for the
+probability of test suspect given disease positive (\eqn{\psi});
+\item \code{SusDisNegPE}: Point estimate for the probability of test
 suspect given disease negative (\eqn{\phi}) which is the median of the
-calculated values (\eqn{\phi} = \eqn{\gamma}(1-\eqn{\theta})).}
-\item{\code{SusDisNegInterval}}{Estimated simulated interval for the
-probability of test suspect given disease negative (\eqn{\phi}).}
+calculated values (\eqn{\phi} = \eqn{\gamma}(1-\eqn{\theta}));
+\item \code{SusDisNegInterval}: Estimated simulated interval for the
+probability of test suspect given disease negative (\eqn{\phi});
 }
 }
 
@@ -109,56 +107,52 @@ probability of test suspect given disease negative (\eqn{\phi}).}
 
 A list with the following detailed output values which will include the
 following for both 2- and 3-state experimental tests --
-\describe{
-\item{\code{Exp.Sn}}{\code{vector} The optimized values for the
-sensitivity of the experimental test kit.}
-\item{\code{Exp.Sp}}{\code{vector} The optimized values for the
-specificity of the experimental test kit.}
-\item{\code{Converge}}{\code{vector} Each entry is an integer code
+\itemize{
+\item \code{Exp.Sn}: \code{vector} The optimized values for the
+sensitivity of the experimental test kit;
+\item \code{Exp.Sp}: \code{vector} The optimized values for the
+specificity of the experimental test kit;
+\item \code{Converge}: \code{vector} Each entry is an integer code
 detailing the convergence of the optimization for each iteration.  0
-indicates successful completion. See also \link{optim}.}
-\item{\code{Message}}{\code{vector} Each entry includes a character
+indicates successful completion. See also \link{optim};
+\item \code{Message}: \code{vector} Each entry includes a character
 string providing any additional information returned by the optimizer or
-NULL.  See also \link{optim}.}
-}
+NULL.  See also \link{optim};
 
 If three states, the list will also include --
-
-\describe{
-\item{\code{Exp.pos.p}}{\code{vector} The optimized values for the
+\item \code{Exp.pos.p}: \code{vector} The optimized values for the
 proportion of the remaining probability (1-Sn) that corresponds to a
-suspect region for diseased samples, namely \eqn{\delta}.}
-\item{\code{Exp.sus.pos}}{\code{vector} The values for
+suspect region for diseased samples, namely \eqn{\delta};
+\item \code{Exp.sus.pos}: \code{vector} The values for
 \verb{P(T? | D+)} (\eqn{\psi}) calculated from \code{Exp.sn} and Exp.pos.p.
-\verb{P(T?|D+) =} \eqn{\delta} * (1 - \eqn{\pi}).}
-\item{\code{Exp.neg.p}}{\code{vector} The optimized value for the
+\verb{P(T?|D+) =} \eqn{\delta} * (1 - \eqn{\pi});
+\item \code{Exp.neg.p}: \code{vector} The optimized value for the
 proportion of the remaining probability \code{(1-Sp)} that corresponds to a
-suspect region for non-diseased samples, namely \eqn{\gamma}.}
-\item{\code{Exp.sus.neg}}{\code{vector} The values for
+suspect region for non-diseased samples, namely \eqn{\gamma};
+\item \code{Exp.sus.neg}: \code{vector} The values for
 P(T? | D-) (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p.
-P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta}).}
+P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta});
 }
 }
 
 \section{\code{input}}{
  A list containing the seed used and the simulated values.
-
-\describe{
-\item{\code{seed}}{The seed used in the random generation of the
+\itemize{
+\item \code{seed}: The seed used in the random generation of the
 distributions of sensitivity and specificity for all reference tests and
-prevalence of each population.  See also \link{set.seed}}
-\item{\code{Sn.sims}}{\code{matrix} The simulated values for the
+prevalence of each population.  See also \link{set.seed}.
+\item \code{Sn.sims}: \code{matrix} The simulated values for the
 sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
 specified in the second row of Sn.ref (or zero if Sn.ref was a vector).
 The first two columns correspond to the first reference test, columns 3 and
-4 to the second reference test if it exists, etc.}
-\item{\code{Sp.sims}}{\code{matrix} The simulated values for the
+4 to the second reference test if it exists, etc.
+\item \code{Sp.sims}: \code{matrix} The simulated values for the
 specificity of each reference test and \eqn{\phi} where \eqn{\phi} was
 specified in the second row of Sp.ref (or zero is Sp.ref was a vector).
 The first two columns correspond to the first reference test, columns 3 and
-4 to the second reference test if it exists, etc.}
-\item{\code{prev.sims}}{\code{matrix} The simulated values of prevalence for each
-population.  Each column correspond to one population.}
+4 to the second reference test if it exists, etc.
+\item \code{prev.sims}: \code{matrix} The simulated values of prevalence for each
+population.  Each column correspond to one population.
 }
 }
 

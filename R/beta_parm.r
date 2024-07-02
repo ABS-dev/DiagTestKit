@@ -6,7 +6,7 @@
 #' @param to Specification of desired parameters, options are one of
 #'   "alpha.beta", "mu.phi", "mu.theta" or "mu.sigma2".
 #' @author [DiagTestKit-package]
-#' @return `vector` A named vector with values for the parameters specified in
+#' @returns `vector` A named vector with values for the parameters specified in
 #'   the "to" argument of the input.
 .beta_parm <- function(b, to = "alpha.beta") {
   # convert parameterizations from and to must be one of alpha.beta, mu.theta,

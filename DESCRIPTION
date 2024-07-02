@@ -17,7 +17,7 @@ BugReports: https://github.com/ABS-dev/DiagTestKit/issues
 LazyLoad: true
 LazyData: true
 Depends:
-  R (>= 4.1)
+  R (>= 4.2)
 Suggests:
   knitr,
   testthat,

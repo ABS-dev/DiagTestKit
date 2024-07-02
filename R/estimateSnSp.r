@@ -48,96 +48,113 @@
 #'   distribution from each population.
 #' @param control list of control values to replace defaults. See
 #'   [estimateSnSpControl] for details.
-#' @return An object of type `snsp` that extends `list`.
-#'  \describe{
-#'  \item{`calcVal`}{Point estimates and estimated simulated intervals
-#'  for properties of the experimental kit. See below.}
-#'  \item{`detailOut`}{Detailed output values. See below.}
-#'  \item{`input`}{Simulated values.  See below.}
-#'  }
+#' @returns An object of type `snsp` that extends `list`.
+#'
+#' * `calcVal`: Point estimates and estimated simulated intervals
+#'  for properties of the experimental kit. See below;
+#'
+#' * `detailOut`: Detailed output values. See below;
+#'
+#' * `input`: Simulated values.  See below;
+#'
 #'
 #' @section `calcVal`:
 #'
 #'   A list with the following values which will include the following for both
 #'   2- and 3-state experimental tests --
-#' \describe{
-#' \item{`Nsim`}{Number of simulations performed.}
-#' \item{`Confidence`}{1 - \eqn{\alpha}.}
-#' \item{`SnPE`}{Sensitivity point estimate obtained as the median of
-#'  the estimated values.}
-#' \item{`SnInterval`}{Estimated simulated interval for sensitivity.}
-#' \item{`SpPE`}{Specificity point estimate obtained as the median of
-#' the estimated values.}
-#' \item{`SpInterval`}{Estimated simulated interval for specificity.}
-#' }
+#'
+#' * `Nsim`: Number of simulations performed.
+#'
+#' * `Confidence`: 1 - \eqn{\alpha}.
+#'
+#' * `SnPE`: Sensitivity point estimate obtained as the median of
+#'  the estimated values.
+#'
+#' * `SnInterval`: Estimated simulated interval for sensitivity;
+#'
+#' * `SpPE`: Specificity point estimate obtained as the median of
+#' the estimated values;
+#'
+#' * `SpInterval`: Estimated simulated interval for specificity;
+#'
 #'
 #'   If three states, the list will also include --
-#' \describe{
-#' \item{`SusDisPosPE`}{Point estimate for the probability of test
+#' * `SusDisPosPE`: Point estimate for the probability of test
 #'  suspect given disease positive (\eqn{\psi}) which is the median of the
-#'  calculated values (\eqn{\psi} = \eqn{\delta}(1-\eqn{\pi})).}
-#' \item{`SusDisPosInterval`}{Estimated simulated interval for the
-#'  probability of test suspect given disease positive (\eqn{\psi}).}
-#' \item{`SusDisNegPE`}{Point estimate for the probability of test
+#'  calculated values (\eqn{\psi} = \eqn{\delta}(1-\eqn{\pi}));
+#'
+#' * `SusDisPosInterval`: Estimated simulated interval for the
+#'  probability of test suspect given disease positive (\eqn{\psi});
+#'
+#' * `SusDisNegPE`: Point estimate for the probability of test
 #'  suspect given disease negative (\eqn{\phi}) which is the median of the
-#'   calculated values (\eqn{\phi} = \eqn{\gamma}(1-\eqn{\theta})).}
-#' \item{`SusDisNegInterval`}{Estimated simulated interval for the
-#'  probability of test suspect given disease negative (\eqn{\phi}).}
-#' }
+#'   calculated values (\eqn{\phi} = \eqn{\gamma}(1-\eqn{\theta}));
+#'
+#' * `SusDisNegInterval`: Estimated simulated interval for the
+#'  probability of test suspect given disease negative (\eqn{\phi});
+#'
 #'
 #' @section `detailOut`:
 #'
 #'   A list with the following detailed output values which will include the
 #'   following for both 2- and 3-state experimental tests --
-#' \describe{
-#' \item{`Exp.Sn`}{`vector` The optimized values for the
-#'    sensitivity of the experimental test kit.}
-#' \item{`Exp.Sp`}{`vector` The optimized values for the
-#'    specificity of the experimental test kit.}
-#' \item{`Converge`}{`vector` Each entry is an integer code
+#'
+#' * `Exp.Sn`: `vector` The optimized values for the
+#'    sensitivity of the experimental test kit;
+#'
+#' * `Exp.Sp`: `vector` The optimized values for the
+#'    specificity of the experimental test kit;
+#'
+#' * `Converge`: `vector` Each entry is an integer code
 #'    detailing the convergence of the optimization for each iteration.  0
-#'    indicates successful completion. See also [optim].}
-#' \item{`Message`}{`vector` Each entry includes a character
+#'    indicates successful completion. See also [optim];
+#'
+#' * `Message`: `vector` Each entry includes a character
 #'    string providing any additional information returned by the optimizer or
-#'    NULL.  See also [optim].}
-#' }
+#'    NULL.  See also [optim];
+#'
 #'
 #'   If three states, the list will also include --
 #'
-#' \describe{
-#' \item{`Exp.pos.p`}{`vector` The optimized values for the
+#' * `Exp.pos.p`: `vector` The optimized values for the
 #' proportion of the remaining probability (1-Sn) that corresponds to a
-#' suspect region for diseased samples, namely \eqn{\delta}.}
-#' \item{`Exp.sus.pos`}{`vector` The values for
+#' suspect region for diseased samples, namely \eqn{\delta};
+#'
+#' * `Exp.sus.pos`: `vector` The values for
 #' `P(T? | D+)` (\eqn{\psi}) calculated from `Exp.sn` and Exp.pos.p.
-#' `P(T?|D+) =` \eqn{\delta} * (1 - \eqn{\pi}).}
-#' \item{`Exp.neg.p`}{`vector` The optimized value for the
+#' `P(T?|D+) =` \eqn{\delta} * (1 - \eqn{\pi});
+#'
+#' * `Exp.neg.p`: `vector` The optimized value for the
 #' proportion of the remaining probability `(1-Sp)` that corresponds to a
-#' suspect region for non-diseased samples, namely \eqn{\gamma}.}
-#' \item{`Exp.sus.neg`}{`vector` The values for
+#' suspect region for non-diseased samples, namely \eqn{\gamma};
+#'
+#' * `Exp.sus.neg`: `vector` The values for
 #' P(T? | D-) (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p.
-#' P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta}).}
-#' }
+#' P(T?|D-) = \eqn{\gamma} * (1 - \eqn{\theta});
+#'
 #'
 #' @section `input`: A list containing the seed used and the simulated values.
 #'
-#' \describe{
-#' \item{`seed`}{The seed used in the random generation of the
+#' * `seed`: The seed used in the random generation of the
 #' distributions of sensitivity and specificity for all reference tests and
-#' prevalence of each population.  See also [set.seed]}
-#' \item{`Sn.sims`}{`matrix` The simulated values for the
+#' prevalence of each population.  See also [set.seed].
+#'
+#' * `Sn.sims`: `matrix` The simulated values for the
 #'  sensitivity of each reference test and \eqn{\psi} where \eqn{\psi} was
 #'  specified in the second row of Sn.ref (or zero if Sn.ref was a vector).
 #'  The first two columns correspond to the first reference test, columns 3 and
-#'  4 to the second reference test if it exists, etc.}
-#' \item{`Sp.sims`}{`matrix` The simulated values for the
+#'  4 to the second reference test if it exists, etc.
+#'
+#' * `Sp.sims`: `matrix` The simulated values for the
 #'  specificity of each reference test and \eqn{\phi} where \eqn{\phi} was
 #'  specified in the second row of Sp.ref (or zero is Sp.ref was a vector).
 #'  The first two columns correspond to the first reference test, columns 3 and
-#'  4 to the second reference test if it exists, etc.}
-#' \item{`prev.sims`}{`matrix` The simulated values of prevalence for each
-#'  population.  Each column correspond to one population.}
-#' }
+#'  4 to the second reference test if it exists, etc.
+#'
+#' * `prev.sims`: `matrix` The simulated values of prevalence for each
+#'  population.  Each column correspond to one population.
+#'
+#'
 #' @author [DiagTestKit-package]
 #' @seealso [estimateSnSpControl]
 #' @importFrom data.table setorder

@@ -48,7 +48,7 @@
 #'   the proportion of 1-Sp corresponding to the suspect region for disease
 #'   negative samples (\eqn{\gamma}).  All values are between 0 and 1,
 #'   inclusive.
-#' @return A list with the following elements (as defined above): `seed`,
+#' @returns A list with the following elements (as defined above): `seed`,
 #'   `Sn.disn`, `Sn.spread`, `Sp.distn`, `Sp.spread`, `prev.distn`,
 #'   `prev.spread`, `tolerance`, `step.size`, `parm`.
 #' @author [DiagTestKit-package]

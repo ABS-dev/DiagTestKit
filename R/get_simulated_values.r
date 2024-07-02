@@ -19,7 +19,7 @@
 #' @param prevalence logical (TRUE/FALSE)  TRUE indicates that the function is
 #'   simulating values of prevalence.  This will determine the structure of the
 #'   output.
-#' @return final_mat A matrix of simulated values.  If prevalence is TRUE,
+#' @returns final_mat A matrix of simulated values.  If prevalence is TRUE,
 #'   final_mat will have the number of columns corresponding to the number of
 #'   populations sampled else if prevalence is FALSE, final_mat will have number
 #'   of columns twice the number of reference tests.  The columns are

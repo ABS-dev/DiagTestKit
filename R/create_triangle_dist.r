@@ -18,7 +18,7 @@
 #' @param step_size distance between the "x" in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
 #' @param p_proportion whether to express "p" as a proportion of its sum.
-#' @return `data.frame` of "x", "y", and "p".
+#' @returns `data.frame` of "x", "y", and "p".
 #' @author [DiagTestKit-package]
 .create_triangle_dist <- function(m, w, h, threestate = FALSE, suspect = 2 / 3,
                                   step_size = 0.005, p_proportion = TRUE) {

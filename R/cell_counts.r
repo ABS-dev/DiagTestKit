@@ -41,7 +41,7 @@
 #' @param Xneg Needs to be filled out.
 #' @param ncells Needs to be filled out.
 #' @param ntests Needs to be filled out.
-#' @return  `vector` A vector of expected counts corresponding to the properties
+#' @returns  `vector` A vector of expected counts corresponding to the properties
 #'   of the reference and experimental tests.  The expected counts are obtained
 #'   based on a conditional independence assumption of all test methods.
 #' @author [DiagTestKit-package]

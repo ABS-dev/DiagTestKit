@@ -3,7 +3,7 @@
 #' @description Empirical highest posterior density by shortest length interval.
 #' @param X vector of values
 #' @param alpha 1 - confidence
-#' @return highest posterior density (1-alpha) interval
+#' @returns highest posterior density (1-alpha) interval
 #' @note Uses type 7 [quantile]. Also used in package `MF`
 #' @importFrom stats quantile
 #' @author [DiagTestKit-package]

@@ -3,7 +3,7 @@
 #'   previously evaluated simulation.
 #' @param x output from [estimateSnSp]
 #' @param newAlpha updated alpha value. Must be within \[0, 1\]
-#' @return an object of type `snsp`. See output for
+#' @returns an object of type `snsp`. See output for
 #'   [estimateSnSp]
 #' @author [DiagTestKit-package]
 #' @seealso [estimateSnSpControl]

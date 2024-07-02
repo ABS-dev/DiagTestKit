@@ -40,7 +40,7 @@
 #' @param Xneg Needs to be filled out.
 #' @param ncells Needs to be filled out.
 #' @param ntests Needs to be filled out.
-#' @return The sum of the squared deviations between the expected and observed
+#' @returns The sum of the squared deviations between the expected and observed
 #'   cell counts.
 #' @author [DiagTestKit-package]
 .minimize_cell <- function(parm, SnR, SpR, Prev, xdat, N_mat, nstates,

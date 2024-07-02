@@ -70,27 +70,26 @@ also \link{estimateSnSp}.}
 A list:
 
 The following will be returned for both 2 and 3-state experimental tests --
-\describe{
-\item{\code{sens.final}}{\code{vector} The optimized values for the sensitivity of
-the experimental test kit.}
-\item{\code{spec.final}}{\code{vector} The optimized values for the specificity of
-the experimental test kit.}
-\item{\code{converge}}{\code{vector} Each entry is an integer code detailing the
+\itemize{
+\item \code{sens.final}: \code{vector} The optimized values for the sensitivity of the
+experimental test kit.
+\item \code{spec.final}: \code{vector} The optimized values for the specificity of the
+experimental test kit.
+\item \code{converge}: \code{vector} Each entry is an integer code detailing the
 convergence of the optimization for each iteration.  0 indicates successful
-completion. See also \link{optim}.}
-\item{\code{message}}{\code{vector}  Each entry includes a character string giving
-any additional information returned by the optimizer or NULL.  See also
-\link{optim}.}
+completion. See also \link{optim}.
+\item \code{message}: \code{vector}  Each entry includes a character string giving any
+additional information returned by the optimizer or NULL.  See also \link{optim}.
 }
 
 If three states --
-\describe{
-\item{\eqn{\delta}}{\code{vector} The optimized values for the probability
+\itemize{
+\item \eqn{\delta}: \code{vector} The optimized values for the probability
 of a suspect result as a fraction of the non-correct test result for
-diseased samples.}
-\item{\eqn{\gamma}}{\code{vector} The optimized value for the probability
+diseased samples.
+\item \eqn{\gamma}: \code{vector} The optimized value for the probability
 of a suspect result as a fraction of the non-correct test result for
-non-diseased samples.}
+non-diseased samples.
 }
 }
 \description{
