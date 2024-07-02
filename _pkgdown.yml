@@ -1,5 +1,8 @@
 url: ~
-destination: public/
+destination: docs/
 template:
   bootstrap: 5
-
+repo:
+  url:
+    home:  ttps://github.com/ABS-dev/DiagTestKit/
+    issue: ttps://github.com/ABS-dev/DiagTestKit/issues/
