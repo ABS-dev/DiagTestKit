@@ -1,32 +1,45 @@
-# DiagTestKit <img src="man/figures/logo.png" width="150" align="right" />
+# DiagTestKit <img src="man/figures/logo.png" width="150" align="right"/>
 
-A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic
-test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) supporting the 2018 revision to VSM 800.73.
+A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) supporting the 2018 revision to VSM 800.73.
 
+## To install or update DiagTestKit
 
-### To install or update DiagTestKit:
+### From Github
 
 From **within R**
 
-1. Installing current release [v0.5.4](https://github.com/ABS-dev/DiagTestKit/releases/tag/0.5.4)
+1.  Installing current release
 
-```
+```         
 ## From source, all platforms, slow.
-devtools::install_github("ABS-dev/DiagTestKit", ref = "0.5.4")
+devtools::install_github("ABS-dev/DiagTestKit", ref = "0.6.9")
 ```
 
-  *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
+*See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
 
-2. Installing work-in-progress towards v0.5.5
-
-Travis: [![Build Status](https://travis-ci.org/ABS-dev/DiagTestKit.svg?branch=master)](https://travis-ci.org/ABS-dev/DiagTestKit)
+2. Installing work-in-progress on the main development branch 
 
 ```
-require(devtools)
-install_github("ABS-dev/DiagTestKit")
+devtools::install_github("ABS-dev/DiagTestKit")
 ```
 
-### Package Vignettes (v0.5.4):
+### For CVB employees
+
+After setting up Rstudio to work with [Package Manager](https://ncahconnect.usda.net/CVBverse/package_manager.html), you can install the most recent version of `DiagTestKit` like so:
+
+``` r
+install.package("DiagTestKit")
+```
+
+You can install an archived version of `DiagTestKit` thus:
+
+``` r
+devtools::install_version('DiagTestKit', '0.5.0')
+```
+
+Refer to the [DiagTestKit overview](https://ncahrpackage.usda.net/client/#/repos/cvb-gitlab/packages/DiagTestKit/overview#package-details) on Package Manager to find a list of the archived versions.
+
+## Package Vignettes:
 
 [Getting Started](https://github.com/ABS-dev/DiagTestKit/blob/0.5.4/inst/doc/GettingStarted.pdf)
 
@@ -34,10 +47,6 @@ install_github("ABS-dev/DiagTestKit")
 
 [Manual](https://github.com/ABS-dev/DiagTestKit/blob/0.5.4/inst/doc/GettingStarted.pdf)
 
-From **within R**
+## Issues
 
-```
-vignette('GettingStarted', package = 'DiagTestKit')
-vignette('ExamplesForFallibleReferenceTests', package = 'DiagTestKit')
-
-```
+Report any issues or requests on the package  [issues](https://github.com/ABS-dev/DiagTestKit/issues) page.
