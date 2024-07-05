@@ -4,8 +4,8 @@ template:
   bootstrap: 5
 repo:
   url:
-    home:  ttps://github.com/ABS-dev/DiagTestKit/
-    issue: ttps://github.com/ABS-dev/DiagTestKit/issues/
+    home:  https://github.com/ABS-dev/DiagTestKit/
+    issue: https://github.com/ABS-dev/DiagTestKit/issues/
 reference:
 - title: Functions
 - contents:
