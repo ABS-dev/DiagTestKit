@@ -10,8 +10,11 @@ reference:
 - title: Functions
 - contents:
   - cloppearSnSp
-  - cp-class
-  - cp
+  - estimateSnSp
+  - estimateSnSpControl
+  - updateAlpha
+- title: Helper Functions
+- contents:
   - .beta_parm
   - .cell_counts
   - .create_triangle_dist
@@ -19,11 +22,12 @@ reference:
   - .get_simulated_values
   - .get_values
   - .minimize_cell
-  - estimateSnSp
-  - estimateSnSpControl
-  - snsp-class
+- title: S3 & S4 classes
+- contents:
+  - cp
+  - cp-class
   - snsp
-  - updateAlpha
+  - snsp-class
 - title: Data Sets
 - contents:
   - data1
