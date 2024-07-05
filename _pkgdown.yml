@@ -6,3 +6,34 @@ repo:
   url:
     home:  ttps://github.com/ABS-dev/DiagTestKit/
     issue: ttps://github.com/ABS-dev/DiagTestKit/issues/
+reference:
+- title: Functions
+- contents:
+  - cloppearSnSp
+  - cp-class
+  - cp
+  - .beta_parm
+  - .cell_counts
+  - .create_triangle_dist
+  - .emp_hpd
+  - .get_simulated_values
+  - .get_values
+  - .minimize_cell
+  - estimateSnSp
+  - estimateSnSpControl
+  - snsp-class
+  - snsp
+  - updateAlpha
+- title: Data Sets
+- contents:
+  - data1
+  - data2
+  - data3
+  - data4
+  - data5
+  - data6
+  - data7
+  - data8
+  - dat_dichot
+  - dat_infal
+
