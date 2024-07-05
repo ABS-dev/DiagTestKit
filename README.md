@@ -25,7 +25,7 @@ devtools::install_github("ABS-dev/DiagTestKit")
 
 ### For CVB employees
 
-After setting up Rstudio to work with [Package Manager](https://ncahconnect.usda.net/CVBverse/package_manager.html), you can install the most recent version of `DiagTestKit` like so:
+After setting up Rstudio to work with [Package Manager](https://ncahconnect.usda.net/CVBverse/articles/package_manager.html), you can install the most recent version of `DiagTestKit` like so:
 
 ``` r
 install.package("DiagTestKit")
