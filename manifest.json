@@ -39,7 +39,7 @@
       "checksum": "ceddb863ebb56d81c056afd36e5e2ad5"
     },
     "articles/DiagTestKit-Getting_Started.html": {
-      "checksum": "633bb8df4ff3dad14b8d2cc6b2de4246"
+      "checksum": "cf80dbc494aee2279158ebc1732e59b9"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-11-1.png": {
       "checksum": "c9d0929ebcca5dfb254074291f87a032"
@@ -57,7 +57,7 @@
       "checksum": "3c333eed66dc0b611611d5c4848a6e5c"
     },
     "authors.html": {
-      "checksum": "0d31bb823578d4ccd388ed585d2da6b0"
+      "checksum": "00e0b9028e63b66673bea97275067225"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -147,7 +147,7 @@
       "checksum": "d28436a1c1f8a48b98e8042521d9a7c8"
     },
     "index.html": {
-      "checksum": "4478d6ba4e17715e425c0d08f97bf372"
+      "checksum": "0d06554d1c1b9352c1605a3963a3bb76"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
@@ -171,7 +171,7 @@
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "499eb1d5cc85cc2390f5e8458fb7a8e9"
+      "checksum": "feb8e367281b75162ce8700743c6837d"
     },
     "reference/cloppearSnSp.html": {
       "checksum": "7f6b4bd6256cd078ad214757d8af6e0a"
@@ -213,7 +213,7 @@
       "checksum": "90344327bcf0c0ab85e155dfef3fab0d"
     },
     "reference/DiagTestKit-package.html": {
-      "checksum": "efe7e7b8b15f37d6bf961d62a3ee0535"
+      "checksum": "d87189492d9d2c48c9e4f1b9350c6524"
     },
     "reference/DiagTestKit.html": {
       "checksum": "26ec5e4798184061736abed7cf5d124a"
@@ -264,7 +264,7 @@
       "checksum": "6c319b416dc1c97e1143fb2e4cca93e2"
     },
     "search.json": {
-      "checksum": "fb090a145dae3860e024cec69ab33866"
+      "checksum": "637d291235964ed54b7cd9b848a3535a"
     },
     "sitemap.xml": {
       "checksum": "1b7ccfc10cf26882696b719fcd158e36"
