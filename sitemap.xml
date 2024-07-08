@@ -1,102 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/DiagTestKit-Examples.html</loc>
-  </url>
-  <url>
-    <loc>/articles/DiagTestKit-Getting_Started.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cloppearSnSp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cp-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data1.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data2.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data3.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data4.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data5.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data6.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data7.html</loc>
-  </url>
-  <url>
-    <loc>/reference/data8.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dat_dichot.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dat_infal.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DiagTestKit-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-beta_parm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-cell_counts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-create_triangle_dist.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-emp_hpd.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-get_simulated_values.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-get_values.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-minimize_cell.html</loc>
-  </url>
-  <url>
-    <loc>/reference/estimateSnSp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/estimateSnSpControl.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/snsp-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/updateAlpha.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/404.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/articles/DiagTestKit-Examples.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/articles/DiagTestKit-Getting_Started.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/articles/index.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/authors.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/index.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/LICENSE-text.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/news/index.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/cloppearSnSp.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/cp-class.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data1.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data2.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data3.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data4.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data5.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data6.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data7.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/data8.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dat_dichot.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dat_infal.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/DiagTestKit-package.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-beta_parm.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-cell_counts.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-create_triangle_dist.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-emp_hpd.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-get_simulated_values.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-get_values.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/dot-minimize_cell.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/estimateSnSp.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/estimateSnSpControl.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/index.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/snsp-class.html</loc></url>
+<url><loc>https://github.com/ABS-dev/DiagTestKit/reference/updateAlpha.html</loc></url>
 </urlset>
+
