@@ -1,4 +1,4 @@
-# DiagTestKit <img src="man/figures/logo.png" width="150" align="right"/>
+# DiagTestKit <img src="man/figures/logo.png" alt="Package Logo" width="150" align="right"/>
 
 A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) supporting the 2018 revision to VSM 800.73.
 

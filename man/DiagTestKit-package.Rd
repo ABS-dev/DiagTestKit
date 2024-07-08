@@ -8,14 +8,13 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic test kit in accordance with CVB STATWI0002 supporting the 2018 revision to VSM 800.73.
+A package written by CVB Statistics to estimate the sensitivity and specificity of an experimental diagnostic test kit in accordance with CVB STATWI0002 supporting the 2018 revision to VSM 800.73. See https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi for more information.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi}
-  \item \url{https://github.com/ABS-dev/DiagTestKit/blob/master/README.md}
-  \item Report bugs at \url{https://github.com/ABS-dev/DiagTestKit/issues}
+  \item \url{https://github.com/ABS-dev/DiagTestKit/}
+  \item Report bugs at \url{https://github.com/ABS-dev/DiagTestKit/issues/}
 }
 
 }
