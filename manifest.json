@@ -15,7 +15,7 @@
       "checksum": "81051bcc2cf1bedf378224b0a93e2877"
     },
     "404.html": {
-      "checksum": "9d42de603bc07e97d705cc6ffc5da27f"
+      "checksum": "831843e5b19137225751c68e7f72bc60"
     },
     "apple-touch-icon-120x120.png": {
       "checksum": "c588d0df457b7bf123999831c85e67fc"
@@ -36,10 +36,10 @@
       "checksum": "6af36adc35a40cadeb4f694acab4ede6"
     },
     "articles/DiagTestKit-Examples.html": {
-      "checksum": "ceddb863ebb56d81c056afd36e5e2ad5"
+      "checksum": "172df24bd0a7b190fad1a8dc6f03adac"
     },
     "articles/DiagTestKit-Getting_Started.html": {
-      "checksum": "cf80dbc494aee2279158ebc1732e59b9"
+      "checksum": "f2352fd421df05434d833ab39425b75e"
     },
     "articles/DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-11-1.png": {
       "checksum": "c9d0929ebcca5dfb254074291f87a032"
@@ -54,10 +54,10 @@
       "checksum": "99b6ca60d3baa8e582e318464c4a6bd1"
     },
     "articles/index.html": {
-      "checksum": "3c333eed66dc0b611611d5c4848a6e5c"
+      "checksum": "644628f39141e6bd9aea15cb3c54b78c"
     },
     "authors.html": {
-      "checksum": "00e0b9028e63b66673bea97275067225"
+      "checksum": "9bfab72db1d06b3427da4c47f14890c1"
     },
     "deps/bootstrap-5.3.1/bootstrap.bundle.min.js": {
       "checksum": "e2b09c06f0e714b6144a6788a28e3950"
@@ -75,7 +75,7 @@
       "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
     },
     "deps/data-deps.txt": {
-      "checksum": "66b2a17d8d4d8e899fa823448051da52"
+      "checksum": "8da7c17bf563d1bdbb6ac6f53bf8fd89"
     },
     "deps/font-awesome-6.4.2/css/all.css": {
       "checksum": "5ca7783adc61f933805bd0467228c7de"
@@ -128,6 +128,9 @@
     "deps/jquery-3.6.0/jquery-3.6.0.min.map": {
       "checksum": "6efc5d663aaacac2024153fa0d4bafcd"
     },
+    "deps/MathJax-3.2.2/tex-chtml.min.js": {
+      "checksum": "986620cdcffee30642d103ab3fe1fbba"
+    },
     "deps/search-1.0.0/autocomplete.jquery.min.js": {
       "checksum": "92fe1867b8a852d38fc44334fcde4618"
     },
@@ -147,13 +150,13 @@
       "checksum": "d28436a1c1f8a48b98e8042521d9a7c8"
     },
     "index.html": {
-      "checksum": "0d06554d1c1b9352c1605a3963a3bb76"
+      "checksum": "ac6dd34e29a0256afc452e8da6151314"
     },
     "katex-auto.js": {
       "checksum": "b6babfc10247cf9190b9fa172dde62b8"
     },
     "LICENSE-text.html": {
-      "checksum": "69531f0ad1e970fe9edc4008adc0a80b"
+      "checksum": "a83d6d619424d030038c643bd297e816"
     },
     "lightswitch.js": {
       "checksum": "5806fcea81ccc70e1ffc453a7d9e12b5"
@@ -165,106 +168,106 @@
       "checksum": "1db10fca5c0a93b4570afffb3afaa571"
     },
     "news/index.html": {
-      "checksum": "23882c53067f0051b6883074ac0735b9"
+      "checksum": "896b4dd554c35deb85ef4ada94cf0c64"
     },
     "pkgdown.js": {
       "checksum": "0196cc47dc30c3c4d73560cd19848986"
     },
     "pkgdown.yml": {
-      "checksum": "feb8e367281b75162ce8700743c6837d"
+      "checksum": "38cc07352011532913ff0695f4b62064"
     },
     "reference/cloppearSnSp.html": {
-      "checksum": "7f6b4bd6256cd078ad214757d8af6e0a"
+      "checksum": "39cc48f996de9d48152f842aac730373"
     },
     "reference/cp-class.html": {
-      "checksum": "1fa2b5e679c2b61f9af2abc58ff15849"
+      "checksum": "e47e2da13c22aca44b48811fe47058cb"
     },
     "reference/cp.html": {
       "checksum": "acd043a60f352807ea4d29efcf2acd67"
     },
     "reference/dat_dichot.html": {
-      "checksum": "cafc75d1249bb3876abc16d2a1bd7d48"
+      "checksum": "3b1b9a9674122396335506e6fa2eb023"
     },
     "reference/dat_infal.html": {
-      "checksum": "0a8bb1ea41eb274224a14516e132e73d"
+      "checksum": "a91413bf7b287dae4f2baa3bb7c462a9"
     },
     "reference/data1.html": {
-      "checksum": "d477c5014ccadd9d8eea88ad93f9c040"
+      "checksum": "9053217e5ffd78269ef96a03503bb869"
     },
     "reference/data2.html": {
-      "checksum": "94099a4e22fa1e74084c98237581c281"
+      "checksum": "e01d178b586c63b08c8c182269f6b94e"
     },
     "reference/data3.html": {
-      "checksum": "a1fd86974f8fbb974a89d3821f87d01e"
+      "checksum": "9b6f881967165bbe707fd5bd8586d010"
     },
     "reference/data4.html": {
-      "checksum": "c8810c480c7694b5fedab643a34fbea3"
+      "checksum": "905128599b843370703a99a1650a91c7"
     },
     "reference/data5.html": {
-      "checksum": "de76ff03b5b7a7e741af31ff3431942c"
+      "checksum": "f27b8f4719b93494eea757e864b94633"
     },
     "reference/data6.html": {
-      "checksum": "5967936d0d64c84e41025dc8b1ef62e2"
+      "checksum": "74549a464e7b142f49967108374cd430"
     },
     "reference/data7.html": {
-      "checksum": "472e6e12418bd82d759b15b15d8ff274"
+      "checksum": "aff74462ccc84395eff4de1c50f18d02"
     },
     "reference/data8.html": {
-      "checksum": "90344327bcf0c0ab85e155dfef3fab0d"
+      "checksum": "86921b1c949538790c3ad4f5fe8e8cd3"
     },
     "reference/DiagTestKit-package.html": {
-      "checksum": "d87189492d9d2c48c9e4f1b9350c6524"
+      "checksum": "12f779597ff110a42f35c2f795fc2bce"
     },
     "reference/DiagTestKit.html": {
       "checksum": "26ec5e4798184061736abed7cf5d124a"
     },
     "reference/dot-beta_parm.html": {
-      "checksum": "abc00a31778dbf10edec958f93732d43"
+      "checksum": "bb407d2aa20e9821d9c0505dfea00d91"
     },
     "reference/dot-cell_counts.html": {
-      "checksum": "0f69142f6a198452991ed5aa852e7fd3"
+      "checksum": "cc3ba8d2c8107ca2dd1bc33d1a957c2d"
     },
     "reference/dot-create_triangle_dist.html": {
-      "checksum": "4e42af5fdb4ede094c81f5748ca29ec5"
+      "checksum": "c3a90ee7475d3a4050c43d0a36bd35b3"
     },
     "reference/dot-emp_hpd.html": {
-      "checksum": "c899ad2215bb722fe219446dcd4a39ed"
+      "checksum": "358147f668983ad28f3c88b1468e805d"
     },
     "reference/dot-get_simulated_values.html": {
-      "checksum": "edcad581e9075deb2262b90fdc54aef7"
+      "checksum": "b859b44c3ad04d45914171377d3cf14b"
     },
     "reference/dot-get_values.html": {
-      "checksum": "16b5be8107ba8e7ae4c75a816aebe8f1"
+      "checksum": "682ac1e790fcddce492c668de5072c21"
     },
     "reference/dot-minimize_cell.html": {
-      "checksum": "9d90cbd3c53a70ae274da091966c06cb"
+      "checksum": "8eb9f74a5f9dc266e58314f74b71b879"
     },
     "reference/estimateSnSp.html": {
-      "checksum": "92239e05ecfdf6a84ad767b1c71676a1"
+      "checksum": "5009b72fdfe8be7c4888a65dcf427487"
     },
     "reference/estimateSnSpControl.html": {
-      "checksum": "f7e54713eac6a66e4791476806e3f32a"
+      "checksum": "d5c0e114008250fb613726bc786dd950"
     },
     "reference/figures/logo.png": {
       "checksum": "1db10fca5c0a93b4570afffb3afaa571"
     },
     "reference/index.html": {
-      "checksum": "f73a938e753267bfaac0a6cdf53120a0"
+      "checksum": "133ef3fb7e528be86da0edc9d68ba8a7"
     },
     "reference/Rplot001.png": {
       "checksum": "9b7a75eb2a0170ac2c15ab46a66f862b"
     },
     "reference/snsp-class.html": {
-      "checksum": "d1c2141580260c439432f51adcc06a1c"
+      "checksum": "231aed4f55c7be48f13d695a4e0acccd"
     },
     "reference/snsp.html": {
       "checksum": "bb09a4517b83e35098d0b66005ba2226"
     },
     "reference/updateAlpha.html": {
-      "checksum": "6c319b416dc1c97e1143fb2e4cca93e2"
+      "checksum": "93c190037de51fe29000445cb2b2ca3f"
     },
     "search.json": {
-      "checksum": "637d291235964ed54b7cd9b848a3535a"
+      "checksum": "36dd2d7213e954a62d8d9a8068e75e10"
     },
     "sitemap.xml": {
       "checksum": "1b7ccfc10cf26882696b719fcd158e36"

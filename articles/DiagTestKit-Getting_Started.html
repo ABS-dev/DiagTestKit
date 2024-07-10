@@ -16,7 +16,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -87,41 +87,23 @@ specificity in the event an infallible reference test is used.</p>
 <p>The technical details for how the algorithm works are provided in <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>.
 For a 2-state experimental test with one or more fallible reference
 tests, the default display will show the point and interval estimates
-for sensitivity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>)
-and specificity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>).
-For a 3-state experimental test with one or more fallible reference
-tests, the default display will show the point and interval estimates
-for sensitivity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>),
-specificity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>),
-probability of suspect for disease positive
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>)
-and probability of suspect for disease negative
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>).
-The algorithm optimizes the sum of squared residuals with respect to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\delta_1</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\gamma_1</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\delta_1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\gamma_1</annotation></semantics></math>
-express the probability of a suspect result as a fraction of the
-non-correct test results. See <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>
+for sensitivity (<span class="math inline">\(\pi_1\)</span>) and
+specificity (<span class="math inline">\(\theta_1\)</span>). For a
+3-state experimental test with one or more fallible reference tests, the
+default display will show the point and interval estimates for
+sensitivity (<span class="math inline">\(\pi_1\)</span>), specificity
+(<span class="math inline">\(\theta_1\)</span>), probability of suspect
+for disease positive (<span class="math inline">\(\psi_1\)</span>) and
+probability of suspect for disease negative (<span class="math inline">\(\phi_1\)</span>). The algorithm optimizes the sum
+of squared residuals with respect to <span class="math inline">\(\pi_1\)</span>, <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\delta_1\)</span>, and <span class="math inline">\(\gamma_1\)</span> where <span class="math inline">\(\delta_1\)</span> and <span class="math inline">\(\gamma_1\)</span> express the probability of a
+suspect result as a fraction of the non-correct test results. See <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>
 for further details.</p>
 <p>This vignette provides step–by–step instructions for using the
 package to obtain point and interval estimates for the sensitivity (Sn =
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>)
-and specificity (Sp =
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>)
-of a 2–state experimental test kit. The <code>DiagTestKit</code> package
-requires a functional installation of R software.
-<code>DiagTestKit</code> package is available via <a href="https://github.com/ABS-dev/DiagTestKit/blob/master/README.md">github</a>.
+<span class="math inline">\(\pi\)</span>) and specificity (Sp = <span class="math inline">\(\theta\)</span>) of a 2–state experimental test
+kit. The <code>DiagTestKit</code> package requires a functional
+installation of R software. <code>DiagTestKit</code> package is
+available via <a href="https://github.com/ABS-dev/DiagTestKit/blob/master/README.md">github</a>.
 Code in this vignette was run using version 0.6.9 of the
 <code>DiagTestKit</code> package.</p>
 </div>
@@ -146,7 +128,7 @@ method when an infallible reference test is used.</p>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">DiagTestKit</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ABS-dev/DiagTestKit/">DiagTestKit</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ExampleData"</span><span class="op">)</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">dat_dichot</span></span>
 <span><span class="va">infallible</span> <span class="op">&lt;-</span> <span class="va">dat_infal</span></span></code></pre></div>
@@ -255,7 +237,7 @@ the only population (or sample set) tested.</p>
 <pre><code><span><span class="co">## The following is the number of iterations completed: 900</span></span></code></pre>
 <pre><code><span><span class="co">## The following is the number of iterations completed: 950</span></span></code></pre>
 <pre><code><span><span class="co">## The following is the number of iterations completed: 1000</span></span></code></pre>
-<p><code>## The optimization has begun</code><br><code>## The following is the number of iterations completed: 50</code><br><code>## The following is the number of iterations completed: 100</code><br><code>## The following is the number of iterations completed: 150</code><br><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋮</mi><annotation encoding="application/x-tex">\vdots</annotation></semantics></math><br><code>## The following is the number of iterations completed: 1000</code></p>
+<p><code>## The optimization has begun</code><br><code>## The following is the number of iterations completed: 50</code><br><code>## The following is the number of iterations completed: 100</code><br><code>## The following is the number of iterations completed: 150</code><br><span class="math inline">\(\vdots\)</span><br><code>## The following is the number of iterations completed: 1000</code></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">blood_SnSp</span></span></code></pre></div>
 <pre><code><span><span class="co">## 1000  simulations </span></span>

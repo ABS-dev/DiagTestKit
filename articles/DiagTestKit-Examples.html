@@ -16,7 +16,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Examples">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Examples">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -110,24 +110,14 @@ experimental test<a class="anchor" aria-label="anchor" href="#example-1-one-2sta
 </h2>
 <p>In this example, samples randomly selected from a single population
 are tested by one 2–state fallible reference test and a 2–state
-experimental test. Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 2 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 4. There are 4 unique sets of testing combinations. Further, the
-probabilities associated with a suspect test result are 0 for both the
-experimental test method and the reference test method. Specifically,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\phi_2</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\psi_2</annotation></semantics></math>
-= 0. This example uses named data frames for the input variables
-<code>Sn.ref</code> and <code>Sp.ref</code>.</p>
+experimental test. Here, <span class="math inline">\(S_1\)</span> = 2,
+<span class="math inline">\(S_2\)</span> = 2 and <span class="math inline">\(K\)</span> = 4. There are 4 unique sets of testing
+combinations. Further, the probabilities associated with a suspect test
+result are 0 for both the experimental test method and the reference
+test method. Specifically, <span class="math inline">\(\phi_1\)</span> =
+<span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_2\)</span> = <span class="math inline">\(\psi_2\)</span> = 0. This example uses named data
+frames for the input variables <code>Sn.ref</code> and
+<code>Sp.ref</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data1</span>,</span>
 <span>          Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.90</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -176,27 +166,13 @@ experimental test<a class="anchor" aria-label="anchor" href="#example-2-one-2sta
 </h2>
 <p>In this example, samples randomly selected from 3 populations are
 tested by one 2–state fallible reference test and a 2–state experimental
-test. Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 2 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 4. Again there are 4 unique sets of testing combinations, but a total
-of 12 counts, one for each unique test combination in each of the three
-populations. The probabilities associated with a suspect test result are
-0 for both the experimental test method and the reference test method.
-Specifically,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\psi_2</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\phi_2</annotation></semantics></math>
-= 0. This example uses named vectors for the input variables
-<code>Sn.ref</code> and <code>Sp.ref</code> because the reference test
-only had 2 states.</p>
+test. Here, <span class="math inline">\(S_1\)</span> = 2, <span class="math inline">\(S_2\)</span> = 2 and <span class="math inline">\(K\)</span> = 4. Again there are 4 unique sets of
+testing combinations, but a total of 12 counts, one for each unique test
+combination in each of the three populations. The probabilities
+associated with a suspect test result are 0 for both the experimental
+test method and the reference test method. Specifically, <span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_1\)</span> = <span class="math inline">\(\psi_2\)</span> = <span class="math inline">\(\phi_2\)</span> = 0. This example uses named
+vectors for the input variables <code>Sn.ref</code> and
+<code>Sp.ref</code> because the reference test only had 2 states.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data2</span>,</span>
 <span>         Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>ref_result <span class="op">=</span> <span class="fl">0.90</span><span class="op">)</span>,</span>
@@ -226,21 +202,12 @@ experimental test<a class="anchor" aria-label="anchor" href="#example-3-one-3sta
 </h2>
 <p>Samples randomly selected from a single population are tested by one
 3–state fallible reference test and a 2–state experimental test. Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 3 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 6. There are 6 unique sets of testing combinations. The probabilities
-associated with a suspect test result for the experimental test are zero
-(i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-= 0). Because the reference test has 3 states, the input must include
-values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msub><mi>ψ</mi><mn>2</mn></msub><mrow><mn>1</mn><mo>−</mo><msub><mi>π</mi><mn>2</mn></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\delta_2 = \frac{\psi_2}{1 - \pi_2}</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>γ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msub><mi>ϕ</mi><mn>2</mn></msub><mrow><mn>1</mn><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\gamma_2 = \frac{\phi_2}{1 - \theta_2}</annotation></semantics></math>.</p>
+<span class="math inline">\(S_1\)</span> = 2, <span class="math inline">\(S_2\)</span> = 3 and <span class="math inline">\(K\)</span> = 6. There are 6 unique sets of testing
+combinations. The probabilities associated with a suspect test result
+for the experimental test are zero (i.e. <span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_1\)</span> = 0). Because the reference test
+has 3 states, the input must include values of <span class="math inline">\(\delta_2 = \frac{\psi_2}{1 - \pi_2}\)</span> and
+<span class="math inline">\(\gamma_2 = \frac{\phi_2}{1 -
+\theta_2}\)</span>.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data3</span>,</span>
 <span>        Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.99</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -274,19 +241,10 @@ experimental test<a class="anchor" aria-label="anchor" href="#example-4-one-3sta
 </h2>
 <p>In this example, samples randomly selected from three populations are
 tested by one fallible 3–state reference test and a 2–state experimental
-test. There are 6 unique sets of testing combinations
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 3 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 6) and a total of 18 counts, one for each unique test combination in
-each population. The probabilities associated with a suspect test result
-for the experimental test are zero
-(i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-= 0).</p>
+test. There are 6 unique sets of testing combinations (<span class="math inline">\(S_1\)</span> = 2, <span class="math inline">\(S_2\)</span> = 3 and <span class="math inline">\(K\)</span> = 6) and a total of 18 counts, one for
+each unique test combination in each population. The probabilities
+associated with a suspect test result for the experimental test are zero
+(i.e. <span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_1\)</span> = 0).</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data4</span>,</span>
 <span>        Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.95</span>, <span class="fl">0.55</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -316,24 +274,12 @@ experimental test<a class="anchor" aria-label="anchor" href="#example-5-one-2sta
 </h2>
 <p>In this example, samples randomly selected from two populations are
 tested by a 3–state experimental test and one 2–state reference test.
-There are 6 unique testing combinations
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 3,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 2 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 6) and a total of 12 counts as samples were obtained from 2
-populations. The probabilities associated with a suspect test result for
-the experimental test
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>)
-are included in the output (but the optimization occurs in terms of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\delta_1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\gamma_1</annotation></semantics></math>).
-The function provides a message to inform the user that the experimental
-test has 3 states and the optimization will be more time consuming.</p>
+There are 6 unique testing combinations (<span class="math inline">\(S_1\)</span> = 3, <span class="math inline">\(S_2\)</span> = 2 and <span class="math inline">\(K\)</span> = 6) and a total of 12 counts as
+samples were obtained from 2 populations. The probabilities associated
+with a suspect test result for the experimental test (<span class="math inline">\(\psi_1\)</span> and <span class="math inline">\(\phi_1\)</span>) are included in the output (but
+the optimization occurs in terms of <span class="math inline">\(\delta_1\)</span> and <span class="math inline">\(\gamma_1\)</span>). The function provides a
+message to inform the user that the experimental test has 3 states and
+the optimization will be more time consuming.</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex5</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data5</span>,</span>
 <span>         Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>Ref1 <span class="op">=</span> <span class="fl">0.90</span><span class="op">)</span>,</span>
@@ -367,20 +313,9 @@ experimental<a class="anchor" aria-label="anchor" href="#example-6-two-2state-re
 </h2>
 <p>In this example, samples randomly selected from a single population
 are tested with two 2–state reference tests and a 2–state experimental
-test. Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>3</mn></msub><annotation encoding="application/x-tex">S_3</annotation></semantics></math>
-= 2 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 8. There are 8 unique sets of testing combinations. The probabilities
-associated with a suspect test result for the experimental test are zero
-(i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-= 0).</p>
+test. Here, <span class="math inline">\(S_1\)</span> = 2, <span class="math inline">\(S_2\)</span> = 2, <span class="math inline">\(S_3\)</span> = 2 and <span class="math inline">\(K\)</span> = 8. There are 8 unique sets of testing
+combinations. The probabilities associated with a suspect test result
+for the experimental test are zero (i.e. <span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_1\)</span> = 0).</p>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex6</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data6</span>,</span>
 <span>          Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>Ref1_result <span class="op">=</span> <span class="fl">0.95</span>, ref2 <span class="op">=</span> <span class="fl">0.91</span><span class="op">)</span>,</span>
@@ -413,22 +348,11 @@ associated with a suspect test result for the experimental test are zero
 experimental<a class="anchor" aria-label="anchor" href="#example-7-two-3state-reference-tests-two-populations-2state-experimental"></a>
 </h2>
 <p>In this example, samples selected from 2 populations were tested by
-two 3–state reference tests and a 2–state experimental test. Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 3,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>3</mn></msub><annotation encoding="application/x-tex">S_3</annotation></semantics></math>
-= 3 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 18. There are 18 unique sets of testing combinations and a total of 36
-counts, one for each unique test combination in each of the 2
-populations. The probabilities associated with a suspect test result for
-the experimental test are zero
-(i.e. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-=
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>
-= 0).</p>
+two 3–state reference tests and a 2–state experimental test. Here, <span class="math inline">\(S_1\)</span> = 2, <span class="math inline">\(S_2\)</span> = 3, <span class="math inline">\(S_3\)</span> = 3 and <span class="math inline">\(K\)</span> = 18. There are 18 unique sets of
+testing combinations and a total of 36 counts, one for each unique test
+combination in each of the 2 populations. The probabilities associated
+with a suspect test result for the experimental test are zero
+(i.e. <span class="math inline">\(\psi_1\)</span> = <span class="math inline">\(\phi_1\)</span> = 0).</p>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex7</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data7</span>,</span>
 <span>          Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ref1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.88</span>, <span class="fl">0.75</span><span class="op">)</span>, ref2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.90</span>, <span class="fl">0.55</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -460,26 +384,12 @@ the experimental test are zero
 </h2>
 <p>In this example, samples randomly selected from 3 populations were
 tested by three 2–state reference tests and a 3–state experimental test.
-Here,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>1</mn></msub><annotation encoding="application/x-tex">S_1</annotation></semantics></math>
-= 3,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>2</mn></msub><annotation encoding="application/x-tex">S_2</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>3</mn></msub><annotation encoding="application/x-tex">S_3</annotation></semantics></math>
-= 2,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>4</mn></msub><annotation encoding="application/x-tex">S_4</annotation></semantics></math>
-= 2 and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
-= 24. There are 24 unique sets of testing combinations and a total of 72
-counts, one for each unique test combination in each of the 3
-populations. The probabilities associated with a suspect test result for
-the experimental test
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>)
-are included in the output. The function provides a message to inform
-the user that the experimental test has 3 states and the optimization
-will be more time consuming.</p>
+Here, <span class="math inline">\(S_1\)</span> = 3, <span class="math inline">\(S_2\)</span> = 2, <span class="math inline">\(S_3\)</span> = 2, <span class="math inline">\(S_4\)</span> = 2 and <span class="math inline">\(K\)</span> = 24. There are 24 unique sets of
+testing combinations and a total of 72 counts, one for each unique test
+combination in each of the 3 populations. The probabilities associated
+with a suspect test result for the experimental test (<span class="math inline">\(\psi_1\)</span> and <span class="math inline">\(\phi_1\)</span>) are included in the output. The
+function provides a message to inform the user that the experimental
+test has 3 states and the optimization will be more time consuming.</p>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ex8</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/estimateSnSp.html">estimateSnSp</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">data8</span>,</span>
 <span>       Sn.ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>ref1_result <span class="op">=</span> <span class="fl">0.92</span>, ref2_result <span class="op">=</span> <span class="fl">0.88</span>, ref3_result <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span>,</span>
