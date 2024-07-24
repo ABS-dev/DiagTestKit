@@ -32,7 +32,7 @@ The simplest case illustrated here is estimating the sensitivity and specificity
 
 # Example 1 --- One, 2--state reference test, One population, 2--state experimental test
 
-In this example, samples randomly selected from a single population are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  There are 4 unique sets of testing combinations.  Further, the probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\phi_1$ = $\psi_1$ = $\phi_2$ = $\psi_2$ = 0. This example uses named data frames for the input variables `Sn.ref` and `Sp.ref`. 
+In this example, samples randomly selected from a single population are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  There are 4 unique sets of testing combinations.  Further, the probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\phi_1$ = $\psi_1$ = $\phi_2$ = $\psi_2$ = 0. This example uses named data frames for the input variables `Sn.ref` and `Sp.ref`.
 
 
 ```{r,echo = T, eval = T}
@@ -60,7 +60,7 @@ ex1_update
 
 #  Example 2 --- One, 2--state reference test, Three populations, 2--state experimental test
 
-In this example, samples randomly selected from 3 populations are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  Again there are 4 unique sets of testing combinations, but a total of 12 counts, one for each unique test combination in each of the three populations.  The probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\psi_1$ = $\phi_1$ = $\psi_2$ = $\phi_2$ = 0. This example uses named vectors for the input variables `Sn.ref` and `Sp.ref` because the reference test only had 2 states. 
+In this example, samples randomly selected from 3 populations are tested by one 2--state fallible reference test and a 2--state experimental test.  Here, $S_1$ = 2, $S_2$ = 2 and $K$ = 4.  Again there are 4 unique sets of testing combinations, but a total of 12 counts, one for each unique test combination in each of the three populations.  The probabilities associated with a suspect test result are 0 for both the experimental test method and the reference test method.  Specifically, $\psi_1$ = $\phi_1$ = $\psi_2$ = $\phi_2$ = 0. This example uses named vectors for the input variables `Sn.ref` and `Sp.ref` because the reference test only had 2 states.
 
 
 ```{r, echo = T, eval = T}
@@ -119,7 +119,7 @@ ex4
 # Example 5 --- One, 2--state reference test, Two populations, 3--state experimental test
 
 In this example, samples randomly selected from two populations are tested by a 3--state experimental test and one 2--state reference test.
-There are 6 unique testing combinations ($S_1$ = 3, $S_2$ = 2 and $K$ = 6) and a total of 12 counts as samples were obtained from 2 populations. 
+There are 6 unique testing combinations ($S_1$ = 3, $S_2$ = 2 and $K$ = 6) and a total of 12 counts as samples were obtained from 2 populations.
 The probabilities associated with a suspect test result for the experimental test ($\psi_1$ and $\phi_1$) are included in the output (but the optimization occurs in terms of $\delta_1$ and $\gamma_1$). The function provides a message to inform the user that the experimental test has 3 states and the optimization will be more time consuming.
 
 
@@ -139,7 +139,7 @@ ex5
 
 # Example 6 --- Two, 2--state reference tests, One population, 2--state experimental
 
-In this example, samples randomly selected from a single population are tested with two 2--state reference tests and a 2--state experimental test.  Here, 
+In this example, samples randomly selected from a single population are tested with two 2--state reference tests and a 2--state experimental test.  Here,
 $S_1$ = 2, $S_2$ = 2, $S_3$ = 2 and $K$ = 8.  There are 8 unique sets of testing combinations.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).
 
 
@@ -159,7 +159,7 @@ ex6
 
 # Example 7 --- Two, 3--state reference tests, Two populations, 2--state experimental
 
-In this example, samples selected from 2 populations were tested by two 3--state reference tests and a 2--state experimental test.  Here, 
+In this example, samples selected from 2 populations were tested by two 3--state reference tests and a 2--state experimental test.  Here,
 $S_1$ = 2, $S_2$ = 3, $S_3$ = 3 and $K$ = 18.  There are 18 unique sets of testing combinations and a total of 36 counts, one for each unique test combination in each of the 2 populations.  The probabilities associated with a suspect test result for the experimental test are zero (i.e. $\psi_1$ = $\phi_1$ = 0).
 
 
@@ -179,7 +179,7 @@ ex7
 
 # Example 8 --- Three, 2--state reference tests, Three populations, 3--state experimental
 
-In this example, samples randomly selected from 3 populations were tested by three 2--state reference tests and a 3--state experimental test.  Here, 
+In this example, samples randomly selected from 3 populations were tested by three 2--state reference tests and a 3--state experimental test.  Here,
 $S_1$ = 3, $S_2$ = 2, $S_3$ = 2, $S_4$ = 2 and $K$ = 24.  There are 24 unique sets of testing combinations and a total of 72 counts, one for each unique test combination in each of the 3 populations.  The probabilities associated with a suspect test result for the experimental test ($\psi_1$ and $\phi_1$) are included in the output. The function provides a message to inform the user that the experimental test has 3 states and the optimization will be more time consuming.
 
 
