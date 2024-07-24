@@ -12,16 +12,10 @@ From **within R**
 
 ```         
 ## From source, all platforms, slow.
-devtools::install_github("ABS-dev/DiagTestKit", ref = "0.6.9")
+devtools::install_github("ABS-dev/DiagTestKit")
 ```
 
 *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
-
-2. Installing work-in-progress on the main development branch 
-
-```
-devtools::install_github("ABS-dev/DiagTestKit")
-```
 
 ### For CVB employees
 
