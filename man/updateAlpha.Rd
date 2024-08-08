@@ -7,27 +7,28 @@
 updateAlpha(x, newAlpha)
 }
 \arguments{
-\item{x}{output from \code{\link{estimateSnSp}}}
+\item{x}{output from \link{estimateSnSp}}
 
 \item{newAlpha}{updated alpha value. Must be within [0, 1]}
 }
 \value{
 an object of type \code{snsp}. See output for
-  \code{\link{estimateSnSp}}
+\link{estimateSnSp}
 }
 \description{
 Report interval estimates with updated alpha values, using a
-  previously evaluated simulation.
+previously evaluated simulation.
 }
 \examples{
-data.1 <- data.frame(exp_result = rep(c('positive', 'negative'), each = 2),
-                     ref1_result = rep(c('positive', 'negative'), 2),
-                     count = c(82, 11, 5, 22))
-example.1 <- estimateSnSp(dat = data.1,
-                          Sn.ref = data.frame(ref = c(0.90, 0)),
-                          Sp.ref = data.frame(ref=c(0.99, 0)),
-                          prev.pop=c(A=0.80),
-                          control = estimateSnSpControl(seed = 64725))
+data.1 <- data.frame(
+  exp_result = rep(c("positive", "negative"), each = 2),
+  ref1_result = rep(c("positive", "negative"), 2),
+  count = c(82, 11, 5, 22))
+example.1 <- estimateSnSp(dat      = data.1,
+                          Sn.ref   = data.frame(ref = c(0.90, 0)),
+                          Sp.ref   = data.frame(ref = c(0.99, 0)),
+                          prev.pop = c(A = 0.80),
+                          control  = estimateSnSpControl(seed = 64725))
 example.1a <- updateAlpha(example.1, newAlpha = 0.25)
 example.1a
 
@@ -39,7 +40,7 @@ example.1a
 # Sp = P(T-|D-)      0.9062769          0.8336064 1.0000000
 }
 \seealso{
-\code{\link{estimateSnSpControl}}
+\link{estimateSnSpControl}
 }
 \author{
 \link{DiagTestKit-package}

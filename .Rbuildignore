@@ -1,5 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Dockerfile$
-^\.travis\.yml$
-^LICENSE$
+^\.[^/]*$
+^[^/]*\.[rR]$
+NEWS
+dev_notes
+old_files
+utilities
+^[^/]*\.yml$
+^docs$
+^pkgdown$
+^public$
