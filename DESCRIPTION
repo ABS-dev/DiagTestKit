@@ -1,7 +1,7 @@
 Package: DiagTestKit
 Type: Package
 Title: Functions used in evaluating sensitivity and specificity at CVB Statistics
-Version: 0.6.2
+Version: 0.6.3
 Date: 2024-04-09
 Authors@R: c(
   person(given   = "CVB Statistics", email = "CVB.Data.Help@usda.gov", role = c("cre", "fmo")),
@@ -20,7 +20,7 @@ Depends:
 Suggests:
   knitr,
   testthat,
-  ggplot2
+  ggplot2,
   rmarkdown
 Imports: 
   data.table, 
