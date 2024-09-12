@@ -3,10 +3,10 @@
 #' @description Empirical highest posterior density by shortest length interval.
 #' @param X vector of values
 #' @param alpha 1 - confidence
-#' @return highest posterior density (1-alpha) interval
-#' @note Uses type 7 \code{\link{quantile}}. Also used in package \code{MF}
+#' @returns highest posterior density (1-alpha) interval
+#' @note Uses type 7 [quantile]. Also used in package `MF`
 #' @importFrom stats quantile
-#' @author \link{DiagTestKit-package}
+#' @author [DiagTestKit-package]
 .emp_hpd <- function(X, alpha) {
   # empirical hpd by shortest length interval
   X        <- sort(X)

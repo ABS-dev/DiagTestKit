@@ -33,13 +33,13 @@ probability would be assigned to the suspect region.  For instance, if the
 function gives sensitivity and then the probability of "suspect" is (1 -
 sensitivity) * suspect.}
 
-\item{step_size}{distance between the 'x' in the discrete distribution,
+\item{step_size}{distance between the "x" in the discrete distribution,
 resolution of possible observations of the created distribution.}
 
-\item{p_proportion}{whether to express 'p' as a proportion of its sum.}
+\item{p_proportion}{whether to express "p" as a proportion of its sum.}
 }
 \value{
-\code{data.frame} of 'x', 'y', and 'p'.
+\code{data.frame} of "x", "y", and "p".
 }
 \description{
 Creates a discrete step/triangular distribution that can be used

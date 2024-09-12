@@ -13,13 +13,11 @@ frame where each column corresponds to a reference test and the rows are
 sensitivity (\eqn{\pi}) and \eqn{\psi} (or specificity (\eqn{\theta})  and
 \eqn{\phi}).}
 
-\item{distn}{\code{vector}  A vector of same length as \code{means}. Values
-may be one of \code{NULL}, 'beta', or 'triangular'. \code{NULL} will be
-treated as 'beta'}
+\item{distn}{\code{vector}  A vector of same length as \code{means.} Values may be one
+of \code{NULL}, "beta", or "triangular". \code{NULL} will be treated as "beta"}
 
-\item{spread}{\code{vector} A vector of same length as \code{means}. Values
-may be one of \code{NULL}, 'wide', 'medium', or 'narrow'. \code{NULL} will
-be treated as 'wide'.}
+\item{spread}{\code{vector} A vector of same length as \code{means}. Values may be one
+of \code{NULL}, "wide", "medium", or "narrow". \code{NULL} will be treated as "wide".}
 
 \item{nsim}{The number of simulations to draw from the sensitivity and
 specificity distribution(s) for each reference test or the prevalence

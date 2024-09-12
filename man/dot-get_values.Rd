@@ -18,32 +18,32 @@
 )
 }
 \arguments{
-\item{dat}{\code{vector} A vector of counts ordered in a manner consistent
-with output from the .cell_counts function.}
+\item{dat}{\code{vector} A vector of counts ordered in a manner consistent with
+output from the .cell_counts function.}
 
-\item{SnR.vec}{\code{data.frame}  Each column corresponds to one reference
-test.  Row 1 contains the sensitivity for the reference test(s). Row 2
-contains the probability of a suspect result as a fraction of the
-non-correct test result. This is a value between 0 and 1 (inclusive).
-Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where
-\eqn{\delta} is the second row for a given column (reference test).
-\eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero
-for a 2-state test (i.e. no suspect region).}
+\item{SnR.vec}{\code{data.frame}  Each column corresponds to one reference test.
+Row 1 contains the sensitivity for the reference test(s). Row 2 contains
+the probability of a suspect result as a fraction of the non-correct test
+result. This is a value between 0 and 1 (inclusive). Namely, P(T? | D+) =
+\eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the
+second row for a given column (reference test). \eqn{\delta =
+  \frac{\psi}{(1 - \pi)}}{\delta = \psi / (1 - \pi)}.  Use a zero for a
+2-state test (i.e. no suspect region).}
 
-\item{SpR.vec}{\code{data.frame} Each column corresponds to one reference
-test.  Row 1 contains the specificity for each reference test. Row 2
-contains the probability of a suspect result as a fraction of the
-non-correct test result.  This is a value between 0 and 1 (inclusive).
-Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where
-\eqn{\gamma} is the second row for a given column (reference test).
-\eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use
-a zero for a 2-state test (i.e. no suspect region).}
+\item{SpR.vec}{\code{data.frame} Each column corresponds to one reference test.
+Row 1 contains the specificity for each reference test. Row 2 contains the
+probability of a suspect result as a fraction of the non-correct test
+result.  This is a value between 0 and 1 (inclusive). Namely, P(T? | D-) =
+\eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the
+second row for a given column (reference test). \eqn{\gamma =
+  \frac{\phi}{(1 - \theta)}}{\gamma = \phi / (1 - \theta)}.  Use a zero for a
+2-state test (i.e. no suspect region).}
 
-\item{prev.vec}{\code{vector}  A named vector containing the prevalence for
-each population sampled.}
+\item{prev.vec}{\code{vector}  A named vector containing the prevalence for each
+population sampled.}
 
-\item{N.vec}{\code{vector}  A named vector containing the sample size for
-each population sampled.}
+\item{N.vec}{\code{vector}  A named vector containing the sample size for each
+population sampled.}
 
 \item{nstates}{\code{vector} A vector with length one more than the number of
 reference tests.  The first element is the number of states of the
@@ -51,7 +51,7 @@ experimental test and the remaining entries are the number of states of
 each reference test (using the same ordering as SnR.vec and SpR.vec).}
 
 \item{tolerance}{Setting a limit on the pgtol used in the optim function with
-the 'L-BFGS-B' method. See also \code{\link{optim}}.}
+the "L-BFGS-B" method. See also \link{optim}.}
 
 \item{rep.iter}{logical (TRUE/FALSE)  Indicates if updates should be printed
 regarding the number of iterations completed.}
@@ -64,30 +64,30 @@ optimization that is passed to \code{.minimize_cell}.  For a 2-state
 experimental test, this is a vector of length 2 with entries (\eqn{\pi},
 \eqn{\theta}). For a 3-state experimental test, this is a vector of length
 4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See
-also \code{\link{estimateSnSp}}.}
+also \link{estimateSnSp}.}
 }
 \value{
-A list: \cr \cr The following will be returned for both 2 and 3-state
-experimental tests -- \cr
+A list:
+
+The following will be returned for both 2 and 3-state experimental tests --
 \itemize{
-\item{sens.final}  \code{vector} The optimized values for the sensitivity of
-the experimental test kit.
-\item{spec.final}  \code{vector} The optimized values for the specificity of
-the experimental test kit.
-\item{converge}  \code{vector} Each entry is an integer code detailing the
+\item \code{sens.final}: \code{vector} The optimized values for the sensitivity of the
+experimental test kit.
+\item \code{spec.final}: \code{vector} The optimized values for the specificity of the
+experimental test kit.
+\item \code{converge}: \code{vector} Each entry is an integer code detailing the
 convergence of the optimization for each iteration.  0 indicates successful
-completion. See also \code{\link{optim}}.
-\item{message}  \code{vector}  Each entry includes a character string giving
-any additional information returned by the optimizer or NULL.  See also
-\code{\link{optim}}.
+completion. See also \link{optim}.
+\item \code{message}: \code{vector}  Each entry includes a character string giving any
+additional information returned by the optimizer or NULL.  See also \link{optim}.
 }
 
-If three states -- \cr
+If three states --
 \itemize{
-\item{\eqn{\delta}}  \code{vector} The optimized values for the probability
+\item \eqn{\delta}: \code{vector} The optimized values for the probability
 of a suspect result as a fraction of the non-correct test result for
 diseased samples.
-\item{\eqn{\gamma}} \code{vector} The optimized value for the probability
+\item \eqn{\gamma}: \code{vector} The optimized value for the probability
 of a suspect result as a fraction of the non-correct test result for
 non-diseased samples.
 }

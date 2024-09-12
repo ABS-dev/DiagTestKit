@@ -11,8 +11,8 @@ fontsize: 12pt
 toc: yes
 urlcolor: blue
 vignette: >
-  %\VignetteIndexEntry{Getting Started} 
-  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -33,7 +33,7 @@ This vignette provides step--by--step instructions for using the package to obta
 
 # Data processing
 
-The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of Appendix 1 in [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the "DiagTestKit" package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
+The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of Appendix 1 in [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the "DiagTestKit" package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.
 
 ## Load package and data
 ```{r,echo=TRUE, warning=FALSE, message=FALSE}
@@ -46,7 +46,7 @@ infallible <- dat_infal
 
 ## Obtaining counts
 
-The data input for the `estimateSnSp` function requires creating a data frame that includes the count for each unique combination of test results.  The data frame should include zero counts for possible test combinations that were not observed, but it should not include zero counts for impossible test combinations (structural zeros).  Including non-structural zeros may be achieved using the .drop=FALSE setting within `ddply`.  There is more than one way to obtain the data frame with the counts for all possible test combinations.  Two possibilities are illustrated here.   First, the `ddply` function in the `plyr` package can be used. 
+The data input for the `estimateSnSp` function requires creating a data frame that includes the count for each unique combination of test results.  The data frame should include zero counts for possible test combinations that were not observed, but it should not include zero counts for impossible test combinations (structural zeros).  Including non-structural zeros may be achieved using the .drop=FALSE setting within `ddply`.  There is more than one way to obtain the data frame with the counts for all possible test combinations.  Two possibilities are illustrated here.   First, the `ddply` function in the `plyr` package can be used.
 ```{r,echo=TRUE,eval=T}
 #Blood Samples
 blood <- ddply(.data = subset(dat, specimen == "wholeblood"),
@@ -60,10 +60,10 @@ blood <- ddply(.data = subset(dat, specimen == "wholeblood"),
 
 
 
-This will require renaming the columns in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression "exp" should be included in the column corresponding to the experimental test results.  The expression "ref" should be included in all columns corresponding to the reference test(s) results. 
+This will require renaming the columns in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression "exp" should be included in the column corresponding to the experimental test results.  The expression "ref" should be included in all columns corresponding to the reference test(s) results.
 
- 
-```{r, echo=T,eval=T} 
+
+```{r, echo=T,eval=T}
 names(blood) <- c("Exp", "Ref1", "Count")
 ```
 
@@ -92,13 +92,13 @@ blood_SnSp <- estimateSnSp(dat = blood,
                            prev.pop = c(A = 0.70))
 ```
 
-`## The optimization has begun `  
-`## The following is the number of iterations completed: 50`  
-`## The following is the number of iterations completed: 100`  
-`## The following is the number of iterations completed: 150`  
-$\vdots$  
-`## The following is the number of iterations completed: 1000`  
-  
+`## The optimization has begun `
+`## The following is the number of iterations completed: 50`
+`## The following is the number of iterations completed: 100`
+`## The following is the number of iterations completed: 150`
+$\vdots$
+`## The following is the number of iterations completed: 1000`
+
 ```{r,echo=T,eval=T}
 blood_SnSp
 
@@ -157,7 +157,7 @@ unique(blood_SnSp$detailOut$Message)
 
 All optimized values for sensitivity of the experimental kit can be viewed using a histogram.
 
-```{r, echo=F,eval=T}
+```{r, echo=F,eval=T, fig.alt="Sn figure"}
 Sn.fig <- ggplot() +
           geom_histogram(aes(blood_SnSp$detailOut$Exp.Sn), binwidth = 0.005) +
           labs(x = "Experimental Test Sensitivity Estimates", y = "Count")
@@ -168,7 +168,7 @@ Sn.fig
 
 All optimized values for specificity of the experimental kit can be viewed using a histogram.
 
-```{r,echo=F,eval=T}
+```{r,echo=F,eval=T, fig.alt="Sp figure"}
 Sp.fig <- ggplot() +
           geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005) +
           labs(x = "Experimental Test Specificity Estimates", y = "Count")
@@ -181,7 +181,7 @@ Sp.fig
 Similarly, the simulated values of sensitivity for the reference test can be extracted using `blood_SnSp$input$Sn.sims`.  The simulated
 distribution for the sensitivity of the reference test is displayed as a histogram.
 
-```{r, echo=F,eval=T}
+```{r, echo=F,eval=T, fig.alt="Sn reference"}
 Sn.ref <- ggplot() +
           geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025) +
           labs(x = "Simulated Sensitivity for Reference", y = "Count")
@@ -193,7 +193,7 @@ Sn.ref
 The simulated values of specificity for the reference test can be extracted using `blood_SnSp$input$Sp.sims`.  The simulated
 distribution for the specificity of the reference is displayed as a histogram.
 
-```{r, echo=F,eval=T}
+```{r, echo=F,eval=T, fig.alt="Sp reference"}
 Sp.ref <- ggplot() +
           geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
           labs(x = "Simulated Specificity for Reference", y = "Count")
@@ -202,18 +202,18 @@ Sp.ref
 
 #Infallible Reference Test
 
-Use the `cloppearSnSp` function to estimate the sensitivity and specificity of a 2--state experimental test when an infallible reference test has been used to 
-determine the true disease status of each sample.  The function has one required input, the data frame of counts (dat).    
+Use the `cloppearSnSp` function to estimate the sensitivity and specificity of a 2--state experimental test when an infallible reference test has been used to
+determine the true disease status of each sample.  The function has one required input, the data frame of counts (dat).
 
 ## Estimating Sensitivity
-By default the function will estimate sensitivity.  
+By default the function will estimate sensitivity.
 
 ```{r, echo=T,eval=T}
 infal_Sn <- cloppearSnSp(dat = infallible)
 infal_Sn
 ```
 The total number of positive samples tested can be extracted using `infal_Sn$data$Total.Positive` and the number of positive samples that tested positive by the experimental test can be obtained
-using `infal_Sn$data$Test.Positive`.  The sensitivity estimate can be obtained by `infal_Sn$calcVal$Sn` and the lower and upper confidence limits can be obtained using `infal_Sn$calcVal$Sn.LL` and 
+using `infal_Sn$data$Test.Positive`.  The sensitivity estimate can be obtained by `infal_Sn$calcVal$Sn` and the lower and upper confidence limits can be obtained using `infal_Sn$calcVal$Sn.LL` and
 `infal_Sn$calcVal$Sn.UL`, respectively.
 
 ## Estimating Specificity
@@ -226,5 +226,5 @@ infal_Sp
 ```
 
 Similarly, the total number of negative samples tested can be extracted using `infal_Sp$data$Total.Negative` and the number of negative samples that tested negative by the experimental test can be obtained
-using `infal_Sp$data$Test.Negative`.  The specificity estimate can be obtained by `infal_Sp$calcVal$Sp` and the lower and upper confidence limits can be obtained using `infal_Sp$calcVal$Sp.LL` and 
+using `infal_Sp$data$Test.Negative`.  The specificity estimate can be obtained by `infal_Sp$calcVal$Sp` and the lower and upper confidence limits can be obtained using `infal_Sp$calcVal$Sp.LL` and
 `infal_Sp$calcVal$Sp.UL`, respectively.

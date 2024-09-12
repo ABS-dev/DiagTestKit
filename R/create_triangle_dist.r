@@ -4,9 +4,9 @@
 #'   prevalence of a population.
 #' @param m This is a point estimate for the parameter in which you are
 #'   obtaining the distribution, e.g. sensitivity, specificity, or prevalence.
-#' @param w \code{vector}  A vector that provides the half widths of the 3
+#' @param w `vector`  A vector that provides the half widths of the 3
 #'   regions, (w1 closest, w3 farthest).
-#' @param h \code{vector}  A vector of "y" (pseudo-value until scaled to be a
+#' @param h `vector`  A vector of "y" (pseudo-value until scaled to be a
 #'   probability) corresponding to the height of the shoulder and the height of
 #'   the plateau.
 #' @param threestate logical (TRUE/FALSE) Indicates whether or not there is a
@@ -15,11 +15,11 @@
 #'   probability would be assigned to the suspect region.  For instance, if the
 #'   function gives sensitivity and then the probability of "suspect" is (1 -
 #'   sensitivity) * suspect.
-#' @param step_size distance between the 'x' in the discrete distribution,
+#' @param step_size distance between the "x" in the discrete distribution,
 #'   resolution of possible observations of the created distribution.
-#' @param p_proportion whether to express 'p' as a proportion of its sum.
-#' @return \code{data.frame} of 'x', 'y', and 'p'.
-#' @author \link{DiagTestKit-package}
+#' @param p_proportion whether to express "p" as a proportion of its sum.
+#' @returns `data.frame` of "x", "y", and "p".
+#' @author [DiagTestKit-package]
 .create_triangle_dist <- function(m, w, h, threestate = FALSE, suspect = 2 / 3,
                                   step_size = 0.005, p_proportion = TRUE) {
   H <- cumsum(w)

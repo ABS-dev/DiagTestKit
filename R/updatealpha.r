@@ -1,18 +1,18 @@
 #' @title Update alpha values for existing simulation
 #' @description Report interval estimates with updated alpha values, using a
 #'   previously evaluated simulation.
-#' @param x output from \code{\link{estimateSnSp}}
+#' @param x output from [estimateSnSp]
 #' @param newAlpha updated alpha value. Must be within \[0, 1\]
-#' @return an object of type \code{snsp}. See output for
-#'   \code{\link{estimateSnSp}}
-#' @author \link{DiagTestKit-package}
-#' @seealso \code{\link{estimateSnSpControl}}
+#' @returns an object of type `snsp`. See output for
+#'   [estimateSnSp]
+#' @author [DiagTestKit-package]
+#' @seealso [estimateSnSpControl]
 #' @importFrom stats median
 #' @export
 #' @examples
 #' data.1 <- data.frame(
-#'   exp_result = rep(c('positive', 'negative'), each = 2),
-#'   ref1_result = rep(c('positive', 'negative'), 2),
+#'   exp_result = rep(c("positive", "negative"), each = 2),
+#'   ref1_result = rep(c("positive", "negative"), 2),
 #'   count = c(82, 11, 5, 22))
 #' example.1 <- estimateSnSp(dat      = data.1,
 #'                           Sn.ref   = data.frame(ref = c(0.90, 0)),
