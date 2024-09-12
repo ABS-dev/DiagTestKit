@@ -3,7 +3,7 @@ title: "DiagTestKit Package"
 subtitle: |
   | Getting Started
 author: Center for Veterinary Biologics - Statistics Section
-date: December 2017
+date: January 2018
 output: pdf_document
 toc: true
 number_sections: true
@@ -28,11 +28,11 @@ The `DiagTestKit` package provides functions to obtain point and interval estima
 
 The technical details for how the algorithm works are provided in [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi).  For a 2-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$) and specificity ($\theta_1$).  For a 3-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$), specificity ($\theta_1$), probability of suspect for disease positive ($\psi_1$) and probability of suspect for disease negative ($\phi_1$).  The algorithm is optimizing the sum of squared residuals with respect to $\pi_1$, $\theta_1$, $\delta_1$, and $\gamma_1$ where $\delta_1$ and $\gamma_1$ express the probability of a suspect result as a fraction of the non-correct test results.  See [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) for further details.
 
-This vignette provides step--by--step instructions to using the package for obtaining point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. To run the `DiagTestKit` package requires a functional installation of R software.  The `DiagTestKit` package is available on (need to include a hyperlink to gitHub)
+This vignette provides step--by--step instructions to using the package for obtaining point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. To run the `DiagTestKit` package requires a functional installation of R software.  `DiagTestKit` package is available via  [github](https://github.com/ABS-dev/DiagTestKit/blob/master/README.md). Code in this vignette was run using version `r packageVersion('DiagTestKit')`.
 
 # Data processing
 
-The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of the [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the 'DiagTestKit' package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomail confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
+The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of the [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the 'DiagTestKit' package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
 
 ## Load package and data
 ```{r,echo=TRUE, warning=FALSE, message=FALSE}
