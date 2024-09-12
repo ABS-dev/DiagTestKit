@@ -4,4 +4,8 @@ export(estimateSnSpControl)
 export(snsp)
 export(cp)
 export(updateAlpha)
-
+importFrom(data.table, setorder)
+importFrom(plyr, ddply, '.', summarize)
+importFrom("methods", "new")
+importFrom("stats", "median", "optim", "qbeta", "quantile", "rbeta",
+             "runif")

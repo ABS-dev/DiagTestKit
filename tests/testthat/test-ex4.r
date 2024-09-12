@@ -1,5 +1,6 @@
 context("ex4")
 
+load("./data/testdata.rda")
 ex4 <- estimateSnSp(dat = data4,
                     Sn.ref = data.frame(ref = c(0.95, 0.55)),
                     Sp.ref = data.frame(ref = c(0.93, 0.48)),

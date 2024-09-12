@@ -17,9 +17,9 @@ name for the experimental test results must contatin 'exp' and the column name f
 \value{
 An object of type \code{cp} that extends \code{list}. \cr \cr
 \describe{
-\item{\strong{calcVal}} {Named vector of point estimates and estimated simulated intervals. See below.}
-\item{\strong{data}} {Test and Total values of the data. See below.}
-\item{\strong{alpha}} {Complement of the confidence interval as provided above.}
+\item{\strong{calcVal}}{Named vector of point estimates and estimated simulated intervals. See below.}
+\item{\strong{data}}{Test and Total values of the data. See below.}
+\item{\strong{alpha}}{Complement of the confidence interval as provided above.}
 }
 }
 \description{
@@ -58,6 +58,7 @@ of an experimental diagnostic test kit in accordance with \href{https://www.aphi
 \item{\strong{Total.Negative}} Total number of negative samples.
 }
 }
+
 \examples{
 CP.Sn <- cloppearSnSp(dat = dat_infal, est.Sn = TRUE)
 CP.Sn
@@ -66,10 +67,9 @@ CP.Sp <- cloppearSnSp(dat = dat_infal, est.Sn = FALSE)
 CP.Sp
 # Sp = P(T-|D-): 0.970297 (95\% CI: 0.915643, 0.915643)
 }
-\author{
-CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
-}
 \references{
 Clopper CJ, Pearson ES, 1934. The use of confidence or fiducial limits illustrated in the case of the binomial. \emph{Biometrika} 26:404-413.
 }
-
+\author{
+CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
+}
