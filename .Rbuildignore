@@ -1,7 +1,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Dockerfile$
-^\.travis\.yml$
-notes
+^\.[^/]*$
+^[^/]*\.r$
+^[^/]*\.R$
 NEWS
-^build_vignettes.r$
+dev_notes
+old_files
+utilities
