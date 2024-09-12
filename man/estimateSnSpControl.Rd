@@ -88,8 +88,8 @@ A list with the following elements (as defined above): \code{seed,
 }
 \description{
 The values supplied in the function--call replace the defaults
-  and a list with all possible arguments is returned. The returned list is
-  used as the \code{control} argument to the function \code{estimateSnSp}.
+and a list with all possible arguments is returned. The returned list is
+used as the \code{control} argument to the function \code{estimateSnSp}.
 }
 \examples{
 estimateSnSpControl()

@@ -75,12 +75,12 @@
 #' \itemize{
 #' \item{\strong{SusDisPosPE}} Point estimate for the probability of test
 #'  suspect given disease positive (\eqn{\psi}) which is the median of the
-#'  calculated values (\eqn{\psi} = \eqn{\delta}*(1-\eqn{\pi})).
+#'  calculated values (\eqn{\psi} = \eqn{\delta}(1-\eqn{\pi})).
 #' \item{\strong{SusDisPosInterval}} Estimated simulated interval for the
 #'  probability of test suspect given disease positive (\eqn{\psi}).
 #' \item{\strong{SusDisNegPE}} Point estimate for the probability of test
 #'  suspect given disease negative (\eqn{\phi}) which is the median of the
-#'   calculated values (\eqn{\phi} = \eqn{\gamma}*(1-\eqn{\theta})).
+#'   calculated values (\eqn{\phi} = \eqn{\gamma}(1-\eqn{\theta})).
 #' \item{\strong{SusDisNegInterval}} Estimated simulated interval for the
 #'  probability of test suspect given disease negative (\eqn{\phi}).
 #' }
@@ -91,27 +91,27 @@
 #'   following for both 2- and 3-state experimental tests -- \cr
 #' \itemize{
 #' \item{\strong{Exp.Sn}}  \code{vector} The optimized values for the
-#' sensitivity of the experimental test kit.
+#'    sensitivity of the experimental test kit.
 #' \item{\strong{Exp.Sp}}  \code{vector} The optimized values for the
-#' specificity of the experimental test kit.
+#'    specificity of the experimental test kit.
 #' \item{\strong{Converge}}  \code{vector} Each entry is an integer code
-#' detailing the convergence of the optimization for each iteration.  0
-#'  indicates successful completion. See also \code{\link{optim}}.
+#'    detailing the convergence of the optimization for each iteration.  0
+#'    indicates successful completion. See also \code{\link{optim}}.
 #' \item{\strong{Message}}  \code{vector}  Each entry includes a character
-#' string providing any additional information returned by the optimizer or
-#'  NULL.  See also \code{\link{optim}}.
+#'    string providing any additional information returned by the optimizer or
+#'    NULL.  See also \code{\link{optim}}.
 #' }
 #'
-#'   If three states, the list will also inlcude -- \cr
+#' If three states, the list will also include -- \cr
 #' \itemize{
 #' \item{\strong{Exp.pos.p}}  \code{vector} The optimized values for the
 #' proportion of the remaining probability (1-Sn) that corresponds to a
 #' suspect region for diseased samples, namely \eqn{\delta}.
 #' \item{\strong{Exp.sus.pos}}  \code{vector} The values for
-#' P(T? | D+) (\eqn{\psi}) calculated from Exp.sn and Exp.pos.p.
-#' P(T?|D+) = \eqn{\delta} * (1 - \eqn{\pi}).
+#' `P(T? | D+)` (\eqn{\psi}) calculated from `Exp.sn` and Exp.pos.p.
+#' `P(T?|D+) =` \eqn{\delta} * (1 - \eqn{\pi}).
 #' \item{\strong{Exp.neg.p}} \code{vector} The optimized value for the
-#' proportion of the remaining probability (1-Sp) that corresponds to a
+#' proportion of the remaining probability `(1-Sp)` that corresponds to a
 #' suspect region for non-diseased samples, namely \eqn{\gamma}.
 #' \item{\strong{Exp.sus.neg}} \code{vector} The values for
 #' P(T? | D-) (\eqn{\phi}) calculated from Exp.sp and Exp.neg.p.
