@@ -1,5 +1,5 @@
 ---
-title: "DiagTestKit Package"
+title: "Examples"
 subtitle: |
   | Examples
 author: Center for Veterinary Biologics - Statistics Section
@@ -11,7 +11,7 @@ numbersections: true
 fontsize: 12pt
 urlcolor: blue
 vignette: >
-  %\VignetteIndexEntry{DiagTestKit Examples}
+  %\VignetteIndexEntry{Examples}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

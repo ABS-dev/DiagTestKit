@@ -9,7 +9,7 @@ updateAlpha(x, newAlpha)
 \arguments{
 \item{x}{output from \code{\link{estimateSnSp}}}
 
-\item{newAlpha}{updated alpha value. Must be within \link{0, 1}}
+\item{newAlpha}{updated alpha value. Must be within [0, 1]}
 }
 \value{
 an object of type \code{snsp}. See output for

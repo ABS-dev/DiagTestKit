@@ -1,8 +1,8 @@
 Package: DiagTestKit
 Type: Package
 Title: Functions used in evaluating sensitivity and specificity at CVB Statistics
-Version: 0.6.1
-Date: 2023-11-01
+Version: 0.6.2
+Date: 2024-04-09
 Authors@R: c(
   person(given   = "CVB Statistics", email = "CVB.Data.Help@usda.gov", role = c("cre", "fmo")),
   person(given   = "David",  family  = "Siev",        role = "aut", comment = "until 2019"),
@@ -16,14 +16,17 @@ URL: https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues
 LazyData: true
 Depends:
-    R (>= 3.5)
-Imports: data.table, 
-    plyr, 
-    methods
+  R (>= 3.5)
 Suggests:
-    knitr,
-    testthat,
-    ggplot2
+  knitr,
+  testthat,
+  ggplot2
+  rmarkdown
+Imports: 
+  data.table, 
+  plyr, 
+  methods
+Config/build/clean-inst-doc: FALSE
 VignetteBuilder: knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
