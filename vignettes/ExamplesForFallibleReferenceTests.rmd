@@ -3,7 +3,7 @@ title: "DiagTestKit Package"
 subtitle: |
   | Examples
 author: Center for Veterinary Biologics - Statistics Section
-date: December 2017
+date: August 2019
 output: pdf_document
 toc: true
 number_sections: true

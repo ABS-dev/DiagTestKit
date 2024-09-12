@@ -4,7 +4,7 @@
 #' @param x output from \code{\link{estimateSnSp}}
 #' @param newAlpha updated alpha value. Must be within [0, 1]
 #' @return an object of type \code{snsp}. See output for \code{\link{estimateSnSp}}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @seealso \code{\link{estimateSnSpControl}}
 #' @export
 #' @examples

@@ -81,7 +81,7 @@
 #' \item{\strong{prev.sims}}  \code{matrix} The simulated values of prevalence for each population.  Each column correspond to one population.
 #' }
 # @author Monica Reising \email{monica.m.reising@@aphis.usda.gov} with modifications by CVB Statistics
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @seealso \code{\link{estimateSnSpControl}}
 #' @export
 #' @examples
@@ -113,10 +113,14 @@
 #'                                6, 1, 9, 1, 1, 0, 0, 0, 0, 1, 0, 2, 2, 12, 1, 0, 0,
 #'                                0, 0, 0, 0, 0))
 #' example.2 <- estimateSnSp(dat = data.2,
-#'                           Sn.ref = data.frame(ref1 = c(0.92, 0), ref2 = c(0.88, 0), ref3 = c(0.85, 0)),
-#'                           Sp.ref = data.frame(ref1 = c(0.86, 0), ref2 = c(0.90, 0), ref3 = c(0.92, 0)),
-#'                           prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
-#'                           control = estimateSnSpControl(seed = 865213))
+#'   Sn.ref = data.frame(ref1 = c(0.92, 0),
+#'                       ref2 = c(0.88, 0),
+#'                       ref3 = c(0.85, 0)),
+#'   Sp.ref = data.frame(ref1 = c(0.86, 0),
+#'                       ref2 = c(0.90, 0),
+#'                       ref3 = c(0.92, 0)),
+#'   prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
+#'   control = estimateSnSpControl(seed = 865213))
 #' # 1000  simulations
 #' # 95 % Interval Estimates
 #'
@@ -126,10 +130,11 @@
 #' # SsP = P(T?|D+)     0.02568427 0.0000000 0.06339616
 #' # SsN = P(T?|D-)     0.01534125 0.0000000 0.05604950
 #' }
-estimateSnSp<-function(dat, Sn.ref, Sp.ref, prev.pop, nsim=1000, control = NULL){
+estimateSnSp <- function(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
+  control = NULL){
   #convert any character variables in dat to factors as this will be needed later
-  dat[sapply(dat,is.character)]<-lapply(dat[sapply(dat,is.character)],as.factor)
-  if(is.null(control)){
+  dat[sapply(dat,is.character)] <- lapply(dat[sapply(dat,is.character)], as.factor)
+  if (is.null(control)) {
     control <- estimateSnSpControl()
   }
 
@@ -140,24 +145,35 @@ estimateSnSp<-function(dat, Sn.ref, Sp.ref, prev.pop, nsim=1000, control = NULL)
 
   #these will be used to obtain the distribution to sample
   #coerce all the names in the data frame to lower case
-  names(dat)<-tolower(names(dat))
+  names(dat) <- tolower(names(dat))
 
-  if(is.vector(Sn.ref)){
-    Sn.ref<-data.frame(rbind(Sn.ref,rep(0,length(Sn.ref))),row.names=NULL)
+  if (is.vector(Sn.ref)) {
+    Sn.ref <- data.frame(rbind(Sn.ref, rep(0, length(Sn.ref))), row.names = NULL)
   }
 
-  if(is.vector(Sp.ref)){
-    Sp.ref<-data.frame(rbind(Sp.ref,rep(0,length(Sp.ref))),row.names=NULL)
+  if (is.vector(Sp.ref)) {
+    Sp.ref <- data.frame(rbind(Sp.ref, rep(0, length(Sp.ref))), row.names = NULL)
   }
 
-  if(is.null(names(Sn.ref)) | is.null(names(Sp.ref))) stop('Sn.ref and Sp.ref must be named')
-  if(!all(names(Sn.ref)==names(Sp.ref))) stop('SnR and SpR not named the same')
+  if (is.null(names(Sn.ref)) | is.null(names(Sp.ref))) {
+    stop('Sn.ref and Sp.ref must be named')
+  }
+  if (!all(names(Sn.ref) == names(Sp.ref))) {
+    stop('SnR and SpR not named the same')
+  }
 
-  if(ncol(Sn.ref)!=ncol(Sp.ref)) stop('Sn.ref and Sp.ref suggest different number of reference tests')
+  if (ncol(Sn.ref) != ncol(Sp.ref)) {
+    stop('Sn.ref and Sp.ref suggest different number of reference tests')
+  }
 
 
-  #check that if distn is not null that the length is equal to the number of columns of Sn.ref
-  if(!is.null(control$Sn.distn) & !is.null(control$Sn.spread) & length(control$Sn.distn)!=length(control$Sn.spread)) stop('Sn.distn & Sn.spread must be the same length. Check values passed to control.')
+  # check that if distn is not null that the length is equal to the number of columns of Sn.ref
+  if (!is.null(control$Sn.distn) &
+      !is.null(control$Sn.spread) &
+      length(control$Sn.distn) != length(control$Sn.spread)) {
+    stop('Sn.distn & Sn.spread must be the same length. Check values passed to control.')
+  }
+
   if(!is.null(control$Sp.distn) & !is.null(control$Sp.spread) & length(control$Sp.distn)!=length(control$Sp.spread)) stop('Sp.distn & Sp.spread must be the same length. Check values passed to control.')
 
   if(names(dat)[1]!='population'){
@@ -222,28 +238,37 @@ estimateSnSp<-function(dat, Sn.ref, Sp.ref, prev.pop, nsim=1000, control = NULL)
                              prev.vec = prev.sims, N.vec=N, nstates = n.states,
                              tolerance = control$tolerance, parm = control$parm,rep.iter=control$rep.iter,iter.n=control$iter.n)
 
-  ## TODO: Monica to update detailOut list with names
-  if(n.states[1]==2){
-    detailOut <- list(final.values[[1]], final.values[[2]], final.values[[3]], final.values[[4]])
-    names(detailOut)<-c('Exp.Sn','Exp.Sp','Converge','Message')
-    calcVal<-  list(Nsim=nsim,Confidence=(1 - control$alpha),SnPE=median(final.values[[1]]),SnInterval=emp.hpd(final.values[[1]],alpha=control$alpha),SpPE=median(final.values[[2]]),SpInterval=emp.hpd(final.values[[2]],alpha=control$alpha))
-   } else if(n.states[1]==3){
-    detailOut <- list(final.values[[1]],final.values[[2]],(1-final.values[[1]])*final.values[[2]],
-                final.values[[3]],final.values[[4]],(1-final.values[[3]])*final.values[[4]],
-                final.values[[5]],final.values[[6]])
-    names(detailOut)<-c('Exp.Sn','Exp.pos.p','Exp.sus.pos','Exp.Sp','Exp.neg.p','Exp.sus.neg','Convergence','Message')
+  if (n.states[1] == 2) {
+    detailOut <- list(final.values[[1]], final.values[[2]],
+      final.values[[3]], final.values[[4]])
+    names(detailOut) <- c('Exp.Sn', 'Exp.Sp', 'Converge', 'Message')
+
+    calcVal <- list(Nsim = nsim,
+      Confidence = (1 - control$alpha),
+      SnPE = median(final.values[[1]]),
+      SnInterval = emp.hpd(final.values[[1]], alpha = control$alpha),
+      SpPE = median(final.values[[2]]),
+      SpInterval = emp.hpd(final.values[[2]], alpha = control$alpha))
+   } else if(n.states[1] == 3) {
+    detailOut <- list(final.values[[1]], final.values[[2]],
+      (1 - final.values[[1]]) * final.values[[2]],
+      final.values[[3]], final.values[[4]],
+      (1 - final.values[[3]]) * final.values[[4]],
+      final.values[[5]], final.values[[6]])
+    names(detailOut) <- c('Exp.Sn','Exp.pos.p','Exp.sus.pos','Exp.Sp','Exp.neg.p','Exp.sus.neg','Convergence','Message')
     calcVal <- list(Nsim=nsim,Confidence=(1 - control$alpha),SnPE=median(final.values[[1]]),SnInterval=emp.hpd(final.values[[1]],alpha=control$alpha),
                     SpPE=median(final.values[[3]]),SpInterval=emp.hpd(final.values[[3]],alpha=control$alpha),
                     SusDisPosPE=median((1-final.values[[1]])*final.values[[2]]),SusDisPosInterval=emp.hpd((1-final.values[[1]])*final.values[[2]],alpha=control$alpha),
                     SusDisNegPE=median((1-final.values[[3]])*final.values[[4]]),SusDisNegInterval=emp.hpd((1-final.values[[3]])*final.values[[4]],alpha=control$alpha))
   }
   input <- list(control$seed, Sn.sims, Sp.sims, prev.sims)
-  names(input)<-c('seed','Sn.sims','Sp.sims','prev.sims')
-
-  ## TODO: Monica to update contents of calcVal & input lists
+  names(input) <- c('seed', 'Sn.sims', 'Sp.sims', 'prev.sims')
   out <- snsp$new(calcVal = calcVal,
                   detailOut = detailOut,
                   input = input)
 
   return(out)
 }
+
+# to keep R CMD happy
+utils::globalVariables(c('population', 'count'))

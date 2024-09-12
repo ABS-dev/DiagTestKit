@@ -1,7 +1,7 @@
 ---
 title: "DiagTestKit Package"
 author: "Center for Veterinary Biologics - Statistics Section"
-date: "January 2018"
+date: "August 2019"
 output: pdf_document
 numbersections: yes
 number_sections: yes
@@ -33,7 +33,7 @@ This vignette provides step--by--step instructions for using the package to obta
 
 # Data processing
 
-The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of the [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the 'DiagTestKit' package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
+The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of Appendix 1 in [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the 'DiagTestKit' package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
 
 ## Load package and data
 ```{r,echo=TRUE, warning=FALSE, message=FALSE}

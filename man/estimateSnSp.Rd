@@ -4,7 +4,8 @@
 \alias{estimateSnSp}
 \title{Estimate Sensitivity and Specificity}
 \usage{
-estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000, control = NULL)
+estimateSnSp(dat, Sn.ref, Sp.ref, prev.pop, nsim = 1000,
+  control = NULL)
 }
 \arguments{
 \item{dat}{\code{data.frame}  This is a data frame where the first column includes information for the population sampled
@@ -133,10 +134,14 @@ data.2 <- data.frame(Population = rep(LETTERS[1:3], each = 24),
                                6, 1, 9, 1, 1, 0, 0, 0, 0, 1, 0, 2, 2, 12, 1, 0, 0,
                                0, 0, 0, 0, 0))
 example.2 <- estimateSnSp(dat = data.2,
-                          Sn.ref = data.frame(ref1 = c(0.92, 0), ref2 = c(0.88, 0), ref3 = c(0.85, 0)),
-                          Sp.ref = data.frame(ref1 = c(0.86, 0), ref2 = c(0.90, 0), ref3 = c(0.92, 0)),
-                          prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
-                          control = estimateSnSpControl(seed = 865213))
+  Sn.ref = data.frame(ref1 = c(0.92, 0),
+                      ref2 = c(0.88, 0),
+                      ref3 = c(0.85, 0)),
+  Sp.ref = data.frame(ref1 = c(0.86, 0),
+                      ref2 = c(0.90, 0),
+                      ref3 = c(0.92, 0)),
+  prev.pop = c(A = 0.95, B = 0.62, C = 0.18),
+  control = estimateSnSpControl(seed = 865213))
 # 1000  simulations
 # 95 \% Interval Estimates
 
@@ -151,5 +156,5 @@ example.2 <- estimateSnSp(dat = data.2,
 \code{\link{estimateSnSpControl}}
 }
 \author{
-CVB Statistics \email{CVB.Data.Help@aphis.usda.gov}
+\link{DiagTestKit-package}
 }

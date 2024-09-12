@@ -15,7 +15,7 @@
 #' sampled else if prevalence is FALSE, final.mat will have number of columns twice the number of reference tests.  The columns are sensitivity (or specificity) of the first reference test,
 #' the probability of a suspect result as a fraction of the non-correct test result (i.e. either \eqn{\delta} or \eqn{\gamma}) for the first reference and continues in the same pattern for all reference tests.
 # @author Monica Reising \email{monica.m.reising@@aphis.usda.gov}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence){
   final.mat<-NULL
 
@@ -92,5 +92,6 @@ get.simulated.values<-function(means,distn,spread,nsim,step.size,prevalence){
       }
     }
   }
+  colnames(final.mat) <- NULL ## remove colnames that are an artifact of cbind
   return(final.mat)
 }

@@ -4,7 +4,7 @@
 #' or just c(mu=.6, phi=1.6)
 #' @param to Specification of desired parameters, options are one of 'alpha.beta', 'mu.phi', 'mu.theta' or 'mu.sigma2'.
 # @author Dave Siev \email{david.siev@@aphis.usda.gov}, Modified by Monica Reising \email{monica.reising@@aphis.usda.gov}
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
 #' @return \code{vector} A named vector with values for the parameters specified in the 'to' argument of the input.
 betaParm <- function(B, to='alpha.beta'){
   # convert parameterizations

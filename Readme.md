@@ -9,22 +9,18 @@ test kit in accordance with [CVB STATWI0002](https://www.aphis.usda.gov/aphis/ou
 
 From **within R**
 
-1. Installing current release v0.5.2
+1. Installing current release [v0.5.3](https://github.com/ABS-dev/DiagTestKit/releases/tag/0.5.3)
 
 ```
 ## From source, all platforms, slow.
-require(devtools)
-install_github("ABS-dev/DiagTestKit", ref = "0.5.2")
-
-## Precompiled binary, Windows + R 3.2.x
-install.packages('https://github.com/ABS-dev/DiagTestKit/releases/download/0.5.2/DiagTestKit_0.5.2.zip', 
-                 repos = NULL)
-
+devtools::install_github("ABS-dev/DiagTestKit", ref = "0.5.3")
 ```
 
   *See all historical releases [here](https://github.com/ABS-dev/DiagTestKit/releases)*
 
-2. Installing work-in-progress towards v0.5.3
+2. Installing work-in-progress towards v0.5.4
+
+Travis: [![Build Status](https://travis-ci.org/ABS-dev/DiagTestKit.svg?branch=master)](https://travis-ci.org/ABS-dev/DiagTestKit)
 
 ```
 require(devtools)
@@ -36,6 +32,8 @@ install_github("ABS-dev/DiagTestKit")
 [Getting Started](https://github.com/ABS-dev/DiagTestKit/blob/master/inst/doc/GettingStarted.pdf)
 
 [Examples](https://github.com/ABS-dev/DiagTestKit/blob/master/inst/doc/ExamplesForFallibleReferenceTests.pdf)
+
+[Manual](https://github.com/ABS-dev/DiagTestKit/blob/master/inst/doc/DiagTestKit-manual.pdf)
 
 From **within R**
 

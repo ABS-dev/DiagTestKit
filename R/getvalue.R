@@ -32,8 +32,8 @@
 #' \item{\eqn{\delta}}  \code{vector} The optimized values for the probability of a suspect result as a fraction of the non-correct test result for diseased samples.
 #' \item{\eqn{\gamma}} \code{vector} The optimized value for the probability of a suspect result as a fraction of the non-correct test result for non-diseased samples.
 #' }
-#' @author CVB Statistics \email{CVB.Data.Help@@aphis.usda.gov}
-# @author Monica Reising \email{monica.m.reising@@aphis.usda.gov}
+#' @author \link{DiagTestKit-package}
+# @author Monica Reising \email{monica.m.reising@@usda.gov}
 get.values<-function(dat,SnR.vec,SpR.vec,prev.vec,N.vec,nstates,tolerance,rep.iter,iter.n,parm=NULL){
   #Put in the error checking...
 
