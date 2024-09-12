@@ -5,7 +5,8 @@
 \alias{dat_dichot}
 \title{Assay Validation Sensitivity and Specificity (Diagnostic Kit Format)
 example from CVB Data Guide.}
-\format{A data frame with 202 rows and 14 variables:
+\format{
+A data frame with 202 rows and 14 variables:
 \describe{
   \item{deviceID}{Device identifier; unique for each row.}
   \item{serialID}{Identifier of the preparation used.}
@@ -21,7 +22,8 @@ example from CVB Data Guide.}
   \item{control_read}{Test interpretation of the control.}
   \item{ref_result}{Test interpretation of the reference.}
   \item{prod_code}{Veterinary Services Product Code}
-}}
+}
+}
 \source{
 \url{https://www.aphis.usda.gov/animal_health/vet_biologics/publications/DiagnosticKitDichotomous.zip}
 }

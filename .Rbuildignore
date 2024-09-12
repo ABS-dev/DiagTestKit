@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^Dockerfile$
 ^\.travis\.yml$
+vignettes
+notes
+NEWS

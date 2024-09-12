@@ -4,14 +4,17 @@
 \name{data5}
 \alias{data5}
 \title{Data set for Example 5 in vignette "DiagTestKit Examples"}
-\format{A data frame with 11 rows and four variables:
+\format{
+A data frame with 11 rows and four variables:
 \describe{
   \item{Population}{population identifier (A, B).}
-  \item{exp_result}{result of experimental test (positive, negative, suspect).}
+  \item{exp_result}{result of experimental test
+  (positive, negative, suspect).}
   \item{ref_result}{result of reference test (positive, negative).}
   \item{count}{number of samples with the unique testing combination for the
   specific population.}
-}}
+}
+}
 \usage{
 data5
 }

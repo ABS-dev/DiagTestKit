@@ -65,7 +65,8 @@
 #' @format A data frame with 11 rows and four variables:
 #' \describe{
 #'   \item{Population}{population identifier (A, B).}
-#'   \item{exp_result}{result of experimental test (positive, negative, suspect).}
+#'   \item{exp_result}{result of experimental test
+#'   (positive, negative, suspect).}
 #'   \item{ref_result}{result of reference test (positive, negative).}
 #'   \item{count}{number of samples with the unique testing combination for the
 #'   specific population.}
@@ -96,8 +97,10 @@
 #' \describe{
 #'   \item{Population}{population identifier (A, B).}
 #'   \item{exp_result}{result of experimental test (positive, negative).}
-#'   \item{ref1_result}{result of first reference test (positive, negative, suspect).}
-#'   \item{ref2_result}{result of second reference test (positive, negative, suspect).}
+#'   \item{ref1_result}{result of first reference test
+#'   (positive, negative, suspect).}
+#'   \item{ref2_result}{result of second reference test
+#'    (positive, negative, suspect).}
 #'   \item{count}{number of samples with the unique testing combination for the
 #'   specific population.}
 #' }
@@ -111,10 +114,14 @@
 #' @format A data frame with 72 rows and six variables:
 #' \describe{
 #'   \item{Population}{population identifier (A, B, C).}
-#'   \item{exp_result}{result of experimental test (positive, negative, suspect).}
-#'   \item{ref1_result}{result of first reference test (positive, negative).}
-#'   \item{ref2_result}{result of second reference test (positive, negative).}
-#'   \item{ref3_result}{result of third reference test (positive, negative).}
+#'   \item{exp_result}{result of experimental test
+#'    (positive, negative, suspect).}
+#'   \item{ref1_result}{result of first reference test
+#'    (positive, negative).}
+#'   \item{ref2_result}{result of second reference test
+#'   (positive, negative).}
+#'   \item{ref3_result}{result of third reference test
+#'    (positive, negative).}
 #'   \item{count}{number of samples with the unique testing combination for the
 #'   specific population.}
 #' }
@@ -156,8 +163,11 @@
 #'
 #' @format A data frame with 4 rows and 3 variables:
 #' \describe{
-#'   \item{Experimental}{Result of the experimental test (positive or negative).}
-#'   \item{Reference}{Result of the reference test (positive or negative).}
-#'   \item{Count}{Number of samples observed with the unique testing combination.}
+#'   \item{Experimental}{Result of the experimental test
+#'    (positive or negative).}
+#'   \item{Reference}{Result of the reference test
+#'    (positive or negative).}
+#'   \item{Count}{Number of samples observed with the unique
+#'    testing combination.}
 #' }
 "dat_infal"

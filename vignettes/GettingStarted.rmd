@@ -29,11 +29,11 @@ The `DiagTestKit` package provides functions to obtain point and interval estima
 
 The technical details for how the algorithm works are provided in [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi).  For a 2-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$) and specificity ($\theta_1$).  For a 3-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$), specificity ($\theta_1$), probability of suspect for disease positive ($\psi_1$) and probability of suspect for disease negative ($\phi_1$).  The algorithm optimizes the sum of squared residuals with respect to $\pi_1$, $\theta_1$, $\delta_1$, and $\gamma_1$ where $\delta_1$ and $\gamma_1$ express the probability of a suspect result as a fraction of the non-correct test results.  See [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) for further details.
 
-This vignette provides step--by--step instructions for using the package to obtain point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. The `DiagTestKit` package requires a functional installation of R software.  `DiagTestKit` package is available via  [github](https://github.com/ABS-dev/DiagTestKit/blob/master/README.md). Code in this vignette was run using version `r packageVersion('DiagTestKit')` of the `DiagTestKit` package.
+This vignette provides step--by--step instructions for using the package to obtain point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. The `DiagTestKit` package requires a functional installation of R software.  `DiagTestKit` package is available via  [github](https://github.com/ABS-dev/DiagTestKit/blob/master/README.md). Code in this vignette was run using version `r packageVersion("DiagTestKit")` of the `DiagTestKit` package.
 
 # Data processing
 
-The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of Appendix 1 in [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the 'DiagTestKit' package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
+The data file titled dichotomoussensspec_deviceinfo.csv will be used to illustrate the use of the `estimateSnSp` function.  While this data file includes 3 sample types, only the whole blood samples will be used to demonstrate the `estimateSnSp` function.  Importing the data is illustrated for completeness, but the dataset dat_dichot is available within the `DiagTestKit` package.  All raw data files should follow the formats in Section 1.8 or Section 1.9 of Appendix 1 in [CVB Data Guide](https://www.aphis.usda.gov/animal_health/vet_biologics/publications/16-CVBDataGuide.pdf). A table of counts (dat_infal) available within the "DiagTestKit" package will be used to illustrate the use of the `cloppearSnSp` function.  The `cloppearSnSp` provides the binomial confidence interval using the Clopper-Pearson method when an infallible reference test is used.  
 
 ## Load package and data
 ```{r,echo=TRUE, warning=FALSE, message=FALSE}
@@ -49,7 +49,7 @@ infallible <- dat_infal
 The data input for the `estimateSnSp` function requires creating a data frame that includes the count for each unique combination of test results.  The data frame should include zero counts for possible test combinations that were not observed, but it should not include zero counts for impossible test combinations (structural zeros).  Including non-structural zeros may be achieved using the .drop=FALSE setting within `ddply`.  There is more than one way to obtain the data frame with the counts for all possible test combinations.  Two possibilities are illustrated here.   First, the `ddply` function in the `plyr` package can be used. 
 ```{r,echo=TRUE,eval=T}
 #Blood Samples
-blood <- ddply(.data = subset(dat, specimen == 'wholeblood'),
+blood <- ddply(.data = subset(dat, specimen == "wholeblood"),
                   .variables = .(visual_read, ref_result),
                   .drop = FALSE,
                   .fun = summarize,
@@ -60,19 +60,19 @@ blood <- ddply(.data = subset(dat, specimen == 'wholeblood'),
 
 
 
-This will require renaming the columns in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression 'exp' should be included in the column corresponding to the experimental test results.  The expression 'ref' should be included in all columns corresponding to the reference test(s) results. 
+This will require renaming the columns in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression "exp" should be included in the column corresponding to the experimental test results.  The expression "ref" should be included in all columns corresponding to the reference test(s) results. 
 
  
 ```{r, echo=T,eval=T} 
-names(blood) <- c('Exp', 'Ref1', 'Count')
+names(blood) <- c("Exp", "Ref1", "Count")
 ```
 
 Alternatively, the data frame including the counts from all possible testing combinations can be obtained by converting the output from the `table` function in `base` R into a data frame.
 
 
 ```{r, echo=T,eval=T}
-blood2 <- data.frame(table(Exp = dat$visual_read[dat$specimen == 'wholeblood'],
-                          Ref1 = dat$ref_result[dat$specimen == 'wholeblood']))
+blood2 <- data.frame(table(Exp = dat$visual_read[dat$specimen == "wholeblood"],
+                          Ref1 = dat$ref_result[dat$specimen == "wholeblood"]))
 ```
 
 # Fallible Reference Test(s)
@@ -81,15 +81,15 @@ Use the `estimateSnSp` function to estimate the sensitivity and specificity of t
 
 
 ## Use a named data frame for inputs of Sn.ref and Sp.ref
-This example illustrates the use of a named data frame rather than a named vector for the input variables Sn.ref and Sp.ref.  The output seen here indicates that there was no column named 'population' and the dataset is being treated as if it has been sampled from a single population.  The function also provides updates every 50 iterations (simulation cycles).  Here nsim was not specified in the input and therefore the default of 1000 simulation cycles is being performed.
+This example illustrates the use of a named data frame rather than a named vector for the input variables Sn.ref and Sp.ref.  The output seen here indicates that there was no column named "population" and the dataset is being treated as if it has been sampled from a single population.  The function also provides updates every 50 iterations (simulation cycles).  Here nsim was not specified in the input and therefore the default of 1000 simulation cycles is being performed.
 
-Here, the dataset blood is used as the input data (dat).  Both Sn.ref and Sp.ref are named data frames containing a single column and two rows.  Because the reference test only has 2 states, the second row includes a zero (as there is no suspect region).  The column is named 'Ref1' to indicate the inputs correspond to the first (and only, in this instance) reference test.  The prev.pop is a vector with a single named element.  The element name is "A" used as an arbitrary designation for the only population (or sample set) tested.
+Here, the dataset blood is used as the input data (dat).  Both Sn.ref and Sp.ref are named data frames containing a single column and two rows.  Because the reference test only has 2 states, the second row includes a zero (as there is no suspect region).  The column is named "Ref1" to indicate the inputs correspond to the first (and only, in this instance) reference test.  The prev.pop is a vector with a single named element.  The element name is "A" used as an arbitrary designation for the only population (or sample set) tested.
 
 ```{r,echo=TRUE,eval=T,results="hide"}
 blood_SnSp <- estimateSnSp(dat = blood,
                            Sn.ref = data.frame(Ref1 = c(0.95, 0)),
                            Sp.ref = data.frame(Ref1 = c(0.98, 0)),
-                           prev.pop = (A = 0.70))
+                           prev.pop = c(A = 0.70))
 ```
 
 `## The optimization has begun `  
@@ -111,7 +111,7 @@ As this example has a single 2--state reference test, a named vector can be used
 blood2_SnSp <- estimateSnSp(dat = blood2,
                            Sn.ref = c(Ref1 = 0.95),
                            Sp.ref = c(Ref1 = 0.98),
-                           prev.pop = (A = 0.70),
+                           prev.pop = c(A = 0.70),
                            control = estimateSnSpControl(iter.n = 250))
 blood2_SnSp
 ```
@@ -130,7 +130,7 @@ blood2_SnSp$input$seed
 The output can be forced to be the same by controlling the seed.  This will be illustrated by using the second dataset and the seed used for the first call to `estimateSnSp`.  The message regarding the number of iterations has been suppressed in this example.
 
 ```{r, echo=T, eval=T}
-blood2_a_SnSp <- 
+blood2_a_SnSp <-
   estimateSnSp(dat = blood2,
       Sn.ref = c(Ref1 = 0.95),
       Sp.ref = c(Ref1 = 0.98),
@@ -160,7 +160,7 @@ All optimized values for sensitivity of the experimental kit can be viewed using
 ```{r, echo=F,eval=T}
 Sn.fig <- ggplot() +
           geom_histogram(aes(blood_SnSp$detailOut$Exp.Sn), binwidth = 0.005) +
-          labs(x = 'Experimental Test Sensitivity Estimates', y = 'Count')
+          labs(x = "Experimental Test Sensitivity Estimates", y = "Count")
 Sn.fig
 
 ```
@@ -170,8 +170,8 @@ All optimized values for specificity of the experimental kit can be viewed using
 
 ```{r,echo=F,eval=T}
 Sp.fig <- ggplot() +
-          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005)+
-          labs(x = 'Experimental Test Specificity Estimates', y = 'Count')
+          geom_histogram(aes(blood_SnSp$detailOut$Exp.Sp), binwidth = 0.005) +
+          labs(x = "Experimental Test Specificity Estimates", y = "Count")
 Sp.fig
 ```
 \pagebreak
@@ -182,9 +182,9 @@ Similarly, the simulated values of sensitivity for the reference test can be ext
 distribution for the sensitivity of the reference test is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
-Sn.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025)+
-          labs(x = 'Simulated Sensitivity for Reference', y = 'Count')
+Sn.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sn.sim[, 1]), binwidth = 0.025) +
+          labs(x = "Simulated Sensitivity for Reference", y = "Count")
 Sn.ref
 ```
 
@@ -194,9 +194,9 @@ The simulated values of specificity for the reference test can be extracted usin
 distribution for the specificity of the reference is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
-Sp.ref <- ggplot()+
-          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05)+
-          labs(x = 'Simulated Specificity for Reference', y = 'Count')
+Sp.ref <- ggplot() +
+          geom_histogram(aes(blood_SnSp$input$Sp.sim[, 1]), binwidth = 0.05) +
+          labs(x = "Simulated Specificity for Reference", y = "Count")
 Sp.ref
 ```
 
@@ -220,7 +220,7 @@ using `infal_Sn$data$Test.Positive`.  The sensitivity estimate can be obtained b
 The function will estimate specificity when `est.Sn = FALSE`.
 
 ```{r, echo = T, eval = T}
-infal_Sp <- cloppearSnSp(dat = infallible, 
+infal_Sp <- cloppearSnSp(dat = infallible,
                          est.Sn = FALSE)
 infal_Sp
 ```
@@ -228,14 +228,3 @@ infal_Sp
 Similarly, the total number of negative samples tested can be extracted using `infal_Sp$data$Total.Negative` and the number of negative samples that tested negative by the experimental test can be obtained
 using `infal_Sp$data$Test.Negative`.  The specificity estimate can be obtained by `infal_Sp$calcVal$Sp` and the lower and upper confidence limits can be obtained using `infal_Sp$calcVal$Sp.LL` and 
 `infal_Sp$calcVal$Sp.UL`, respectively.
-
-
-
-
-
-
-
-
-
-
-
