@@ -4,12 +4,12 @@
 #' @param parm \code{vector}   A vector of starting values to be used for the optimization that is passed to \code{minCell}.  For a 2-state experimental test, this is a vector of length 2 with entries (\eqn{\pi}, \eqn{\theta})
 #' For a 3-state experimental test, this is a vector of length 4 with entries (\eqn{\pi}, \eqn{\delta}, \eqn{\theta}, \eqn{\gamma}). See also \code{\link{estimateSnSp}}.
 #' @param SnR \code{data.frame}  Each column corresponds to one reference test.  Row 1 contains the sensitivity for the reference test(s).
-#' Row 2 contains a value between 0 and 1 (inclusive) representing the probability of a suspect result as a fraction of the non-correct test result.
-#' P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}.  Use a zero for a 2-state
+#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result. This is a value between 0 and 1 (inclusive).
+#' Namely, P(T? | D+) = \eqn{\psi} = \eqn{\delta} * (1 - \eqn{\pi}) where \eqn{\delta} is the second row for a given column (reference test).  \eqn{\delta = \frac{\psi}{(1 - \pi)}}{\delta = \psi/(1 - \pi)}.  Use a zero for a 2-state
 #' test (i.e. no suspect region).
-#' @param SpR \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for the reference test(s).
-#' Row 2 contains a value between 0 and 1 (inclusive) representing the probability of a suspect result as a fraction of the non-correct test result.
-#' P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}.  Use a zero for a 2-state
+#' @param SpR \code{data.frame} Each column corresponds to one reference test.  Row 1 contains the specificity for each reference test.
+#' Row 2 contains the probability of a suspect result as a fraction of the non-correct test result.  This is a value between 0 and 1 (inclusive).
+#' Namely, P(T? | D-) = \eqn{\phi} = \eqn{\gamma} * (1 - \eqn{\theta}) where \eqn{\gamma} is the second row for a given column (reference test). \eqn{\gamma = \frac{\phi}{(1 - \theta)}}{\gamma = \phi/(1 - \theta)}.  Use a zero for a 2-state
 #' test (i.e. no suspect region).
 #' @param Prev \code{vector}  A named vector containing the prevalence for each population sampled.
 #' @param xdat \code{vector}  A vector of the observed cell counts.

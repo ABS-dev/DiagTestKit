@@ -1,18 +1,18 @@
 ---
 title: "DiagTestKit Package"
+author: "Center for Veterinary Biologics - Statistics Section"
+date: "January 2018"
+output: pdf_document
+numbersections: yes
+number_sections: yes
 subtitle: |
   | Getting Started
-author: Center for Veterinary Biologics - Statistics Section
-date: January 2018
-output: pdf_document
-toc: true
-number_sections: true
-numbersections: true
 fontsize: 12pt
+toc: yes
 urlcolor: blue
 vignette: >
-  %\VignetteIndexEntry{DiagTestKit Getting Started}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{DiagTestKit Getting Started} 
+  %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -26,9 +26,9 @@ options(width = 50)
 
 The `DiagTestKit` package provides functions to obtain point and interval estimates for diagnostic sensitivity and specificity for an experimental diagnostic test kit when one or more imperfect reference tests are used.  The package also includes a function to estimate and obtain confidence intervals for diagnostic sensitivity or specificity in the event an infallible reference test is used.
 
-The technical details for how the algorithm works are provided in [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi).  For a 2-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$) and specificity ($\theta_1$).  For a 3-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$), specificity ($\theta_1$), probability of suspect for disease positive ($\psi_1$) and probability of suspect for disease negative ($\phi_1$).  The algorithm is optimizing the sum of squared residuals with respect to $\pi_1$, $\theta_1$, $\delta_1$, and $\gamma_1$ where $\delta_1$ and $\gamma_1$ express the probability of a suspect result as a fraction of the non-correct test results.  See [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) for further details.
+The technical details for how the algorithm works are provided in [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi).  For a 2-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$) and specificity ($\theta_1$).  For a 3-state experimental test with one or more fallible reference tests, the default display will show the point and interval estimates for sensitivity ($\pi_1$), specificity ($\theta_1$), probability of suspect for disease positive ($\psi_1$) and probability of suspect for disease negative ($\phi_1$).  The algorithm optimizes the sum of squared residuals with respect to $\pi_1$, $\theta_1$, $\delta_1$, and $\gamma_1$ where $\delta_1$ and $\gamma_1$ express the probability of a suspect result as a fraction of the non-correct test results.  See [STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi) for further details.
 
-This vignette provides step--by--step instructions to using the package for obtaining point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. To run the `DiagTestKit` package requires a functional installation of R software.  `DiagTestKit` package is available via  [github](https://github.com/ABS-dev/DiagTestKit/blob/master/README.md). Code in this vignette was run using version `r packageVersion('DiagTestKit')`.
+This vignette provides step--by--step instructions for using the package to obtain point and interval estimates for the sensitivity (Sn = $\pi$) and specificity (Sp = $\theta$) of a 2--state experimental test kit. The `DiagTestKit` package requires a functional installation of R software.  `DiagTestKit` package is available via  [github](https://github.com/ABS-dev/DiagTestKit/blob/master/README.md). Code in this vignette was run using version `r packageVersion('DiagTestKit')` of the `DiagTestKit` package.
 
 # Data processing
 
@@ -59,7 +59,7 @@ blood <- ddply(.data = subset(dat, specimen == 'wholeblood'),
 
 
 
-This will require renaming the columns. The columns need to be named in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression 'exp' should be included in the column corresponding to the experimental test results.  The expression 'ref' should be included in the all columns corresponding to the reference test(s) results. 
+This will require renaming the columns in a manner that will be recognized by `estimateSnSp`.  Namely, the column name of visual_read from the raw data file needs to be changed to reflect this is the response associated with the experimental kit.  The expression 'exp' should be included in the column corresponding to the experimental test results.  The expression 'ref' should be included in all columns corresponding to the reference test(s) results. 
 
  
 ```{r, echo=T,eval=T} 
@@ -76,11 +76,13 @@ blood2 <- data.frame(table(Exp = dat$visual_read[dat$specimen == 'wholeblood'],
 
 # Fallible Reference Test(s)
 
-Use the `estimateSnSp` function to estimate the sensitivity and specificity of the 2--state experimental test.  The function has 4 required inputs, the data frame of counts (dat), reasonable values based on available information for the sensitivity of each reference test (Sn.ref), reasonable values based on available information for the specificity of each reference test (Sp.ref), and a named vector containing reasonable estimates of prevalence for each population sampled.  Two alternative methods for inputting the performance characteristics (sensitivity and specificity) of the reference test are available (and illustrated below) for a 2--stage reference test, a named vector or a named data frame.  For a 3--stage reference test, the probability of suspect as a proportion of an incorrect test result (for both disease positive and disease negative) must be supplied.  Therefore, if one or more reference test(s) have 3 stages, a named data frame must be used.
+Use the `estimateSnSp` function to estimate the sensitivity and specificity of the 2--state experimental test.  The function has 4 required inputs, the data frame of counts (dat), reasonable values based on available information for the sensitivity of each reference test (Sn.ref), reasonable values based on available information for the specificity of each reference test (Sp.ref), and a vector containing reasonable estimates of prevalence for each population sampled.  Each element in the prevalence vector should be named to distinguish populations or sample sets (i.e. a named vector).  Two alternative methods for inputting the performance characteristics (sensitivity and specificity) of the reference test are available (and illustrated below) for a 2--stage reference test, a named vector or a named data frame.  For a 3--stage reference test, the probability of suspect as a proportion of an incorrect test result (for both disease positive and disease negative) must be supplied.  Therefore, if one or more reference tests have 3 stages, a named data frame must be used.
 
 
 ## Use a named data frame for inputs of Sn.ref and Sp.ref
-This example illustrates the use of a named data frame rather than a named vector for the input variables Sn.ref and Sp.ref.  The output seen here indicates that there was no column named 'population' and the data set is being treated as if it has been sampled from a single population.  The function also provides updates for every 50 iterations (simulation cycles).  Here nsim was not specified in the input and therefore the default of 1000 simulation cycles is being performed.
+This example illustrates the use of a named data frame rather than a named vector for the input variables Sn.ref and Sp.ref.  The output seen here indicates that there was no column named 'population' and the dataset is being treated as if it has been sampled from a single population.  The function also provides updates every 50 iterations (simulation cycles).  Here nsim was not specified in the input and therefore the default of 1000 simulation cycles is being performed.
+
+Here, the dataset blood is used as the input data (dat).  Both Sn.ref and Sp.ref are named data frames containing a single column and two rows.  Because the reference test only has 2 states, the second row includes a zero (as there is no suspect region).  The column is named 'Ref1' to indicate the inputs correspond to the first (and only, in this instance) reference test.  The prev.pop is a vector with a single named element.  The element name is "A" used as an arbitrary designation for the only population (or sample set) tested.
 
 ```{r,echo=TRUE,eval=T,results="hide"}
 blood_SnSp <- estimateSnSp(dat = blood,
@@ -102,7 +104,7 @@ blood_SnSp
 ```
 ## Use a named vector for inputs of Sn.ref and Sp.ref
 
-As this example has a single 2--state reference test, a named vector can be used for the input variables for Sn.ref and Sp.ref (rather than a named data frame).  If one or more of the reference tests are 3--state tests (includes a suspect region), using a named vector is not an option.  Using named vectors for Sn.ref and Sp.ref is illustrated with the data frame obtained by converting the output from the `table` function (blood2).  This example will also reduce the frequency of the message regarding the number of iterations complete.
+As this example has a single 2--state reference test, a named vector can be used for the input variables for Sn.ref and Sp.ref (rather than a named data frame).  If one or more of the reference tests are 3--state tests (includes a suspect region), using a named vector is not an option.  Using named vectors for Sn.ref and Sp.ref is illustrated with the data frame obtained by converting the output from the `table` function (blood2).  This example shows the additional code to reduce the frequency of messages regarding the number of iterations completed.
 
 ```{r,echo=TRUE,eval=T}
 blood2_SnSp <- estimateSnSp(dat = blood2,
@@ -117,14 +119,14 @@ blood2_SnSp
 ## Controlling Output
 
 ### Seeds
-The output from the 2 examples is not exactly the same because the seed was not set in these examples, but the seed used can be viewed.
+The output from the 2 examples (shown above) is not exactly the same because the seed for the random number generation was not set in these examples, but the seed used can be viewed using the following code.
 
 ```{r, echo=T,eval=T}
 blood_SnSp$input$seed
 blood2_SnSp$input$seed
 ```
 
-The output can be forced to be the same by controlling the seed.  This will be illustrated by using the second data set and the seed used for the first call to `estimateSnSp`.  The message regarding the number of iterations has been suppressed in this example.
+The output can be forced to be the same by controlling the seed.  This will be illustrated by using the second dataset and the seed used for the first call to `estimateSnSp`.  The message regarding the number of iterations has been suppressed in this example.
 
 ```{r, echo=T, eval=T}
 blood2_a_SnSp <- 
@@ -152,7 +154,7 @@ unique(blood_SnSp$detailOut$Message)
 
 ### Distributions of Optimized Values
 
-All optimized values for sensitivity can be viewed using a histogram.
+All optimized values for sensitivity of the experimental kit can be viewed using a histogram.
 
 ```{r, echo=F,eval=T}
 Sn.fig <- ggplot() +
@@ -163,7 +165,7 @@ Sn.fig
 ```
 \pagebreak
 
-All optimized values for specificity can be viewed using a histogram.
+All optimized values for specificity of the experimental kit can be viewed using a histogram.
 
 ```{r,echo=F,eval=T}
 Sp.fig <- ggplot() +
@@ -176,7 +178,7 @@ Sp.fig
 
 ### Simulated Values for Reference Test
 Similarly, the simulated values of sensitivity for the reference test can be extracted using `blood_SnSp$input$Sn.sims`.  The simulated
-distribution for the sensitivity of the reference test is displayed as a histrogram.
+distribution for the sensitivity of the reference test is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
 Sn.ref <- ggplot()+
@@ -188,7 +190,7 @@ Sn.ref
 \pagebreak
 
 The simulated values of specificity for the reference test can be extracted using `blood_SnSp$input$Sp.sims`.  The simulated
-distribution for the specificity of the reference is displated as a histrogram.
+distribution for the specificity of the reference is displayed as a histogram.
 
 ```{r, echo=F,eval=T}
 Sp.ref <- ggplot()+
