@@ -1,3 +1,0 @@
-# cp-class
-
-cp-class
