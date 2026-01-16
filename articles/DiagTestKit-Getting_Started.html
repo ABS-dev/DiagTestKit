@@ -6,7 +6,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Getting Started • DiagTestKit</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -16,7 +27,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">DiagTestKit</a>
 
@@ -43,7 +54,15 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ABS-dev/DiagTestKit/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ABS-dev/DiagTestKit" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -63,7 +82,7 @@ Veterinary Biologics - Statistics Section</h4>
             
             <h4 data-toc-skip class="date">August 2019</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/ABS-dev/DiagTestKit/blob/main/vignettes/DiagTestKit-Getting_Started.rmd" class="external-link"><code>vignettes/DiagTestKit-Getting_Started.rmd</code></a></small>
+
       <div class="d-none name"><code>DiagTestKit-Getting_Started.rmd</code></div>
     </div>
 
@@ -81,41 +100,23 @@ specificity in the event an infallible reference test is used.</p>
 <p>The technical details for how the algorithm works are provided in <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>.
 For a 2-state experimental test with one or more fallible reference
 tests, the default display will show the point and interval estimates
-for sensitivity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>)
-and specificity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>).
-For a 3-state experimental test with one or more fallible reference
-tests, the default display will show the point and interval estimates
-for sensitivity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>),
-specificity
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>),
-probability of suspect for disease positive
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ψ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\psi_1</annotation></semantics></math>)
-and probability of suspect for disease negative
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ϕ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math>).
-The algorithm optimizes the sum of squared residuals with respect to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\pi_1</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\theta_1</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\delta_1</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\gamma_1</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\delta_1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\gamma_1</annotation></semantics></math>
-express the probability of a suspect result as a fraction of the
-non-correct test results. See <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>
+for sensitivity (<span class="math inline">\(\pi_1\)</span>) and
+specificity (<span class="math inline">\(\theta_1\)</span>). For a
+3-state experimental test with one or more fallible reference tests, the
+default display will show the point and interval estimates for
+sensitivity (<span class="math inline">\(\pi_1\)</span>), specificity
+(<span class="math inline">\(\theta_1\)</span>), probability of suspect
+for disease positive (<span class="math inline">\(\psi_1\)</span>) and
+probability of suspect for disease negative (<span class="math inline">\(\phi_1\)</span>). The algorithm optimizes the sum
+of squared residuals with respect to <span class="math inline">\(\pi_1\)</span>, <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\delta_1\)</span>, and <span class="math inline">\(\gamma_1\)</span> where <span class="math inline">\(\delta_1\)</span> and <span class="math inline">\(\gamma_1\)</span> express the probability of a
+suspect result as a fraction of the non-correct test results. See <a href="https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi" class="external-link">STATWI0002</a>
 for further details.</p>
 <p>This vignette provides step–by–step instructions for using the
 package to obtain point and interval estimates for the sensitivity (Sn =
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>)
-and specificity (Sp =
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>)
-of a 2–state experimental test kit. The <code>DiagTestKit</code> package
-requires a functional installation of R software.
-<code>DiagTestKit</code> package is available via <a href="https://github.com/ABS-dev/DiagTestKit/blob/master/README.md" class="external-link">github</a>.
+<span class="math inline">\(\pi\)</span>) and specificity (Sp = <span class="math inline">\(\theta\)</span>) of a 2–state experimental test
+kit. The <code>DiagTestKit</code> package requires a functional
+installation of R software. <code>DiagTestKit</code> package is
+available via <a href="https://github.com/ABS-dev/DiagTestKit/blob/master/README.md" class="external-link">github</a>.
 Code in this vignette was run using version 0.6.11 of the
 <code>DiagTestKit</code> package.</p>
 </div>
@@ -253,7 +254,8 @@ the only population (or sample set) tested.</p>
 <code>## The following is the number of iterations completed: 50</code>
 <code>## The following is the number of iterations completed: 100</code>
 <code>## The following is the number of iterations completed: 150</code>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⋮</mi><annotation encoding="application/x-tex">\vdots</annotation></semantics></math><code>## The following is the number of iterations completed: 1000</code></p>
+<span class="math inline">\(\vdots\)</span>
+<code>## The following is the number of iterations completed: 1000</code></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">blood_SnSp</span></span></code></pre></div>
 <pre><code><span><span class="co">## 1000  simulations </span></span>
@@ -361,10 +363,10 @@ converged and we can check the convergence message as well.</p>
 </h4>
 <p>All optimized values for sensitivity of the experimental kit can be
 viewed using a histogram.</p>
-<p><img src="DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="Sn figure" width="700"></p>
+<p><img src="DiagTestKit-Getting_Started_files/figure-html/Sn-fig-1.png" alt="Sn figure" width="700"></p>
 <p>All optimized values for specificity of the experimental kit can be
 viewed using a histogram.</p>
-<p><img src="DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" alt="Sp figure" width="700"></p>
+<p><img src="DiagTestKit-Getting_Started_files/figure-html/sp-fig-1.png" alt="Sp figure" width="700"></p>
 </div>
 <div class="section level4">
 <h4 id="simulated-values-for-reference-test">Simulated Values for Reference Test<a class="anchor" aria-label="anchor" href="#simulated-values-for-reference-test"></a>
@@ -373,13 +375,13 @@ viewed using a histogram.</p>
 can be extracted using <code>blood_SnSp$input$Sn.sims</code>. The
 simulated distribution for the sensitivity of the reference test is
 displayed as a histogram.</p>
-<p><img src="DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" alt="Sn reference" width="700"></p>
+<p><img src="DiagTestKit-Getting_Started_files/figure-html/sn-ref-1.png" alt="Sn reference" width="700"></p>
 <div style="page-break-after: always;"></div>
 <p>The simulated values of specificity for the reference test can be
 extracted using <code>blood_SnSp$input$Sp.sims</code>. The simulated
 distribution for the specificity of the reference is displayed as a
 histogram.</p>
-<p><img src="DiagTestKit-Getting_Started_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" alt="Sp reference" width="700"></p>
+<p><img src="DiagTestKit-Getting_Started_files/figure-html/sp-ref-1.png" alt="Sp reference" width="700"></p>
 <p>#Infallible Reference Test</p>
 <p>Use the <code>cloppearSnSp</code> function to estimate the
 sensitivity and specificity of a 2–state experimental test when an
@@ -436,7 +438,7 @@ lower and upper confidence limits can be obtained using
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>

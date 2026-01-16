@@ -1,18 +1,14 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://abs-dev.github.io/DiagTestKit/404.html</loc></url>
-<url><loc>https://abs-dev.github.io/DiagTestKit/LICENSE-text.html</loc></url>
-<url><loc>https://abs-dev.github.io/DiagTestKit/Readme.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/articles/DiagTestKit-Examples.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/articles/DiagTestKit-Getting_Started.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/articles/index.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/authors.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/index.html</loc></url>
+<url><loc>https://abs-dev.github.io/DiagTestKit/LICENSE-text.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/news/index.html</loc></url>
-<url><loc>https://abs-dev.github.io/DiagTestKit/reference/DiagTestKit-package.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/cloppearSnSp.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/cp-class.html</loc></url>
-<url><loc>https://abs-dev.github.io/DiagTestKit/reference/dat_dichot.html</loc></url>
-<url><loc>https://abs-dev.github.io/DiagTestKit/reference/dat_infal.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data1.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data2.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data3.html</loc></url>
@@ -21,6 +17,9 @@
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data6.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data7.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/data8.html</loc></url>
+<url><loc>https://abs-dev.github.io/DiagTestKit/reference/dat_dichot.html</loc></url>
+<url><loc>https://abs-dev.github.io/DiagTestKit/reference/dat_infal.html</loc></url>
+<url><loc>https://abs-dev.github.io/DiagTestKit/reference/DiagTestKit-package.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/dot-beta_parm.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/dot-cell_counts.html</loc></url>
 <url><loc>https://abs-dev.github.io/DiagTestKit/reference/dot-create_triangle_dist.html</loc></url>

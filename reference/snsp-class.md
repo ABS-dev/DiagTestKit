@@ -1,3 +1,0 @@
-# snsp-class
-
-snsp-class
