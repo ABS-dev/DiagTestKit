@@ -4,19 +4,15 @@ A package written by CVB Statistics to estimate the sensitivity and specificity 
 
 ## Installation
 
-```         
+```
+# Install latest version
 devtools::install_github("ABS-dev/DiagTestKit")
 ```
 
-## Vignettes
-
-This package contains the following manuals and vignettes:
-
--   Examples
--   Getting Started
-
-Type `vignette(package = "DiagTestKit")` to see a list of the included vignettes.
-
+```
+# Install an older version
+devtools::install_github("ABS-dev/DiagTestKit", ref = "0.6.11")
+```
 
 ## Issues
 
