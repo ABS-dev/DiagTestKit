@@ -1,5 +1,3 @@
-context("cloppear")
-
 CP.Sn <- cloppearSnSp(dat = dat_infal,
                       est.Sn = TRUE)
 CP.Sp <- cloppearSnSp(dat = dat_infal,

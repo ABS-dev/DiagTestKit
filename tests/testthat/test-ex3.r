@@ -1,4 +1,3 @@
-context("ex3")
 test_that("values", {
   ex3_detailOut <- ex3_prevsims <- NULL
   load("./data/testdata.rda")
