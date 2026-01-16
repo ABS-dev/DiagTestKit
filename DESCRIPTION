@@ -14,7 +14,7 @@ Description: A package written by CVB Statistics to estimate the sensitivity and
     https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi
     for more information.
 License: file LICENSE
-URL: https://github.com/ABS-dev/DiagTestKit/
+URL: https://github.com/ABS-dev/DiagTestKit/, https://abs-dev.github.io/DiagTestKit/
 BugReports: https://github.com/ABS-dev/DiagTestKit/issues/
 LazyLoad: true
 LazyData: true

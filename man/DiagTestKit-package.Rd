@@ -14,6 +14,7 @@ A package written by CVB Statistics to estimate the sensitivity and specificity 
 Useful links:
 \itemize{
   \item \url{https://github.com/ABS-dev/DiagTestKit/}
+  \item \url{https://abs-dev.github.io/DiagTestKit/}
   \item Report bugs at \url{https://github.com/ABS-dev/DiagTestKit/issues/}
 }
 
