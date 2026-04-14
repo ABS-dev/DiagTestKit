@@ -29,6 +29,7 @@ devtools::install_github("ABS-dev/DiagTestKit")
 devtools::install_github("ABS-dev/DiagTestKit", ref = "0.6.11")
 ```
 
+
 ## Issues
 
 Report any issues or requests on the package
