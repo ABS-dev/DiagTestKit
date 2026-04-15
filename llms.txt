@@ -1,8 +1,33 @@
+# DiagTestKit
+
 A package written by CVB Statistics to estimate the sensitivity and
 specificity of an experimental diagnostic test kit in accordance with
-CVB STATWI0002 supporting the 2018 revision to VSM 800.73. See
-https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi
-for more information.
+[CVB
+STATWI0002](https://www.aphis.usda.gov/aphis/ourfocus/animalhealth/veterinary-biologics/biologics-regulations-and-guidance/ct_vb_statwi)
+supporting the 2018 revision to VSM 800.73.
+
+## Installation
+
+### Using `{pak}`
+
+    # Install latest version
+    pak::pak("ABS-dev/DiagTestKit")
+
+    # Install an older version
+    pak::pak("ABS-dev/DiagTestKit@0.6.11")
+
+### Using `{devtools}` (Version 2.4.6 or earlier)
+
+    # Install latest version
+    devtools::install_github("ABS-dev/DiagTestKit")
+
+    # Install an older version
+    devtools::install_github("ABS-dev/DiagTestKit", ref = "0.6.11")
+
+## Issues
+
+Report any issues or requests on the package
+[issues](https://github.com/ABS-dev/DiagTestKit/issues) page.
 
 # Package index
 

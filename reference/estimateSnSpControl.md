@@ -129,7 +129,7 @@ A list with the following elements (as defined above): `seed`,
 ``` r
 estimateSnSpControl()
 #> $seed
-#> [1] 85795
+#> [1] 34924
 #> 
 #> $Sn.distn
 #> NULL
